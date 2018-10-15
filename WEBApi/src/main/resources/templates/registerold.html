@@ -1,0 +1,430 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tax & Finance</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link  th:href="@{assets/images/favicon.ico}" rel="shortcut icon" type="image/x-icon" href="../static/assets/images/favicon.ico">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}" href="../static/assets/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/icon-font.min.css}" href="../static/assets/css/icon-font.min.css">
+    <link rel="stylesheet" th:href="@{assets/css/icofont.min.css}" href="../static/assets/css/icofont.min.css">
+    <!-- Lightgallery CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/lightgallery.min.css}" href="../static/assets/css/lightgallery.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/plugins.css}" href="../static/assets/css/plugins.css">
+    <!-- VMap CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/jqvmap.min.css}" href="../static/assets/css/jqvmap.min.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/style.css}" href="../static/assets/css/style.css">
+    <link rel="stylesheet" th:href="@{assets/css/userlogin.css}" href="../static/assets/css/userlogin.css">
+    <!-- Modernizer JS -->
+    <script th:src="@{assets/js/vendor/modernizr-3.6.0.min.js}" src="../../assets/js/vendor/modernizr-3.6.0.min.js"></script>
+
+
+    <style>
+
+        input[type=checkbox], input[type=radio] {
+            box-sizing: border-box;            
+            margin-top: 4px;
+            margin-right: 10px;
+        }
+
+
+        #user-reg {
+            min-height: 600px;
+            padding-bottom:25px;
+        }
+
+        .headline {
+            border-bottom: 1px solid #e8e7e7;
+           
+        }
+        /*.partitionRight {
+            border-right: 1px solid #e2e1e1;
+        }*/
+    </style>
+</head>
+<body>
+
+   
+
+
+    <!-- Main Wrapper Start -->
+    <div class="main-wrapper">
+        <!-- Header Section Start -->
+        <div class="header-section">
+
+           
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-sticky side-padding headline">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logo Start -->
+                        <div class="col">
+                            <a th:href="@{/}" href="index.html" class="logo"><img th:src="@{assets/images/logo.png}" src="../static/assets/images/logo.png" alt="Logo"></a>
+                            
+                        </div><!-- Logo End -->
+                        <!-- Main Menu Start -->
+                        <div class="col d-none d-lg-block">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li><a th:href="@{/}" href="index.html">IT Return Services</a></li>
+                                        <li><a >Tax Knowledge</a></li>
+                                        <li><a >Contant Us</a> </li>
+                                        <li><a th:href="@{/register}" href="login.html">Login</a> </li>                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div><!-- Main Menu End -->
+                        <!-- Header Button Start -->
+                        <!--<div class="col">
+                            <div class="header-button">
+                                <a href="register.html" class="btn btn-red">Register Now</a>
+                            </div>
+                        </div>-->
+                        <!-- Header Button End -->
+                        <!-- Mobile Menu Start -->
+                        <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+                    </div>
+                </div>
+            </div><!-- Header Bottom End -->
+
+        </div><!-- Header Section End -->
+
+        <br />
+
+        <!-- Page Banner Section Start -->
+        <div class="page-banner-section" style="background-image: url(../static/assets/images/bg/page-banner-bg.jpg)" data-overlay="theme-color" data-opacity="8">
+            
+        </div><!-- Page Banner Section End -->
+        <!-- Contact Section Start -->
+
+        
+
+        <div class="contact-section pt-55 ">
+            
+                <div class="clearfix">
+                    <div id="user-reg" class="container ">
+
+                        <div class="row">
+
+
+
+                            <div class="col-md-12">
+                                <h1 class="text-center text-success pagetitle">Thanks for Choosing Us.. </h1>
+                            </div>
+
+
+                            <div class="col-md-8 col-md-offset-1 hidden-sm hidden-xs mt30 partitionRight">
+                                <div class="mb30">
+                                    <h1 class="ct-h4 mb0">FREE &amp; easiest way of efiling Income Tax Returns in India</h1>
+                                    <h2 class="ct-h5 ct-regular ct-font-grey mt0">Trusted by more than 25 lakh Indians.</h2>
+                                </div>
+                                <ul class="pr15 ct-register--trust-markerlist ct-list--none pl0 pb30 ct-border-bottom">
+                                    <li>
+                                        <h3 class="ct-h5 mb0 text-success">Your data is safe</h3>
+                                        <p class="ct-font-sm m0">Data security is our top priority as a tax company. 128 Bit Bank grade SSL. ISO 27001 data centres.</p>
+                                    </li>
+                                    <li class="m40">
+                                        <h5 class="ct-h5 mb0">7 minutes and done</h5>
+                                        <p class="ct-font-sm m0">Upload your Form-16. Cleartax reads it automatically. Just review and e-file in 7 minutes or less.</p>
+                                    </li>
+                                    <li>
+                                        <h5 class="ct-h5 m0">Excellent support and expert help anytime.</h5>
+                                        <p class="ct-font-sm m0">Over 1000 CAs to help you. 24/7 support for resolution of your questions.</p>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+
+                                <div class="logregbox">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item" >
+                                            <a class="nav-link active"  href="#userlogin" role="tab" data-toggle="tab">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#useregister" role="tab" data-toggle="tab">Register</a>
+                                        </li>
+
+                                    </ul>
+                                    <br />
+                                    <div class="tab-content">
+                                        <form data-toggle="validator" role="form" th:action="@{/user_login}" method="post" enctype="utf8" >
+                                            
+                                        <div role="tabpanel" class="tab-pane fade in active" id="userlogin">
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <a href="#" class="full-width ct-btn ct-btn--medium btngoogle mb20" data-tracking-action="google-login" data-tracking-label="Register">
+                                                           Google
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <a href="#" class="full-width ct-btn ct-btn--medium btnfacebook mb20" data-tracking-action="facebook-login" data-tracking-label="Register">
+                                                           Facebook
+                                                        </a>
+                                                       </div>     
+                                                    </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p class="ct-or--line">or</p>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                
+                                                    <!--<h2 class="ct-h5 mt0 text-center">Happy to see you !</h2>-->
+                                                    <div class="row">
+
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group">
+                                                                <input type="text" ata-error="Bruh, that email address is invalid" name="email"  class="form-control" placeholder="Enter Email ID" id="mail" required>
+                                                             
+                                                            </div>
+                                                           
+                                                        </div>
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group">
+
+                                                                <input  type="password" name="password" class="form-control" placeholder="Enter Password" id="pass" required>
+                                                           
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+
+                                                            <div class="custom-control custom-radio pull-left" style="padding-left:0px;">
+                                                                <input type="radio" name="rememberpwd" value="male">Remember
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+
+                                                            <div class="form-group">
+                                                                <a href="#" style="float:right;margin-bottom:10px;">Forgot Password</a>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12 text-center">
+
+                                                            <input class="btn btn-info btn-lg btn-primary btn-block" type="submit" value="Login">
+                                                          
+                                                        </div>
+                                                      
+                                                    </div>
+                                                
+
+                                            </div><br />
+                                            
+                                            </div>
+                                            </form>
+                                        <form  th:action="@{/user_register}" th:object="${user}" method="post" enctype="utf8" >
+                                        <div role="tabpanel" class="tab-pane fade" id="useregister">
+
+                                            <div class="col-md-12">
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <a href="#" class="full-width ct-btn ct-btn--medium btngoogle mb20" data-tracking-action="google-login" data-tracking-label="Register">
+                                                            Google
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <a href="#" class="full-width ct-btn ct-btn--medium btnfacebook mb20" data-tracking-action="facebook-login" data-tracking-label="Register">
+                                                            Facebook
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p class="ct-or--line">or</p>
+                                                    </div>
+                                                </div>
+                                                <!--<h2 class="ct-h5 mt0 text-center">Sign up with your email address</h2>-->
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+
+                                                            <input type="text" name="email" required="true" class="form-control input-lg" placeholder="Enter Email ID" id="usrg">
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+
+                                                            <input type="password" name="password" required="true" autofocus="true" class="form-control input-lg" placeholder="Enter Password" id="usr">
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+
+                                                            <input type="password" name="repassword" class="form-control input-lg" placeholder="Confirm Password" id="pass" autofocus="true">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+<!--                                                <div class="row d-none">
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control" placeholder="Enter Mobile Number" id="usr4">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="submit" value="generate OTP" class="btn btn-sm btn-success" style="background-color:#b0b0b0;" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+
+                                                        <div class="form-group">
+
+                                                            <input type="password" class="form-control" placeholder="Enter OTP" id="usr5">
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>-->
+                                                <div class="row">
+                                                    <div class="col-12 text-center">
+
+                                                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Register">
+
+                                                    </div>
+                                                </div>
+
+                                                <br />
+                                            </div>
+
+
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div> 
+                </div>
+        <!-- Footer Top Section Start -->
+        <div class="footer-top-section bg-cyan-blue pt-100 pb-60">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Widget Start -->
+                    <div class="footer-widget text-left col-lg-4 col-md-6 col-12 mb-40">
+                        <h3 class="title">Contact <span>Us</span></h3>
+                        <ul class="contact-list">
+                            <li><span>Phone:</span> <a href="tel:+99858547589">+91 8888888888</a></li>
+                            <li><span>Email:</span> <a href="#">info@examplel.com</a></li>
+                            <li><span>Address:</span> House 10, Road Nomber 32 <br>Ognada, Malay 1212.</li>
+                        </ul>
+                    </div>
+                    <!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="footer-widget text-center col-lg-4 col-md-6 col-12 mb-40">
+                        <div class="footer-about">
+                            <!-- Logo -->
+                            <img th:src="@{assets/images/footer-logo.png}" src="../../assets/images/footer-logo.png" alt="Footer Logo">
+                            <p>Combined with a handful of model sente nce structures, to generate Lorem Ipsum whilooks reasonable. The generated Lorem.</p>
+                            <!-- Social -->
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="footer-widget text-right col-lg-4 col-md-6 col-12 mb-40">
+                        <h3 class="title">INSTAGRAM <span>photos</span></h3>
+                        <div class="footer-instagram">
+                            <ul id="instagram-feed"></ul>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                </div>
+            </div>
+        </div><!-- Footer Top Section End -->
+        <!-- Footer Bottom Section Start -->
+        <div class="footer-bottom-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Copyright -->
+                    <div class="footer-copyright text-center col-12">
+                        <p>Copyright © All Right Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom Section End -->
+
+    </div>
+
+</div>
+
+    <script>
+        document.getElementById("userlogin").style.opacity = "1";
+    </script>
+
+    <script>
+
+
+
+
+
+    </script>
+
+    <!-- Main Wrapper End -->
+    <!-- JS
+    ============================================ -->
+    <!-- jQuery JS -->
+    <script th:src="@{assets/js/vendor/jquery-1.12.0.min.js}" src="../../assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- Popper JS -->
+    <script th:src="@{assets/js/popper.min.js}" src="../../assets/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script th:src="@{assets/js/bootstrap.min.js}" src="../../assets/js/bootstrap.min.js"></script>
+    <!-- Plugins JS -->
+    <script th:src="@{assets/js/plugins.js}" src="../../assets/js/plugins.js"></script>
+    <!-- Ajax Mail -->
+    <!--<script src="assets/js/ajax-mail.js"></script>-->
+    <!-- VMap JS -->
+    <!--<script src="assets/js/jquery.vmap.min.js"></script>
+    <script src="assets/js/maps/jquery.vmap.world.js"></script>-->
+    <!-- Google Map Api -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZPf84AAVt8_FFN7rwQY5nPgB02SlTKs"></script>-->
+    <!-- Google Map Activation -->
+    <script th:src="@{assets/map/contact-map.js}" src="../../assets/map/contact-map.js"></script>
+    <!-- Main JS -->
+    <script th:src="@{assets/js/main.js}" src="../../assets/js/main.js"></script>
+    <!--<script src="assets/js/logrej.js"></script>-->
+    
+</body>
+</html>

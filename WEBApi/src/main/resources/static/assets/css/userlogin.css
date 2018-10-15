@@ -1,0 +1,200 @@
+.logregbox {
+    border: 1px solid #ecebeb;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+border-color:#fff;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    font-weight:bold;
+    color: #4294ec;
+    background-color: #fff;
+    border-bottom:1px solid #007bff;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+    width: 50%;
+    text-align: center;
+}
+.nav-tabs {
+    /*border-bottom: 1px solid #4294ec;*/
+     border-bottom: none;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    background-color: aliceblue;
+    border-color:#fff;
+}
+.pagetitle{
+    margin-bottom:20px;
+    /*border-bottom:1px solid #dcdcdc;*/
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 0.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.ct-or--line:after {
+    border-bottom: 1px solid #EDEDED;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 49%;
+    width: 100%;
+    z-index: -2;
+}
+.nav-tabs .nav-link {
+    border-bottom:1px solid #ecebeb;
+}
+
+
+ /* ########################  google style  ############################# */ 
+
+   @import url('https://fonts.googleapis.com/css?family=Roboto');
+   
+
+   .ct-btn:hover, .ct-btn:visited, .ct-btn:active, .ct-btn:focus {
+    -webkit-transition: 0.1s linear 0;
+    -moz-transition: 0.1s linear 0;
+    transition: 0.1s linear 0;
+    color: white;
+    text-decoration: none;
+    outline: none;
+}
+   .ct-btn--google {
+    background: #DC4E41;
+}
+   .ct-btn--medium {
+    font-size: 16px;
+    padding: 11px 30px;
+}
+   .ct-btn {
+    text-align: center;
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none;
+    color: white;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    border: none;
+}
+   .full-width {
+    width: 100%;
+}
+   .mb20 {
+    margin-bottom: 20px;
+}
+
+.ct-btn--google:hover {
+    background-color: #3367D6;
+    border-color: #3367D6;
+}
+.ct-btn--facebook:hover, .ct-btn--facebook:focus {
+    background: #c63224;
+}
+
+/*.ct-btn--google, .ct-btn--google:hover, .ct-btn--google:active, .ct-btn--google:focus {
+    background-color: #4285F4;
+}*/
+.btngoogle, .btngoogle:hover, .btngoogle:active, .btngoogle:focus {
+    background-color: #f74747;
+    color: #ffffff;
+    border: 1px solid #ce0215;
+}
+.btnfacebook, .btnfacebook:hover, .btnfacebook:active, .btnfacebook:focus {
+    background-color: #3f74ff;
+    /* color: #0037c1; */
+    /* border: 1px solid #0037c1; */
+}
+
+.btngoogle:hover, .ct-btn--google:focus {
+    background: #f75858;
+}
+
+/*.ct-btn:hover, .ct-btn:visited, .ct-btn:active, .ct-btn:focus {
+    -webkit-transition: 0.1s linear 0;
+    -moz-transition: 0.1s linear 0;
+    transition: 0.1s linear 0;
+    color: white;
+    text-decoration: none;
+    outline: none;
+   background-color:#28a745;
+    border:1px solid #fff;
+}*/
+.ct-h1, .ct-h2, .ct-h3, .ct-h4, .ct-h5, .ct-h6 {
+    line-height: 1.3;
+    font-weight: 600;
+}
+.ct-h5 {
+    font-size: 18px;
+}
+.ct-or--line {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 1em;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+.ct-or--line:before {
+    width: 40px;
+    height: 10px;
+    background-color: #fff;
+    content: '';
+    margin: -5px 0 0 -20px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+}
+p {
+    margin: 0 0 10px;
+}
+
+.btngoogle::before {
+    content: ' ';
+    position: absolute;
+    top: 3px;
+    left: 18px;
+    height: 40px;
+    width: 40px;
+    /*background-image: url(https://assets1.cleartax-cdn.com/ct-frontend/google-signin/btn_google_light_normal_ios.svg);*/ 
+    background-image: url(../images/icons/ico-google.png);
+    background-size: 100%;
+}
+.btnfacebook::before {
+     content: ' ';
+    position: absolute;
+    top: 3px;
+    left: 18px;
+    height: 40px;
+    width: 40px;   
+    background-image: url(../images/icons/ico-facebook.png);
+    background-size: 100%;
+}
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}   
+
+     /* ########################  google style  ############################# */ 

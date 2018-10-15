@@ -1,0 +1,254 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tax & Finance</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+	
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/icon-font.min.css">
+    <link rel="stylesheet" href="assets/css/icofont.min.css">
+    <!-- Lightgallery CSS -->
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">	
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css">    
+    <!-- VMap CSS -->
+    <link rel="stylesheet" href="assets/css/jqvmap.min.css">    
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">    
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+	
+</head>
+
+<body>
+
+<!-- Main Wrapper Start -->
+<div class="main-wrapper">
+
+    <!-- Header Section Start -->
+    <div class="header-section">
+
+           
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-sticky side-padding headline">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logo Start -->
+                        <div class="col">
+                            <a th:href="@{/}" href="index.html" class="logo"><img src="assets/images/logo.png" alt="Logo"></a>
+                        </div><!-- Logo End -->
+                        <!-- Main Menu Start -->
+                        <div class="col d-none d-lg-block">
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                       <li><a th:href="@{/it-return-services}" href="it-return-services.html">IT Return Services</a></li>
+                                        <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
+                                        <li><a th:href="@{/contact-us}" href="contact-us.html">Contant Us</a> </li>
+                                        <li><a th:href="@{/register}" href="register.html">Login</a> </li>                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div><!-- Main Menu End -->
+                        <!-- Header Button Start -->
+                        <!--<div class="col">
+                            <div class="header-button">
+                                <a href="register.html" class="btn btn-red">Register Now</a>
+                            </div>
+                        </div>-->
+                        <!-- Header Button End -->
+                        <!-- Mobile Menu Start -->
+                        <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+                    </div>
+                </div>
+            </div><!-- Header Bottom End -->
+
+        </div><!-- Header Section End -->
+
+    <!-- Page Banner Section Start -->
+    <div class="page-banner-section" style="background-image: url(assets/images/bg/page-banner-bg.jpg)" data-overlay="theme-color" data-opacity="8">
+        <div class="container">
+            <div class="page-banner row align-items-center">
+
+                <!-- Page Title -->
+                <div class="col-lg-6 col-12">
+                    <h1 class="page-title">Contact Us</h1>
+                </div>
+
+                <!-- Page Breadcrumb -->
+                <div class="col-lg-6 col-12">
+                    <ul class="page-breadcrumb">
+                        <li><a  th:href="@{/}" href="#">home</a></li>
+                        <li class="active">Contact us</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- Page Banner Section End -->
+
+    <!-- Contact Section Start -->
+    <div class="contact-section pt-55 pb-100">
+        <div class="container">
+            <div class="row">                
+                <div class="col-lg-9 col-12 ml-auto mr-auto">
+                    <div class="row">
+					
+						<!-- Section Title Start -->
+						<div class="section-title text-center col-12 pb-50 pt-40">
+							<h1>Get In Touch</h1>
+							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+						</div>
+						<!-- Section Title End -->
+                        
+                        <!-- Contact Info Start -->
+                        <div class="contact-info text-center col-md-4 col-12 mb-30">
+                            <h4>Address:</h4>
+                            <span></span>
+                            <p>House 09, Road 32, Oganda, Malay 1212.</p>
+                        </div>
+						<!-- Contact Info Start -->
+                        
+                        <!-- Contact Info Start -->
+                        <div class="contact-info text-center col-md-4 col-12 mb-30">
+                            <h4>Phone:</h4>
+                            <span></span>
+                            <p><a href="tel:">+99 858 574 565 44</a></p>
+                            <p><a href="tel:">+99 858 574 565 45</a></p>
+                        </div>
+						<!-- Contact Info Start -->
+                        
+                        <!-- Contact Info Start -->
+                        <div class="contact-info text-center col-md-4 col-12 mb-30">
+                            <h4>email:</h4>
+                            <span></span>
+                            <p><a href="mailto:">info@example.com</a></p>
+                            <p><a href="mailto:">companyname@demo.com</a></p>
+                        </div>
+						<!-- Contact Info Start -->
+                        
+                        <!-- Contact Form Start -->
+                        <div class="col-12 mt-20">
+                            <div class="contact-form">
+                                <form id="contact-form" action="https://d29u17ylf1ylz9.cloudfront.net/korki-v4/assets/php/mail.php" method="post">
+                                    <div class="row row-5">
+                                        <div class="col-md-6 col-12 mb-20"><input type="text" name="name" placeholder="Name"></div>
+                                        <div class="col-md-6 col-12 mb-20"><input type="email" name="email" placeholder="Email"></div>
+                                        <div class="col-12 mb-20"><textarea name="message" placeholder="Message"></textarea></div>
+                                        <div class="col-12"><input type="submit" value="send message"></div>
+                                    </div>
+                                </form>
+                                <span class="contact-note">NOTE: Contact Form doesn't Work In the Preview, Actual Working Files are Included in the Downloadable Package.</span>
+                            </div>
+                        </div>
+						<!-- Contact Form End -->
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+	<!-- Contact Section End -->
+    
+    <!-- Contact Map Start -->
+    <div id="contact-map"></div>
+	<!-- Contact Map End -->
+
+    <!-- Footer Top Section Start -->
+    <div class="footer-top-section bg-cyan-blue pt-100 pb-60">
+        <div class="container">
+            <div class="row">
+                
+                <!-- Footer Widget Start -->
+                <div class="footer-widget text-left col-lg-4 col-md-6 col-12 mb-40">                    
+                    <h3 class="title">Contact <span>Us</span></h3>                    
+                    <ul class="contact-list">
+                        <li><span>Phone:</span> <a href="tel:+99858547589">+91 8888888888</a></li>
+                        <li><span>Email:</span> <a href="#">info@examplel.com</a></li>
+                        <li><span>Address:</span> House 10, Road Nomber 32 <br>Ognada, Malay 1212.</li>
+                    </ul>                    
+                </div>
+				<!-- Footer Widget End -->
+                
+                <!-- Footer Widget Start -->
+                <div class="footer-widget text-center col-lg-4 col-md-6 col-12 mb-40">                    
+                    <div class="footer-about">                       
+                        <!-- Logo -->
+                        <img src="assets/images/footer-logo.png" alt="Footer Logo">
+                        <p>Combined with a handful of model sente nce structures, to generate Lorem Ipsum whilooks reasonable. The generated Lorem.</p>
+                        <!-- Social -->
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>    
+                            <a href="#"><i class="fa fa-twitter"></i></a>    
+                            <a href="#"><i class="fa fa-instagram"></i></a>    
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>    
+                            <a href="#"><i class="fa fa-linkedin"></i></a>    
+                        </div>                       
+                    </div>                    
+                </div>
+				<!-- Footer Widget End -->
+                
+                <!-- Footer Widget Start -->
+                <div class="footer-widget text-right col-lg-4 col-md-6 col-12 mb-40">                    
+                    <h3 class="title">INSTAGRAM <span>photos</span></h3>                   
+                    <div class="footer-instagram">
+                        <ul id="instagram-feed"></ul>
+                    </div>                    
+                </div>
+				<!-- Footer Widget End -->
+                
+            </div>
+        </div>
+    </div><!-- Footer Top Section End -->
+
+    <!-- Footer Bottom Section Start -->
+    <div class="footer-bottom-section">
+        <div class="container">
+            <div class="row">                
+                <!-- Footer Copyright -->
+                <div class="footer-copyright text-center col-12">
+                    <p>Copyright © All Right Reserved</p>
+                </div>                
+            </div>
+        </div>
+    </div>
+	<!-- Footer Bottom Section End -->
+    
+</div>
+<!-- Main Wrapper End -->
+
+<!-- JS
+============================================ -->
+
+<!-- jQuery JS -->
+<script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
+<!-- Popper JS -->
+<script src="assets/js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- Plugins JS -->
+<script src="assets/js/plugins.js"></script>
+<!-- Ajax Mail -->
+<script src="assets/js/ajax-mail.js"></script>
+<!-- VMap JS -->
+<script src="assets/js/jquery.vmap.min.js"></script>
+<script src="assets/js/maps/jquery.vmap.world.js"></script>
+<!-- Google Map Api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZPf84AAVt8_FFN7rwQY5nPgB02SlTKs"></script>
+<!-- Google Map Activation -->
+<script src="assets/map/contact-map.js"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
