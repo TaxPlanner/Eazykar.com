@@ -85,7 +85,7 @@ public class LoginController {
             Gson gson = new Gson();
             RegistrationResponse response = gson.fromJson(res.toString(), RegistrationResponse.class);
             if (response.getResponseCode().equalsIgnoreCase("1")) {
-                return "redirect:/home";
+                return "redirect:home";
             } else {
                 return "redirect:/register";
             }
@@ -114,7 +114,7 @@ public class LoginController {
             Gson gson = new Gson();
             LoginResponse response = gson.fromJson(res.toString(), LoginResponse.class);
             if (response.getResponseCode().equalsIgnoreCase("1")) {
-                return "redirect:/home";
+                return "redirect:home";
             } else {
                 return "redirect:/register";
             }
