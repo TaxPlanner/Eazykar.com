@@ -2620,10 +2620,18 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 .feature {
   border-bottom: 4px solid #1b65bc;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  /*border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;*/
   overflow: hidden;
+ 
 }
+.contbox {
+
+     margin-bottom:25px;
+
+}
+
+
 .feature .content h4 {
   color: #293155;
   font-size: 24px;
@@ -2646,7 +2654,15 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	}
   .feature:hover {
     border-bottom: 4px solid #f1b204; }
+.feature img {
 
+    width: 100%;
+    margin-top:20px;
+    padding: 5px;
+    -webkit-box-shadow: -1px 1px 31px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: -1px 1px 31px 0px rgba(0,0,0,0.31);
+    box-shadow: -1px 1px 31px 0px rgba(0,0,0,0.31);
+}
 /*---------------------------------------
     06. Donation
 -----------------------------------------*/

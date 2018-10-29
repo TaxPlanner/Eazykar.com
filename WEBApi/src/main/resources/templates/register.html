@@ -30,16 +30,14 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
-
-
-    <!-- Modernizer JS -->
+<!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
 
 
     <style>
 
         input[type=checkbox], input[type=radio] {
-            box-sizing: border-box;            
+            box-sizing: border-box;
             margin-top: 4px;
             margin-right: 10px;
         }
@@ -52,7 +50,7 @@
 
         .headline {
             border-bottom: 1px solid #e8e7e7;
-           
+
         }
         /*.partitionRight {
             border-right: 1px solid #e2e1e1;
@@ -83,10 +81,10 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li><a th:href="@{/it-return-services}" href="it-return-services.html">IT Return Services</a></li>
+                                        <li><a th:href="@{/}" href="index.html">Tax Services</a></li>
                                         <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
-                                        <li><a th:href="@{/contact-us}" href="contact-us.html">Contant Us</a> </li>
-                                        <li><a th:href="@{/register}" href="register.html">Login</a> </li>                                        
+                                        <li><a th:href="@{/contact-us}" href="contact-us.html">Contact Us</a> </li>
+                                        <li><a th:href="@{/register}" href="register.html">Login</a> </li>                                   
                                     </ul>
                                 </nav>
                             </div>
@@ -102,6 +100,12 @@
                         <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
                     </div>
                 </div>
+
+
+             
+
+
+
             </div><!-- Header Bottom End -->
 
         </div><!-- Header Section End -->
@@ -173,29 +177,28 @@
                                     </ul>
                                     <br />
                                     <div class="tab-content">
-                                       
                                         <div role="tabpanel" class="tab-pane fade in active" id="userlogin">
-                                            <form data-toggle="validator" role="form" th:action="@{/user_login}" th:object="${user}" method="post" enctype="utf8" >
+                                             <form data-toggle="validator" role="form" th:action="@{/user_login}" th:object="${user}" method="post" enctype="utf8" >
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <a href="#" class="full-width ct-btn ct-btn--medium btngoogle mb20" data-tracking-action="google-login" data-tracking-label="Register">
-                                                           Google
+                                                            Google
                                                         </a>
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <a href="#" class="full-width ct-btn ct-btn--medium btnfacebook mb20" data-tracking-action="facebook-login" data-tracking-label="Register">
-                                                           Facebook
+                                                            Facebook
                                                         </a>
-                                                       </div>     
                                                     </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <p class="ct-or--line">or</p>
                                                     </div>
                                                 </div>
                                                 <br />
-                                                
+                                               
                                                     <!--<h2 class="ct-h5 mt0 text-center">Happy to see you !</h2>-->
                                                     <div class="row">
 
@@ -210,7 +213,7 @@
 
                                                             <div class="form-group">
 
-                                                                <input type="password" name="password" class="form-control" placeholder="Enter Password" id="password" required>
+                                                               <input type="password" name="password" class="form-control" placeholder="Enter Password" id="password" required>
                                                             </div>
 
                                                         </div>
@@ -236,20 +239,18 @@
                                                         <div class="col-12 text-center">
 
                                                             <input class="btn btn-info " type="submit" value="Login">
-                                                          
+
                                                         </div>
-                                                      
+
                                                     </div>
-                                                
+                                               
 
                                             </div>
-                                            </form>
+                                            </form>     
                                             <br />
-                                            </div>
-                                        
-                                        
+                                        </div>
                                         <div role="tabpanel" class="tab-pane fade" id="useregister">
-                                            <form data-toggle="validator" role="form" th:action="@{/user_register}" th:object="${user}" method="post" enctype="utf8" >
+                                             <form data-toggle="validator" role="form" th:action="@{/user_register}" th:object="${user}" method="post" enctype="utf8" >
                                             <div class="col-md-12">
 
                                                 <div class="row">
@@ -327,10 +328,10 @@
 
                                                 <br />
                                             </div>
-                                            </form>
+                                             </form>
 
                                         </div>
-                                       
+
                                     </div>
                                 </div>
 
@@ -398,6 +399,25 @@
 
     </div>
 
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
 </div>
 
     <script>
@@ -406,7 +426,10 @@
 
     <script>
 
+        angular.module('formValidationApp', [])
+            .controller('ValidationCtrl', function () {
 
+            })
 
 
 
@@ -434,6 +457,7 @@
     <script src="assets/map/contact-map.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/validation.js"></script>
     <!--<script src="assets/js/logrej.js"></script>-->
 </body>
 </html>
