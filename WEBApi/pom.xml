@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.project.web.easykar</groupId>
-	<artifactId>WebEasyKar</artifactId>
+	<artifactId>webeasykar</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>WebEasyKar</name>
+	<name>webeasykar</name>
 	<description>Project for Tax Manager</description>
 
 	<parent>
@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<docker.image.prefix>EazykarWebApi</docker.image.prefix>
+		<docker.image.prefix>eazykarwebapi</docker.image.prefix>
 	</properties>
 
 	<dependencies>
