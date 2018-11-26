@@ -5,8 +5,6 @@
  */
 package com.project.easykar.model.registration;
 
-import org.springframework.http.ResponseEntity;
-
 /**
  *
  * @author manoj

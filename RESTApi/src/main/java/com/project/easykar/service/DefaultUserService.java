@@ -7,7 +7,6 @@ package com.project.easykar.service;
 
 import com.project.easykar.model.registration.Users;
 import com.project.easykar.repository.UserRepository;
-import java.io.Serializable;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

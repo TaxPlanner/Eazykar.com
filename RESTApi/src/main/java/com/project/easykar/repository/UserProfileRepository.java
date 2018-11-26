@@ -5,7 +5,7 @@
  */
 package com.project.easykar.repository;
 
-import com.project.easykar.model.registration.Users;
+import com.project.easykar.controller.entity.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Repository;
  * @author manoj
  */
 @Repository
-public interface UserRepository extends JpaRepository<Users, Long>{
-    Users findByEmail(String email);
-//    List<Users> findDistinctByCategory(String category);
-//    List<Users> findByTitleAndCategory(String title, String category);
+public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
+  //  UserProfile findByUserid(long user_ID);
+
+    public UserProfile findByuserid(Long Id);
 }

@@ -1,0 +1,761 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tax & Finance</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/icon-font.min.css">
+    <link rel="stylesheet" href="assets/css/icofont.min.css">
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <!-- Lightgallery CSS -->
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <!-- VMap CSS -->
+    <link rel="stylesheet" href="assets/css/jqvmap.min.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/userlogin.css">
+
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+  
+
+<!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+
+
+    <style>
+
+        input[type=checkbox], input[type=radio] {
+            box-sizing: border-box;
+            margin-top: 4px;
+            margin-right: 10px;
+        }
+
+
+        #user-reg {
+            min-height: 600px;
+            padding-bottom:25px;
+        }
+
+        .headline {
+            border-bottom: 1px solid #e8e7e7;
+
+        }
+        /*.partitionRight {
+            border-right: 1px solid #e2e1e1;
+        }*/
+
+        .nav-tabs .nav-item {
+            margin-bottom: -1px;
+            width: 100%;
+            text-align: center;
+        }
+        .tab-pane {
+            padding:20px;
+        }
+
+        .btnn {
+            display: inline-block;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #0037c1;
+            line-height: 8px;
+            background-color: #ffffff;
+            border: 1px solid #0037c1;
+            padding: 10px 10px;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+        }
+        .addrow {
+            vertical-align: middle !important;
+            color: #049e0a;
+            text-align: center;
+        }
+        .fa:hover{
+            font-size:24px;
+        }
+
+    </style>
+    <script language="javascript">
+    function addRow(tableID) {
+
+			var table = document.getElementById(tableID);
+
+			var rowCount = table.rows.length;
+			var row = table.insertRow(rowCount);
+
+                        var cell1 = row.insertCell(0);
+			cell1.innerHTML = rowCount;
+                        
+			var cell2 = row.insertCell(1);
+			var element1 = document.createElement("input");
+			element1.type = "text";
+			element1.name = "docname";
+			cell2.appendChild(element1);
+
+			var cell3 = row.insertCell(2);
+			var element2 = document.createElement("input");
+			element2.type = "text";
+			element2.name = "password";
+			cell3.appendChild(element2);
+                        
+                        var cell4 = row.insertCell(3);
+			var element3 = document.createElement("input");
+			element3.type = "text";
+			element3.name = "description";
+			cell4.appendChild(element3);
+
+
+                        var cell5 = row.insertCell(4);
+			cell5.innerHTML = '';
+		}
+  function undisableTxt() {
+    document.getElementById("fname").disabled = false;
+    document.getElementById("mname").disabled = false;
+    document.getElementById("lname").disabled = false;
+    document.getElementById("mobile").disabled = false;
+    document.getElementById("dob").disabled = false;
+    document.getElementById("pan").disabled = false;
+    document.getElementById("address").disabled = false;
+    document.getElementById("btnsubmit").disabled = false;
+  }
+  function disableTxt() {
+    document.getElementById("fname").disabled = true;
+    document.getElementById("mname").disabled = true;
+    document.getElementById("lname").disabled = true;
+    document.getElementById("mobile").disabled = true;
+    document.getElementById("dob").disabled = true;
+    document.getElementById("pan").disabled = true;
+    document.getElementById("address").disabled = true;
+    document.getElementById("btnsubmit").disabled = true;
+  }
+    </script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <script>
+         $(document).ready(function() {
+           if(document.getElementById("fname").value.length > 0)
+              disableTxt();
+          $('#nn').click(function(e) {  
+                $('#discover').removeClass("active");
+                $(this).addClass("active");
+            });
+         
+         });
+         
+            
+      </script>
+</head>
+    <body >
+
+    <!-- Main Wrapper Start -->
+    <div class="main-wrapper">
+        <!-- Header Section Start -->
+        <div class="header-section">
+
+           
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-sticky side-padding headline">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logo Start -->
+                        <div class="col">
+                            <a th:href="@{/}" href="index.html" class="logo"><img src="assets/images/logo.png" alt="Logo"></a>
+                        </div><!-- Logo End -->
+                        <!-- Main Menu Start -->
+                        <div class="col d-none d-lg-block">
+                            <div class="main-menu">
+                                <nav>
+                                   <ul style="padding: 22px 0px;">
+                                        <li><a th:href="@{/}" href="index.html">Tax Services</a></li>
+                                        <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
+                                        <li><a th:href="@{/contact-us}" href="contact-us.html">Contact Us</a> </li>
+                                        <li><a th:href="@{/signin}" href="signin.html" class="loginbtn btn-red">Login</a> </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div><!-- Main Menu End -->
+                       
+                        <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+                    </div>
+                </div>
+
+
+             
+
+
+
+            </div><!-- Header Bottom End -->
+
+        </div><!-- Header Section End -->
+
+        <br />
+
+        <!-- Page Banner Section Start -->
+        <div class="page-banner-section" style="background-image: url(assets/images/bg/page-banner-bg.jpg)" data-overlay="theme-color" data-opacity="8">
+            
+        </div><!-- Page Banner Section End -->
+        <!-- Contact Section Start -->
+
+        
+
+        <div class="contact-section pt-55 ">
+            
+                <div class="clearfix">
+                    <div id="user-reg" class="container ">
+
+                        <div class="row">
+                          
+                            <div class="col-md-3">
+
+                                <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md" aria-selected="true">Assessment Year (2018-2019) </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false">My Account </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="contact-tab-md" data-toggle="tab" href="#contact-md" role="tab" aria-controls="contact-md" aria-selected="false">Need Help? </a>
+                                    </li>                                  
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="knowledge-tab-md" data-toggle="tab" href="#knowledge-md" role="tab" aria-controls="knowledge-md" aria-selected="false">Knowledge Center</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Rewards-tab-md" data-toggle="tab" href="#Rewards-md" role="tab" aria-controls="Rewards-md" aria-selected="false">Rewards and Offers</a>
+                                    </li>
+                                </ul>                          
+                            </div>
+
+                            <div class="col-md-9   mt30 partitionRight">
+                               
+                                <div class="tab-content card " id="myTabContentMD">
+                                    <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
+
+
+                                        <ul class="nav nav-tabs process-model more-icon-preocess" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#discover" aria-controls="discover" role="tab" data-toggle="tab">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                    <p>Profile</p>
+                                                </a>
+                                            </li>
+                                            <li role="presentation" >
+                                                <a href="#strategy" aria-controls="strategy" role="tab" data-toggle="tab" >
+                                                    <i class="fa fa-calculator" aria-hidden="true"></i>
+                                                    <p>Financial Details</p>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#optimization" aria-controls="optimization" role="tab" data-toggle="tab">
+                                                    <i class="fa  fa-credit-card-alt" aria-hidden="true"></i>
+                                                    <p>Pay And Enroll</p>
+                                                </a>
+                                            </li>
+                
+                                        </ul>
+
+                                        <hr />
+
+                                        <div class="tab-content">
+                                            
+                                            <div role="tabpanel" class="tab-pane" th:classappend="${isProfile} ? active : ''" id="discover">
+                                                <form data-toggle="validator" role="form" th:action="@{/profile/create_update}" th:object="${profile}" method="post" enctype="utf8" >
+                                                <div class="design-process-content">
+                                                    
+                                                    
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-md-12 mb-20">
+                                                            <p  class="semi-bold" style="display:inline;font-size:24px;">Edit/View Profile</p>
+                                                            <div class="btn btn-outline btn-sm pull-right" onclick="undisableTxt()">Edit</div><br /><br />
+                                                           <p th:text="${msgProfileSuccess}" class="semi-bold" style="display:inline;font-size:14px;color:#005CFF">Edit/View Profile</p>
+                                                            </div><br />
+                                                            
+                                                            
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <input th:value="${firstName}"  name="first_name" type="text" class="form-control" placeholder="first Name" id="fname" required>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+
+                                                                <div class="form-group">
+                                                                    <input th:value="${lastName}"  name="middle_name" type="text" class="form-control" placeholder="Middle Name" id="mname">
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+
+                                                                <div class="form-group">
+                                                                    <input th:value="${middleName}" name="last_name" type="text" class="form-control" placeholder="Last Name" id="lname" >
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    <div class="row">
+
+                                                        <div class="col-md-4">
+
+                                                            <div class="form-group">
+                                                                <input th:value="${mobileNo}" name="mobile" type="text" class="form-control" placeholder="Mobile Number" id="mobile" required>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-4">
+
+                                                            <div class="form-group">
+                                                                <input th:value="${DOB}" name="dob" type="date" class="form-control" placeholder="Date of Birth" id="dob" required>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-4">
+
+                                                            <div class="form-group">
+                                                                <input th:value="${panNo}" name="pan_number" type="text" class="form-control" placeholder="PAN Number" id="pan" required>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group">
+                                                                <input th:value="${address}" name="address" type="text-area" class="form-control" placeholder="Address" id="address" required>
+                                                            </div>
+
+                                                        </div>
+<!--                                                        <div class="col-md-12">
+                                                            <a href="strategy" class="btn btn-success pull-right">Save</a>
+                                                            </div>-->
+                                                            <div class="col-md-12">
+
+                                                            <input class="btn btn-success pull-right" type="submit" value="Save" id="btnsubmit">
+
+                                                        </div>
+                                                        </div>
+                                                </div>
+                                                </form>
+                                            </div>
+                                            
+                                            <div role="tabpanel" class="tab-pane" th:classappend="${isFiles} ? active : ''" id="strategy">
+                                                <form data-toggle="validator" role="form" th:action="@{/profile/upload}" th:object="${files}" enctype="multipart/form-data" method="post" >
+                                                <div class="design-process-content">
+                                                    <h3 class="semi-bold">Upload Your Documents</h3>
+                                                    <p th:text="${msgDocumentSuccess}" class="semi-bold" style="display:inline;font-size:14px;color:#005CFF">Edit/View Profile</p><br /><br />
+
+                                                        <div class="form-group">
+                                                            <label>Upload Form 16</label>
+                                                            <input name="file" type="file" class="form-control" placeholder="Address" id="usr" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Upload Form 26AS</label>
+                                                            <input name="file" type="file" class="form-control" placeholder="Address" id="usr" required>
+                                                            <br /><br />
+                                                            <div class="table-responsive">
+                                                                <table id="docTable" class="table table-striped">
+                                                                    <tr>
+                                                                        <th>S.No</th>
+                                                                        <th>Document Name</th>
+                                                                        <th>Password</th>
+                                                                        <th>Description</th>
+                                                                        <th>Action></th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1.</td>
+                                                                        <td><input name="docname" type="text" /></td>
+                                                                        <td><input name="password" type="text" /></td>
+                                                                        <td><input name="description" type="text" /></td>                                                                      
+                                                                        <td class=""><a href="#" class="fa fa-1x fa-plus addrow" onclick="addRow('docTable')"></a>&nbsp;<a href="#" class="fa fa-1x fa-trash-o text-danger"></a>&nbsp;<a href="#" class="fa fa-1x fa-floppy-o text-info"></a></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+
+                                                            <div class="col-md-12 pt-20">
+                                                                <input class="btn btn-outline pull-right" type="submit" value="Upload">
+<!--                                                                <button class="btn btn-outline pull-right">Upload</button>  -->
+                                                            </div>
+
+                                                           
+                                                        </div>
+                                                        
+                                                    
+                                                </div>
+                                                </form>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" th:classappend="${isPlan} ? active : ''" id="optimization">
+                                                <div class="design-process-content">
+                                                    <h3 class="semi-bold">Select best suited membership plans crafted for you</h3>
+                                                    <div class="col-md-3">
+                                                        <div class="packagecard">
+                                                            <div class="chead">
+                                                                <h4>1 Year</h4>
+                                                            </div>
+                                                            <div class="cbody">
+                                                                999*
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="packagecard">
+                                                            <div class="chead">
+                                                                <h4>3 Years</h4>
+                                                            </div>
+                                                            <div class="cbody">
+                                                                2499*
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="packagecard">
+                                                            <div class="chead">
+                                                                <h4>5 Year</h4>
+                                                            </div>
+                                                            <div class="cbody">
+                                                                3499*
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="packagecard">
+                                                            <div class="chead">
+                                                                <h4>Lifetime</h4>
+                                                            </div>
+                                                            <div class="cbody">
+                                                                9999*
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="col-md-6">                                                        
+                                                            <ul>
+                                                                <li>&nbsp;</li>
+                                                                <li>•	Tax preparation in 24 hours.</li>
+                                                                <li>•	Investment or Tax Planning .</li>
+                                                                <li>•	Reviewed by Senior tax specialist.</li>
+                                                                <li>•	Package Composition.</li>
+                                                                <li>•	Chat Support.</li>
+                                                                <li>•	Dedicated Relationship manager.</li>
+                                                                
+                                                            </ul>                                                    
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul>
+                                                            <li>&nbsp;</li>
+                                                            <li>•	Advance Tax Planning.</li>
+                                                            <li>•	Timely Notifications.</li>
+                                                            <li>•	Emergency Services.</li>
+                                                            <li>•	IT Queries and Intimations.</li>  
+                                                            <li>•	Secured Document Vault.</li>
+                                                            <li>    *GST will be 18%.</li>                                                          
+                                                        </ul>
+                                                    </div> 
+                                                      
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+
+
+
+
+
+
+
+
+
+                                       
+                                    </div>
+
+                                       
+                                    <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+                                        
+                                       
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+
+                                                <div class="subscriptionCard">
+                                                    <div class="cardhead">
+                                                        <span>My Subscription</span>
+                                                    </div>
+                                                    <div class="cardbody">
+                                                        <span class="fa fa-shopping-basket fa-4x"></span>
+                                                        <h4>1 Year plan</h4>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-6">
+
+                                                <div class="subscriptionCard">
+                                                    <div class="cardhead">
+                                                        <span>My ITR Status</span>
+                                                    </div>
+                                                    <div class="cardbody">
+                                                        <span class="fa fa-cogs fa-4x"></span>
+                                                        <h4>ITR in Progress</h4>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">&nbsp;</div>
+                                            <div class=" col-md-12 text-center">
+                                                <a href="#" class="btn btn-info">Upgrade Subscription</a>
+                                            </div>
+
+                                            </div>
+                                        <div class="row">
+
+                                            <h2 class="title">My Documents</h2>
+                                            <br />
+
+                                            <div class="col-md-6">
+
+                                                <embed src="assets/images/doc/103120000000007849.pdf" width="400" height="250"
+                                                       type='application/pdf'>
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <object data="assets/images/doc/103120000000007849.pdf" type="application/pdf" width="400px" height="250px">
+                                                    <embed src="assets/images/doc/103120000000007849.pdf" type="application/pdf">
+                                                    <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/images/doc/103120000000007849.pdf">Download PDF</a>.</p>
+                                                    </embed>
+                                                </object>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <h2 class="title">Documents Uploaded by client</h2>
+                                            <br />
+
+                                            <div class="col-md-6">
+
+                                                <embed src="assets/images/doc/103120000000007849.pdf" width="400" height="250"
+                                                       type='application/pdf'>
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <embed src="assets/images/doc/103120000000007849.pdf" width="400" height="250"
+                                                       type='application/pdf'>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <h2 class="title">Documents Uploaded by EasyKar</h2>
+                                            <br />
+
+                                            <div class="col-md-6">
+
+                                                <embed src="assets/images/doc/103120000000007849.pdf" width="400" height="250"
+                                                       type='application/pdf'>
+
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <embed src="assets/images/doc/103120000000007849.pdf" width="400" height="250"
+                                                       type='application/pdf'>
+
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <div class="tab-pane fade" id="contact-md" role="tabpanel" aria-labelledby="contact-tab-md">
+                                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="knowledge-md" role="tabpanel" aria-labelledby="knowledge-tab-md">
+                                        <p>knowledge knowledge knowledge knowledge knowledge knowledge knowledge knowledge</p>
+                                        <p>knowledge knowledge knowledge knowledge knowledge knowledge knowledge knowledge</p>
+                                    </div>
+                                    <div class="tab-pane fade" id="Rewards-md" role="tabpanel" aria-labelledby="Rewards-tab-md">
+                                        <p>Rewards Rewards Rewards Rewards Rewards Rewards Rewards Rewards</p>
+                                        <p>Rewards Rewards Rewards Rewards Rewards Rewards Rewards Rewards</p>
+                                    </div>
+                                    </div>
+                               
+
+                            </div>
+
+                           
+
+                        </div>
+                    </div> 
+                </div>
+        <!-- Footer Top Section Start -->
+        <div class="footer-top-section bg-cyan-blue pt-100 pb-60">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Widget Start -->
+                    <div class="footer-widget text-left col-lg-4 col-md-6 col-12 mb-40">
+                        <h3 class="title">Contact <span>Us</span></h3>
+                        <ul class="contact-list">
+                            <li><span>Phone:</span> <a href="tel:+99858547589">+91 8888888888</a></li>
+                            <li><span>Email:</span> <a href="#">info@examplel.com</a></li>
+                            <li><span>Address:</span> House 10, Road Nomber 32 <br>Ognada, Malay 1212.</li>
+                        </ul>
+                    </div>
+                    <!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="footer-widget text-center col-lg-4 col-md-6 col-12 mb-40">
+                        <div class="footer-about">
+                            <!-- Logo -->
+                            <img src="assets/images/footer-logo.png" alt="Footer Logo">
+                            <p>Combined with a handful of model sente nce structures, to generate Lorem Ipsum whilooks reasonable. The generated Lorem.</p>
+                            <!-- Social -->
+                            <div class="footer-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="footer-widget text-right col-lg-4 col-md-6 col-12 mb-40">
+                        <h3 class="title">INSTAGRAM <span>photos</span></h3>
+                        <div class="footer-instagram">
+                            <ul id="instagram-feed"></ul>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                </div>
+            </div>
+        </div><!-- Footer Top Section End -->
+        <!-- Footer Bottom Section Start -->
+        <div class="footer-bottom-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Copyright -->
+                    <div class="footer-copyright text-center col-12">
+                        <p>Copyright © All Right Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom Section End -->
+
+    </div>
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    <script>
+        document.getElementById("userlogin").style.opacity = "1";
+    </script>
+
+    <script>
+
+        angular.module('formValidationApp', [])
+            .controller('ValidationCtrl', function () {
+
+            })
+
+
+
+    </script>
+
+    <!-- Main Wrapper End -->
+    <!-- JS
+    ============================================ -->
+    <!-- jQuery JS -->
+    <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- Popper JS -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins.js"></script>
+    <!-- Ajax Mail -->
+    <!--<script src="assets/js/ajax-mail.js"></script>-->
+    <!-- VMap JS -->
+    <!--<script src="assets/js/jquery.vmap.min.js"></script>
+    <script src="assets/js/maps/jquery.vmap.world.js"></script>-->
+    <!-- Google Map Api -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZPf84AAVt8_FFN7rwQY5nPgB02SlTKs"></script>-->
+    <!-- Google Map Activation -->
+    <script src="assets/map/contact-map.js"></script>
+    <!-- Main JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <!--<script src="assets/js/logrej.js"></script>-->
+</body>
+</html>

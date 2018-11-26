@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.project.easykar.model.registration;
+package com.project.easykar.model.profile;
 
 /**
  *
  * @author manoj
  */
-public class FailRegistrationResponse {
+public class ResponseProfileSuccess {
     private String response_code;
     private String response_msg;
-    private EmptyJsonResponse registration_result;
 
     public String getResponse_code() {
         return response_code;
@@ -29,15 +28,5 @@ public class FailRegistrationResponse {
     public void setResponse_msg(String response_msg) {
         this.response_msg = response_msg;
     }
-
-    public EmptyJsonResponse getRegistration_result() {
-        return registration_result;
-    }
-
-    public void setRegistration_result(EmptyJsonResponse registration_result) {
-        this.registration_result = registration_result;
-    }
-
-    
     
 }

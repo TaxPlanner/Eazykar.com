@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.project.easykar.model.registration;
+package com.project.easykar.model.profile;
+
+import com.project.easykar.controller.entity.UserProfile;
 
 /**
  *
  * @author manoj
  */
-public class FailRegistrationResponse {
-    private String response_code;
+public class GetProfileResponse {
+     private String response_code;
     private String response_msg;
-    private EmptyJsonResponse registration_result;
+    private UserProfile profile_result;
 
     public String getResponse_code() {
         return response_code;
@@ -30,14 +32,12 @@ public class FailRegistrationResponse {
         this.response_msg = response_msg;
     }
 
-    public EmptyJsonResponse getRegistration_result() {
-        return registration_result;
+    public UserProfile getProfile_result() {
+        return profile_result;
     }
 
-    public void setRegistration_result(EmptyJsonResponse registration_result) {
-        this.registration_result = registration_result;
+    public void setProfile_result(UserProfile profile_result) {
+        this.profile_result = profile_result;
     }
-
-    
     
 }

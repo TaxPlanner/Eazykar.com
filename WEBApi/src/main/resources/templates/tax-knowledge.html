@@ -29,6 +29,39 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
 	
+
+    <style>
+
+
+        .nav-tabs .nav-item {
+            margin-bottom: -1px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tab-pane {
+            padding: 20px;
+        }
+
+        .btnn {
+            display: inline-block;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #0037c1;
+            line-height: 8px;
+            background-color: #ffffff;
+            border: 1px solid #0037c1;
+            padding: 10px 10px;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -36,39 +69,38 @@
 <!-- Main Wrapper Start -->
 <div class="main-wrapper">
 
-    <!-- Header Section Start -->
-    <div class="header-section">
-
-           
-            <!-- Header Bottom Start -->
-            <div class="header-bottom header-sticky side-padding headline">
-                <div class="container">
-                    <div class="row">
-                        <!-- Logo Start -->
-                        <div class="col">
-                            <a  th:href="@{/}" href="index.html" class="logo"><img src="assets/images/logo.png" alt="Logo"></a>
-                        </div><!-- Logo End -->
-                        <!-- Main Menu Start -->
-                        <div class="col d-none d-lg-block">
-                            <div class="main-menu">
-                                <nav>
-                                    <ul>
-                                        <li><a th:href="@{/}" href="index.html">Tax Services</a></li>
-                                        <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
-                                        <li><a th:href="@{/contact-us}" href="contact-us.html">Contact Us</a> </li>
-                                        <li><a th:href="@{/register}" href="register.html">Login</a> </li>                                   
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div><!-- Main Menu End -->
-                       
-                        <!-- Mobile Menu Start -->
-                        <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+    <!-- Header Bottom Start -->
+    <div class="header-bottom header-sticky side-padding headline">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Start -->
+                <div class="col">
+                    <a th:href="@{/}" href="index.html" class="logo"><img src="assets/images/logo.png" alt="Logo"></a>
+                </div><!-- Logo End -->
+                <!-- Main Menu Start -->
+                <div class="col d-none d-lg-block">
+                    <div class="main-menu">
+                        <nav>
+                            <ul style="padding: 22px 0px;">
+                                    <li><a th:href="@{/}" href="index.html">Tax Services</a></li>
+                                    <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
+                                    <li><a th:href="@{/contact-us}" href="contact-us.html">Contact Us</a> </li>
+                                    <li><a th:href="@{/signin}" href="signin.html" class="loginbtn btn-red">Login</a> </li>
+                            </ul>
+                        </nav>
                     </div>
-                </div>
-            </div><!-- Header Bottom End -->
+                </div><!-- Main Menu End -->
 
-        </div><!-- Header Section End -->
+                <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+            </div>
+        </div>
+
+
+
+
+
+
+    </div><!-- Header Bottom End -->
 
     <!-- Page Banner Section Start -->
     <div class="page-banner-section" style="background-image: url(assets/images/bg/page-banner-bg.jpg)" data-overlay="theme-color" data-opacity="8">

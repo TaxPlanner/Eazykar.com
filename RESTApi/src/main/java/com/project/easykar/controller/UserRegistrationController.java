@@ -5,7 +5,6 @@
  */
 package com.project.easykar.controller;
 
-import com.google.gson.JsonObject;
 import com.project.easykar.model.registration.EmptyJsonResponse;
 import com.project.easykar.model.registration.FailLoginResponse;
 import com.project.easykar.model.registration.FailRegistrationResponse;
@@ -14,15 +13,11 @@ import com.project.easykar.model.registration.RegistrationResponse;
 import com.project.easykar.model.registration.UserLogin;
 import com.project.easykar.model.registration.Users;
 import com.project.easykar.service.UserService;
-import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

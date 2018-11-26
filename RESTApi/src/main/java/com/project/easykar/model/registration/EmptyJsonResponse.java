@@ -6,7 +6,6 @@
 package com.project.easykar.model.registration;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 /**
  *
