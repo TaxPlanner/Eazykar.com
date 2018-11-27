@@ -26,6 +26,43 @@ public class Utility {
     public boolean IsLoin=false, IsRegister = false, IsEditProfile = false;
     public String name,MsgProfileSuccess="",MsgDocumentSuccess="";
     public boolean IsProfile=false,IsFiles=false,IsPlan=false;
+    public String msgLoginError="",msgRegistrationError="";
+    public boolean IsLoginActive=false,IsRegistrationActive=false;
+
+    public boolean getIsLoginActive() {
+        return IsLoginActive;
+    }
+
+    public void setIsLoginActive(boolean IsLoginActive) {
+        this.IsLoginActive = IsLoginActive;
+    }
+
+    public boolean getIsRegistrationActive() {
+        return IsRegistrationActive;
+    }
+
+    public void setIsRegistrationActive(boolean IsRegistrationActive) {
+        this.IsRegistrationActive = IsRegistrationActive;
+    }
+    
+    
+    public String getMsgLoginError() {
+        return msgLoginError;
+    }
+
+    public void setMsgLoginError(String msgLoginError) {
+        this.msgLoginError = msgLoginError;
+    }
+
+    public String getMsgRegistrationError() {
+        return msgRegistrationError;
+    }
+
+    public void setMsgRegistrationError(String msgRegistrationError) {
+        this.msgRegistrationError = msgRegistrationError;
+    }
+    
+    
     public String getName() {
         return name;
     }

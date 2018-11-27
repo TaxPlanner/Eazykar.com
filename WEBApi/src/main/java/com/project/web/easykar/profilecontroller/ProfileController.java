@@ -279,7 +279,7 @@ public class ProfileController {
                 String res2 = restTemplate2.postForObject(BASEURL + "/file/savedocs", httpEntity2, String.class);
                 Gson gson2 = new Gson();
                 response3 = gson2.fromJson(res2.toString(), GetProfileResponse.class);
-                utility.setMsgDocumentSuccess("Document has been updated successfully.");
+                utility.setMsgDocumentSuccess("Document has been saved successfully.");
             }
             
         }else{

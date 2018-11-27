@@ -54,11 +54,20 @@ public class LoginController {
         utility.setIsProfile(false);
         utility.setIsFiles(false);
         utility.setIsPlan(false);
+        utility.setIsLoginActive(true);
+        utility.setIsRegistrationActive(false);
+        utility.setMsgLoginError("");
+        utility.setMsgRegistrationError("");
         return "index";
     }
 
     @GetMapping("/signin")
-    public String home4() {
+    public String home4(Model model) {
+        System.out.println("1/"+utility.getIsRegistrationActive()+"/"+utility.getIsLoginActive());
+        model.addAttribute("msgRegistrationError", utility.getMsgRegistrationError());
+        model.addAttribute("msgLoginError", utility.getMsgLoginError());
+        model.addAttribute("activeRegistration", utility.getIsRegistrationActive());
+        model.addAttribute("activeLogin", utility.getIsLoginActive());
         return "signin";
     }
 
@@ -80,6 +89,17 @@ public class LoginController {
     // Return registration form template
     @RequestMapping(value = "/user_register", method = RequestMethod.POST)
     public String showHomePage(WebRequest request, Model model, RegisterUser userReg) {
+         utility.setIsLoginActive(false);
+         utility.setIsRegistrationActive(true);
+         
+         System.out.println("2/"+utility.getIsRegistrationActive()+"/"+utility.getIsLoginActive());
+        if(!userReg.getPassword().toString().toLowerCase().equalsIgnoreCase(userReg.getRepassword())){
+            utility.setMsgRegistrationError("Please check password and confirm password.");
+           
+            utility.setIsLoginActive(false);
+            utility.setIsRegistrationActive(true);
+            return "redirect:/signin";
+        }
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Content-Type", "application/json");
         JSONObject json = new JSONObject();
@@ -92,7 +112,9 @@ public class LoginController {
             json.put("createdon", "2018-10-12");
             json.put("status", "1");
         } catch (JSONException ex) {
-
+            utility.setIsLoginActive(false);
+            utility.setIsRegistrationActive(true);
+            return "redirect:/signin";
         }
         HttpEntity<String> httpEntity = new HttpEntity<String>(json.toString(), httpHeaders);
 
@@ -104,15 +126,22 @@ public class LoginController {
             utility.setResRegistration(response);
             if (response.getResponseCode().equalsIgnoreCase("1")) {
                 utility.setIsRegister(true);
+                utility.setMsgRegistrationError("");
                // model.addAttribute("isProfile", true);
-                return "/userdashboard";
+                return "redirect:/userdashboard";
             } else {
+                utility.setMsgRegistrationError("Some error occured. Please try again.");
                 utility.setIsRegister(false);
-                return "/signin";
+                utility.setIsLoginActive(false);
+                utility.setIsRegistrationActive(true);
+                return "redirect:/signin";
             }
         } catch (Exception e) {
+            utility.setMsgRegistrationError("Some error occured. Please try again.");
             utility.setIsRegister(false);
-            return "/signin";
+            utility.setIsLoginActive(false);
+            utility.setIsRegistrationActive(true);
+            return "redirect:/signin";
         }
     }
 
@@ -127,7 +156,8 @@ public class LoginController {
             json.put("email", reqLogin.getEmail());
             json.put("password", reqLogin.getPassword());
         } catch (JSONException ex) {
-
+            utility.setMsgLoginError("Some error occured. Please try again.");
+            return "redirect:/signin";
         }
         //  model.addAttribute("person", "Manoj");
         HttpEntity<String> httpEntity = new HttpEntity<String>(json.toString(), httpHeaders);
@@ -141,7 +171,7 @@ public class LoginController {
             
             if (response.getResponseCode().equalsIgnoreCase("1")) {
                 utility.setIsLoin(true);
-
+                utility.setMsgLoginError("");
                 HttpHeaders httpHeaders2 = new HttpHeaders();
                 httpHeaders.set("Content-Type", "application/json");
                 JSONObject jsonCreate = new JSONObject();
@@ -167,16 +197,23 @@ public class LoginController {
                 return "/userdashboard";
             } else {
                 utility.setIsLoin(false);
-                return "/signin";
+                utility.setMsgLoginError("Please check username and password.");
+                utility.setIsLoginActive(true);
+                utility.setIsRegistrationActive(false);
+                return "redirect:/signin";
             }
         } catch (Exception e) {
             utility.setIsLoin(false);
-            return "/signin";
+            utility.setMsgLoginError("Some error occured. Please try again.");
+            utility.setIsLoginActive(true);
+            utility.setIsRegistrationActive(false);
+            return "redirect:/signin";
         }
     }
 
     @GetMapping("/userdashboard")
     public String home(Model model) {
+        model.addAttribute("msgDocumentSuccess", utility.getMsgDocumentSuccess());
         model.addAttribute("isProfile", utility.getIsProfile());
         model.addAttribute("isFiles", utility.getIsFiles());
         model.addAttribute("isPlan", utility.getIsPlan());
@@ -193,6 +230,14 @@ public class LoginController {
             }
         }
         return "/userdashboard";
+    }
+    
+    @GetMapping("/user_register")
+    public String home22(Model model) {
+        System.out.println("3/"+utility.getIsRegistrationActive()+"/"+utility.getIsLoginActive());
+        model.addAttribute("activeRegistration", utility.getIsRegistrationActive());
+        model.addAttribute("activeLogin", utility.getIsLoginActive());
+        return "redirect:/signin";
     }
     
     @GetMapping("/profile/create_update")
