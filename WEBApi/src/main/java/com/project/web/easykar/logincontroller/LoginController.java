@@ -194,7 +194,7 @@ public class LoginController {
                     model.addAttribute("panNo", response2.getProfileResult().getPanNumber());
                     model.addAttribute("address", response2.getProfileResult().getAddress());
                 }
-                return "/userdashboard";
+                return "userdashboard";
             } else {
                 utility.setIsLoin(false);
                 utility.setMsgLoginError("Please check username and password.");
@@ -229,7 +229,7 @@ public class LoginController {
                 model.addAttribute("address", utility.getResGetProfileResponse().getProfileResult().getAddress());
             }
         }
-        return "/userdashboard";
+        return "userdashboard";
     }
     
     @GetMapping("/user_register")
@@ -255,6 +255,6 @@ public class LoginController {
             model.addAttribute("panNo", utility.getResGetProfileResponse().getProfileResult().getPanNumber());
             model.addAttribute("address", utility.getResGetProfileResponse().getProfileResult().getAddress());
         }
-        return "/userdashboard";
+        return "userdashboard";
     }
 }
