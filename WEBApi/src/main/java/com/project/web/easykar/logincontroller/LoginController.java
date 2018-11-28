@@ -43,7 +43,7 @@ public class LoginController {
     private Utility utility;
 
     @GetMapping("/")
-    public String home3(Model model) {
+    public String home(Model model) {
         model.addAttribute("message", "This is welcome page!");
         utility.setResGetProfileResponse(null);
         utility.setResRegistration(null);
@@ -62,7 +62,7 @@ public class LoginController {
     }
 
     @GetMapping("/signin")
-    public String home4(Model model) {
+    public String signin(Model model) {
         System.out.println("1/"+utility.getIsRegistrationActive()+"/"+utility.getIsLoginActive());
         model.addAttribute("msgRegistrationError", utility.getMsgRegistrationError());
         model.addAttribute("msgLoginError", utility.getMsgLoginError());
@@ -88,7 +88,7 @@ public class LoginController {
 
     // Return registration form template
     @RequestMapping(value = "/user_register", method = RequestMethod.POST)
-    public String showHomePage(WebRequest request, Model model, RegisterUser userReg) {
+    public String showuser_register(WebRequest request, Model model, RegisterUser userReg) {
          utility.setIsLoginActive(false);
          utility.setIsRegistrationActive(true);
          
@@ -147,7 +147,7 @@ public class LoginController {
 
     // Return registration form template
     @RequestMapping(value = "/userdashboard", method = RequestMethod.POST)
-    public String showHomePage2(WebRequest request, Model model, UserLogin reqLogin) {
+    public String showuserdashboard(WebRequest request, Model model, UserLogin reqLogin) {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Content-Type", "application/json");
@@ -157,7 +157,7 @@ public class LoginController {
             json.put("password", reqLogin.getPassword());
         } catch (JSONException ex) {
             utility.setMsgLoginError("Some error occured. Please try again.");
-            return "redirect:/signin";
+            return "signin";
         }
         //  model.addAttribute("person", "Manoj");
         HttpEntity<String> httpEntity = new HttpEntity<String>(json.toString(), httpHeaders);
@@ -200,19 +200,19 @@ public class LoginController {
                 utility.setMsgLoginError("Please check username and password.");
                 utility.setIsLoginActive(true);
                 utility.setIsRegistrationActive(false);
-                return "redirect:/signin";
+                return "signin";
             }
         } catch (Exception e) {
             utility.setIsLoin(false);
             utility.setMsgLoginError("Some error occured. Please try again.");
             utility.setIsLoginActive(true);
             utility.setIsRegistrationActive(false);
-            return "redirect:/signin";
+            return "signin";
         }
     }
 
     @GetMapping("/userdashboard")
-    public String home(Model model) {
+    public String userdashboard(Model model) {
         model.addAttribute("msgDocumentSuccess", utility.getMsgDocumentSuccess());
         model.addAttribute("isProfile", utility.getIsProfile());
         model.addAttribute("isFiles", utility.getIsFiles());
@@ -233,15 +233,15 @@ public class LoginController {
     }
     
     @GetMapping("/user_register")
-    public String home22(Model model) {
+    public String user_register(Model model) {
         System.out.println("3/"+utility.getIsRegistrationActive()+"/"+utility.getIsLoginActive());
         model.addAttribute("activeRegistration", utility.getIsRegistrationActive());
         model.addAttribute("activeLogin", utility.getIsLoginActive());
-        return "redirect:/signin";
+        return "signin";
     }
     
     @GetMapping("/profile/create_update")
-    public String home2(Model model) {
+    public String create_update(Model model) {
          model.addAttribute("isProfile", utility.getIsProfile());
         model.addAttribute("isFiles", utility.getIsFiles());
         model.addAttribute("isPlan", utility.getIsPlan());

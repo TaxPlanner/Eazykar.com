@@ -1,3 +1,63 @@
+$(document).ready(function () {
+	
+	var txt= $('.limit-text').text();
+	if(txt.length > 120)
+    $('.limit-text').text(txt.substring(0,117) + '...');
+
+	//blog slider
+	$('.blog-carousel').owlCarousel({
+		loop: true,
+		margin: 100,
+		nav: true,
+		dots: true,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		autoplayHoverPause: true,
+		responsive: {
+			0:{
+				items:1
+			},
+			480:{
+				items:1
+			},
+			767:{
+				items:1
+			},
+			768:{
+				items:2
+			},
+			1024:{
+				items:3
+			}
+		}
+	});
+	
+	//Individual Packages slideshow
+	$("#individual-packages-slideshow > div.packages-col:gt(0)").hide();
+
+	setInterval(function() {
+	  $('#individual-packages-slideshow > div.packages-col:first')
+		.fadeOut(1000)
+		.next()
+		.fadeIn(1000)
+		.end()
+		.appendTo('#individual-packages-slideshow');
+	}, 5000);
+	
+	//Business Packages slideshow
+	$("#business-packages-slideshow > div.packages-col:gt(0)").hide();
+
+	setInterval(function() {
+	  $('#business-packages-slideshow > div.packages-col:first')
+		.fadeOut(1000)
+		.next()
+		.fadeIn(1000)
+		.end()
+		.appendTo('#business-packages-slideshow');
+	}, 5000);
+	
+});
+
 (function ($) {
     "use strict";
 

@@ -25,9 +25,130 @@
     <link rel="stylesheet" href="assets/css/jqvmap.min.css">    
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">    
+
+
+ 
+
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-	
+   
+    <style>
+        .panel-default {
+            padding: 6px;
+            padding-left: 24px;
+            padding-top: 15px;
+            background: rgba(255, 255, 255, 0.39);
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .panel-body {
+            color: #fff;
+            padding: 15px;
+        }
+
+        .panel-title {
+            text-align:center;
+        }
+        .maintitle{
+            text-align:center;
+            width:100%;
+            color:#fff;
+            margin-bottom:20px;
+        }
+        .infobox {
+            width: 100%;
+            background-color: #fff;
+            color: #7d7d7d;
+            text-align: center;
+            padding: 26px;
+            /* margin: 20px; */
+            border: 1px solid #f3f3f3;
+            min-height: 165px;
+            /* border-radius: 6px; */
+        }
+        .infobox2 {
+            width: 100%;
+            background-color: #fff;
+            color: #7d7d7d;
+            text-align: center;
+            padding: 26px;
+            /*margin: 20px;*/
+            /*border: 1px solid #007bff;*/
+            min-height: 180px;
+            border-radius: 6px;
+        }
+        .infobox h4{
+            color:#0485d9;
+        }
+        .modal-content {
+            top:12em;
+        }
+        .btn2 {
+            cursor: pointer;
+            display: inline-block;
+            border: none;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #708dd4;
+            line-height: 20px;
+            background-color: #ffffff;
+            border: 1px solid #aabce8;
+            padding: 17px 22px;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+        }
+        .tabli ul, .tabli li{
+            list-style:disc;
+            margin-bottom:15px;
+        }
+        .wrapper.center-block span {
+            margin-bottom:10px;
+        }
+        .video-area{
+            padding-top:50px;
+            padding-bottom:50px;
+        }
+
+        @media(max-width:769px){
+            .btn2{
+                width:100%;
+                margin-bottom:5px;
+            }
+        }
+
+        .nav-tabs .nav-item {
+            margin-bottom: -1px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .tab-pane {
+            padding: 20px;
+        }
+
+        .btnn {
+            display: inline-block;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #0037c1;
+            line-height: 8px;
+            background-color: #ffffff;
+            border: 1px solid #0037c1;
+            padding: 10px 10px;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+    </style>
+
+
 </head>
 
 <body>
@@ -35,43 +156,37 @@
 <!-- Main Wrapper Start -->
 <div class="main-wrapper">
 
-         <!-- Header Section Start -->
-        <div class="header-section">
-
-           
-            <!-- Header Bottom Start -->
-            <div class="header-bottom header-sticky side-padding headline">
-                <div class="container">
-                    <div class="row">
-                        <!-- Logo Start -->
-                        <div class="col">
-                            <a th:href="@{/}" href="index.html" class="logo"><img src="assets/images/logo.png" alt="Logo"></a>
-                        </div><!-- Logo End -->
-                        <!-- Main Menu Start -->
-                        <div class="col d-none d-lg-block">
-                            <div class="main-menu">
-                                <nav>
-                                    <ul>
-                                        <li><a th:href="@{/}" href="index.html">IT Return Services</a></li>
-                                        <li><a >Tax Knowledge</a></li>
-                                        <li><a >Contant Us</a> </li>
-                                        <li><a th:href="@{/register}" href="register.html">Login</a> </li>                                        
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div><!-- Main Menu End -->
-                        <!-- Header Button Start -->
-                        <!--<div class="col">
-                            <div class="header-button">
-                                <a href="register.html" class="btn btn-red">Register Now</a>
-                            </div>
-                        </div>-->
-                        <!-- Header Button End -->
-                        <!-- Mobile Menu Start -->
-                        <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+    <!-- Header Bottom Start -->
+    <div class="header-bottom header-sticky side-padding headline">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Start -->
+                <div class="col">
+                    <a th:href="@{/}" href="index.html" class="logo"><img src="assets/images/logo.png" alt="Logo"></a>
+                </div><!-- Logo End -->
+                <!-- Main Menu Start -->
+                <div class="col d-none d-lg-block">
+                    <div class="main-menu">
+                        <nav>
+                            <ul style="padding: 22px 0px;">
+                                <li><a th:href="@{/}" href="index.html">Tax Services</a></li>
+                                <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
+                                <li><a th:href="@{/contact-us}" href="contact-us.html">Contact Us</a> </li>
+                                <li><a th:href="@{/signin}" href="signin.html" class="loginbtn btn-red">Login</a> </li>
+                            </ul>
+                        </nav>
                     </div>
-                </div>
-            </div><!-- Header Bottom End -->
+                </div><!-- Main Menu End -->
+
+                <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
+            </div>
+        </div>
+
+
+
+
+
+    </div><!-- Header Bottom End -->
 
         </div><!-- Header Section End -->
 
@@ -83,40 +198,41 @@
 			<!-- Hero Item Start -->
             <div class="hero-item bg-theme">
                 <div class="container">
-                    <div class="row align-items-end">                     
+                    <div class="row">                     
                         <!-- Hero Content -->
-                        <div class="hero-content col-sm-12 col-md-12 col-lg-6">
-						   <div class="sub-title"><h3>Don’t Worry,</h3></div>
-                           <div class="title"><h1>Our Expert Adviser</h1></div>
-                           <div class="title-2"><h1>Always With You</h1></div>
-                           <div class="button"><a href="#" class="btn btn-lg btn-red">About More</a></div>
-                        </div>                        
-                        <!-- Hero Image -->
-                        <div class="hero-image col-sm-4 col-md-4 col-lg-6">
-                           <img src="assets/images/hero/1.png" alt="Hero Image">
-                        </div>                
+                               <h1 class="maintitle">Online Tax Expert for Income Tax Services</h1>  
+                        
+                        <div class="col-md-4 infobox">
+                            <div class="">
+                                <h4>Time Based tax Services</h4><hr />
+                                <p>First in class with time based Income Tax Services.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 infobox">
+                            <div class="">
+                                <h4>Online Personalized CA Services</h4><hr />
+                                <p>Own your personalized charted accountant services at price starting from Rs 999.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 infobox">
+                            <div class="">
+                                <h4>Lifetime tax Service</h4><hr />
+                                <p>Avail lifetime tax services without hassle.</p>
+                            </div>
+                        </div>
+                        
+                        
+                             
                     </div>
                 </div>
-            </div><!-- Hero Item End -->
+           <!-- Hero Item End -->
 			
-            <!-- Hero Item Start -->
-            <div class="hero-item bg-theme">
+            
+            <!--<div class="hero-item bg-theme">
                 <div class="container">
-                    <div class="row align-items-end">
-                        <!-- Hero Content -->
-                        <div class="hero-content col-sm-12 col-md-12 col-lg-6">
-						   <div class="sub-title"><h3>We Are Ready,</h3></div>
-                           <div class="title"><h1>Get your tax Pay</h1></div>
-                           <div class="title-2"><h1>When it is time to pay taxs</h1></div>
-                           <div class="button"><a href="#" class="btn btn-lg btn-red">About More</a></div>
-                        </div>
-                        <!-- Hero Image -->
-                        <div class="hero-image col-sm-4 col-md-4 col-lg-6">
-                           <img src="assets/images/hero/1.png" alt="Hero Image">
-                        </div>
-                    </div>
+                    
                 </div>
-            </div><!-- Hero Item End -->
+            </div>-->
 			
         </div><!-- Hero Slider End -->
     </div><!-- Hero Section End -->
@@ -125,23 +241,35 @@
 	<div class="mission-area bg-gray pt-60">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-6 col-sm-12">
+				<div class="col-md-12 col-lg-12 col-sm-12">
 					<div class="mission-area-content pt-35">
-						<h2>Over 24 years experience and knowledge</h2>
-						<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration passages of Lorem Ipsum available, but the majority suffered alteration passages of Lorem Ipsum available,</p>
-						<ul class="cr-liststyle-1">
-							<li>There are many variations of passages majority suffered alteration of Lorem</li>
-							<li>Many variations of passages of majority suffered </li>
-							<li>Variations of passages one of Lorem majority suffered alteration</li>
-						</ul>
-						<a href="#" class="cr-btn">
-							<span>Know more</span>
-						</a>
+                             
+                                        <div class="mission-area-content  pb-70">
+                                            <h2 class="text-center">Our Income Tax <b>E-Filing Process</b></h2><hr />
+                                            <div class="row">
+
+                                                <div class="col-md-6 pt-70">
+
+                                                    <h4 style="font-size:28px;">Just upload your documents and our E-filing expert will prepare your tax return.</h4>
+                                                    <br />
+                                                    <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" class="cr-btn">
+                                                        <span>Know Your TAX</span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <img class=" wow fadeinright" src="assets/images/about/taxstep.png" style="width:100%;" alt="mission area thumb">
+
+                                                </div>
+                                                
+                                            </div>
+                                               
+                                            </div>    
 					</div>
 				</div>
 				<div class="col-md-12 col-lg-6 col-sm-12">
 					<div class="mission-area-thumb">
-						<img class="wow fadeInRight" src="assets/images/about/about.png" alt="mission area thumb">
+                        
 					</div>
 				</div>
 			</div>
@@ -150,450 +278,180 @@
 	<!--// Mission Area -->
 	
     <!-- Service Section Start -->
-    <div class="feature-section pt-55 pb-70">
+    <div class="video-area bg-fixed" style="background-image: url(assets/images/bg/1.png)" data-overlay="theme-color" data-opacity="8">
         <div class="container">
             <div class="row">
-                
+
                 <!-- Section Title Start -->
-                <div class="section-title text-center col-12 pb-50 pt-40">
-                    <h1>Featured Services</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                </div><!-- Section Title End -->
-                
+               
                 <!-- Feature Start-->
-                <div class="col-lg-4 col-md-6 col-12"> 
-					<div class="feature text-center mb-30"> 
-						<!-- Icon -->
-						<div class="image">
-							<img src="assets/images/service/1.png" alt="" />
-						</div>                   
-						<!-- Content -->
-						<div class="content">
-							<h4><a href="service-details.html">Tax Planning</a></h4>
-							<p>There are many variations of passag Lorem Ipsum available, but the majority have sfered alteration in some form.</p>
-						</div>            
-					</div>
+                <div class="col-lg-3 infobox">
+                    <div class="wrapper center-block">
+                        <span class="fa fa-lg  fa-paper-plane text-info" style="display:block;"></span>
+                        <b>Tax Planning </b><hr />
+                        <p>If you are confused about 80C and other Tax breaks that you qualify for, then our team would be more than glad to assess your requirements and make the right suggestions.</p>
+
+                        
+                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal" class="btn btn-outline-info">
+                            <span>Know More</span>
+                        </a>
+                    </div>
                 </div>
-				<!-- Feature End-->
-				
-				<!-- Feature Start-->
-                <div class="col-lg-4 col-md-6 col-12"> 
-					<div class="feature text-center mb-30"> 
-						<!-- Icon -->
-						<div class="image">
-							<img src="assets/images/service/2.png" alt="" />
-						</div>                   
-						<!-- Content -->
-						<div class="content">
-							<h4><a href="service-details.html">Supporting Enterprise</a></h4>
-							<p>There are many variations of passag Lorem Ipsum available, but the majority have sfered alteration in some form.</p>
-						</div>            
-					</div>
+                <div class="col-lg-3 infobox">
+                    <div class="wrapper center-block">
+                        <span class="fa fa-lg  fa-clock-o text-info" style="display:block;"></span>
+                        <b>Time-Based Services</b><hr />
+                        <br />
+                        <p>Our services are directed toward quality and therefore we provide you with the cutting edge time-based services.</p>
+                        <br />
+                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal2" class="btn btn-outline-info">
+                            <span>Know More</span>
+                        </a>
+                    </div>
                 </div>
-				<!-- Feature End-->
-				
-				<!-- Feature Start-->
-                <div class="col-lg-4 col-md-6 col-12"> 
-					<div class="feature text-center mb-30"> 
-						<!-- Icon -->
-						<div class="image">
-							<img src="assets/images/service/3.png" alt="" />
-						</div>                   
-						<!-- Content -->
-						<div class="content">
-							<h4><a href="service-details.html">Specialty Service</a></h4>
-							<p>There are many variations of passag Lorem Ipsum available, but the majority have sfered alteration in some form.</p>
-						</div>            
-					</div>
+                <div class="col-lg-3 infobox">
+                    <div class="wrapper center-block">
+                        <span class="fa fa-lg  fa-briefcase text-info" style="display:block;"></span>
+                        <b>Customized Services for Businesses</b><hr />
+                        <br />
+                        <p>Post your business tax requirements and our expert will prepare customized solutions for you in no time.</p>
+
+                        <br />
+                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal3" class="btn btn-outline-info">
+                            <span>Know More</span>
+                        </a>
+                    </div>
                 </div>
-				<!-- Feature End-->
-                
+                <div class="col-lg-3 infobox">
+                    <div class="wrapper center-block">
+                        <span class="fa fa-lg  fa-shield text-info" style="display:block;"></span>
+                        <b>Highly Secure Data Management</b><hr />
+                        <br />
+                        <p>Customer Data is protected with 128 bit SS and ISO 27001 for data centre with round the clock availability.</p>
+                        <br />
+                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal4" class="btn btn-outline-info">
+                            <span>Know More</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Feature End-->
+
             </div>
         </div>
     </div>
-	<!-- Service Section End -->
 	
-	<!-- Video Area -->
-	<div class="video-area bg-fixed" style="background-image: url(assets/images/bg/1.png)" data-overlay="theme-color" data-opacity="8">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12 offset-0">
-					<div class="video-area-inner text-center">
-						<a class="video-popup-trigger" href="https://vimeo.com/104509732">
-							<img src="assets/images/icons/icon-play.png" alt="Play">
-						</a>
-						<h1>Success Depends on a Right Plan</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--// Video Area -->
-
-	<!-- Counter Area -->
-	<div class="counter-area half-translate">
-		<div class="counter-area-inner bg-gray">
-			<div class="container">
-				<div class="row no-gutters align-items-center">
-					<div class="col-lg-4 col-md-4">
-						<div class="counter text-center">
-							<h1 class="counter-active">131</h1>
-							<h6>AWARD WIN</h6>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="counter text-center">
-							<h1 class="counter-active">612</h1>
-							<h6>Projects Done</h6>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="counter text-center">
-							<h1 class="counter-active">465</h1>
-							<h6>Satisfied Client</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--// Counter Area -->
 	
 	<!-- Service Section Start -->
     <div class="team-section pb-55">
         <div class="container">
             <div class="row">                
                 <!-- Section Title Start -->
-                <div class="section-title text-center col-12 pb-50 pt-40">
-                    <h1>Expert Advisor</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                <div class="col-12 pb-50 pt-80 tabli">
+                    <h2 class="text-center">Why <b>Us  ?</b></h2>
+                    <hr />
+                    <br />
+
+
+                    <div class="w3-bar w3-black">
+                        <div class="btn2 cr-btn" onclick="openCity('Commitment')">Expertise and Commitment </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Support')">Online and Offline Support </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Skills')">Research Skills </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Risk')">Risk Analysis and Minimization</div>
+                        <div class="btn2 cr-btn" onclick="openCity('Scrutiny')">Records Scrutiny</div>
+                        <div class="btn2 cr-btn" onclick="openCity('Privacy')">We Guard your Privacy</div>
+                    </div>
+
+                    <div id="Commitment" class="w3-container w3-display-container city pt-40">
+
+                        <h2>Expertise and Commitment</h2>
+                        <ul>
+                            <li>EazyKar is a team of dedicated professionals and are well-versed with the latest expectations and actions of the Income Tax Department. </li>
+                            
+                            <li>We absolutely understand the concerns of our clients and give them a Bird’s Eye view of what the future holds. </li>
+                        </ul>
+                    </div>
+
+                    <div id="Support" class="w3-container w3-display-container city  pt-40" style="display:none">
+
+                        <h2>Online and Offline Support </h2>
+                        <ul>
+                            <li>EazyKar offers you access to one of the most advanced and updated Software that ensures 99.99 percent human-grade accuracy. </li>
+                            
+                            <li>Our Technical Team updates the software from time to time to provide you with the most accurate calculations for filing of returns. </li>
+                            
+                            <li>We provide personalized services in case you need our support beyond mere filing of annual returns.</li>
+                        </ul>
+                    </div>
+
+                    <div id="Skills" class="w3-container w3-display-container city  pt-40" style="display:none">
+
+                        <h2>Research Skills </h2>
+                        <ul>
+                            <li>Our team of professionals understands the need and necessity to remain informed in order to protect the interests of our clients. Therefore, we are always up-to-date with the latest Circulars, Notifications, Amendments and Judgments that impact the financial interests of our clients.</li>
+                            <li>With our certified and conversant team of Professionals, we work non-stop to minimize our Client’s risk of non-compliance and litigation. </li>
+                        </ul>
+
+                    </div>
+
+                    <div id="Risk" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>Risk Analysis and Minimization  </h2>
+                        <ul>
+                            <li>Without a rock-solid foundation, even the tallest Tower collapses and that’s true when it comes to business and individual growth. We measure your risk and give best possible solutions to minimize it.</li>
+                            <li>We help you comply with the required Accounting Standards, co-ordinate with your Cost Accountants, Auditors and internal Tax Team to help you with the overall compliance.</li>
+                        </ul>
+                    </div>
+
+                    <div id="Scrutiny" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>Records Scrutiny </h2>
+                        <ul>
+                            <li>Our core expertise is in analyzing the past records and pinpointing the strengths and weakness of the Financial Documents. </li>
+                            <li>We make suggestions pertaining to non compliance of the mandatory Accounting and Auditing norms. </li>
+                        </ul>
+                    </div>
+
+                    <div id="Privacy" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>We Guard your Privacy </h2>
+                        <ul>
+                            <li>You can expect absolute privacy while working with us because we strive towards guarding your Financial Data.</li>
+                            <li>Engaging us not only saves your time but also keeps your financial data private, ensuring that it remains safe from your contemporaries. </li>
+                        </ul>
+                    </div>
+
+
+
+
+                    <script>
+function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    document.getElementById(cityName).style.display = "block";
+}
+                    </script>
+                
+
+
+
                 </div>
 				<!-- Section Title End --> 
             </div>
-			<div class="row team-wrap justify-content-center">
-				<!-- Single Team -->
-				<div class="col-lg-4 col-md-6 col-sm-12 col-12">
-					<div class="single-team">
-						<div class="team-thumb">
-							<a href="#"><img src="assets/images/team/1.png" alt="team image"></a>
-						</div>
-						<div class="team-content text-center">
-							<div class="team-conetnt-info">
-								<h5><a href="#">Margan Spee</a></h5>
-								<h6>Founder Owner</h6>
-							</div>
-							<div class="team-social-icons">
-								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--// Single Team -->
-				<!-- Single Team -->
-				<div class="col-lg-4 col-md-6 col-sm-12 col-12">
-					<div class="single-team">
-						<div class="team-thumb">
-							<a href="#"><img src="assets/images/team/2.png" alt="team image"></a>
-						</div>
-						<div class="team-content text-center">
-							<div class="team-conetnt-info">
-								<h5><a href="#">Loe Karnerl</a></h5>
-								<h6>Chairmen Head</h6>
-							</div>
-							<div class="team-social-icons">
-								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--// Single Team -->
-				<!-- Single Team -->
-				<div class="col-lg-4 col-md-6 col-sm-12 col-12">
-					<div class="single-team">
-						<div class="team-thumb">
-							<a href="#"><img src="assets/images/team/3.png" alt="team image"></a>
-						</div>
-						<div class="team-content text-center">
-							<div class="team-conetnt-info">
-								<h5><a href="#">Qumar Stain</a></h5>
-								<h6>Marketer</h6>
-							</div>
-							<div class="team-social-icons">
-								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--// Single Team -->
-			</div>
+			
         </div>
     </div>
 	<!-- Service Section End -->
 	
-	<!-- Tax Calculator Area Start -->
-	<div class="content-section-area pt-80 pb-90" style="background-image: url(assets/images/bg/rate.png)" data-overlay="theme-color" data-opacity="8">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-sm-12 col-lg-6">
-					<div class="calculate-left mt-3">
-						<h2>Tax Calculator Own Terms</h2>
-						<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-						<div class="calculate-wrappwr">
-							<div class="section-one">
-								<select class="option-area" name="cars">
-									<option value="area">Select Your Area</option>
-									<option value="retail">Retail</option>
-									<option value="all">All</option>
-								</select>
-							</div>
-							<div class="section-one">
-								<select class="option-area" name="cars">
-									<option value="country">Select Your Division</option>
-									<option value="usa">Agra</option>
-									<option value="all">Dolain</option>
-									<option value="all">Island</option>
-								</select>
-							</div>
-							<div class="section-one">
-								<select class="option-area" name="cars">
-									<option value="number">Number</option>
-									<option value="usa">1-5</option>
-									<option value="all">1-6</option>
-									<option value="all">1-7</option>
-								</select>
-							</div>
-							<div class="section-one">
-								<input placeholder="Yearly Income" type="text">
-							</div>
-							<div class="section-one">
-								<input placeholder="Total Payment" type="text">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-sm-12 col-lg-6">
-					<div class="calculate-right">
-						<img src="assets/images/about/calcu.png" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Tax Calculator Area Start -->
+
 	
-	<!-- Campaign Section Start -->
-    <div class="campaign-section pt-55 pb-70">
-        <div class="container">
-            <div class="row">               
-                <!-- Section Title Start -->
-                <div class="section-title text-center col-12 pb-50 pt-40">
-                    <h1>Our Cases</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                </div>
-				<!-- Section Title End -->                              
-            </div>
-			<div class="row">
-                
-                <div class="col-12">
-                    <div class="isotop-filter">
-                        <button data-filter="*" class="active">all</button>
-                        <button data-filter=".consultant">Consultant</button>
-                        <button data-filter=".tax">Tax</button>
-                        <button data-filter=".finance">Finance</button>
-                        <button data-filter=".business">Business</button>
-                    </div>
-                </div>
-                
-                <div class="col-12">
-                    <div class="isotop-grid row">
-
-                        <!-- Gallery Isotop Item -->
-                        <div class="isotop-item consultant col-md-4 col-12 mb-30">
-                            <div class="gallery">
-                                <img src="assets/images/gallery/3-1.jpg" alt="Gallery Image">
-                                <a href="assets/images/gallery/1-1.jpg" class="gallery-popup"><img src="assets/images/icons/pro.png" alt="" /></a>
-                            </div>
-                        </div>
-
-                        <!-- Gallery Isotop Item -->
-                        <div class="isotop-item tax col-md-4 col-12 mb-30">
-                            <div class="gallery">
-                                <img src="assets/images/gallery/3-2.jpg" alt="Gallery Image">
-                                <a href="assets/images/gallery/1-5.jpg" class="gallery-popup"><img src="assets/images/icons/pro.png" alt="" /></a>
-                            </div>
-                        </div>
-
-                        <!-- Gallery Isotop Item -->
-                        <div class="isotop-item finance col-md-4 col-12 mb-30">
-                            <div class="gallery">
-                                <img src="assets/images/gallery/3-3.jpg" alt="Gallery Image">
-                                <a href="assets/images/gallery/1-6.jpg" class="gallery-popup"><img src="assets/images/icons/pro.png" alt="" /></a>
-                            </div>
-                        </div>
-
-                        <!-- Gallery Isotop Item -->
-                        <div class="isotop-item business tax col-md-4 col-12 mb-30">
-                            <div class="gallery">
-                                <img src="assets/images/gallery/3-4.jpg" alt="Gallery Image">
-                                <a href="assets/images/gallery/1-2.jpg" class="gallery-popup"><img src="assets/images/icons/pro.png" alt="" /></a>
-                            </div>
-                        </div>
-
-                        <!-- Gallery Isotop Item -->
-                        <div class="isotop-item consultant col-md-4 col-12 mb-30">
-                            <div class="gallery">
-                                <img src="assets/images/gallery/3-5.jpg" alt="Gallery Image">
-                                <a href="assets/images/gallery/1-3.jpg" class="gallery-popup"><img src="assets/images/icons/pro.png" alt="" /></a>
-                            </div>
-                        </div>
-
-                        <!-- Gallery Isotop Item -->
-                        <div class="isotop-item tax business col-md-4 col-12 mb-30">
-                            <div class="gallery">
-                                <img src="assets/images/gallery/3-6.jpg" alt="Gallery Image">
-                                <a href="assets/images/gallery/1-4.jpg" class="gallery-popup"><img src="assets/images/icons/pro.png" alt="" /></a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-	<!-- Campaign Section End -->	
 	
-	<!-- Request Call Back Section Start -->
-    <div id="donation" class="donation-section pt-95 pb-70" style="background-image: url(assets/images/bg/2.jpg)" data-overlay="theme-color" data-opacity="8">
-        <div class="container">
-            <div class="row">                
-                <!-- Section Title Start -->
-                <div class="section-title title-white text-center col-12 mb-60">
-                    <h1>Request a Call Back</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                </div>
-				<!-- Section Title End -->                
-                <div class="col-12">                    
-                    <!-- Donation Form Start -->
-                    <form action="#">
-                        <div class="donation-form row">
-                            <div class="col-lg-3 col-md-6 col-12 mb-30"><input type="text" placeholder="Name *"></div>
-                            <div class="col-lg-3 col-md-6 col-12 mb-30"><input type="email" placeholder="E-Mail *"></div>
-                            <div class="col-lg-3 col-md-6 col-12 mb-30"><input type="text" placeholder="Phone *"></div>
-                            <div class="col-lg-3 col-md-6 col-12 mb-30"><button class="btn btn-red btn-hover-dark-red">Submit Now</button></div>
-                        </div>
-                    </form><!-- Donation Form End -->                    
-                </div>                
-            </div>
-        </div>
-    </div>
-	<!-- Donation Section End -->
 	
-	<!-- Mission Section Start -->
-    <div class="mission-section bg-gray pt-100 pb-95">
-        <div class="container">
-            <div class="row align-items-center">               
-                <!-- Mission Content Start -->
-                <div class="col-lg-6 col-12 order-lg-2">                    
-                    <div class="mission-map" id="world-vmap"></div>                    
-                </div><!-- Mission Content End -->                
-                <!-- Mission Content Start -->
-                <div class="mission-content col-lg-6 col-12">                    
-                    <h5>OUR MISSION & VISION</h5>
-                    <h2>We Provide Proper Tax Solutions </h2>
-                    <p>If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and world tax bandwidth bill proper value.</p>
-					<p>please consider donating a small sum to help pay for the hosting and world tax bandwidth bill proper value bandwidth bill proper value.</p>
-					<h4>Emergency Call Only: <span>+91 8888888888</span></h4>                   
-                </div><!-- Mission Content End -->                
-            </div>
-        </div>
-    </div>
-	<!-- Mission Section End -->
+	
 
-	<!-- News Section Start -->
-    <div class="news-section pt-60 pb-70">
-        <div class="container">
-            <div class="row">                
-                <!-- Section Title Start -->
-                <div class="section-title text-center col-12 pb-50 pt-40">
-                    <h1>Advice News</h1>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                </div>
-				<!-- Section Title End -->  
-				
-                <!-- News Start -->
-                <div class="news col-lg-4 col-md-6 col-12 mb-30">                        
-                    <!-- Image -->
-                    <a href="blog-details.html" class="image"><img src="assets/images/news/1.jpg" alt="News"></a>
-                    <!-- Content -->
-                    <div class="content">
-                        <h3><a href="blog-details.html">Scriptural Texts in Politics Combined Handful.</a></h3>
-                        <!-- Meta -->
-                        <div class="meta">
-                            <a href="#" class="meta-item"><i class="fa fa-user-o"></i>Albert Flores</a>
-                            <span class="meta-item"><i class="fa fa-calendar"></i>12.03.2018</span>
-                        </div>
-                        <p>There are many variations of passages of Lorem Ipsum do available, but the majority have suffered alteration in some form the level of high work solid them.</p>
-                        <a href="blog-details.html" class="btn btn-sm btn-red">read more</a>
-                    </div>                   
-                </div>
-				<!-- News End -->
-                
-                <!-- News Start -->
-                <div class="news col-lg-4 col-md-6 col-12 mb-30">                        
-                    <!-- Image -->
-                    <a href="blog-details.html" class="image"><img src="assets/images/news/2.jpg" alt="News"></a>
-                    <!-- Content -->
-                    <div class="content">
-                        <h3><a href="blog-details.html">Colours and in a range of standard Sizes.</a></h3>
-                        <!-- Meta -->
-                        <div class="meta">
-                            <a href="#" class="meta-item"><i class="fa fa-user-o"></i>Albert Flores</a>
-                            <span class="meta-item"><i class="fa fa-calendar"></i>12.03.2018</span>
-                        </div>
-                        <p>There are many variations of passages of Lorem Ipsum do available, but the majority have suffered alteration in some form the level of high work solid them.</p>
-                        <a href="blog-details.html" class="btn btn-sm btn-red">read more</a>
-                    </div>                    
-                </div>
-				<!-- News End -->
-                
-                <!-- News Start -->
-                <div class="news col-lg-4 col-md-6 col-12 mb-30">                        
-                    <!-- Image -->
-                    <a href="blog-details.html" class="image"><img src="assets/images/news/3.jpg" alt="News"></a>
-                    <!-- Content -->
-                    <div class="content">
-                        <h3><a href="blog-details.html">Which of us ever undertakes laborious Physical.</a></h3>
-                        <!-- Meta -->
-                        <div class="meta">
-                            <a href="#" class="meta-item"><i class="fa fa-user-o"></i>Albert Flores</a>
-                            <span class="meta-item"><i class="fa fa-calendar"></i>12.03.2018</span>
-                        </div>
-                        <p>There are many variations of passages of Lorem Ipsum do available, but the majority have suffered alteration in some form the level of high work solid them.</p>
-                        <a href="blog-details.html" class="btn btn-sm btn-red">read more</a>
-                    </div>                    
-                </div>
-				<!-- News End -->                
-            </div>
-        </div>
-    </div>
-	<!-- News Section End -->
+	
+	
+
+
 	
     <!-- Footer Top Section Start -->
     <div class="footer-top-section bg-cyan-blue pt-100 pb-60">
@@ -642,6 +500,102 @@
         </div>
     </div><!-- Footer Top Section End -->
 
+
+
+
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                       <h4 class="modal-title"><i class="fa fa-lg  fa-paper-plane text-info"></i> Tax Planning</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p>With proper Tax Planning, you also take a step forward towards planning the right Tax breaks depending on your Risk Potential. We can suggest some of the best investments for you to earn maximum returns as well as benefit from the available Tax breaks.</p>
+                   <br />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                   
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="myModal2" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-lg  fa-clock-o  text-info"></i> Time-Based Services</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p>We are a one-stop solution for all your Tax Assessment and Planning related requirements. None of our services are linked to your sources of Income, thereby ensuring you with top-grade financial services.  </p>
+                        <br />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="myModal3" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-lg fa-briefcase  text-info"></i> Customized Services for Businesses</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p>We understand that as a business enterprise, you have your specific set of requirements and may or may not avail consulting services from a single service-provider. Therefore, along with our time-based packages, we also provide you with an open-window system and you can drop us a line with your requirements and our Executive will assess the same and get back to you with a quote.</p>
+                        <br />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="myModal4" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-lg  fa-shield text-info"></i> Highly Secure Data Management</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p>We use highly advanced technologies to manage the data that you provide us with. We implement the most innovative technologies, thereby minimizing the chances of Data loss or leakage to the bare minimum. </p>
+                        <br />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
     <!-- Footer Bottom Section Start -->
     <div class="footer-bottom-section">
         <div class="container">
@@ -676,6 +630,39 @@
 <script src="assets/js/maps/jquery.vmap.world.js"></script>
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
+
+    <script>
+      
+
+        $(".panel-collapse").on("show.bs.collapse", function () {
+            $(this)
+              .siblings(".panel-heading")
+              .addClass("active");
+        });
+
+        $(".panel-collapse").on("hide.bs.collapse", function () {
+            $(this)
+              .siblings(".panel-heading")
+              .removeClass("active");
+        });
+
+
+
+    </script>
+
+
+    <script>
+            function openCity(cityName) {
+                var i;
+                var x = document.getElementsByClassName("city");
+                for (i = 0; i < x.length; i++) {
+                   x[i].style.display = "none";
+                }
+                document.getElementById(cityName).style.display = "block";
+            }
+    </script>
+
+
 
 </body>
 

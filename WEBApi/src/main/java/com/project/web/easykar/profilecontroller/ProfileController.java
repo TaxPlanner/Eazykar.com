@@ -169,7 +169,8 @@ public class ProfileController {
             jsonUpdate.put("status", "1");
 
         } catch (JSONException ex) {
-            
+            utility.setMsgProfileSuccess("Failed to update.");
+            return "redirect:/userdashboard";
         }
         HttpEntity<String> httpEntity = new HttpEntity<String>(jsonUpdate.toString(), httpHeaders);
 
@@ -206,9 +207,12 @@ public class ProfileController {
                 }
                 return "redirect:/userdashboard";
             } else {
+                utility.setMsgProfileSuccess("Failed to update.");
                 return "redirect:/userdashboard";
+                
             }
         } catch (Exception e) {
+            utility.setMsgProfileSuccess("Failed to update.");
             return "redirect:/userdashboard";
         }
     }
@@ -244,7 +248,8 @@ public class ProfileController {
                 }
 
             } catch (Exception e) {
-                
+                utility.setMsgDocumentSuccess("Failed to upload.");
+                return "redirect:/userdashboard";
             }
 
         }

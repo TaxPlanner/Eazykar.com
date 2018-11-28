@@ -1,6 +1,5 @@
 ﻿<!doctype html>
 <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    
     <!-- CSS
 	============================================ -->
     <!-- Bootstrap CSS -->
@@ -24,138 +22,27 @@
     <!-- VMap CSS -->
     <link rel="stylesheet" href="assets/css/jqvmap.min.css">    
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">    
-
-
- 
-
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landing-page.css">
+	<!-- Owl Carousal -->
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.min.css">   
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-   
+
     <style>
-        .panel-default {
-            padding: 6px;
-            padding-left: 24px;
-            padding-top: 15px;
-            background: rgba(255, 255, 255, 0.39);
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .panel-body {
-            color: #fff;
-            padding: 15px;
-        }
 
-        .panel-title {
-            text-align:center;
-        }
-        .maintitle{
-            text-align:center;
-            width:100%;
-            color:#fff;
-            margin-bottom:20px;
-        }
-        .infobox {
-            width: 100%;
-            background-color: #fff;
-            color: #7d7d7d;
-            text-align: center;
-            padding: 26px;
-            /* margin: 20px; */
-            border: 1px solid #f3f3f3;
-            min-height: 165px;
-            /* border-radius: 6px; */
-        }
-        .infobox2 {
-            width: 100%;
-            background-color: #fff;
-            color: #7d7d7d;
-            text-align: center;
-            padding: 26px;
-            /*margin: 20px;*/
-            /*border: 1px solid #007bff;*/
-            min-height: 180px;
-            border-radius: 6px;
-        }
-        .infobox h4{
-            color:#0485d9;
-        }
-        .modal-content {
-            top:12em;
-        }
-        .btn2 {
-            cursor: pointer;
-            display: inline-block;
-            border: none;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: #708dd4;
-            line-height: 20px;
-            background-color: #ffffff;
-            border: 1px solid #aabce8;
-            padding: 17px 22px;
-            border-radius: 3px;
-            position: relative;
-            z-index: 1;
-        }
-        .tabli ul, .tabli li{
-            list-style:disc;
-            margin-bottom:15px;
-        }
-        .wrapper.center-block span {
-            margin-bottom:10px;
-        }
-        .video-area{
-            padding-top:50px;
-            padding-bottom:50px;
-        }
-
-        @media(max-width:769px){
-            .btn2{
-                width:100%;
-                margin-bottom:5px;
-            }
-        }
-
-        .nav-tabs .nav-item {
-            margin-bottom: -1px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .tab-pane {
-            padding: 20px;
-        }
-
-        .btnn {
-            display: inline-block;
-            border: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: #0037c1;
-            line-height: 8px;
-            background-color: #ffffff;
-            border: 1px solid #0037c1;
-            padding: 10px 10px;
-            border-radius: 3px;
-            position: relative;
-            z-index: 1;
+        .text-info {
+            color: #3189fc !important;
         }
 
     </style>
 
 
 </head>
-
 <body>
-
 <!-- Main Wrapper Start -->
 <div class="main-wrapper">
-
     <!-- Header Bottom Start -->
     <div class="header-bottom header-sticky side-padding headline">
         <div class="container">
@@ -168,7 +55,7 @@
                 <div class="col d-none d-lg-block">
                     <div class="main-menu">
                         <nav>
-                            <ul style="padding: 22px 0px;">
+                             <ul style="padding: 22px 0px;">
                                 <li><a th:href="@{/}" href="index.html">Tax Services</a></li>
                                 <li><a th:href="@{/tax-knowledge}" href="tax-knowledge.html">Tax Knowledge</a></li>
                                 <li><a th:href="@{/contact-us}" href="contact-us.html">Contact Us</a> </li>
@@ -181,62 +68,165 @@
                 <div class="mobile-menu d-block d-lg-none col"></div><!-- Mobile Menu End -->
             </div>
         </div>
-
-
-
-
-
-<h2>Message : <span th:utext="${message}"></span></h2>
     </div><!-- Header Bottom End -->
 
-        </div><!-- Header Section End -->
-
-    <!-- Hero Section Start -->
-    <div class="hero-section">
-        <!-- Hero Slider Start -->
-        <div class="hero-slider">
-			
-			<!-- Hero Item Start -->
-            <div class="hero-item bg-theme">
-                <div class="container">
-                    <div class="row">                     
-                        <!-- Hero Content -->
-                               <h1 class="maintitle">Online Tax Expert for Income Tax Services</h1>  
-                        
-                        <div class="col-md-4 infobox">
-                            <div class="">
-                                <h4>Time Based tax Services</h4><hr />
-                                <p>First in class with time based Income Tax Services.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 infobox">
-                            <div class="">
-                                <h4>Online Personalized CA Services</h4><hr />
-                                <p>Own your personalized charted accountant services at price starting from Rs 999.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 infobox">
-                            <div class="">
-                                <h4>Lifetime tax Service</h4><hr />
-                                <p>Avail lifetime tax services without hassle.</p>
-                            </div>
-                        </div>
-                        
-                        
-                             
-                    </div>
-                </div>
-           <!-- Hero Item End -->
-			
-            
-            <!--<div class="hero-item bg-theme">
-                <div class="container">
-                    
-                </div>
-            </div>-->
-			
-        </div><!-- Hero Slider End -->
-    </div><!-- Hero Section End -->
+    <!-- Top Section Start -->
+    <section class="top-slider pb-55 pt-55">
+		<div id="demo" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
+			</ul>
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="slider-content">
+						<h2>Tax Consultant for life</h2>
+						<div class="slider-box">
+							<span class="box-hed">Eazy Kar</span>
+							<span class=""><img src="assets/images/alarm-clock.png" alt=""></span>
+							<span class="box-body">Time Based Services</span>
+						</div>
+						<!--<div class="slider-bottom-text">First in class with time based tax service</div>-->
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="slider-content">
+						<h2>Tax Consultant for life</h2>
+						<div class="slider-box">
+							<span class="box-hed">Eazy Kar</span>
+							<span class=""><img src="assets/images/alarm-clock.png" alt=""></span>
+							<span class="box-body">Online Personalised <br> CA Services</span>
+						</div>
+						<!--<div class="slider-bottom-text">Online Personalised CA Services</div>-->
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="slider-content">
+						<h2>Tax Consultant for life</h2>
+						<div class="slider-box">
+							<span class="box-hed">Eazy Kar</span>
+							<span class=""><img src="assets/images/alarm-clock.png" alt=""></span>
+							<span class="box-body">Lifetime Tax Services</span>
+						</div>
+						<!--<div class="slider-bottom-text">Lifetime Tax Services</div>-->
+					</div>
+				</div>
+			</div>
+		  
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+	</section>
+	<!-- Top Section End -->
+	
+	<!-- Package section start -->
+	<section class="package-section pb-60 pt-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="pb-60 text-center text-white">Our Packages</h2>
+				</div>
+				<div class="col-md-6">
+					<div id="individual-packages-slideshow">
+						<div class="packages-col">
+							<div class="package-container text-center">
+								<div class="for-line">For Salaried Individuals</div>
+								<div class="sec-line">Starting at</div>
+								<div class="pack-main-data">
+									<div class="pack-row">
+										<div class="fee-amount">Rs. 999</div>
+										<div class="plus-sign">+</div>
+										<div class="gst-txt">GST</div>
+										<div class="bottom-txt">( Annually )</div>
+									</div>
+								</div>
+								<a href="" class="btn btn-outline-info">Know More</a>
+							</div>
+						</div>
+						<div class="packages-col">
+							<div class="package-container text-center">
+								<div class="for-line">For Salaried Individuals</div>
+								<div class="sec-line">Starting at</div>
+								<div class="pack-main-data">
+									<div class="pack-row">
+										<div class="fee-amount">Rs. 1999</div>
+										<div class="plus-sign">+</div>
+										<div class="gst-txt">GST</div>
+										<div class="bottom-txt">( Annually )</div>
+									</div>
+								</div>
+								<a href="" class="btn btn-outline-info">Know More</a>
+							</div>
+						</div>
+						<div class="packages-col">
+							<div class="package-container text-center">
+								<div class="for-line">For Salaried Individuals</div>
+								<div class="sec-line">Starting at</div>
+								<div class="pack-main-data">
+									<div class="pack-row">
+										<div class="fee-amount">Rs. 2999</div>
+										<div class="plus-sign">+</div>
+										<div class="gst-txt">GST</div>
+										<div class="bottom-txt">( Annually )</div>
+									</div>
+								</div>
+								<a href="" class="btn btn-outline-info">Know More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div id="business-packages-slideshow">
+						<div class="packages-col">
+							<div class="package-container text-center">
+								<div class="for-line">For Business Owners</div>
+								<div class="sec-line">Price Based On</div>
+								<div class="pack-main-data">
+									<div class="pack-row">
+										<div class="pack-txt">Complexity1</div>
+									</div>
+								</div>
+								<a href="" class="btn btn-outline-info">Know More</a>
+							</div>
+						</div>
+						<div class="packages-col">
+							<div class="package-container text-center">
+								<div class="for-line">For Business Owners</div>
+								<div class="sec-line">Price Based On</div>
+								<div class="pack-main-data">
+									<div class="pack-row">
+										<div class="pack-txt">Complexity2</div>
+									</div>
+								</div>
+								<a href="" class="btn btn-outline-info">Know More</a>
+							</div>
+						</div>
+						<div class="packages-col">
+							<div class="package-container text-center">
+								<div class="for-line">For Business Owners</div>
+								<div class="sec-line">Price Based On</div>
+								<div class="pack-main-data">
+									<div class="pack-row">
+										<div class="pack-txt">Complexity3</div>
+									</div>
+								</div>
+								<a href="" class="btn btn-outline-info">Know More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Package section end -->
 	
 	<!-- Mission Area -->
 	<div class="mission-area bg-gray pt-60">
@@ -244,28 +234,122 @@
 			<div class="row">
 				<div class="col-md-12 col-lg-12 col-sm-12">
 					<div class="mission-area-content pt-35">
-                             
-                                        <div class="mission-area-content  pb-70">
-                                            <h2 class="text-center">Our Income Tax <b>E-Filing Process</b></h2><hr />
-                                            <div class="row">
-
-                                                <div class="col-md-6 pt-70">
-
-                                                    <h4 style="font-size:28px;">Just upload your documents and our E-filing expert will prepare your tax return.</h4>
-                                                    <br />
-                                                    <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" class="cr-btn">
-                                                        <span>Know Your TAX</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-6">
-
-                                                    <img class=" wow fadeinright" src="assets/images/about/taxstep.png" style="width:100%;" alt="mission area thumb">
-
-                                                </div>
-                                                
-                                            </div>
-                                               
-                                            </div>    
+						<div class="mission-area-content pb-70">
+							<div class="row">
+								<div class="col-lg-7">
+									<div class="row">
+										<div class="col-lg-6 col-md-6">
+											<div class="infobox">
+												<div class="wrapper center-block">
+													<span class="fa fa-lg  fa-paper-plane text-info" style="display:block;"></span>
+													<b>Tax Planning</b>
+													<div class="infobox-content limit-text">
+														<p>If you are confused about 80C and other Tax breaks that you qualify for, then our team would be more than glad to assess your requirements and make the right suggestions.</p>
+													</div>
+													<a href="service.html" data-toggle="modal" data-target="#myModal" class="btn btn-outline-info">
+														<span>Know More</span>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="infobox">
+												<div class="wrapper center-block">
+													<span class="fa fa-lg  fa-clock-o text-info" style="display:block;"></span>
+													<b>Time-Based Services</b>
+													<div class="infobox-content limit-text">
+														<p>Our services are directed toward quality and therefore we provide you with the cutting edge time-based services.</p>
+													</div>
+													<a href="service.html" data-toggle="modal" data-target="#myModal2" class="btn btn-outline-info">
+														<span>Know More</span>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="infobox">
+												<div class="wrapper center-block">
+													<span class="fa fa-lg  fa-briefcase text-info" style="display:block;"></span>
+													<b>Customized Services for Businesses</b>
+													<div class="infobox-content limit-text">
+														<p>Post your business tax requirements and our expert will prepare customized solutions for you in no time.</p>
+													</div>
+													<a href="service.html" data-toggle="modal" data-target="#myModal3" class="btn btn-outline-info">
+														<span>Know More</span>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div class="infobox">
+												<div class="wrapper center-block">
+													<span class="fa fa-lg  fa-shield text-info" style="display:block;"></span>
+													<b>Highly Secure Data Management</b>
+													<div class="infobox-content limit-text">
+														<p>Customer Data is protected with 128 bit SS and ISO 27001 for data centre with round the clock availability.</p>
+													</div>
+													<a href="service.html" data-toggle="modal" data-target="#myModal4" class="btn btn-outline-info">
+														<span>Know More</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-5 pt-50">
+									<div class="row return-steps">
+										<div class="col-lg-12 pb-40">
+											<h2 class="text-center return-file-hed">Return File in 4 Easy Steps</h2>
+										</div>
+										<div class="col-lg-6 col-sm-6 steps">
+											<div class="return-file-step">
+												<div class="wrapper text-center">
+													<div class="step-count">1</div>
+													<div class="step-icon"><img src="assets/images/upload.png"></div>
+													<div class="step-txt">
+														Upload<br>
+														Documents
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-sm-6 steps">
+											<div class="return-file-step">
+												<div class="wrapper text-center">
+													<div class="step-count">2</div>
+													<div class="step-icon"><img src="assets/images/sofa.png"></div>
+													<div class="step-txt">
+														Relax
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-sm-6 steps">
+											<div class="return-file-step">
+												<div class="wrapper text-center">
+													<div class="step-count">3</div>
+													<div class="step-icon"><img src="assets/images/review.png"></div>
+													<div class="step-txt">
+														Review
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-sm-6 steps">
+											<div class="return-file-step">
+												<div class="wrapper text-center">
+													<div class="step-count">4</div>
+													<div class="step-icon"><img src="assets/images/tax.png"></div>
+													<div class="step-txt">
+														File Return
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>    
 					</div>
 				</div>
 				<div class="col-md-12 col-lg-6 col-sm-12">
@@ -278,102 +362,29 @@
 	</div>
 	<!--// Mission Area -->
 	
-    <!-- Service Section Start -->
-    <div class="video-area bg-fixed" style="background-image: url(assets/images/bg/1.png)" data-overlay="theme-color" data-opacity="8">
-        <div class="container">
-            <div class="row">
-
-                <!-- Section Title Start -->
-               
-                <!-- Feature Start-->
-                <div class="col-lg-3 infobox">
-                    <div class="wrapper center-block">
-                        <span class="fa fa-lg  fa-paper-plane text-info" style="display:block;"></span>
-                        <b>Tax Planning </b><hr />
-                        <p>If you are confused about 80C and other Tax breaks that you qualify for, then our team would be more than glad to assess your requirements and make the right suggestions.</p>
-
-                        
-                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal" class="btn btn-outline-info">
-                            <span>Know More</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 infobox">
-                    <div class="wrapper center-block">
-                        <span class="fa fa-lg  fa-clock-o text-info" style="display:block;"></span>
-                        <b>Time-Based Services</b><hr />
-                        <br />
-                        <p>Our services are directed toward quality and therefore we provide you with the cutting edge time-based services.</p>
-                        <br />
-                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal2" class="btn btn-outline-info">
-                            <span>Know More</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 infobox">
-                    <div class="wrapper center-block">
-                        <span class="fa fa-lg  fa-briefcase text-info" style="display:block;"></span>
-                        <b>Customized Services for Businesses</b><hr />
-                        <br />
-                        <p>Post your business tax requirements and our expert will prepare customized solutions for you in no time.</p>
-
-                        <br />
-                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal3" class="btn btn-outline-info">
-                            <span>Know More</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 infobox">
-                    <div class="wrapper center-block">
-                        <span class="fa fa-lg  fa-shield text-info" style="display:block;"></span>
-                        <b>Highly Secure Data Management</b><hr />
-                        <br />
-                        <p>Customer Data is protected with 128 bit SS and ISO 27001 for data centre with round the clock availability.</p>
-                        <br />
-                        <a th:href="@{/tax-knowledge}" href="tax-knowledge.html" data-toggle="modal" data-target="#myModal4" class="btn btn-outline-info">
-                            <span>Know More</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Feature End-->
-
-            </div>
-        </div>
-    </div>
-	
-	
 	<!-- Service Section Start -->
-    <div class="team-section pb-55">
+    <div class="service-section pb-55">
         <div class="container">
             <div class="row">                
                 <!-- Section Title Start -->
-                <div class="col-12 pb-50 pt-80 tabli">
-                    <h2 class="text-center">Why <b>Us  ?</b></h2>
-                    <hr />
-                    <br />
-
-
+                <div class="col-12 pt-80 tabli">
+					
                     <div class="w3-bar w3-black">
-                        <div class="btn2 cr-btn" onclick="openCity('Commitment')">Expertise and Commitment </div>
-                        <div class="btn2 cr-btn" onclick="openCity('Support')">Online and Offline Support </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Commitment')">Expertise & Commitment </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Support')">Online Offline Support </div>
                         <div class="btn2 cr-btn" onclick="openCity('Skills')">Research Skills </div>
-                        <div class="btn2 cr-btn" onclick="openCity('Risk')">Risk Analysis and Minimization</div>
+                        <div class="btn2 cr-btn" onclick="openCity('Risk')">Risk Analysis & Minimization</div>
                         <div class="btn2 cr-btn" onclick="openCity('Scrutiny')">Records Scrutiny</div>
                         <div class="btn2 cr-btn" onclick="openCity('Privacy')">We Guard your Privacy</div>
                     </div>
-
                     <div id="Commitment" class="w3-container w3-display-container city pt-40">
-
-                        <h2>Expertise and Commitment</h2>
+                        <h2>Risk Analysis and Minimization</h2>
                         <ul>
                             <li>EazyKar is a team of dedicated professionals and are well-versed with the latest expectations and actions of the Income Tax Department. </li>
-                            
                             <li>We absolutely understand the concerns of our clients and give them a Bird’s Eye view of what the future holds. </li>
                         </ul>
                     </div>
-
                     <div id="Support" class="w3-container w3-display-container city  pt-40" style="display:none">
-
                         <h2>Online and Offline Support </h2>
                         <ul>
                             <li>EazyKar offers you access to one of the most advanced and updated Software that ensures 99.99 percent human-grade accuracy. </li>
@@ -443,16 +454,120 @@ function openCity(cityName) {
     </div>
 	<!-- Service Section End -->
 	
-
-	
-	
-	
-	
-
-	
-	
-
-
+	<!-- Blog Section Start -->
+	<section class="pb-55 pt-55 blogs-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="theme-title text-center">
+						<h2>Our Latest Blogs</h2>
+					</div>
+				</div>
+			</div>
+			<div class="blog-carousel owl-carousel owl-theme">
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/1.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/2.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/3.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/1.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/2.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/3.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/1.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/2.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="blog-box">
+						<div class="blog-img"><img src="assets/images/blog/3.png" class="img-responsive" alt=""></div>
+						<div class="blog-content">
+							<p class="blog-title">10 points to remember before last date of ITR filing</p>
+							<p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+							<p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+							<p><span class="pull-right"><a href="">Read More__</a></span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Blog Section End -->
 	
     <!-- Footer Top Section Start -->
     <div class="footer-top-section bg-cyan-blue pt-100 pb-60">
@@ -460,7 +575,7 @@ function openCity(cityName) {
             <div class="row">
                 
                 <!-- Footer Widget Start -->
-                <div class="footer-widget text-left col-lg-4 col-md-6 col-12 mb-40">                    
+                <div class="footer-widget text-left col-lg-4 col-md-4 col-12 mb-40">                    
                     <h3 class="title">Contact <span>Us</span></h3>                    
                     <ul class="contact-list">
                         <li><span>Phone:</span> <a href="tel:+99858547589">+91 8888888888</a></li>
@@ -471,7 +586,7 @@ function openCity(cityName) {
 				<!-- Footer Widget End -->
                 
                 <!-- Footer Widget Start -->
-                <div class="footer-widget text-center col-lg-4 col-md-6 col-12 mb-40">                    
+                <div class="footer-widget text-center col-lg-4 col-md-4 col-12 mb-40">                    
                     <div class="footer-about">                       
                         <!-- Logo -->
                         <img src="assets/images/footer-logo.png" alt="Footer Logo">
@@ -489,7 +604,7 @@ function openCity(cityName) {
 				<!-- Footer Widget End -->
                 
                 <!-- Footer Widget Start -->
-                <div class="footer-widget text-right col-lg-4 col-md-6 col-12 mb-40">                    
+                <div class="footer-widget text-right col-lg-4 col-md-4 col-12 mb-40">                    
                     <h3 class="title">INSTAGRAM <span>photos</span></h3>                   
                     <div class="footer-instagram">
                         <ul id="instagram-feed"></ul>
@@ -500,10 +615,6 @@ function openCity(cityName) {
             </div>
         </div>
     </div><!-- Footer Top Section End -->
-
-
-
-
 
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -609,15 +720,15 @@ function openCity(cityName) {
         </div>
     </div>
 	<!-- Footer Bottom Section End -->
-    
 </div>
 <!-- Main Wrapper End -->
 
 <!-- JS
 ============================================ -->
-
 <!-- jQuery JS -->
 <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
+<!-- Owl Carousal -->
+<script src="assets/js/owl.carousel.js"></script>
 <!-- Popper JS -->
 <script src="assets/js/popper.min.js"></script>
 <!-- Bootstrap JS -->
@@ -631,7 +742,6 @@ function openCity(cityName) {
 <script src="assets/js/maps/jquery.vmap.world.js"></script>
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
-
     <script>
       
 
@@ -650,8 +760,6 @@ function openCity(cityName) {
 
 
     </script>
-
-
     <script>
             function openCity(cityName) {
                 var i;
@@ -662,11 +770,5 @@ function openCity(cityName) {
                 document.getElementById(cityName).style.display = "block";
             }
     </script>
-
-
-
 </body>
-
-
-
 </html>
