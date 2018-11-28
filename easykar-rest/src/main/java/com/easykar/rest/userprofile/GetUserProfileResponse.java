@@ -1,11 +1,9 @@
-package com.easykar.rest.model.profile;
+package com.easykar.rest.userprofile;
 
-import com.easykar.rest.model.registration.EmptyJsonResponse;
-
-public class GetProfileFailResponse {
+public class GetUserProfileResponse {
     private String response_code;
     private String response_msg;
-    private EmptyJsonResponse Profile_result;
+    private UserProfile profile_result;
     
     public String getResponse_code() {
         return response_code;
@@ -23,11 +21,12 @@ public class GetProfileFailResponse {
         this.response_msg = response_msg;
     }
     
-    public EmptyJsonResponse getProfile_result() {
-        return Profile_result;
+    public UserProfile getProfile_result() {
+        return profile_result;
     }
     
-    public void setProfile_result(EmptyJsonResponse Login_result) {
-        this.Profile_result = Login_result;
+    public void setProfile_result(UserProfile profile_result) {
+        this.profile_result = profile_result;
     }
+    
 }

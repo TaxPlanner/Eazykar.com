@@ -1,11 +1,8 @@
-package com.easykar.rest.model.profile;
+package com.easykar.rest.userprofile;
 
-import com.easykar.rest.controller.entity.UserProfile;
-
-public class GetProfileResponse {
+public class ResponseProfileSuccess {
     private String response_code;
     private String response_msg;
-    private UserProfile profile_result;
     
     public String getResponse_code() {
         return response_code;
@@ -21,14 +18,6 @@ public class GetProfileResponse {
     
     public void setResponse_msg(String response_msg) {
         this.response_msg = response_msg;
-    }
-    
-    public UserProfile getProfile_result() {
-        return profile_result;
-    }
-    
-    public void setProfile_result(UserProfile profile_result) {
-        this.profile_result = profile_result;
     }
     
 }

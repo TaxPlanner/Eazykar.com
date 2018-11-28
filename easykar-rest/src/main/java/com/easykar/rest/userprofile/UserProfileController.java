@@ -1,36 +1,31 @@
-package com.easykar.rest.controller;
+package com.easykar.rest.userprofile;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.easykar.rest.controller.entity.UserProfile;
-import com.easykar.rest.model.profile.GetProfileByID;
-import com.easykar.rest.model.profile.GetProfileFailResponse;
-import com.easykar.rest.model.profile.GetProfileResponse;
-import com.easykar.rest.model.profile.ResponseProfileSuccess;
 import com.easykar.rest.model.registration.EmptyJsonResponse;
-import com.easykar.rest.service.UserProfileService;
 
-@Controller
-@RequestMapping(value = { "/profile" })
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/profile")
 public class UserProfileController {
     
-    @Autowired
-    UserProfileService userProfileService;
+    private final UserProfileService userProfileService;
     
     @RequestMapping(value = "/save", method = RequestMethod.POST, produces = { "application/json", "application/xml" }, consumes = {
             "application/json",
             "application/xml" })
-    public ResponseEntity<?> addProfile(@RequestBody UserProfile profile) {
+    public ResponseEntity<?> addUserProfile(@RequestBody UserProfile profile) {
         ResponseProfileSuccess regRes = new ResponseProfileSuccess();
         try {
-            
-            UserProfile getProfile = userProfileService.findByuserid(profile.getUserid());
+    
+            UserProfile getProfile = userProfileService.findByUserId(profile.getUserid());
             
             if (getProfile == null) {
                 boolean isSave = userProfileService.save(profile);
@@ -68,10 +63,10 @@ public class UserProfileController {
     
     @RequestMapping(value = "/get", method = RequestMethod.POST, produces = { "application/json",
             "application/xml" }, consumes = { "application/json", "application/xml" })
-    public ResponseEntity<?> getProfile(@RequestBody GetProfileByID profile) {
-        GetProfileResponse regRes = new GetProfileResponse();
+    public ResponseEntity<?> getUserProfile(@RequestBody GetProfileByID profile) {
+        GetUserProfileResponse regRes = new GetUserProfileResponse();
         GetProfileFailResponse regResFail = new GetProfileFailResponse();
-        UserProfile getProfile = userProfileService.findByuserid(profile.getUserID());
+        UserProfile getProfile = userProfileService.findByUserId(profile.getUserID());
         if (getProfile == null) {
             regResFail.setResponse_code("0");
             regResFail.setResponse_msg("Profile not found");
@@ -82,7 +77,7 @@ public class UserProfileController {
             regRes.setResponse_code("1");
             regRes.setResponse_msg("Profile found");
             regRes.setProfile_result(getProfile);
-            return new ResponseEntity<GetProfileResponse>(regRes, HttpStatus.CREATED);
+            return new ResponseEntity<GetUserProfileResponse>(regRes, HttpStatus.CREATED);
         }
     }
 }

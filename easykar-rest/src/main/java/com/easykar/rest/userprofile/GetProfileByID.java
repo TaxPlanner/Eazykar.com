@@ -1,4 +1,4 @@
-package com.easykar.rest.model.profile;
+package com.easykar.rest.userprofile;
 
 import java.io.Serializable;
 

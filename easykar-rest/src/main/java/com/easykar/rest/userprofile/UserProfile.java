@@ -1,4 +1,4 @@
-package com.easykar.rest.controller.entity;
+package com.easykar.rest.userprofile;
 
 import java.io.Serializable;
 import java.util.Objects;
