@@ -16,16 +16,16 @@ import com.easykar.rest.model.registration.FailLoginResponse;
 import com.easykar.rest.model.registration.FailRegistrationResponse;
 import com.easykar.rest.model.registration.LoginResponse;
 import com.easykar.rest.model.registration.RegistrationResponse;
-import com.easykar.rest.model.registration.UserLogin;
-import com.easykar.rest.model.registration.Users;
-import com.easykar.rest.service.UserService;
+import com.easykar.rest.user.DefaultUserService;
+import com.easykar.rest.user.UserLogin;
+import com.easykar.rest.user.Users;
 
 @RestController
 @RequestMapping("/users")
 public class UserRegistrationController {
     
     @Autowired
-    UserService userService;
+    DefaultUserService userService;
     
     @RequestMapping(value = "/registeration", method = RequestMethod.POST, produces = { "application/json", "application/xml" }, consumes = {
             "application/json",

@@ -1,5 +1,7 @@
 package com.easykar.rest.model.registration;
 
+import com.easykar.rest.user.Users;
+
 public class LoginResponse {
     private String response_code;
     private String response_msg;

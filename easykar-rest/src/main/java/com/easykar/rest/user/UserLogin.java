@@ -1,4 +1,4 @@
-package com.easykar.rest.model.registration;
+package com.easykar.rest.user;
 
 public class UserLogin {
     private String email;
