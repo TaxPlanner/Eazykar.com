@@ -1,4 +1,4 @@
-package com.easykar.rest.controller;
+package com.easykar.rest.upload;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -14,17 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.easykar.rest.controller.entity.Documents;
-import com.easykar.rest.controller.entity.UploadFiles;
-import com.easykar.rest.model.profile.ResponseProfileSuccess;
-import com.easykar.rest.service.DocumentsService;
-import com.easykar.rest.service.UploadFileService;
+import com.easykar.rest.userprofile.ResponseProfileSuccess;
 
 @Controller
 @RequestMapping(value = { "/file" })
 public class FileUploadController {
     
     private static String UPLOADED_FOLDER = "//home//manoj//upload//";
+    
     @Autowired
     UploadFileService uploadFileService;
     
@@ -98,10 +95,4 @@ public class FileUploadController {
             return new ResponseEntity<ResponseProfileSuccess>(regRes, HttpStatus.CREATED);
         }
     }
-    
-    //    @RequestMapping(value = "/savedescription", method = RequestMethod.POST, produces = {"application/json", "application/xml"}, consumes =
-    //    {"application/json", "application/xml"})
-    //    public ResponseEntity<?> saveFilePassword(@RequestBody Documents docs) {
-    //
-    //    }
 }
