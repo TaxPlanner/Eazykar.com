@@ -1,0 +1,528 @@
+<!--
+<div class="row">
+    <div class="col-md-3">
+        <span class="hipster img-fluid rounded"></span>
+    </div>
+    <div class="col-md-9">
+        <h1 class="display-4">Welcome to EazyKar!</h1>
+        <p class="lead">This is your homepage</p>
+
+        <div [ngSwitch]="isAuthenticated()">
+            <div class="alert alert-success" *ngSwitchCase="true">
+                <span id="home-logged-message" *ngIf="account"
+                   > You are logged in as user "{{account.login}}". </span>
+            </div>
+
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>If you want to </span>
+                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+            </div>
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>You don't have an account yet?</span>&nbsp;
+                <a class="alert-link" routerLink="register">Register a new account</a>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+
+<div class="contact-section pt-55 ">
+    <!-- Top Section Start -->
+    <section class="top-slider pb-55 pt-55">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="slider-content">
+                        <h2>Tax Consultant for life</h2>
+                        <div class="slider-box">
+                            <span class="box-hed">Eazy Kar</span>
+                            <span class=""><img src="../../content/images/alarm-clock.png" alt=""></span>
+                            <span class="box-body">Time Based Services</span>
+                        </div>
+                        <!--<div class="slider-bottom-text">First in class with time based tax service</div>-->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slider-content">
+                        <h2>Tax Consultant for life</h2>
+                        <div class="slider-box">
+                            <span class="box-hed">Eazy Kar</span>
+                            <span class=""><img src="../../content/images/alarm-clock.png" alt=""></span>
+                            <span class="box-body">Online Personalised <br> CA Services</span>
+                        </div>
+                        <!--<div class="slider-bottom-text">Online Personalised CA Services</div>-->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slider-content">
+                        <h2>Tax Consultant for life</h2>
+                        <div class="slider-box">
+                            <span class="box-hed">Eazy Kar</span>
+                            <span class=""><img src="../../content/images/alarm-clock.png" alt=""></span>
+                            <span class="box-body">Lifetime Tax Services</span>
+                        </div>
+                        <!--<div class="slider-bottom-text">Lifetime Tax Services</div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </section>
+    <!-- Top Section End -->
+
+    <!-- Package section start -->
+    <section class="package-section pb-60 pt-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="pb-60 text-center text-white">Our Packages</h2>
+                </div>
+                <div class="col-md-6">
+                    <div id="individual-packages-slideshow">
+                        <div class="packages-col">
+                            <div class="package-container text-center">
+                                <div class="for-line">For Salaried Individuals</div>
+                                <div class="sec-line">Starting at</div>
+                                <div class="pack-main-data">
+                                    <div class="pack-row">
+                                        <div class="fee-amount">Rs. 999</div>
+                                        <div class="plus-sign">+</div>
+                                        <div class="gst-txt">GST</div>
+                                        <div class="bottom-txt">( Annually )</div>
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-outline-info">Know More</a>
+                            </div>
+                        </div>
+                        <div class="packages-col">
+                            <div class="package-container text-center">
+                                <div class="for-line">For Salaried Individuals</div>
+                                <div class="sec-line">Starting at</div>
+                                <div class="pack-main-data">
+                                    <div class="pack-row">
+                                        <div class="fee-amount">Rs. 1999</div>
+                                        <div class="plus-sign">+</div>
+                                        <div class="gst-txt">GST</div>
+                                        <div class="bottom-txt">( Annually )</div>
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-outline-info">Know More</a>
+                            </div>
+                        </div>
+                        <div class="packages-col">
+                            <div class="package-container text-center">
+                                <div class="for-line">For Salaried Individuals</div>
+                                <div class="sec-line">Starting at</div>
+                                <div class="pack-main-data">
+                                    <div class="pack-row">
+                                        <div class="fee-amount">Rs. 2999</div>
+                                        <div class="plus-sign">+</div>
+                                        <div class="gst-txt">GST</div>
+                                        <div class="bottom-txt">( Annually )</div>
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-outline-info">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="business-packages-slideshow">
+                        <div class="packages-col">
+                            <div class="package-container text-center">
+                                <div class="for-line">For Business Owners</div>
+                                <div class="sec-line">Price Based On</div>
+                                <div class="pack-main-data">
+                                    <div class="pack-row">
+                                        <div class="pack-txt">Complexity1</div>
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-outline-info">Know More</a>
+                            </div>
+                        </div>
+                        <div class="packages-col">
+                            <div class="package-container text-center">
+                                <div class="for-line">For Business Owners</div>
+                                <div class="sec-line">Price Based On</div>
+                                <div class="pack-main-data">
+                                    <div class="pack-row">
+                                        <div class="pack-txt">Complexity2</div>
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-outline-info">Know More</a>
+                            </div>
+                        </div>
+                        <div class="packages-col">
+                            <div class="package-container text-center">
+                                <div class="for-line">For Business Owners</div>
+                                <div class="sec-line">Price Based On</div>
+                                <div class="pack-main-data">
+                                    <div class="pack-row">
+                                        <div class="pack-txt">Complexity3</div>
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-outline-info">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Package section end -->
+
+    <!-- Mission Area -->
+    <div class="mission-area bg-gray pt-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="mission-area-content pt-35">
+                        <div class="mission-area-content pb-70">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="infobox">
+                                                <div class="wrapper center-block">
+                                                    <span class="fa fa-lg  fa-paper-plane text-info" style="display:block;"></span>
+                                                    <b>Tax Planning</b>
+                                                    <div class="infobox-content limit-text">
+                                                        <p>If you are confused about 80C and other Tax breaks that you qualify for, then our team would be more than glad to assess your requirements and make the right suggestions.</p>
+                                                    </div>
+                                                    <a href="service.html" data-toggle="modal" data-target="#myModal" class="btn btn-outline-info">
+                                                        <span>Know More</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="infobox">
+                                                <div class="wrapper center-block">
+                                                    <span class="fa fa-lg  fa-clock-o text-info" style="display:block;"></span>
+                                                    <b>Time-Based Services</b>
+                                                    <div class="infobox-content limit-text">
+                                                        <p>Our services are directed toward quality and therefore we provide you with the cutting edge time-based services.</p>
+                                                    </div>
+                                                    <a href="service.html" data-toggle="modal" data-target="#myModal2" class="btn btn-outline-info">
+                                                        <span>Know More</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="infobox">
+                                                <div class="wrapper center-block">
+                                                    <span class="fa fa-lg  fa-briefcase text-info" style="display:block;"></span>
+                                                    <b>Customized Services for Businesses</b>
+                                                    <div class="infobox-content limit-text">
+                                                        <p>Post your business tax requirements and our expert will prepare customized solutions for you in no time.</p>
+                                                    </div>
+                                                    <a href="service.html" data-toggle="modal" data-target="#myModal3" class="btn btn-outline-info">
+                                                        <span>Know More</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="infobox">
+                                                <div class="wrapper center-block">
+                                                    <span class="fa fa-lg  fa-shield text-info" style="display:block;"></span>
+                                                    <b>Highly Secure Data Management</b>
+                                                    <div class="infobox-content limit-text">
+                                                        <p>Customer Data is protected with 128 bit SS and ISO 27001 for data centre with round the clock availability.</p>
+                                                    </div>
+                                                    <a href="service.html" data-toggle="modal" data-target="#myModal4" class="btn btn-outline-info">
+                                                        <span>Know More</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 pt-50">
+                                    <div class="row return-steps">
+                                        <div class="col-lg-12 pb-40">
+                                            <h2 class="text-center return-file-hed">Return File in 4 Easy Steps</h2>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 steps">
+                                            <div class="return-file-step">
+                                                <div class="wrapper text-center">
+                                                    <div class="step-count">1</div>
+                                                    <div class="step-icon"><img src="../../content/images/upload.png"></div>
+                                                    <div class="step-txt">
+                                                        Upload<br>
+                                                        Documents
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 steps">
+                                            <div class="return-file-step">
+                                                <div class="wrapper text-center">
+                                                    <div class="step-count">2</div>
+                                                    <div class="step-icon"><img src="../../content/images/sofa.png"></div>
+                                                    <div class="step-txt">
+                                                        Relax
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 steps">
+                                            <div class="return-file-step">
+                                                <div class="wrapper text-center">
+                                                    <div class="step-count">3</div>
+                                                    <div class="step-icon"><img src="../../content/images/review.png"></div>
+                                                    <div class="step-txt">
+                                                        Review
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 steps">
+                                            <div class="return-file-step">
+                                                <div class="wrapper text-center">
+                                                    <div class="step-count">4</div>
+                                                    <div class="step-icon"><img src="../../content/images/tax.png"></div>
+                                                    <div class="step-txt">
+                                                        File Return
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6 col-sm-12">
+                    <div class="mission-area-thumb">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Mission Area -->
+
+    <!-- Service Section Start -->
+    <div class="service-section pb-55">
+        <div class="container">
+            <div class="row">
+                <!-- Section Title Start -->
+                <div class="col-12 pt-80 tabli">
+
+                    <div class="w3-bar w3-black">
+                        <div class="btn2 cr-btn" onclick="openCity('Commitment')">Expertise & Commitment </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Support')">Online Offline Support </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Skills')">Research Skills </div>
+                        <div class="btn2 cr-btn" onclick="openCity('Risk')">Risk Analysis & Minimization</div>
+                        <div class="btn2 cr-btn" onclick="openCity('Scrutiny')">Records Scrutiny</div>
+                        <div class="btn2 cr-btn" onclick="openCity('Privacy')">We Guard your Privacy</div>
+                    </div>
+                    <div id="Commitment" class="w3-container w3-display-container city pt-40">
+                        <h2>Risk Analysis and Minimization</h2>
+                        <ul>
+                            <li>EazyKar is a team of dedicated professionals and are well-versed with the latest expectations and actions of the Income Tax Department. </li>
+                            <li>We absolutely understand the concerns of our clients and give them a Bird’s Eye view of what the future holds. </li>
+                        </ul>
+                    </div>
+                    <div id="Support" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>Online and Offline Support </h2>
+                        <ul>
+                            <li>EazyKar offers you access to one of the most advanced and updated Software that ensures 99.99 percent human-grade accuracy. </li>
+
+                            <li>Our Technical Team updates the software from time to time to provide you with the most accurate calculations for filing of returns. </li>
+
+                            <li>We provide personalized services in case you need our support beyond mere filing of annual returns.</li>
+                        </ul>
+                    </div>
+
+                    <div id="Skills" class="w3-container w3-display-container city  pt-40" style="display:none">
+
+                        <h2>Research Skills </h2>
+                        <ul>
+                            <li>Our team of professionals understands the need and necessity to remain informed in order to protect the interests of our clients. Therefore, we are always up-to-date with the latest Circulars, Notifications, Amendments and Judgments that impact the financial interests of our clients.</li>
+                            <li>With our certified and conversant team of Professionals, we work non-stop to minimize our Client’s risk of non-compliance and litigation. </li>
+                        </ul>
+
+                    </div>
+
+                    <div id="Risk" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>Risk Analysis and Minimization  </h2>
+                        <ul>
+                            <li>Without a rock-solid foundation, even the tallest Tower collapses and that’s true when it comes to business and individual growth. We measure your risk and give best possible solutions to minimize it.</li>
+                            <li>We help you comply with the required Accounting Standards, co-ordinate with your Cost Accountants, Auditors and internal Tax Team to help you with the overall compliance.</li>
+                        </ul>
+                    </div>
+
+                    <div id="Scrutiny" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>Records Scrutiny </h2>
+                        <ul>
+                            <li>Our core expertise is in analyzing the past records and pinpointing the strengths and weakness of the Financial Documents. </li>
+                            <li>We make suggestions pertaining to non compliance of the mandatory Accounting and Auditing norms. </li>
+                        </ul>
+                    </div>
+
+                    <div id="Privacy" class="w3-container w3-display-container city  pt-40" style="display:none">
+                        <h2>We Guard your Privacy </h2>
+                        <ul>
+                            <li>You can expect absolute privacy while working with us because we strive towards guarding your Financial Data.</li>
+                            <li>Engaging us not only saves your time but also keeps your financial data private, ensuring that it remains safe from your contemporaries. </li>
+                        </ul>
+                    </div>
+
+
+
+
+                    <script>
+                        function openCity(cityName) {
+                            var i;
+                            var x = document.getElementsByClassName("city");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+                            document.getElementById(cityName).style.display = "block";
+                        }
+                    </script>
+
+
+
+
+                </div>
+                <!-- Section Title End -->
+            </div>
+
+        </div>
+    </div>
+    <!-- Service Section End -->
+
+    <!-- Blog Section Start -->
+    <section class="pb-55 pt-55 blogs-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="theme-title text-center">
+                        <h2>Our Latest Blogs</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-carousel owl-carousel owl-theme">
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/1.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/2.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/3.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/1.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/2.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/3.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/1.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/2.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="blog-box">
+                        <div class="blog-img"><img src="../../content/images/blog/3.png" class="img-responsive" alt=""></div>
+                        <div class="blog-content">
+                            <p class="blog-title">10 points to remember before last date of ITR filing</p>
+                            <p class="blogr-name"><span class="blog-generator">EazyKar,</span><span class="blog-date">21 October 2018</span></p>
+                            <p class="blog-detail limit-text">I have purchased many great templates over the years but this product and this company have taken it to the next level. Exceptional customizability.</p>
+                            <p><span class="pull-right"><a href="">Read More__</a></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->

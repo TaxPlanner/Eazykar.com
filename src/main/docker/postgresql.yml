@@ -1,0 +1,11 @@
+version: '2'
+services:
+    eazykar-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/eazykar/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=Chocolate2019
+        ports:
+            - 5432:5432

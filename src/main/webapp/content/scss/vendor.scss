@@ -1,0 +1,25 @@
+/* after changing this file run 'npm run webpack:build' */
+
+/***************************
+put Sass variables here:
+eg $input-color: red;
+****************************/
+// Override Boostrap variables
+@import 'bootstrap-variables';
+// Import Bootstrap source files from node_modules
+@import '~bootstrap/scss/bootstrap';
+
+@import '../css/icofont.min.css';
+@import '../css/icon-font.min.css';
+@import '../css/jqvmap.min.css';
+@import '../css/landing-page.css';
+@import '../css/lightgallery.min.css';
+@import '../css/loading.css';
+@import '../css/owl.carousel.css';
+@import '../css/owl.theme.default.min.css';
+@import '../css/plugins.css';
+@import '../css/style.css';
+/* jhipster-needle-scss-add-vendor */
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
