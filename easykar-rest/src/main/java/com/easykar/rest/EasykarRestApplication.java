@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class EasykarRestApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(EasykarRestApplication.class, args);
-	}
+    
+    public static void main(String[] args) {
+        SpringApplication.run(EasykarRestApplication.class, args);
+    }
 }

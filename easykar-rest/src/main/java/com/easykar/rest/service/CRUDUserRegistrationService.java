@@ -13,11 +13,11 @@ import java.util.List;
  * @author manoj
  */
 public interface CRUDUserRegistrationService<E> {
-        E save(E entity);
-
-	E getById(Serializable id);
-
-	List<E> getAll();
-
-        void delete(Serializable id);
+    E save(E entity);
+    
+    E getById(Serializable id);
+    
+    List<E> getAll();
+    
+    void delete(Serializable id);
 }

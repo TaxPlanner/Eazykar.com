@@ -5,16 +5,18 @@
  */
 package com.easykar.rest.controller.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  *
@@ -24,16 +26,16 @@ import javax.persistence.Table;
 @Table(name = "plans")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserPlan implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    
     public Long getId() {
         return id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
@@ -55,55 +57,55 @@ public class UserPlan implements Serializable {
     
     @Column(name = "status", length = 50)
     String status;
-
+    
     public Long getUserID() {
         return userID;
     }
-
+    
     public void setUserID(Long userID) {
         this.userID = userID;
     }
-
+    
     public Long getPakageID() {
         return pakageID;
     }
-
+    
     public void setPakageID(Long pakageID) {
         this.pakageID = pakageID;
     }
-
+    
     public Timestamp getStartDate() {
         return startDate;
     }
-
+    
     public void setStartDate(Timestamp startDate) {
         this.startDate = startDate;
     }
-
+    
     public Timestamp getEndDate() {
         return endDate;
     }
-
+    
     public void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
     }
-
+    
     public Long getDuration() {
         return duration;
     }
-
+    
     public void setDuration(Long duration) {
         this.duration = duration;
     }
-
+    
     public String getStatus() {
         return status;
     }
-
+    
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -116,7 +118,7 @@ public class UserPlan implements Serializable {
         hash = 53 * hash + Objects.hashCode(this.status);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -147,16 +149,13 @@ public class UserPlan implements Serializable {
         if (!Objects.equals(this.endDate, other.endDate)) {
             return false;
         }
-        if (!Objects.equals(this.duration, other.duration)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "UserPlan{" + "id=" + id + ", userID=" + userID + ", pakageID=" + pakageID + ", startDate=" + startDate + ", endDate=" + endDate + ", duration=" + duration + ", status=" + status + '}';
+        return Objects.equals(this.duration, other.duration);
     }
     
+    @Override
+    public String toString() {
+        return "UserPlan{" + "id=" + id + ", userID=" + userID + ", pakageID=" + pakageID + ", startDate=" + startDate + ", endDate=" + endDate
+                + ", duration=" + duration + ", status=" + status + '}';
+    }
     
 }

@@ -5,7 +5,6 @@
  */
 package com.easykar.rest.controller.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -15,7 +14,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.Type;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  *
@@ -25,7 +27,7 @@ import org.hibernate.annotations.Type;
 @Table(name = "upload")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UploadFiles implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,11 +37,11 @@ public class UploadFiles implements Serializable {
     Long userID;
     
     @Column(name = "form16", length = 50)
-    @Type(type="text")
+    @Type(type = "text")
     String form16;
     
     @Column(name = "form26AS", length = 50)
-    @Type(type="text")
+    @Type(type = "text")
     String form26AS;
     
     @Column(name = "otherDoc", length = 50)
@@ -50,63 +52,63 @@ public class UploadFiles implements Serializable {
     
     @Column(name = "status", length = 50)
     String status;
-
+    
     public Long getId() {
         return id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
-
+    
     public Long getUserID() {
         return userID;
     }
-
+    
     public void setUserID(Long userID) {
         this.userID = userID;
     }
-
+    
     public String getForm16() {
         return form16;
     }
-
+    
     public void setForm16(String form16) {
         this.form16 = form16;
     }
-
+    
     public String getForm26AS() {
         return form26AS;
     }
-
+    
     public void setForm26AS(String form26AS) {
         this.form26AS = form26AS;
     }
-
+    
     public String getOtherDoc() {
         return otherDoc;
     }
-
+    
     public void setOtherDoc(String otherDoc) {
         this.otherDoc = otherDoc;
     }
-
+    
     public String getAssessmentYear() {
         return assessmentYear;
     }
-
+    
     public void setAssessmentYear(String assessmentYear) {
         this.assessmentYear = assessmentYear;
     }
-
+    
     public String getStatus() {
         return status;
     }
-
+    
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -119,7 +121,7 @@ public class UploadFiles implements Serializable {
         hash = 37 * hash + Objects.hashCode(this.status);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -150,17 +152,13 @@ public class UploadFiles implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.userID, other.userID)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.userID, other.userID);
     }
-
+    
     @Override
     public String toString() {
-        return "UploadFiles{" + "id=" + id + ", userID=" + userID + ", form16=" + form16 + ", form26AS=" + form26AS + ", otherDoc=" + otherDoc + ", assessmentYear=" + assessmentYear + ", status=" + status + '}';
+        return "UploadFiles{" + "id=" + id + ", userID=" + userID + ", form16=" + form16 + ", form26AS=" + form26AS + ", otherDoc=" + otherDoc
+                + ", assessmentYear=" + assessmentYear + ", status=" + status + '}';
     }
-
-    
     
 }

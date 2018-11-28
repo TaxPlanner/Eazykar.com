@@ -5,9 +5,10 @@
  */
 package com.easykar.rest.repository;
 
-import com.easykar.rest.controller.entity.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.easykar.rest.controller.entity.UserProfile;
 
 /**
  *
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
-  //  UserProfile findByUserid(long user_ID);
-
-    public UserProfile findByuserid(Long Id);
+    //  UserProfile findByUserid(long user_ID);
+    
+    UserProfile findByuserid(Long Id);
 }

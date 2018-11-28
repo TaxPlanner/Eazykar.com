@@ -5,15 +5,17 @@
  */
 package com.easykar.rest.model.registration;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  *
@@ -23,7 +25,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 @JsonInclude(Include.NON_NULL)
-public class Users implements java.io.Serializable{
+public class Users implements java.io.Serializable {
     
     private static final long serialVersionUID = 4910225916550731446L;
     
@@ -46,14 +48,13 @@ public class Users implements java.io.Serializable{
     @Column(name = "status", length = 50)
     String status;
     
-    
     public Users() {
     }
     
     public Users(long id) {
         this.id = id;
     }
-
+    
     public Users(long id, String email, String password, String usertype, String createdon, String ipaddress, String operatingsyatem, String status) {
         this.id = id;
         this.email = email;
@@ -64,75 +65,71 @@ public class Users implements java.io.Serializable{
         this.operatingsyatem = operatingsyatem;
         this.status = status;
     }
-
     
-    
-    
-
     public long getId() {
         return id;
     }
-
+    
     public void setId(long id) {
         this.id = id;
     }
-
+    
     public String getEmail() {
         return email;
     }
-
+    
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public String getPassword() {
         return password;
     }
-
+    
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
     public String getUsertype() {
         return usertype;
     }
-
+    
     public void setUsertype(String usertype) {
         this.usertype = usertype;
     }
-
+    
     public String getCreatedon() {
         return createdon;
     }
-
+    
     public void setCreatedon(String createdon) {
         this.createdon = createdon;
     }
-
+    
     public String getIpaddress() {
         return ipaddress;
     }
-
+    
     public void setIpaddress(String ipaddress) {
         this.ipaddress = ipaddress;
     }
-
+    
     public String getOperatingsyatem() {
         return operatingsyatem;
     }
-
+    
     public void setOperatingsyatem(String operatingsyatem) {
         this.operatingsyatem = operatingsyatem;
     }
-
+    
     public String getStatus() {
         return status;
     }
-
+    
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -146,7 +143,7 @@ public class Users implements java.io.Serializable{
         hash = 97 * hash + Objects.hashCode(this.status);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -180,16 +177,14 @@ public class Users implements java.io.Serializable{
         if (!Objects.equals(this.operatingsyatem, other.operatingsyatem)) {
             return false;
         }
-        if (!Objects.equals(this.status, other.status)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.status, other.status);
     }
-
+    
     @Override
     public String toString() {
-        return "{" + "id=" + id + ", email=" + email + ", password=" + password + ", usertype=" + usertype + ", createdon=" + createdon + ", ipaddress=" + ipaddress + ", operatingsyatem=" + operatingsyatem + ", status=" + status + '}';
-      //  return "{\"id\":1,\"email\":2,\"password\":3,\"usertype\":4,\"ipaddress\":5,\"operatingsyatem\":6,\"createdon\":7,\"status\":8}";
+        return "{" + "id=" + id + ", email=" + email + ", password=" + password + ", usertype=" + usertype + ", createdon=" + createdon
+                + ", ipaddress=" + ipaddress + ", operatingsyatem=" + operatingsyatem + ", status=" + status + '}';
+        //  return "{\"id\":1,\"email\":2,\"password\":3,\"usertype\":4,\"ipaddress\":5,\"operatingsyatem\":6,\"createdon\":7,\"status\":8}";
     }
-
+    
 }

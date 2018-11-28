@@ -5,14 +5,6 @@
  */
 package com.easykar.rest.controller;
 
-import com.easykar.rest.controller.entity.UserProfile;
-import com.easykar.rest.service.UserProfileService;
-import com.easykar.rest.model.profile.GetProfileByID;
-import com.easykar.rest.model.profile.GetProfileFailResponse;
-import com.easykar.rest.model.profile.GetProfileResponse;
-import com.easykar.rest.model.profile.ResponseProfileSuccess;
-import com.easykar.rest.model.registration.EmptyJsonResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,24 +13,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.easykar.rest.controller.entity.UserProfile;
+import com.easykar.rest.model.profile.GetProfileByID;
+import com.easykar.rest.model.profile.GetProfileFailResponse;
+import com.easykar.rest.model.profile.GetProfileResponse;
+import com.easykar.rest.model.profile.ResponseProfileSuccess;
+import com.easykar.rest.model.registration.EmptyJsonResponse;
+import com.easykar.rest.service.UserProfileService;
+
 /**
  *
  * @author manoj
  */
 @Controller
-@RequestMapping(value = {"/profile"})
+@RequestMapping(value = { "/profile" })
 public class UserProfileController {
-
+    
     @Autowired
     UserProfileService userProfileService;
-
-    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = {"application/json", "application/xml"}, consumes = {"application/json", "application/xml"})
+    
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = { "application/json", "application/xml" }, consumes = {
+            "application/json",
+            "application/xml" })
     public ResponseEntity<?> addProfile(@RequestBody UserProfile profile) {
         ResponseProfileSuccess regRes = new ResponseProfileSuccess();
         try {
-
+            
             UserProfile getProfile = userProfileService.findByuserid(profile.getUserid());
-
+            
             if (getProfile == null) {
                 boolean isSave = userProfileService.save(profile);
                 if (isSave) {
@@ -50,7 +52,7 @@ public class UserProfileController {
                     regRes.setResponse_msg("User profile has been failed");
                     return new ResponseEntity<ResponseProfileSuccess>(regRes, HttpStatus.CREATED);
                 }
-
+                
             } else {
                 boolean isUpdate = userProfileService.updateProfile(profile);
                 if (isUpdate) {
@@ -62,18 +64,19 @@ public class UserProfileController {
                     regRes.setResponse_msg("User profile has been failed");
                     return new ResponseEntity<ResponseProfileSuccess>(regRes, HttpStatus.CREATED);
                 }
-
+                
             }
-
+            
         } catch (Exception e) {
             regRes.setResponse_code("0");
             regRes.setResponse_msg("User profile has been failed");
             return new ResponseEntity<ResponseProfileSuccess>(regRes, HttpStatus.CREATED);
         }
-
+        
     }
-
-    @RequestMapping(value = "/get", method = RequestMethod.POST, produces = {"application/json", "application/xml"}, consumes = {"application/json", "application/xml"})
+    
+    @RequestMapping(value = "/get", method = RequestMethod.POST, produces = { "application/json",
+            "application/xml" }, consumes = { "application/json", "application/xml" })
     public ResponseEntity<?> getProfile(@RequestBody GetProfileByID profile) {
         GetProfileResponse regRes = new GetProfileResponse();
         GetProfileFailResponse regResFail = new GetProfileFailResponse();
@@ -83,7 +86,7 @@ public class UserProfileController {
             regResFail.setResponse_msg("Profile not found");
             regResFail.setProfile_result(new EmptyJsonResponse());
             return new ResponseEntity<GetProfileFailResponse>(regResFail, HttpStatus.CREATED);
-
+            
         } else {
             regRes.setResponse_code("1");
             regRes.setResponse_msg("Profile found");

@@ -5,15 +5,17 @@
  */
 package com.easykar.rest.controller.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  *
@@ -23,21 +25,21 @@ import javax.persistence.Table;
 @Table(name = "pakageDetails")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PakageDetails implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    
     public Long getId() {
         return id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
-
-   @Column(name = "pakageName", length = 50)
+    
+    @Column(name = "pakageName", length = 50)
     String pakageName;
     
     @Column(name = "price", length = 50)
@@ -48,39 +50,39 @@ public class PakageDetails implements Serializable {
     
     @Column(name = "status", length = 50)
     String status;
-
+    
     public String getPakageName() {
         return pakageName;
     }
-
+    
     public void setPakageName(String pakageName) {
         this.pakageName = pakageName;
     }
-
+    
     public String getPrice() {
         return price;
     }
-
+    
     public void setPrice(String price) {
         this.price = price;
     }
-
+    
     public Long getDuration() {
         return duration;
     }
-
+    
     public void setDuration(Long duration) {
         this.duration = duration;
     }
-
+    
     public String getStatus() {
         return status;
     }
-
+    
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -91,7 +93,7 @@ public class PakageDetails implements Serializable {
         hash = 29 * hash + Objects.hashCode(this.status);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -116,16 +118,13 @@ public class PakageDetails implements Serializable {
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-        if (!Objects.equals(this.duration, other.duration)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "PakageDetails{" + "id=" + id + ", pakageName=" + pakageName + ", price=" + price + ", duration=" + duration + ", status=" + status + '}';
+        return Objects.equals(this.duration, other.duration);
     }
     
+    @Override
+    public String toString() {
+        return "PakageDetails{" + "id=" + id + ", pakageName=" + pakageName + ", price=" + price + ", duration=" + duration + ", status=" + status
+                + '}';
+    }
     
 }

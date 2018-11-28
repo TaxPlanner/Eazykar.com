@@ -12,9 +12,12 @@ import com.easykar.rest.controller.entity.UserProfile;
  * @author manoj
  */
 public interface ProfileService {
-     boolean save(UserProfile profile);
-     boolean updateProfile(UserProfile profile);
-     void delete(Integer Id);
-     UserProfile findByuserid(Long Id);
-  //   int updateAddress(int Id,String mm);
+    boolean save(UserProfile profile);
+    
+    boolean updateProfile(UserProfile profile);
+    
+    void delete(Integer Id);
+    
+    UserProfile findByuserid(Long Id);
+    //   int updateAddress(int Id,String mm);
 }

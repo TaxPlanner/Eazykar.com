@@ -5,9 +5,10 @@
  */
 package com.easykar.rest.repository;
 
-import com.easykar.rest.controller.entity.UploadFiles;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.easykar.rest.controller.entity.UploadFiles;
 
 /**
  *
@@ -15,5 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FileUploadRepository extends JpaRepository<UploadFiles, Long> {
-    public UploadFiles findByUserID(Long Id);
+    UploadFiles findByUserID(Long Id);
 }

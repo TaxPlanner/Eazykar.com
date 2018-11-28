@@ -5,18 +5,24 @@
  */
 package com.easykar.rest.service;
 
-import com.easykar.rest.model.registration.Users;
 import java.util.List;
+
+import com.easykar.rest.model.registration.Users;
 
 /**
  *
  * @author manoj
  */
 public interface UserService {
-     List<Users> getAll();
-     Users getById(long articleId);
-     boolean save(Users article);
-     void updateArticle(Users article);
-     void delete(long articleId);
-     Users findByEmail(String email);
+    List<Users> getAll();
+    
+    Users getById(long articleId);
+    
+    boolean save(Users article);
+    
+    void updateArticle(Users article);
+    
+    void delete(long articleId);
+    
+    Users findByEmail(String email);
 }
