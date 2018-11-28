@@ -7,10 +7,6 @@ package com.easykar.rest.service;
 
 import com.easykar.rest.controller.entity.UserProfile;
 
-/**
- *
- * @author manoj
- */
 public interface ProfileService {
     boolean save(UserProfile profile);
     

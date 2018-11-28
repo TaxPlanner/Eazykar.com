@@ -7,10 +7,6 @@ package com.easykar.rest.model.profile;
 
 import com.easykar.rest.controller.entity.UserProfile;
 
-/**
- *
- * @author manoj
- */
 public class GetProfileResponse {
     private String response_code;
     private String response_msg;

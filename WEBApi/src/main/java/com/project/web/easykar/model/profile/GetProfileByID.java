@@ -5,10 +5,6 @@
  */
 package com.project.web.easykar.model.profile;
 
-/**
- *
- * @author manoj
- */
 public class GetProfileByID {
-    
+
 }

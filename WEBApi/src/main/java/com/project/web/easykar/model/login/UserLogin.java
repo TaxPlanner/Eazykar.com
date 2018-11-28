@@ -5,10 +5,6 @@
  */
 package com.project.web.easykar.model.login;
 
-/**
- *
- * @author manoj
- */
 public class UserLogin {
     private String email;
     private String password;

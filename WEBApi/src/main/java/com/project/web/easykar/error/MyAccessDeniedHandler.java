@@ -17,10 +17,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author manoj
- */
 @Component
 public class MyAccessDeniedHandler implements AccessDeniedHandler {
 

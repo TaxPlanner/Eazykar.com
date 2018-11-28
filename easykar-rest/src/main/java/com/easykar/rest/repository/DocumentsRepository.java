@@ -10,10 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.easykar.rest.controller.entity.Documents;
 
-/**
- *
- * @author manoj
- */
 @Repository
 public interface DocumentsRepository extends JpaRepository<Documents, Long> {
     Documents findByUserID(Long Id);

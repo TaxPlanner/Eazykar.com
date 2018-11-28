@@ -17,11 +17,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-/**
- *
- * @author manoj
- */
-
 @Entity
 @Table(name = "users")
 @JsonInclude(Include.NON_NULL)

@@ -21,10 +21,6 @@ import com.easykar.rest.model.profile.ResponseProfileSuccess;
 import com.easykar.rest.model.registration.EmptyJsonResponse;
 import com.easykar.rest.service.UserProfileService;
 
-/**
- *
- * @author manoj
- */
 @Controller
 @RequestMapping(value = { "/profile" })
 public class UserProfileController {

@@ -7,10 +7,6 @@ package com.project.web.easykar.model.profile;
 
 import java.security.Timestamp;
 
-/**
- *
- * @author manoj
- */
 public class UpdateUserProfile {
     Long id;
     Long userID;

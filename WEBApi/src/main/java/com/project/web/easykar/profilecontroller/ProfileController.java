@@ -37,10 +37,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- *
- * @author manoj
- */
 @Controller
 @RequestMapping(value = {"/profile"})
 public class ProfileController {
@@ -169,7 +165,7 @@ public class ProfileController {
             jsonUpdate.put("status", "1");
 
         } catch (JSONException ex) {
-            
+        
         }
         HttpEntity<String> httpEntity = new HttpEntity<String>(jsonUpdate.toString(), httpHeaders);
 
@@ -244,7 +240,7 @@ public class ProfileController {
                 }
 
             } catch (Exception e) {
-                
+            
             }
 
         }

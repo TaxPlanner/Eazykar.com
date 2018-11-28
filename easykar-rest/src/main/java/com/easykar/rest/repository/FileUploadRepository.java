@@ -10,10 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.easykar.rest.controller.entity.UploadFiles;
 
-/**
- *
- * @author manoj
- */
 @Repository
 public interface FileUploadRepository extends JpaRepository<UploadFiles, Long> {
     UploadFiles findByUserID(Long Id);

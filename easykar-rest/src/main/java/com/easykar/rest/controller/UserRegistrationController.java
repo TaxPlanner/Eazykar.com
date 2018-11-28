@@ -25,10 +25,6 @@ import com.easykar.rest.model.registration.UserLogin;
 import com.easykar.rest.model.registration.Users;
 import com.easykar.rest.service.UserService;
 
-/**
- *
- * @author manoj
- */
 @RestController
 @RequestMapping("/users")
 public class UserRegistrationController {

@@ -5,10 +5,6 @@
  */
 package com.easykar.rest.model.registration;
 
-/**
- *
- * @author manoj
- */
 public class FailLoginResponse {
     private String response_code;
     private String response_msg;

@@ -7,10 +7,6 @@ package com.easykar.rest.repository;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-/**
- *
- * @author manoj
- */
 @JsonSerialize
 public class EmptyJsonResponse {
 

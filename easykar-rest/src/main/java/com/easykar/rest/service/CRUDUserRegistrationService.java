@@ -8,10 +8,6 @@ package com.easykar.rest.service;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- *
- * @author manoj
- */
 public interface CRUDUserRegistrationService<E> {
     E save(E entity);
     

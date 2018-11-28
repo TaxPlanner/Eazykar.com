@@ -7,10 +7,6 @@ package com.easykar.rest.model.profile;
 
 import com.easykar.rest.model.registration.EmptyJsonResponse;
 
-/**
- *
- * @author manoj
- */
 public class GetProfileFailResponse {
     private String response_code;
     private String response_msg;

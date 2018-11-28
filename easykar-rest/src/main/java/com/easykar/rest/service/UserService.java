@@ -9,10 +9,6 @@ import java.util.List;
 
 import com.easykar.rest.model.registration.Users;
 
-/**
- *
- * @author manoj
- */
 public interface UserService {
     List<Users> getAll();
     

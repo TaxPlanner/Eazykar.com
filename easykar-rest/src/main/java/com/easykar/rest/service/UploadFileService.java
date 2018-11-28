@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 import com.easykar.rest.controller.entity.UploadFiles;
 import com.easykar.rest.repository.FileUploadRepository;
 
-/**
- *
- * @author manoj
- */
 @Service
 public class UploadFileService implements UploadFileInterface {
     @Autowired

@@ -5,10 +5,6 @@
  */
 package com.easykar.rest.model.profile;
 
-/**
- *
- * @author manoj
- */
 public class ResponseProfileSuccess {
     private String response_code;
     private String response_msg;

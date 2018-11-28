@@ -7,10 +7,6 @@ package com.easykar.rest.service;
 
 import com.easykar.rest.controller.entity.Documents;
 
-/**
- *
- * @author manoj
- */
 public interface DocumentsInterface {
     boolean save(Documents files);
     

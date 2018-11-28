@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 import com.easykar.rest.controller.entity.UserProfile;
 import com.easykar.rest.repository.UserProfileRepository;
 
-/**
- *
- * @author manoj
- */
 @Service
 public class UserProfileService implements ProfileService {
     @Autowired

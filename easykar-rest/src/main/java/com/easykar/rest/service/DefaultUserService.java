@@ -13,10 +13,6 @@ import org.springframework.stereotype.Service;
 import com.easykar.rest.model.registration.Users;
 import com.easykar.rest.repository.UserRepository;
 
-/**
- *
- * @author manoj
- */
 @Service
 public class DefaultUserService implements UserService {
     @Autowired

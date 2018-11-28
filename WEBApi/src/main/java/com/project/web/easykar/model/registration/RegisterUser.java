@@ -5,10 +5,6 @@
  */
 package com.project.web.easykar.model.registration;
 
-/**
- *
- * @author manoj
- */
 public class RegisterUser {
     private String email;
     private String password;

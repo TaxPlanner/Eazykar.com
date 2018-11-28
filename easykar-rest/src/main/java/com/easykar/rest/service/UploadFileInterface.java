@@ -7,10 +7,6 @@ package com.easykar.rest.service;
 
 import com.easykar.rest.controller.entity.UploadFiles;
 
-/**
- *
- * @author manoj
- */
 public interface UploadFileInterface {
     boolean save(UploadFiles files);
     

@@ -5,10 +5,6 @@
  */
 package com.project.web.easykar.logincontroller;
 
-/**
- *
- * @author manoj
- */
 public class Greeting {
 
      private long id;

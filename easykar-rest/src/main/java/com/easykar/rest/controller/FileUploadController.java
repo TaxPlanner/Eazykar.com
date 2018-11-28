@@ -25,10 +25,6 @@ import com.easykar.rest.model.profile.ResponseProfileSuccess;
 import com.easykar.rest.service.DocumentsService;
 import com.easykar.rest.service.UploadFileService;
 
-/**
- *
- * @author manoj
- */
 @Controller
 @RequestMapping(value = { "/file" })
 public class FileUploadController {

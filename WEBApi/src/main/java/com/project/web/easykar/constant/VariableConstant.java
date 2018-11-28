@@ -5,10 +5,6 @@
  */
 package com.project.web.easykar.constant;
 
-/**
- *
- * @author manoj
- */
 public class VariableConstant {
     public String BaseUrl="http://206.189.194.19:8080/rest/";
     public String ApiLogin="users/login";

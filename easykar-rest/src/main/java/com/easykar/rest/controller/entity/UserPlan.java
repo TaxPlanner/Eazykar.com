@@ -18,10 +18,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-/**
- *
- * @author manoj
- */
 @Entity
 @Table(name = "plans")
 @JsonInclude(JsonInclude.Include.NON_NULL)

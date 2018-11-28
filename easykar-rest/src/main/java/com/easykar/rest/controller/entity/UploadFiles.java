@@ -19,10 +19,6 @@ import org.hibernate.annotations.Type;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-/**
- *
- * @author manoj
- */
 @Entity
 @Table(name = "upload")
 @JsonInclude(JsonInclude.Include.NON_NULL)

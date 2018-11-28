@@ -5,10 +5,6 @@
  */
 package com.easykar.rest.model.registration;
 
-/**
- *
- * @author manoj
- */
 public class UserLogin {
     private String email;
     private String password;

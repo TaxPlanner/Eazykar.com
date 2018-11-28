@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 import com.easykar.rest.controller.entity.Documents;
 import com.easykar.rest.repository.DocumentsRepository;
 
-/**
- *
- * @author manoj
- */
 @Service
 public class DocumentsService implements DocumentsInterface {
     @Autowired

@@ -10,10 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.easykar.rest.model.registration.Users;
 
-/**
- *
- * @author manoj
- */
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
     Users findByEmail(String email);

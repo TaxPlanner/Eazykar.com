@@ -10,10 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.easykar.rest.controller.entity.UserProfile;
 
-/**
- *
- * @author manoj
- */
 @Repository
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
     //  UserProfile findByUserid(long user_ID);
