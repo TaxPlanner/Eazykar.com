@@ -1,1 +1,3 @@
 #this is initial git ignore file
+/node_modules/
+*.iml
