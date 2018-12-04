@@ -9,7 +9,7 @@ services:
             - EZKR_SLEEP=10 # gives time for the database to boot before the application
         ports:
             - 8080:8080
-    eazykar-mysql:
-        extends:
-            file: mysql.yml
-            service: eazykar-mysql
+    #eazykar-mysql:
+        #extends:
+            #file: mysql.yml
+            #service: eazykar-mysql
