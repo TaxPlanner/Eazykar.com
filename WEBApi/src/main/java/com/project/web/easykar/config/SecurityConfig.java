@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project.web.easykar.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +8,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
-/**
- *
- * @author manoj
- */
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
@@ -52,15 +43,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .withUser("admin").password("password").roles("ADMIN");
     }
     
-     
+    
     //Spring Boot configured this already.
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", 
-                        "/assets/css/img/bg/**", "/assets/css/img/**", 
-                        "/assets/css/**", "/assets/js/maps/**", 
+                .antMatchers("/resources/**", "/static/**",
+                        "/assets/css/img/bg/**", "/assets/css/img/**",
+                        "/assets/css/**", "/assets/js/maps/**",
                         "/assets/fonts/**", "/assets/js/**",
                         "/assets/images/hero/**","/assets/images/icons/**",
                         "/assets/images/news/**","/assets/images/service/**",

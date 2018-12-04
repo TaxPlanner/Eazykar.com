@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project.web.easykar.profilecontroller;
 
 import ch.qos.logback.core.CoreConstants;
@@ -37,10 +32,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- *
- * @author manoj
- */
 @Controller
 @RequestMapping(value = {"/profile"})
 public class ProfileController {
@@ -169,7 +160,7 @@ public class ProfileController {
             jsonUpdate.put("status", "1");
 
         } catch (JSONException ex) {
-            utility.setMsgProfileSuccess("Failed to update.");
+        utility.setMsgProfileSuccess("Failed to update.");
             return "redirect:/userdashboard";
         }
         HttpEntity<String> httpEntity = new HttpEntity<String>(jsonUpdate.toString(), httpHeaders);
@@ -248,7 +239,7 @@ public class ProfileController {
                 }
 
             } catch (Exception e) {
-                utility.setMsgDocumentSuccess("Failed to upload.");
+            utility.setMsgDocumentSuccess("Failed to upload.");
                 return "redirect:/userdashboard";
             }
 
