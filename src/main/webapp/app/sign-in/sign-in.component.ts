@@ -99,6 +99,10 @@ export class SignInComponent implements OnInit {
         }
     }
 
+    requestResetPassword() {
+        this.router.navigate(['/reset', 'request']);
+    }
+
     private processError(response: HttpErrorResponse) {
         this.success = null;
         if (response.status === 400 && response.error.type === LOGIN_ALREADY_USED_TYPE) {
