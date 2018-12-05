@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, Renderer, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer, ViewChild, ViewEncapsulation } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 import { LoginService, StateStorageService } from 'app/core';
@@ -31,6 +32,8 @@ export class SignInComponent implements OnInit {
     success: boolean;
     showSignIn = true;
 
+    @ViewChild('registerForm') registerForm: NgForm;
+
     constructor(
         private eventManager: JhiEventManager,
         private loginService: LoginService,
@@ -45,7 +48,7 @@ export class SignInComponent implements OnInit {
 
     ngOnInit() {
         this.success = false;
-        this.registerAccount = {};
+        this.resetRegisterForm();
     }
 
     login() {
@@ -93,6 +96,7 @@ export class SignInComponent implements OnInit {
             this.registerService.save(this.registerAccount).subscribe(
                 () => {
                     this.success = true;
+                    this.resetRegisterForm();
                 },
                 response => this.processError(response)
             );
@@ -114,4 +118,9 @@ export class SignInComponent implements OnInit {
         }
     }
 
+    private resetRegisterForm() {
+        this.registerAccount = {};
+        this.confirmPassword = '';
+        this.registerForm.resetForm({});
+    }
 }
