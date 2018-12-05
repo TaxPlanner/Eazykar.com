@@ -24,9 +24,9 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://142.93.206254:3306/eazykar?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false
+        url: jdbc:mysql://206.189.194.19:3306/eazykar?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false
         username: eazykar
-        password: Welcome123@
+        password: Chocolate2019
         hikari:
             auto-commit: false
             data-source-properties:
