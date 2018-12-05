@@ -984,8 +984,7 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-					 <plugin>
+                    <plugin> 
             <groupId>com.spotify</groupId>
             <artifactId>dockerfile-maven-plugin</artifactId>
             <version>1.3.6</version>
@@ -1009,7 +1008,7 @@
                             </execution>
                         </executions>
                     </plugin>
-
+                    <plugin>
                         <groupId>pl.project13.maven</groupId>
                         <artifactId>git-commit-id-plugin</artifactId>
                     </plugin>
