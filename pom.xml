@@ -985,6 +985,31 @@
                         </executions>
                     </plugin>
                     <plugin>
+					 <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>dockerfile-maven-plugin</artifactId>
+            <version>1.3.6</version>
+                        <executions>
+                            <execution>
+                                <id>build-image</id>
+                                    <phase>package</phase>
+                                        <goals>
+                                            <goal>build</goal>
+                                        </goals>
+                                <configuration>
+                                    <repository>${project.artifactId}</repository>
+                                        <resources>
+                                            <resource>
+                                                <targetPath>/</targetPath>
+                                                <directory>${project.build.directory}</directory>
+                                                <include>${project.build.finalName}.war</include>
+                                            </resource>
+                                         </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
                         <groupId>pl.project13.maven</groupId>
                         <artifactId>git-commit-id-plugin</artifactId>
                     </plugin>
