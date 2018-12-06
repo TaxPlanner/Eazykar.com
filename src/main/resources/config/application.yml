@@ -80,7 +80,7 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: eazykar@localhost
+        from: contactus@eazykar.com
     swagger:
         default-include-pattern: /api/.*
         title: eazykar API
