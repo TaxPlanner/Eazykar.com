@@ -33,6 +33,6 @@ export class ActivateComponent implements OnInit {
     }
 
     login() {
-        this.router.navigate(['sign-in']);
+        this.router.navigate(['sign-in', 'sign-in-login']);
     }
 }
