@@ -1,21 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ezkr-tax-services',
-  templateUrl: './tax-services.component.html',
-  styleUrls: [
-    'tax-services.scss'
-  ]
+    selector: 'ezkr-tax-services',
+    templateUrl: './tax-services.component.html',
+    styleUrls: [
+        'tax-services.scss'
+    ]
 })
 export class TaxServicesComponent implements OnInit {
 
-  message: string;
+    constructor() {
+    }
 
-  constructor() {
-    this.message = 'TaxServicesComponent message';
-  }
-
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
