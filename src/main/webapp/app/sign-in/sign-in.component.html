@@ -18,27 +18,6 @@
     <div class="clearfix">
         <div id="user-reg" class="container" style="padding-bottom: 25px;">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="alert alert-success" *ngIf="success">
-                        <strong>Registration saved!</strong> Please check your email for confirmation.
-                    </div>
-
-                    <div class="alert alert-danger" *ngIf="error">
-                        <strong>Registration failed!</strong> Please try again later.
-                    </div>
-
-                    <div class="alert alert-danger" *ngIf="errorUserExists">
-                        <strong>Login name already registered!</strong> Please choose another one.
-                    </div>
-
-                    <div class="alert alert-danger" *ngIf="errorEmailExists">
-                        <strong>Email is already in use!</strong> Please choose another one.
-                    </div>
-
-                    <div class="alert alert-danger" *ngIf="doNotMatch">
-                        The password and its confirmation do not match!
-                    </div>
-                </div>
                 <div class="col-md-8 col-md-offset-1 hidden-sm hidden-xs mt30 partitionRight">
                     <div class="mb30">
                         <h1 class="ct-h4 mb0">EasyKar makes Filing IT Returns as easy and effective as humanly possible.</h1>
@@ -51,7 +30,6 @@
                         <li><p class="ct-font-sm m0">Machine-Level Accuracy backed by Expert Support.</p></li>
                         <li><p class="ct-font-sm m0">Over 1000 CAs to help you. 24/7 support for resolution of your questions.</p></li>
                     </ul>
-
 
                     <div class="mb30">
                         <h1 class="ct-h4 mb0">Benefits of Hiring Us to File IT Online ?</h1>
@@ -71,162 +49,17 @@
                     <div class="logregbox">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#userlogin" role="tab" data-toggle="tab" (click)="showSignIn=true">Login</a>
+                                <a routerLinkActive="active" class="nav-link" routerLink="/sign-in/sign-in-login">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#useregister" role="tab" data-toggle="tab" (click)="showSignIn=false">Register</a>
+                                <a routerLinkActive="active" class="nav-link" routerLink="/sign-in/sign-in-register">Register</a>
                             </li>
                         </ul>
-                        <br/>
-                        <div class="tab-content" [ngSwitch]="showSignIn">
-                            <div *ngSwitchCase="true" role="tabpanel" class="tab-pane fade in active" id="userlogin" style="opacity: 1">
-                                <!--<form data-toggle="validator" role="form" th:action="@{/userdashboard}" th:object="${user}" method="post" enctype="utf8">-->
-                                <form data-toggle="validator" role="form" (ngSubmit)="login()">
-                                    <div class="col-md-12">
-                                        <br/>
-                                        <!--<p th:text="${msgLoginError}" class="semi-bold" style="display:inline;font-size:14px;color:#9c0202">-->
-                                        <!--<p class="semi-bold" style="display:inline;font-size:14px;color:#9c0202">Error</p><br/><br/>-->
-                                        <!--<h2 class="ct-h5 mt0 text-center">Happy to see you !</h2>-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="email" class="form-control" placeholder="Username" id="email"
-                                                           [(ngModel)]="username">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="password" name="password" class="form-control" placeholder="Password"
-                                                           id="password" [(ngModel)]="password">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 text-center">
-                                                <input class="btn btn-sm btn-primary" type="submit" value="Login">
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <input class="btn btn-sm btn-default" type="button" (click)="requestResetPassword()" value="Forgot Password?">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <br/>
-                            </div>
-                            <div *ngSwitchCase="false" role="tabpanel" class="tab-pane fade" id="useregister">
-                                <form data-toggle="validator" role="form" (ngSubmit)="register()" #registerForm="ngForm">
-                                    <div class="col-md-12">
-                                        <!--<h2 class="ct-h5 mt0 text-center">Sign up with your email address</h2>-->
-                                        <br/>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="regUsername" #login="ngModel" class="form-control" placeholder="Choose a Username" id="regUsername"
-                                                           [(ngModel)]="registerAccount.login" minlength=5 maxlength=254 required>
-                                                    <div *ngIf="login.dirty && login.invalid">
-                                                        <small class="form-text text-danger" *ngIf="login.errors.required">
-                                                            Your username is required.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="login.errors.minlength"
-                                                        >
-                                                            Your username is required to be at least 5 character.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="login.errors.maxlength"
-                                                        >
-                                                            Your username cannot be longer than 254 characters.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="login.errors.pattern"
-                                                        >
-                                                            Your username can only contain letters and digits.
-                                                        </small>
-                                                    </div>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" name="regEmail" #email="ngModel" class="form-control" placeholder="Email" id="regEmail"
-                                                           [(ngModel)]="registerAccount.email" minlength=5 maxlength=254 email required>
-                                                    <div *ngIf="email.dirty && email.invalid">
-                                                        <small class="form-text text-danger" *ngIf="email.errors.required"
-                                                        >
-                                                            Your email is required.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="email.errors.email"
-                                                        >
-                                                            Your email is invalid.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="email.errors.minlength"
-                                                        >
-                                                            Your email is required to be at least 5 characters.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="email.errors.maxlength"
-                                                        >
-                                                            Your email cannot be longer than 100 characters.
-                                                        </small>
-                                                    </div>
+                        <router-outlet></router-outlet>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="password" name="regPassword" #regPassword="ngModel" class="form-control" placeholder="Password"
-                                                           id="regPassword" [(ngModel)]="registerAccount.password" minlength=4 maxlength=50 required>
-                                                    <div *ngIf="regPassword.dirty && regPassword.invalid">
-                                                        <small class="form-text text-danger" *ngIf="regPassword.errors.required"
-                                                        >
-                                                            Your password is required.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="regPassword.errors.minlength"
-                                                        >
-                                                            Your password is required to be at least 4 characters.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="regPassword.errors.maxlength"
-                                                        >
-                                                            Your password cannot be longer than 50 characters.
-                                                        </small>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="password" #confirmPasswordInput="ngModel" name="confirmPassword" class="form-control"
-                                                           placeholder="Confirm Password"
-                                                           id="confirmPassword" [(ngModel)]="confirmPassword" minlength=4 maxlength=50 required>
-                                                    <div *ngIf="confirmPasswordInput.dirty && confirmPasswordInput.invalid">
-                                                        <small class="form-text text-danger" *ngIf="confirmPasswordInput.errors.required"
-                                                        >
-                                                            Your confirmation password is required.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="confirmPasswordInput.errors.minlength"
-                                                        >
-                                                            Your confirmation password is required to be at least 4 characters.
-                                                        </small>
-                                                        <small class="form-text text-danger" *ngIf="confirmPasswordInput.errors.maxlength"
-                                                        >
-                                                            Your confirmation password cannot be longer than 50 characters.
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 text-center">
-                                                <input class="btn btn-sm btn-primary" type="submit" value="Register" [disabled]="registerForm.form.invalid">
-                                            </div>
-                                        </div>
-
-                                        <br/>
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
