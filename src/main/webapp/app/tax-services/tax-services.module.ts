@@ -11,6 +11,10 @@ import { Quote3Component } from './quote3/quote3.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { Carousel2Component } from './carousel2/carousel2.component';
 import { Carousel3Component } from './carousel3/carousel3.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { Pricing2Component } from './pricing2/pricing2.component';
+import { Pricing3Component } from './pricing3/pricing3.component';
+import { Pricing4Component } from './pricing4/pricing4.component';
 
 @NgModule({
     imports: [
@@ -26,7 +30,11 @@ import { Carousel3Component } from './carousel3/carousel3.component';
         Quote3Component,
         CarouselComponent,
         Carousel2Component,
-        Carousel3Component
+        Carousel3Component,
+        PricingComponent,
+        Pricing2Component,
+        Pricing3Component,
+        Pricing4Component
     ],
     entryComponents: [],
     providers: [],
