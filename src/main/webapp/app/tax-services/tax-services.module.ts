@@ -18,6 +18,9 @@ import { Pricing4Component } from './pricing4/pricing4.component';
 import { Carousel4Component } from './carousel4/carousel4.component';
 import { Carousel5Component } from './carousel5/carousel5.component';
 import { Carousel6Component } from './carousel6/carousel6.component';
+import { HighlightsComponent } from './highlights/highlights.component';
+import { ServicePillsComponent } from './service-pills/service-pills.component';
+import { BlogsComponent } from './blogs/blogs.component';
 
 @NgModule({
     imports: [
@@ -40,7 +43,10 @@ import { Carousel6Component } from './carousel6/carousel6.component';
         Pricing4Component,
         Carousel4Component,
         Carousel5Component,
-        Carousel6Component
+        Carousel6Component,
+        HighlightsComponent,
+        ServicePillsComponent,
+        BlogsComponent
     ],
     entryComponents: [],
     providers: [],
