@@ -16,8 +16,8 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="purchasedOn"><span jhiTranslate="eazykarApp.userPlan.purchasedOn">Purchased On</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="user.id"><span jhiTranslate="eazykarApp.userPlan.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="plan.id"><span jhiTranslate="eazykarApp.userPlan.plan">Plan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.login"><span jhiTranslate="eazykarApp.userPlan.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="plan.planName"><span jhiTranslate="eazykarApp.userPlan.plan">Plan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -26,11 +26,11 @@
                 <td><a [routerLink]="['/user-plan', userPlan.id, 'view' ]">{{userPlan.id}}</a></td>
                 <td>{{userPlan.purchasedOn | date:'mediumDate'}}</td>
                 <td>
-                    {{userPlan.user?.id}}
+                    {{userPlan.user?.login}}
                 </td>
                 <td>
                     <div *ngIf="userPlan.plan">
-                        <a [routerLink]="['../plan', userPlan.plan?.id, 'view' ]" >{{userPlan.plan?.id}}</a>
+                        <a [routerLink]="['../plan', userPlan.plan?.id, 'view' ]" >{{userPlan.plan?.planName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

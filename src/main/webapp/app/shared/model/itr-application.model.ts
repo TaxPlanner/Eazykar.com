@@ -18,6 +18,7 @@ export interface IItrApplication {
     assessmentYear?: string;
     applicationStatus?: ItrApplicationStatus;
     user?: IUser;
+    assignee?: IUser;
 }
 
 export class ItrApplication implements IItrApplication {
@@ -26,6 +27,7 @@ export class ItrApplication implements IItrApplication {
         public applicationNumber?: string,
         public assessmentYear?: string,
         public applicationStatus?: ItrApplicationStatus,
-        public user?: IUser
+        public user?: IUser,
+        public assignee?: IUser
     ) {}
 }

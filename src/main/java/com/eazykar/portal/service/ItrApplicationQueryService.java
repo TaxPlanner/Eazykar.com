@@ -96,6 +96,10 @@ public class ItrApplicationQueryService extends QueryService<ItrApplication> {
                 specification = specification.and(buildSpecification(criteria.getUserId(),
                     root -> root.join(ItrApplication_.user, JoinType.LEFT).get(User_.id)));
             }
+            if (criteria.getAssigneeId() != null) {
+                specification = specification.and(buildSpecification(criteria.getAssigneeId(),
+                    root -> root.join(ItrApplication_.assignee, JoinType.LEFT).get(User_.id)));
+            }
         }
         return specification;
     }

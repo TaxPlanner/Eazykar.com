@@ -1,15 +1,28 @@
 package com.eazykar.portal.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import com.eazykar.portal.domain.enumeration.ItrApplicationStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A ItrApplication.
@@ -40,8 +53,13 @@ public class ItrApplication implements Serializable {
     @Column(name = "application_status", nullable = false)
     private ItrApplicationStatus applicationStatus;
 
-    @OneToOne    @JoinColumn(unique = true)
+    @OneToOne(optional = false)    @NotNull
+    @JoinColumn(unique = true)
     private User user;
+
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private User assignee;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -102,6 +120,19 @@ public class ItrApplication implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public User getAssignee() {
+        return assignee;
+    }
+
+    public ItrApplication assignee(User user) {
+        this.assignee = user;
+        return this;
+    }
+
+    public void setAssignee(User user) {
+        this.assignee = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

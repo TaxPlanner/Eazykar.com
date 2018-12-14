@@ -18,7 +18,8 @@
             "applicationNumber": "Application Number",
             "assessmentYear": "Assessment Year",
             "applicationStatus": "Application Status",
-            "user": "User"
+            "user": "User",
+            "assignee": "Assignee"
         }
     }
 }

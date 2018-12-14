@@ -28,17 +28,29 @@
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eazykarApp.userPlan.user" for="field_user">User</label>
-                    <select class="form-control" id="field_user" name="user" [(ngModel)]="userPlan.user" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userOption.id === userPlan.user?.id ? userPlan.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="userPlan.user"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === userPlan.user?.id ? userPlan.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
                     </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eazykarApp.userPlan.plan" for="field_plan">Plan</label>
-                    <select class="form-control" id="field_plan" name="plan" [(ngModel)]="userPlan.plan" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="planOption.id === userPlan.plan?.id ? userPlan.plan : planOption" *ngFor="let planOption of plans; trackBy: trackPlanById">{{planOption.id}}</option>
+                    <select class="form-control" id="field_plan" name="plan" [(ngModel)]="userPlan.plan"  required>
+                        <option *ngIf="!editForm.value.plan" [ngValue]="null" selected></option>
+                        <option [ngValue]="planOption.id === userPlan.plan?.id ? userPlan.plan : planOption" *ngFor="let planOption of plans; trackBy: trackPlanById">{{planOption.planName}}</option>
                     </select>
+                </div>
+                <div [hidden]="!(editForm.controls.plan?.dirty && editForm.controls.plan?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.plan?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
                 </div>
             </div>
             <div>

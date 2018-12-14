@@ -11,12 +11,12 @@
                 </dd>
                 <dt><span jhiTranslate="eazykarApp.userPlan.user">User</span></dt>
                 <dd>
-                    {{userPlan.user?.id}}
+                    {{userPlan.user?.login}}
                 </dd>
                 <dt><span jhiTranslate="eazykarApp.userPlan.plan">Plan</span></dt>
                 <dd>
                     <div *ngIf="userPlan.plan">
-                        <a [routerLink]="['/plan', userPlan.plan?.id, 'view']">{{userPlan.plan?.id}}</a>
+                        <a [routerLink]="['/plan', userPlan.plan?.id, 'view']">{{userPlan.plan?.planName}}</a>
                     </div>
                 </dd>
             </dl>
