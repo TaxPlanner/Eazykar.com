@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userPlan">
+            <h2><span jhiTranslate="eazykarApp.userPlan.detail.title">User Plan</span> {{userPlan.id}}</h2>
+            <hr>
+            <ezkr-alert-error></ezkr-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eazykarApp.userPlan.purchasedOn">Purchased On</span></dt>
+                <dd>
+                    <span>{{userPlan.purchasedOn}}</span>
+                </dd>
+                <dt><span jhiTranslate="eazykarApp.userPlan.user">User</span></dt>
+                <dd>
+                    {{userPlan.user?.id}}
+                </dd>
+                <dt><span jhiTranslate="eazykarApp.userPlan.plan">Plan</span></dt>
+                <dd>
+                    <div *ngIf="userPlan.plan">
+                        <a [routerLink]="['/plan', userPlan.plan?.id, 'view']">{{userPlan.plan?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-plan', userPlan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

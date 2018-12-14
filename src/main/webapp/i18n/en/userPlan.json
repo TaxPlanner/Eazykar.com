@@ -1,0 +1,23 @@
+{
+    "eazykarApp": {
+        "userPlan": {
+            "home": {
+                "title": "User Plans",
+                "createLabel": "Create a new User Plan",
+                "createOrEditLabel": "Create or edit a User Plan"
+            },
+            "created": "A new User Plan is created with identifier {{ param }}",
+            "updated": "A User Plan is updated with identifier {{ param }}",
+            "deleted": "A User Plan is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Plan {{ id }}?"
+            },
+            "detail": {
+                "title": "User Plan"
+            },
+            "purchasedOn": "Purchased On",
+            "user": "User",
+            "plan": "Plan"
+        }
+    }
+}

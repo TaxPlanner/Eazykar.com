@@ -25,6 +25,7 @@ import {
     faTachometerAlt,
     faHeart,
     faList,
+    faListAlt,
     faBell,
     faBook,
     faHdd,
@@ -39,7 +40,13 @@ import {
     faTrashAlt,
     faAsterisk,
     faTasks,
-    faHome
+    faHome,
+    faYenSign,
+    faHandsHelping,
+    faBookOpen,
+    faConciergeBell,
+    faQuestion,
+    faQuestionCircle, faMoneyBill, faAddressCard
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
@@ -63,6 +70,7 @@ library.add(faRoad);
 library.add(faTachometerAlt);
 library.add(faHeart);
 library.add(faList);
+library.add(faListAlt);
 library.add(faBell);
 library.add(faTasks);
 library.add(faBook);
@@ -77,5 +85,13 @@ library.add(faCalendarAlt);
 library.add(faSearch);
 library.add(faTrashAlt);
 library.add(faAsterisk);
+library.add(faYenSign);
+library.add(faHandsHelping);
+library.add(faBookOpen);
+library.add(faConciergeBell);
+library.add(faQuestion);
+library.add(faQuestionCircle);
+library.add(faMoneyBill);
+library.add(faAddressCard);
 
 // jhipster-needle-add-element-to-vendor

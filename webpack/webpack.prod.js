@@ -119,7 +119,10 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         }),
         new MomentLocalesPlugin({
             localesToKeep: [
-                // jhipster-needle-i18n-language-moment-webpack
+                    'en',
+                    'hi',
+                    'mr'
+                    // jhipster-needle-i18n-language-moment-webpack
             ]
         }),
         new Visualizer({

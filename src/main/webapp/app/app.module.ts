@@ -22,9 +22,9 @@ import { EazykarAppTaxServicesModule } from './tax-services/tax-services.module'
 import { EazykarAppTaxKnowledgeModule } from './tax-knowledge/tax-knowledge.module';
 import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
 import { EazykarAppSignInModule } from './sign-in/sign-in.module';
-import { EazykarAppUserDashboardModule } from './user-dashboard/user-dashboard.module';
+import { EazykarAppUserProfileCombinedModule } from './user-profile-combined/user-profile-combined.module';
 // jhipster-needle-angular-add-module-import
-import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
 @NgModule({
     imports: [
@@ -34,7 +34,9 @@ import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponen
         NgJhipsterModule.forRoot({
             // set below to true to make alerts look like toast
             alertAsToast: false,
-            alertTimeout: 5000
+            alertTimeout: 5000,
+            i18nEnabled: true,
+            defaultI18nLang: 'en'
         }),
         EazykarSharedModule.forRoot(),
         EazykarCoreModule,
@@ -44,11 +46,11 @@ import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponen
         EazykarAppTaxKnowledgeModule,
         EazykarAppContactUsModule,
         EazykarAppSignInModule,
-        EazykarAppUserDashboardModule,
+        EazykarAppUserProfileCombinedModule,
         // jhipster-needle-angular-add-module
         EazykarEntityModule
     ],
-    declarations: [EzkrMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
+    declarations: [EzkrMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

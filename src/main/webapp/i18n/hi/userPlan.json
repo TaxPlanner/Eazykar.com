@@ -1,0 +1,23 @@
+{
+    "eazykarApp": {
+        "userPlan": {
+            "home": {
+                "title": "UserPlans",
+                "createLabel": "नया User Plan बनाएँ",
+                "createOrEditLabel": "User Plan बनाएँ या संपादित करें"
+            },
+            "created": "एक नया User Plan [identifier: {{ param }}] तैयार है",
+            "updated": "एक User Plan [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "User Plan [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "User Plan [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "User Plan"
+            },
+            "purchasedOn": "Purchased On",
+            "user": "User",
+            "plan": "Plan"
+        }
+    }
+}

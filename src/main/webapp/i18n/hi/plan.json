@@ -1,0 +1,25 @@
+{
+    "eazykarApp": {
+        "plan": {
+            "home": {
+                "title": "Plans",
+                "createLabel": "नया Plan बनाएँ",
+                "createOrEditLabel": "Plan बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Plan [identifier: {{ param }}] तैयार है",
+            "updated": "एक Plan [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Plan [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Plan [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Plan"
+            },
+            "planNumber": "Plan Number",
+            "planName": "Plan Name",
+            "planType": "Plan Type",
+            "planFees": "Plan Fees",
+            "active": "Active"
+        }
+    }
+}
