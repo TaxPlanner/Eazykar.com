@@ -1,7 +1,8 @@
 package com.eazykar.portal.web.rest.vm;
 
-import com.eazykar.portal.service.dto.UserDTO;
 import javax.validation.constraints.Size;
+
+import com.eazykar.portal.service.dto.UserDTO;
 
 /**
  * View Model extending the UserDTO, which is meant to be used in the user management UI.

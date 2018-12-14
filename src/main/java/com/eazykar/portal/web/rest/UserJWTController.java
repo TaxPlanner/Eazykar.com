@@ -1,11 +1,6 @@
 package com.eazykar.portal.web.rest;
 
-import com.eazykar.portal.security.jwt.JWTFilter;
-import com.eazykar.portal.security.jwt.TokenProvider;
-import com.eazykar.portal.web.rest.vm.LoginVM;
-
-import com.codahale.metrics.annotation.Timed;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.Valid;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,9 +9,16 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
+import com.codahale.metrics.annotation.Timed;
+import com.eazykar.portal.security.jwt.JWTFilter;
+import com.eazykar.portal.security.jwt.TokenProvider;
+import com.eazykar.portal.web.rest.vm.LoginVM;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Controller to authenticate users.

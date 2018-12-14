@@ -12,12 +12,13 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.github.jhipster.service.QueryService;
-
 import com.eazykar.portal.domain.UserProfile;
-import com.eazykar.portal.domain.*; // for static metamodels
+import com.eazykar.portal.domain.UserProfile_;
+import com.eazykar.portal.domain.User_;
 import com.eazykar.portal.repository.UserProfileRepository;
 import com.eazykar.portal.service.dto.UserProfileCriteria;
+
+import io.github.jhipster.service.QueryService;
 
 /**
  * Service for executing complex queries for UserProfile entities in the database.

@@ -1,15 +1,13 @@
 package com.eazykar.portal.service;
 
-import com.eazykar.portal.config.Constants;
-import com.eazykar.portal.domain.Authority;
-import com.eazykar.portal.domain.User;
-import com.eazykar.portal.repository.AuthorityRepository;
-import com.eazykar.portal.repository.UserRepository;
-import com.eazykar.portal.security.AuthoritiesConstants;
-import com.eazykar.portal.security.SecurityUtils;
-import com.eazykar.portal.service.dto.UserDTO;
-import com.eazykar.portal.service.util.RandomUtil;
-import com.eazykar.portal.web.rest.errors.*;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +19,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collectors;
+import com.eazykar.portal.config.Constants;
+import com.eazykar.portal.domain.Authority;
+import com.eazykar.portal.domain.User;
+import com.eazykar.portal.repository.AuthorityRepository;
+import com.eazykar.portal.repository.UserRepository;
+import com.eazykar.portal.security.AuthoritiesConstants;
+import com.eazykar.portal.security.SecurityUtils;
+import com.eazykar.portal.service.dto.UserDTO;
+import com.eazykar.portal.service.util.RandomUtil;
+import com.eazykar.portal.web.rest.errors.EmailAlreadyUsedException;
+import com.eazykar.portal.web.rest.errors.InvalidPasswordException;
+import com.eazykar.portal.web.rest.errors.LoginAlreadyUsedException;
 
 /**
  * Service class for managing users.

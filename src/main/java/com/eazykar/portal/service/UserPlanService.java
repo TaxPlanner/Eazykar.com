@@ -1,16 +1,16 @@
 package com.eazykar.portal.service;
 
-import com.eazykar.portal.domain.UserPlan;
-import com.eazykar.portal.repository.UserPlanRepository;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+import com.eazykar.portal.domain.UserPlan;
+import com.eazykar.portal.repository.UserPlanRepository;
 
 /**
  * Service Implementation for managing UserPlan.

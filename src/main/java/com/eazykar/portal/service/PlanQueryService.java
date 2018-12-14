@@ -2,8 +2,6 @@ package com.eazykar.portal.service;
 
 import java.util.List;
 
-import javax.persistence.criteria.JoinType;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -12,12 +10,12 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.github.jhipster.service.QueryService;
-
 import com.eazykar.portal.domain.Plan;
-import com.eazykar.portal.domain.*; // for static metamodels
+import com.eazykar.portal.domain.Plan_;
 import com.eazykar.portal.repository.PlanRepository;
 import com.eazykar.portal.service.dto.PlanCriteria;
+
+import io.github.jhipster.service.QueryService;
 
 /**
  * Service for executing complex queries for Plan entities in the database.

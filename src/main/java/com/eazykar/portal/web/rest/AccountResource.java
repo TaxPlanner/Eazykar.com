@@ -1,7 +1,23 @@
 package com.eazykar.portal.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
+import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.codahale.metrics.annotation.Timed;
 import com.eazykar.portal.domain.User;
 import com.eazykar.portal.repository.UserRepository;
 import com.eazykar.portal.security.SecurityUtils;
@@ -9,19 +25,13 @@ import com.eazykar.portal.service.MailService;
 import com.eazykar.portal.service.UserService;
 import com.eazykar.portal.service.dto.PasswordChangeDTO;
 import com.eazykar.portal.service.dto.UserDTO;
-import com.eazykar.portal.web.rest.errors.*;
+import com.eazykar.portal.web.rest.errors.EmailAlreadyUsedException;
+import com.eazykar.portal.web.rest.errors.EmailNotFoundException;
+import com.eazykar.portal.web.rest.errors.InternalServerErrorException;
+import com.eazykar.portal.web.rest.errors.InvalidPasswordException;
+import com.eazykar.portal.web.rest.errors.LoginAlreadyUsedException;
 import com.eazykar.portal.web.rest.vm.KeyAndPasswordVM;
 import com.eazykar.portal.web.rest.vm.ManagedUserVM;
-
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import java.util.*;
 
 
 /**

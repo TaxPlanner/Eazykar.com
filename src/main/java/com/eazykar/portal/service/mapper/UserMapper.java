@@ -1,13 +1,15 @@
 package com.eazykar.portal.service.mapper;
 
-import com.eazykar.portal.domain.Authority;
-import com.eazykar.portal.domain.User;
-import com.eazykar.portal.service.dto.UserDTO;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import com.eazykar.portal.domain.Authority;
+import com.eazykar.portal.domain.User;
+import com.eazykar.portal.service.dto.UserDTO;
 
 /**
  * Mapper for the entity User and its DTO called UserDTO.

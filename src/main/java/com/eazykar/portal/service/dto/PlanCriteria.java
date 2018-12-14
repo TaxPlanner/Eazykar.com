@@ -2,15 +2,14 @@ package com.eazykar.portal.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 import com.eazykar.portal.domain.enumeration.PlanType;
+
+import io.github.jhipster.service.filter.BigDecimalFilter;
 import io.github.jhipster.service.filter.BooleanFilter;
-import io.github.jhipster.service.filter.DoubleFilter;
 import io.github.jhipster.service.filter.Filter;
-import io.github.jhipster.service.filter.FloatFilter;
-import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.BigDecimalFilter;
 
 /**
  * Criteria class for the Plan entity. This class is used in PlanResource to

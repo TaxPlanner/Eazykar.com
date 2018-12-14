@@ -1,11 +1,11 @@
 package com.eazykar.portal.security;
 
-import com.eazykar.portal.config.Constants;
-
 import java.util.Optional;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
+
+import com.eazykar.portal.config.Constants;
 
 /**
  * Implementation of AuditorAware based on Spring Security.
