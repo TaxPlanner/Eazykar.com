@@ -1,0 +1,32 @@
+{
+    "eazykarApp": {
+        "userProfile": {
+            "home": {
+                "title": "UserProfiles",
+                "createLabel": "नया User Profile बनाएँ",
+                "createOrEditLabel": "User Profile बनाएँ या संपादित करें"
+            },
+            "created": "एक नया User Profile [identifier: {{ param }}] तैयार है",
+            "updated": "एक User Profile [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "User Profile [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "User Profile [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "User Profile"
+            },
+            "middleName": "Middle Name",
+            "fathersName": "Fathers Name",
+            "mobileNumber": "Mobile Number",
+            "panNumber": "Pan Number",
+            "addressLine1": "Address Line 1",
+            "addressLine2": "Address Line 2",
+            "addressLine3": "Address Line 3",
+            "addressLine4": "Address Line 4",
+            "city": "City",
+            "state": "State",
+            "pinCode": "Pin Code",
+            "user": "User"
+        }
+    }
+}

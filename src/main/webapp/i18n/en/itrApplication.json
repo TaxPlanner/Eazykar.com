@@ -1,0 +1,24 @@
+{
+    "eazykarApp": {
+        "itrApplication": {
+            "home": {
+                "title": "Itr Applications",
+                "createLabel": "Create a new Itr Application",
+                "createOrEditLabel": "Create or edit a Itr Application"
+            },
+            "created": "A new Itr Application is created with identifier {{ param }}",
+            "updated": "A Itr Application is updated with identifier {{ param }}",
+            "deleted": "A Itr Application is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Itr Application {{ id }}?"
+            },
+            "detail": {
+                "title": "Itr Application"
+            },
+            "applicationNumber": "Application Number",
+            "assessmentYear": "Assessment Year",
+            "applicationStatus": "Application Status",
+            "user": "User"
+        }
+    }
+}

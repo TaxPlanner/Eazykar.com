@@ -1,0 +1,25 @@
+{
+    "eazykarApp": {
+        "plan": {
+            "home": {
+                "title": "Plans",
+                "createLabel": "Create a new Plan",
+                "createOrEditLabel": "Create or edit a Plan"
+            },
+            "created": "A new Plan is created with identifier {{ param }}",
+            "updated": "A Plan is updated with identifier {{ param }}",
+            "deleted": "A Plan is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Plan {{ id }}?"
+            },
+            "detail": {
+                "title": "Plan"
+            },
+            "planNumber": "Plan Number",
+            "planName": "Plan Name",
+            "planType": "Plan Type",
+            "planFees": "Plan Fees",
+            "active": "Active"
+        }
+    }
+}

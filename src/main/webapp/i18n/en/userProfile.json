@@ -1,0 +1,32 @@
+{
+    "eazykarApp": {
+        "userProfile": {
+            "home": {
+                "title": "User Profiles",
+                "createLabel": "Create a new User Profile",
+                "createOrEditLabel": "Create or edit a User Profile"
+            },
+            "created": "A new User Profile is created with identifier {{ param }}",
+            "updated": "A User Profile is updated with identifier {{ param }}",
+            "deleted": "A User Profile is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete User Profile {{ id }}?"
+            },
+            "detail": {
+                "title": "User Profile"
+            },
+            "middleName": "Middle Name",
+            "fathersName": "Fathers Name",
+            "mobileNumber": "Mobile Number",
+            "panNumber": "Pan Number",
+            "addressLine1": "Address Line 1",
+            "addressLine2": "Address Line 2",
+            "addressLine3": "Address Line 3",
+            "addressLine4": "Address Line 4",
+            "city": "City",
+            "state": "State",
+            "pinCode": "Pin Code",
+            "user": "User"
+        }
+    }
+}

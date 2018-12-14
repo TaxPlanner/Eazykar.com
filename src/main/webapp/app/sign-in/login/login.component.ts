@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
                     this.stateStorageService.storeUrl(null);
                     this.router.navigate([redirect]);
                 } else {
-                    this.router.navigate(['user-dashboard']);
+                    this.router.navigate(['user-profile-combined']);
                 }
             })
             .catch(() => {

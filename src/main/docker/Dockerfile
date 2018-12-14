@@ -7,7 +7,6 @@ ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
 RUN adduser -D -s /bin/sh eazykaruser
 WORKDIR /home/eazykaruser
 
-COPY entrypoint.sh entrypoint.sh
 ADD entrypoint.sh entrypoint.sh
 RUN chmod 755 entrypoint.sh && chown eazykaruser:eazykaruser entrypoint.sh
 USER eazykaruser

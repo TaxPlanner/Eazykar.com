@@ -9,7 +9,11 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
     imports: [
         RouterModule.forRoot(
             [
-                ...LAYOUT_ROUTES
+                ...LAYOUT_ROUTES,
+                {
+                    path: 'admin',
+                    loadChildren: './admin/admin.module#EazykarAdminModule'
+                }
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }
         )

@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const rxPaths = require('rxjs/_esm5/path-mapping');
+const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 
 const utils = require('./utils.js');
 
@@ -76,6 +77,16 @@ module.exports = (options) => ({
             // jhipster-needle-add-assets-to-webpack
             { from: './src/main/webapp/robots.txt', to: 'robots.txt' }
         ]),
+        new MergeJsonWebpackPlugin({
+            output: {
+                groupBy: [
+                    { pattern: "./src/main/webapp/i18n/en/*.json", fileName: "./i18n/en.json" },
+                    { pattern: "./src/main/webapp/i18n/hi/*.json", fileName: "./i18n/hi.json" },
+                    { pattern: "./src/main/webapp/i18n/mr/*.json", fileName: "./i18n/mr.json" }
+                    // jhipster-needle-i18n-language-webpack
+                ]
+            }
+        }),
         new HtmlWebpackPlugin({
             template: './src/main/webapp/index.html',
             chunks: ['vendors', 'polyfills', 'main', 'global'],

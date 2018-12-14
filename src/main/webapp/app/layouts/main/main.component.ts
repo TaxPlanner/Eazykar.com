@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 
-import { Title } from '@angular/platform-browser';
+import { JhiLanguageHelper } from 'app/core';
 
 @Component({
     selector: 'ezkr-main',
@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
     encapsulation: ViewEncapsulation.None
 })
 export class EzkrMainComponent implements OnInit {
-    constructor(private titleService: Title, private router: Router) {}
+    constructor(private jhiLanguageHelper: JhiLanguageHelper, private router: Router) {}
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
         let title: string = routeSnapshot.data && routeSnapshot.data['pageTitle'] ? routeSnapshot.data['pageTitle'] : 'eazykarApp';
@@ -22,7 +22,7 @@ export class EzkrMainComponent implements OnInit {
     ngOnInit() {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
-                this.titleService.setTitle(this.getPageTitle(this.router.routerState.snapshot.root));
+                this.jhiLanguageHelper.updateTitle(this.getPageTitle(this.router.routerState.snapshot.root));
             }
         });
     }

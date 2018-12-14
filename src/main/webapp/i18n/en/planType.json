@@ -1,0 +1,9 @@
+{
+    "eazykarApp": {
+        "PlanType": {
+            "null": "",
+            "INDIVIDUAL": "INDIVIDUAL",
+            "BUSINESS": "BUSINESS"
+        }
+    }
+}

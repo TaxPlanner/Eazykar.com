@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eazykarApp.userProfile.home.title">User Profiles</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-user-profile" [routerLink]="['/user-profile/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="eazykarApp.userProfile.home.createLabel">
+            Create new User Profile
+            </span>
+        </button>
+    </h2>
+    <ezkr-alert></ezkr-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="userProfiles">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="middleName"><span jhiTranslate="eazykarApp.userProfile.middleName">Middle Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fathersName"><span jhiTranslate="eazykarApp.userProfile.fathersName">Fathers Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mobileNumber"><span jhiTranslate="eazykarApp.userProfile.mobileNumber">Mobile Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="panNumber"><span jhiTranslate="eazykarApp.userProfile.panNumber">Pan Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressLine1"><span jhiTranslate="eazykarApp.userProfile.addressLine1">Address Line 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressLine2"><span jhiTranslate="eazykarApp.userProfile.addressLine2">Address Line 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressLine3"><span jhiTranslate="eazykarApp.userProfile.addressLine3">Address Line 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressLine4"><span jhiTranslate="eazykarApp.userProfile.addressLine4">Address Line 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="eazykarApp.userProfile.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="state"><span jhiTranslate="eazykarApp.userProfile.state">State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pinCode"><span jhiTranslate="eazykarApp.userProfile.pinCode">Pin Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.id"><span jhiTranslate="eazykarApp.userProfile.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let userProfile of userProfiles ;trackBy: trackId">
+                <td><a [routerLink]="['/user-profile', userProfile.id, 'view' ]">{{userProfile.id}}</a></td>
+                <td>{{userProfile.middleName}}</td>
+                <td>{{userProfile.fathersName}}</td>
+                <td>{{userProfile.mobileNumber}}</td>
+                <td>{{userProfile.panNumber}}</td>
+                <td>{{userProfile.addressLine1}}</td>
+                <td>{{userProfile.addressLine2}}</td>
+                <td>{{userProfile.addressLine3}}</td>
+                <td>{{userProfile.addressLine4}}</td>
+                <td>{{userProfile.city}}</td>
+                <td>{{userProfile.state}}</td>
+                <td>{{userProfile.pinCode}}</td>
+                <td>
+                    {{userProfile.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/user-profile', userProfile.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/user-profile', userProfile.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'user-profile/'+ userProfile.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="userProfiles && userProfiles.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
