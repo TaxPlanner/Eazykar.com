@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="ezkr_user"/>
 
+        <addForeignKeyConstraint baseColumnNames="assignee_id"
+                                 baseTableName="itr_application"
+                                 constraintName="fk_itr_application_assignee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ezkr_user"/>
+
     </changeSet>
 </databaseChangeLog>

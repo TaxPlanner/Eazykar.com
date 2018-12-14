@@ -2,12 +2,10 @@ package com.eazykar.portal.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 import com.eazykar.portal.domain.enumeration.ItrApplicationStatus;
-import io.github.jhipster.service.filter.BooleanFilter;
-import io.github.jhipster.service.filter.DoubleFilter;
+
 import io.github.jhipster.service.filter.Filter;
-import io.github.jhipster.service.filter.FloatFilter;
-import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
 
@@ -37,6 +35,8 @@ public class ItrApplicationCriteria implements Serializable {
     private ItrApplicationStatusFilter applicationStatus;
 
     private LongFilter userId;
+
+    private LongFilter assigneeId;
 
     public ItrApplicationCriteria() {
     }
@@ -81,6 +81,14 @@ public class ItrApplicationCriteria implements Serializable {
         this.userId = userId;
     }
 
+    public LongFilter getAssigneeId() {
+        return assigneeId;
+    }
+
+    public void setAssigneeId(LongFilter assigneeId) {
+        this.assigneeId = assigneeId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -96,7 +104,8 @@ public class ItrApplicationCriteria implements Serializable {
             Objects.equals(applicationNumber, that.applicationNumber) &&
             Objects.equals(assessmentYear, that.assessmentYear) &&
             Objects.equals(applicationStatus, that.applicationStatus) &&
-            Objects.equals(userId, that.userId);
+            Objects.equals(userId, that.userId) &&
+            Objects.equals(assigneeId, that.assigneeId);
     }
 
     @Override
@@ -106,7 +115,8 @@ public class ItrApplicationCriteria implements Serializable {
         applicationNumber,
         assessmentYear,
         applicationStatus,
-        userId
+        userId,
+        assigneeId
         );
     }
 
@@ -118,6 +128,7 @@ public class ItrApplicationCriteria implements Serializable {
                 (assessmentYear != null ? "assessmentYear=" + assessmentYear + ", " : "") +
                 (applicationStatus != null ? "applicationStatus=" + applicationStatus + ", " : "") +
                 (userId != null ? "userId=" + userId + ", " : "") +
+                (assigneeId != null ? "assigneeId=" + assigneeId + ", " : "") +
             "}";
     }
 

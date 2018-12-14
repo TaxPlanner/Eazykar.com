@@ -26,10 +26,10 @@
                 <constraints nullable="false" />
             </column>
             <column name="user_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_plan_user_id" />
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_user_plan_user_id" />
             </column>
             <column name="plan_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

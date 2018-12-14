@@ -24,7 +24,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "user_profile")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class UserProfile extends AbstractAuditingEntity implements Serializable {
+public class UserProfile implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -81,7 +81,8 @@ public class UserProfile extends AbstractAuditingEntity implements Serializable 
     @Column(name = "pin_code", length = 6)
     private String pinCode;
 
-    @OneToOne    @JoinColumn(unique = true)
+    @OneToOne(optional = false)    @NotNull
+    @JoinColumn(unique = true)
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

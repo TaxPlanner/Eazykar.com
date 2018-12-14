@@ -18,7 +18,8 @@
             <th jhiSortBy="applicationNumber"><span jhiTranslate="eazykarApp.itrApplication.applicationNumber">Application Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="assessmentYear"><span jhiTranslate="eazykarApp.itrApplication.assessmentYear">Assessment Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="applicationStatus"><span jhiTranslate="eazykarApp.itrApplication.applicationStatus">Application Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="user.id"><span jhiTranslate="eazykarApp.itrApplication.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.login"><span jhiTranslate="eazykarApp.itrApplication.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assignee.login"><span jhiTranslate="eazykarApp.itrApplication.assignee">Assignee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -29,7 +30,10 @@
                 <td>{{itrApplication.assessmentYear}}</td>
                 <td jhiTranslate="{{'eazykarApp.ItrApplicationStatus.' + itrApplication.applicationStatus}}">{{itrApplication.applicationStatus}}</td>
                 <td>
-                    {{itrApplication.user?.id}}
+                    {{itrApplication.user?.login}}
+                </td>
+                <td>
+                    {{itrApplication.assignee?.login}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

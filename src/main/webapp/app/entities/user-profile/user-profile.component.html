@@ -26,7 +26,7 @@
             <th jhiSortBy="city"><span jhiTranslate="eazykarApp.userProfile.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="state"><span jhiTranslate="eazykarApp.userProfile.state">State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="pinCode"><span jhiTranslate="eazykarApp.userProfile.pinCode">Pin Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="user.id"><span jhiTranslate="eazykarApp.userProfile.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.login"><span jhiTranslate="eazykarApp.userProfile.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -45,7 +45,7 @@
                 <td>{{userProfile.state}}</td>
                 <td>{{userProfile.pinCode}}</td>
                 <td>
-                    {{userProfile.user?.id}}
+                    {{userProfile.user?.login}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
