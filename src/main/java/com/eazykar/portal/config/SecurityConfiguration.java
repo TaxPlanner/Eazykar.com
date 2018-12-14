@@ -1,7 +1,6 @@
 package com.eazykar.portal.config;
 
-import com.eazykar.portal.security.*;
-import com.eazykar.portal.security.jwt.*;
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +22,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.filter.CorsFilter;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 
-import javax.annotation.PostConstruct;
+import com.eazykar.portal.security.AuthoritiesConstants;
+import com.eazykar.portal.security.jwt.JWTConfigurer;
+import com.eazykar.portal.security.jwt.TokenProvider;
 
 @Configuration
 @EnableWebSecurity

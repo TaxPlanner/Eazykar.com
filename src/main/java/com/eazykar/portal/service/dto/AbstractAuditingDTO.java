@@ -2,6 +2,7 @@ package com.eazykar.portal.service.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
+
 import org.springframework.data.annotation.ReadOnlyProperty;
 
 /**

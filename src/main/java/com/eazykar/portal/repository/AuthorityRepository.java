@@ -1,8 +1,8 @@
 package com.eazykar.portal.repository;
 
-import com.eazykar.portal.domain.Authority;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.eazykar.portal.domain.Authority;
 
 /**
  * Spring Data JPA repository for the Authority entity.

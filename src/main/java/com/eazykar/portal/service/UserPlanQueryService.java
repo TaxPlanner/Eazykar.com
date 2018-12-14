@@ -12,12 +12,14 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import io.github.jhipster.service.QueryService;
-
+import com.eazykar.portal.domain.Plan_;
 import com.eazykar.portal.domain.UserPlan;
-import com.eazykar.portal.domain.*; // for static metamodels
+import com.eazykar.portal.domain.UserPlan_;
+import com.eazykar.portal.domain.User_;
 import com.eazykar.portal.repository.UserPlanRepository;
 import com.eazykar.portal.service.dto.UserPlanCriteria;
+
+import io.github.jhipster.service.QueryService;
 
 /**
  * Service for executing complex queries for UserPlan entities in the database.
