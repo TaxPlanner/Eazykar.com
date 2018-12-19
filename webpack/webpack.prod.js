@@ -41,10 +41,10 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
                 loader: 'sass-loader',
                 options: { implementation: sass }
             }],
-            exclude: /(vendor\.scss|global\.scss)/
+            exclude: /(vendor\.scss|global\.scss|styles\.scss)/
         },
         {
-            test: /(vendor\.scss|global\.scss)/,
+            test: /(vendor\.scss|global\.scss|styles\.scss)/,
             use: [
                 MiniCssExtractPlugin.loader,
                 'css-loader',
@@ -58,10 +58,10 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         {
             test: /\.css$/,
             use: ['to-string-loader', 'css-loader'],
-            exclude: /(vendor\.css|global\.css)/
+            exclude: /(vendor\.css|global\.css|styles\.css)/
         },
         {
-            test: /(vendor\.css|global\.css)/,
+            test: /(vendor\.css|global\.css|styles\.css)/,
             use: [
                 MiniCssExtractPlugin.loader,
                 'css-loader',

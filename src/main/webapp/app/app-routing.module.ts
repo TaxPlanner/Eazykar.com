@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { errorRoute, navbarRoute } from './layouts';
-import { DEBUG_INFO_ENABLED } from 'app/app.constants';
-import { fuseRoutes } from 'app/main/fuse.route';
+import { DEBUG_INFO_ENABLED } from './app.constants';
+import { PagesModule } from './main/pages/pages.module';
+import { EazykarAdminModule } from './admin/admin.module';
 
-const LAYOUT_ROUTES: Routes = [navbarRoute, ...fuseRoutes, ...errorRoute];
+const LAYOUT_ROUTES: Routes = [navbarRoute, ...errorRoute];
 
 @NgModule({
     imports: [
@@ -12,8 +13,12 @@ const LAYOUT_ROUTES: Routes = [navbarRoute, ...fuseRoutes, ...errorRoute];
             [
                 ...LAYOUT_ROUTES,
                 {
+                    path: 'pages',
+                    loadChildren: () => PagesModule
+                },
+                {
                     path: 'admin',
-                    loadChildren: './admin/admin.module#EazykarAdminModule'
+                    loadChildren: () => EazykarAdminModule
                 }
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }
@@ -21,4 +26,5 @@ const LAYOUT_ROUTES: Routes = [navbarRoute, ...fuseRoutes, ...errorRoute];
     ],
     exports: [RouterModule]
 })
-export class EazykarAppRoutingModule {}
+export class EazykarAppRoutingModule {
+}

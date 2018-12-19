@@ -5,11 +5,9 @@ import { MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule } from 
 
 import { FusePipesModule } from '../../../@fuse/pipes/pipes.module';
 
-import { FuseMaterialColorPickerComponent } from '../../../@fuse/components/material-color-picker/material-color-picker.component';
-
 @NgModule({
     declarations: [
-        FuseMaterialColorPickerComponent
+        // FuseMaterialColorPickerComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +22,7 @@ import { FuseMaterialColorPickerComponent } from '../../../@fuse/components/mate
         FusePipesModule
     ],
     exports: [
-        FuseMaterialColorPickerComponent
+        // FuseMaterialColorPickerComponent
     ],
 })
 export class FuseMaterialColorPickerModule
