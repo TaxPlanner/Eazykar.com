@@ -19,15 +19,19 @@ export const fuseConfig: FuseConfig = {
             primaryBackground  : 'fuse-navy-700',
             secondaryBackground: 'fuse-navy-900',
             folded             : false,
-            hidden             : false,
-            position           : 'left',
+            hidden             : true,
+            position           : 'top',
             variant            : 'horizontal-style-1'
         },
         toolbar  : {
             customBackgroundColor: false,
             background           : 'fuse-white-500',
             hidden               : false,
-            position             : 'above'
+            position             : 'above',
+            enableShortcuts      : false,
+            enableSearch         : false,
+            enableLanguage       : false,
+            enableQuickPanel     : false
         },
         footer   : {
             customBackgroundColor: true,

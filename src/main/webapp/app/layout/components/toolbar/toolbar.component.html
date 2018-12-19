@@ -13,11 +13,11 @@
 
             <div fxLayout="row" fxLayoutAlign="start center" *ngIf="horizontalNavbar">
                 <div class="logo ml-16">
-                    <img class="logo-icon" src="/content/images/logos/fuse.svg">
+                    <img class="logo-icon" src="/content/images/logo.png">
                 </div>
             </div>
 
-            <div class="px-8 px-md-16">
+            <div class="px-8 px-md-16" *ngIf="enableShortcuts">
                 <fuse-shortcuts [navigation]="navigation"></fuse-shortcuts>
             </div>
 
@@ -25,41 +25,69 @@
 
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
 
-            <button mat-button [matMenuTriggerFor]="userMenu"
-                    class="user-button">
-                <div fxLayout="row" fxLayoutAlign="center center">
-                    <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/Velazquez.jpg">
-                    <span class="username mr-12" fxHide fxShow.gt-sm>Charlie Adams</span>
-                    <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
-                </div>
-            </button>
-
-            <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-
-                <button mat-menu-item>
-                    <mat-icon>account_circle</mat-icon>
-                    <span>My Profile</span>
+            <div *ngIf="!isAuthenticated()">
+                <button mat-button [matMenuTriggerFor]="loginMenu"
+                        class="user-button">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/profile.jpg">
+                        <span class="username mr-12" fxHide fxShow.gt-sm>Sign In</span>
+                        <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+                    </div>
                 </button>
 
-                <button mat-menu-item class="">
-                    <mat-icon>mail</mat-icon>
-                    <span>Inbox</span>
+                <mat-menu #loginMenu="matMenu" [overlapTrigger]="false">
+
+                    <button mat-menu-item routerLink="pages/auth/login-2">
+                        <mat-icon>fingerprint</mat-icon>
+                        <span>Sign In</span>
+                    </button>
+
+                    <button mat-menu-item routerLink="pages/auth/register-2">
+                        <mat-icon>how_to_reg</mat-icon>
+                        <span>Register</span>
+                    </button>
+
+                </mat-menu>
+            </div>
+
+            <div *ngIf="isAuthenticated()">
+                <button mat-button [matMenuTriggerFor]="userMenu"
+                        class="user-button">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/Velazquez.jpg">
+                        <span class="username mr-12" fxHide fxShow.gt-sm>Charlie Adams</span>
+                        <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+                    </div>
                 </button>
 
-                <button mat-menu-item class="">
-                    <mat-icon>exit_to_app</mat-icon>
-                    <span>Logout</span>
-                </button>
+                <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
 
-            </mat-menu>
+                    <button mat-menu-item>
+                        <mat-icon>account_circle</mat-icon>
+                        <span>My Profile</span>
+                    </button>
+
+                    <button mat-menu-item class="">
+                        <mat-icon>mail</mat-icon>
+                        <span>Inbox</span>
+                    </button>
+
+                    <button mat-menu-item class="">
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Logout</span>
+                    </button>
+
+                </mat-menu>
+            </div>
 
             <div class="toolbar-separator"></div>
 
-            <fuse-search-bar (input)="search($event)"></fuse-search-bar>
+            <fuse-search-bar (input)="search($event)" *ngIf="enableSearch"></fuse-search-bar>
 
             <div class="toolbar-separator"></div>
 
             <button mat-button fxHide fxShow.gt-xs
+                    *ngIf="enableLanguage"
                     class="language-button"
                     [matMenuTriggerFor]="languageMenu">
                 <div fxLayout="row" fxLayoutAlign="center center">
@@ -97,6 +125,7 @@
             <div class="toolbar-separator" fxHide.gt-md></div>
 
             <button mat-icon-button
+                    *ngIf="enableQuickPanel"
                     class="quick-panel-toggle-button"
                     (click)="toggleSidebarOpen('quickPanel')"
                     aria-label="Toggle quick panel">

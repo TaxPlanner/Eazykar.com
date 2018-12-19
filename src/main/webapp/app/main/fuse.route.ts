@@ -1,17 +1,18 @@
 import { Routes } from '@angular/router';
+import { PagesModule } from 'app/main/pages/pages.module';
 
 export const fuseRoutes: Routes = [
     // {
     //     path        : 'apps',
-    //     loadChildren: './apps/apps.module#AppsModule'
+    //     loadChildren: () => AppsModule
     // },
     {
         path        : 'pages',
-        loadChildren: './pages/pages.module#PagesModule'
+        loadChildren: () => PagesModule
     },
     // {
     //     path        : 'ui',
-    //     loadChildren: './ui/ui.module#UIModule'
+    //     loadChildren: () => UIModule
     // },
 ];
 

@@ -82,6 +82,10 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                     background           : new FormControl(),
                     customBackgroundColor: new FormControl(),
                     hidden               : new FormControl(),
+                    enableShortcuts      : new FormControl(),
+                    enableSearch         : new FormControl(),
+                    enableLanguage       : new FormControl(),
+                    enableQuickPanel     : new FormControl(),
                     position             : new FormControl()
                 }),
                 footer   : this._formBuilder.group({
@@ -197,6 +201,10 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                             background           : 'fuse-white-500',
                             customBackgroundColor: false,
                             hidden               : false,
+                            enableShortcuts      : false,
+                            enableSearch         : false,
+                            enableLanguage       : false,
+                            enableQuickPanel     : false,
                             position             : 'below-static'
                         },
                         footer   : {
@@ -233,6 +241,10 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                             background           : 'fuse-white-500',
                             customBackgroundColor: false,
                             hidden               : false,
+                            enableShortcuts      : false,
+                            enableSearch         : false,
+                            enableLanguage       : false,
+                            enableQuickPanel     : false,
                             position             : 'below'
                         },
                         footer   : {
@@ -269,6 +281,10 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                             background           : 'fuse-white-500',
                             customBackgroundColor: false,
                             hidden               : false,
+                            enableShortcuts      : false,
+                            enableSearch         : false,
+                            enableLanguage       : false,
+                            enableQuickPanel     : false,
                             position             : 'above-static'
                         },
                         footer   : {
@@ -305,6 +321,10 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                             background           : 'fuse-white-500',
                             customBackgroundColor: false,
                             hidden               : false,
+                            enableShortcuts      : false,
+                            enableSearch         : false,
+                            enableLanguage       : false,
+                            enableQuickPanel     : false,
                             position             : 'above'
                         },
                         footer   : {

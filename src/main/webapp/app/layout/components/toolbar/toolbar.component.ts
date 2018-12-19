@@ -8,6 +8,7 @@ import { FuseConfigService } from '../../../@fuse/services/config.service';
 import { FuseSidebarService } from '../../../@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
+import { Principal } from 'app/core';
 
 @Component({
     selector     : 'toolbar',
@@ -21,6 +22,10 @@ export class ToolbarComponent implements OnInit, OnDestroy
     horizontalNavbar: boolean;
     rightNavbar: boolean;
     hiddenNavbar: boolean;
+    enableShortcuts: boolean;
+    enableSearch: boolean;
+    enableLanguage: boolean;
+    enableQuickPanel: boolean;
     languages: any;
     navigation: any;
     selectedLanguage: any;
@@ -35,11 +40,13 @@ export class ToolbarComponent implements OnInit, OnDestroy
      * @param {FuseConfigService} _fuseConfigService
      * @param {FuseSidebarService} _fuseSidebarService
      * @param {TranslateService} _translateService
+     * @param {Principal} principal
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _fuseSidebarService: FuseSidebarService,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+        private principal: Principal,
     )
     {
         // Set the defaults
@@ -106,6 +113,10 @@ export class ToolbarComponent implements OnInit, OnDestroy
                 this.horizontalNavbar = settings.layout.navbar.position === 'top';
                 this.rightNavbar = settings.layout.navbar.position === 'right';
                 this.hiddenNavbar = settings.layout.navbar.hidden === true;
+                this.enableShortcuts = settings.layout.toolbar.enableShortcuts === true;
+                this.enableSearch = settings.layout.toolbar.enableSearch === true;
+                this.enableLanguage = settings.layout.toolbar.enableLanguage === true;
+                this.enableQuickPanel = settings.layout.toolbar.enableQuickPanel === true;
             });
 
         // Set the selected language from default languages
@@ -160,4 +171,9 @@ export class ToolbarComponent implements OnInit, OnDestroy
         // Use the selected language for translations
         this._translateService.use(lang.id);
     }
+
+    isAuthenticated() {
+        return this.principal.isAuthenticated();
+    }
+
 }
