@@ -2,6 +2,7 @@ import './vendor.ts';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
@@ -23,12 +24,22 @@ import { EazykarAppTaxKnowledgeModule } from './tax-knowledge/tax-knowledge.modu
 import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
 import { EazykarAppSignInModule } from './sign-in/sign-in.module';
 import { EazykarAppUserProfileCombinedModule } from './user-profile-combined/user-profile-combined.module';
+import { EazykarAppLandingModule } from './landing/landing.module';
 // jhipster-needle-angular-add-module-import
 import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { FuseSharedModule } from './@fuse/shared.module';
+import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from './@fuse/components';
+import { FuseModule } from './@fuse/fuse.module';
+import { LayoutModule } from './layout/layout.module';
+import { fuseConfig } from './fuse-config';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         EazykarAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'ezkr', separator: '-' }),
         NgJhipsterModule.forRoot({
@@ -42,13 +53,32 @@ import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponen
         EazykarCoreModule,
         EazykarHomeModule,
         EazykarAccountModule,
+        EazykarAppLandingModule,
         EazykarAppTaxServicesModule,
         EazykarAppTaxKnowledgeModule,
         EazykarAppContactUsModule,
         EazykarAppSignInModule,
         EazykarAppUserProfileCombinedModule,
         // jhipster-needle-angular-add-module
-        EazykarEntityModule
+        EazykarEntityModule,
+
+        TranslateModule.forRoot(),
+
+        // Material moment date module
+        MatMomentDateModule,
+
+        // Material
+        MatButtonModule,
+        MatIconModule,
+
+        // Fuse modules
+        FuseModule.forRoot(fuseConfig),
+        FuseProgressBarModule,
+        FuseSharedModule,
+        FuseSidebarModule,
+        FuseThemeOptionsModule,
+
+        LayoutModule
     ],
     declarations: [EzkrMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [

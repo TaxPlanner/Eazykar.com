@@ -1,0 +1,20 @@
+<mat-toolbar>
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutAlign.gt-xs="space-between center" fxFlex>
+
+        <a routerLink="/"
+           target="_blank" mat-button class="pink" fxFlex="0 0 auto" fxLayout="row"
+           fxLayoutAlign="start center">
+            <mat-icon class="s-16 mr-sm-4">contact_mail</mat-icon>
+            <span>Contact Us</span>
+        </a>
+
+        <div fxLayout="row" fxLayoutAlign="start center" fxHide fxShow.gt-xs>
+            <a mat-button routerLink="/">Privacy Policy</a>
+            <span>&bull;</span>
+            <a mat-button routerLink="/">Terms of Use</a>
+        </div>
+
+    </div>
+
+</mat-toolbar>

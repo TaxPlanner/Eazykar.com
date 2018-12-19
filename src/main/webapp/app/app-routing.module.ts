@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { errorRoute, navbarRoute } from './layouts';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
+import { fuseRoutes } from 'app/main/fuse.route';
 
-const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
+const LAYOUT_ROUTES: Routes = [navbarRoute, ...fuseRoutes, ...errorRoute];
 
 @NgModule({
     imports: [
