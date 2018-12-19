@@ -21,6 +21,10 @@
         },
         "importHelpers": true
     },
+    "include": [
+        "src/main/webapp/app",
+        "src/test/javascript/"
+    ],
     "angularCompilerOptions": {
         "genDir": "target/aot",
         "skipMetadataEmit" : true,

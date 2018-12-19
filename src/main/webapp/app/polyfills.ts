@@ -46,7 +46,7 @@ import 'core-js/es7/reflect';
  * Required to support Web Animations `@angular/animation`.
  * Needed for: All but Chrome, Firefox and Opera. http://caniuse.com/#feat=web-animation
  **/
-// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 /***************************************************************************************************
  * Zone JS is required by Angular itself.
@@ -66,5 +66,19 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  * Need to import at least one locale-data with intl.
  */
 // import 'intl/locale-data/jsonp/en';
+
+/***************************************************************************************************
+ * Copied from Fuse Demo - use as needed
+ * /
+// // Add global to window, assigning the value of window itself.
+// (window as any).global = window;
+//
+// /**
+//  * Fix for ngx-chart to work on ie11
+//  */
+// if ( typeof SVGElement.prototype.contains === 'undefined' )
+// {
+//     SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
+// }
 
 require('../manifest.webapp');

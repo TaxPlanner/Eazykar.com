@@ -40,6 +40,7 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
     },
     entry: {
         polyfills: './src/main/webapp/app/polyfills',
+        styles: './src/main/webapp/app/styles.scss',
         global: './src/main/webapp/content/scss/global.scss',
         main: './src/main/webapp/app/app.main'
     },
@@ -89,10 +90,10 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
                 loader: 'sass-loader',
                 options: { implementation: sass }
             }],
-            exclude: /(vendor\.scss|global\.scss)/
+            exclude: /(vendor\.scss|global\.scss|styles\.scss)/
         },
         {
-            test: /(vendor\.scss|global\.scss)/,
+            test: /(vendor\.scss|global\.scss|styles\.scss)/,
             use: ['style-loader', 'css-loader', 'postcss-loader', {
                 loader: 'sass-loader',
                 options: { implementation: sass }
@@ -101,10 +102,10 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
         {
             test: /\.css$/,
             use: ['to-string-loader', 'css-loader'],
-            exclude: /(vendor\.css|global\.css)/
+            exclude: /(vendor\.css|global\.css|styles\.css)/
         },
         {
-            test: /(vendor\.css|global\.css)/,
+            test: /(vendor\.css|global\.css|styles\.css)/,
             use: ['style-loader', 'css-loader']
         }]
     },
