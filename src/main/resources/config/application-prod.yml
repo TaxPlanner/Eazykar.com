@@ -51,7 +51,7 @@ spring:
         host: smtp.eazykar.com
         port: 587
         username: contactus@eazykar.com  #Replace this field with your Gmail username.
-        password: RqulOB^Lv5             #Replace this field with your Gmail password.
+        password: KXHAqc!A1              #Replace this field with your Gmail password.
         protocol: smtp
         #        tls: true
         properties.mail.smtp:
