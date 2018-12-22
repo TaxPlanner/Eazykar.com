@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material';
 
-import { FuseSharedModule } from '../../../../@fuse/shared.module';
+import { FuseSharedModule } from 'app/@fuse/shared.module';
 
 import { MailConfirmComponent } from 'app/main/pages/authentication/mail-confirm/mail-confirm.component';
 

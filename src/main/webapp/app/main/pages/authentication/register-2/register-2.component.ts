@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -27,7 +27,8 @@ export class Register2Component implements OnInit, AfterViewInit, OnDestroy {
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
         private registerService: Register,
-        private router: Router
+        private router: Router,
+        private renderer2: Renderer2
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -77,6 +78,7 @@ export class Register2Component implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.resetRegisterForm();
+        this.renderer2.selectRootElement('#username').focus();
     }
 
     /**
@@ -97,7 +99,15 @@ export class Register2Component implements OnInit, AfterViewInit, OnDestroy {
         }).subscribe(
             () => {
                 this.resetRegisterForm();
-                this.router.navigate(['pages', 'auth', 'mail-confirm'], {queryParams: {email: this.registerForm.controls.email.value}});
+                this.router.navigate(['pages', 'auth', 'mail-confirm'], {
+                    queryParams: {
+                        title: 'Your user account has been activated.',
+                        subtitle: `<p>A confirmation e-mail has been sent to <b>${this.registerForm.controls.email.value}</b>.</p>
+                                   <p>Check your inbox and click on the "Confirm my email" link to confirm your email address.</p>`,
+                        message: 'Go back to home page',
+                        messageLink: ''
+                    }
+                });
             },
             response => this.processError(response)
         );

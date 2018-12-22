@@ -19,8 +19,7 @@ import { EazykarAppRoutingModule } from './app-routing.module';
 import { EazykarHomeModule } from './home/home.module';
 import { EazykarAccountModule } from './account/account.module';
 import { EazykarEntityModule } from './entities/entity.module';
-import { EazykarAppTaxServicesModule } from './tax-services/tax-services.module';
-import { EazykarAppTaxKnowledgeModule } from './tax-knowledge/tax-knowledge.module';
+import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
 import { EazykarAppSignInModule } from './sign-in/sign-in.module';
 import { EazykarAppUserProfileCombinedModule } from './user-profile-combined/user-profile-combined.module';
@@ -55,7 +54,6 @@ import { TranslateModule } from '@ngx-translate/core';
         EazykarAccountModule,
         EazykarAppLandingModule,
         EazykarAppTaxServicesModule,
-        EazykarAppTaxKnowledgeModule,
         EazykarAppContactUsModule,
         EazykarAppSignInModule,
         EazykarAppUserProfileCombinedModule,

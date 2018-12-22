@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { LoginModalService } from 'app/core';
 import { PasswordResetFinishService } from './password-reset-finish.service';
@@ -23,13 +23,16 @@ export class PasswordResetFinishComponent implements OnInit, AfterViewInit {
         private passwordResetFinishService: PasswordResetFinishService,
         private loginModalService: LoginModalService,
         private route: ActivatedRoute,
+        private router: Router,
         private elementRef: ElementRef,
         private renderer: Renderer
-    ) {}
+    ) {
+    }
 
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
             this.key = params['key'];
+            this.router.navigate(['pages', 'auth', 'reset-password-2'], { queryParams: { key: this.key } });
         });
         this.resetAccount = {};
         this.keyMissing = !this.key;

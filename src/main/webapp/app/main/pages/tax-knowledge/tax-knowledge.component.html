@@ -1,0 +1,63 @@
+<div id="knowledgebase" class="page-layout simple full-width">
+
+    <!-- HEADER -->
+    <div class="header accent p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="hero-text mb-32">
+            <h1>Know About Tax</h1>
+            <h3>EazyKar has all the answers for you!</h3>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+
+        <h2 class="display-3">Tax Knowledge, EasyKar</h2>
+        <p class="mat-h3">
+            <mat-icon>done_all</mat-icon>
+            The Income Tax Act of 1961 to be read with the applicable Finance Act for a detailed understanding of the Indian Tax System.
+            In India, the Authorities rely on the slab system, notified periodically through the Finance Bill that when duly passed turns into an Act.
+        </p>
+        <p class="mat-h3">
+            <mat-icon>done_all</mat-icon>
+            These slabs vary for different categories of Assessees and may at times even sub-categorize. For instance, in the case of Individuals,
+            this category may be sub-categorized into Men and Women, or as Senior Citizens, Very Senior Citizens and Others.
+        </p>
+        <p class="mat-h3">
+            <mat-icon>done_all</mat-icon>
+            When it comes to filing your IT Returns and Financial Planning, it’s all about making the right choice and at EasyKar we strive hard to
+            educate our clients to make an informed decision.
+            Below discussed are some prominent financial concepts that you must know.
+        </p>
+    </div>
+
+    <div class="content preview">
+        <div class="cards">
+            <div class="card" *ngFor="let article of articles">
+                <div class="card-preview">
+                    <div class="fuse-card">
+                        <img [src]="article.imageSource">
+                        <div class="p-16">
+                            <div class="h1">{{article.title}}</div>
+                            <!--<div class="h4 secondary-text">Free on Thursdays</div>-->
+                        </div>
+                        <div class="p-16 pt-0 line-height-1.75">
+                            <!--<p [innerHTML]="article.content"></p>-->
+
+                            <div class="p-8 pt-0" fxLayout="row" fxLayoutAlign="end center">
+                                <button mat-button color="accent"
+                                        (click)="readArticle(article)">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / CONTENT -->
+
+</div>
