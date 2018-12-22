@@ -17,6 +17,7 @@ import { PricingModule } from './pricing/pricing.module';
 // import { SearchModernModule } from './search/modern/search-modern.module';
 // import { FaqModule } from './faq/faq.module';
 import { TaxKnowledgeModule } from 'app/main/pages/tax-knowledge/tax-knowledge.module';
+import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 
 @NgModule({
     imports: [
@@ -55,7 +56,8 @@ import { TaxKnowledgeModule } from 'app/main/pages/tax-knowledge/tax-knowledge.m
         // FaqModule,
         //
         // Tax Knowledge
-        TaxKnowledgeModule
+        TaxKnowledgeModule,
+        EazykarAppTaxServicesModule
     ],
     declarations: []
 })
