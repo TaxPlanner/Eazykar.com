@@ -21,13 +21,17 @@ import { Carousel6Component } from './carousel6/carousel6.component';
 import { HighlightsComponent } from './highlights/highlights.component';
 import { ServicePillsComponent } from './service-pills/service-pills.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { FuseSharedModule } from 'app/@fuse/shared.module';
+import { MatIconModule } from '@angular/material';
 
 @NgModule({
     imports: [
         EazykarSharedModule,
-        RouterModule.forRoot([TAX_SERVICES_ROUTE], { useHash: true }),
+        RouterModule.forChild([TAX_SERVICES_ROUTE]),
         MDBBootstrapModule.forRoot(),
-        CarouselModule.forRoot()
+        CarouselModule.forRoot(),
+        MatIconModule,
+        FuseSharedModule
     ],
     declarations: [
         TaxServicesComponent,

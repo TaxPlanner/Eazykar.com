@@ -21,11 +21,10 @@ import { EazykarAccountModule } from './account/account.module';
 import { EazykarEntityModule } from './entities/entity.module';
 import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
-import { EazykarAppSignInModule } from './sign-in/sign-in.module';
 import { EazykarAppUserProfileCombinedModule } from './user-profile-combined/user-profile-combined.module';
 import { EazykarAppLandingModule } from './landing/landing.module';
 // jhipster-needle-angular-add-module-import
-import { EzkrMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { ActiveMenuDirective, ErrorComponent, EzkrMainComponent, FooterComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { FuseSharedModule } from './@fuse/shared.module';
@@ -55,7 +54,6 @@ import { TranslateModule } from '@ngx-translate/core';
         EazykarAppLandingModule,
         EazykarAppTaxServicesModule,
         EazykarAppContactUsModule,
-        EazykarAppSignInModule,
         EazykarAppUserProfileCombinedModule,
         // jhipster-needle-angular-add-module
         EazykarEntityModule,
