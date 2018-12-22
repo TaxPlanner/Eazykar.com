@@ -25,60 +25,13 @@
 
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
 
-            <div *ngIf="!isAuthenticated()">
-                <button mat-button [matMenuTriggerFor]="loginMenu"
-                        class="user-button">
-                    <div fxLayout="row" fxLayoutAlign="center center">
-                        <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/profile.jpg">
-                        <span class="username mr-12" fxHide fxShow.gt-sm>Sign In</span>
-                        <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
-                    </div>
-                </button>
+            <ng-container *ngIf="!isAuthenticated()">
+                <ng-container *ngTemplateOutlet="unAuthenticatedMenus"></ng-container>
+            </ng-container>
 
-                <mat-menu #loginMenu="matMenu" [overlapTrigger]="false">
-
-                    <button mat-menu-item routerLink="pages/auth/login-2">
-                        <mat-icon>fingerprint</mat-icon>
-                        <span>Sign In</span>
-                    </button>
-
-                    <button mat-menu-item routerLink="pages/auth/register-2">
-                        <mat-icon>how_to_reg</mat-icon>
-                        <span>Register</span>
-                    </button>
-
-                </mat-menu>
-            </div>
-
-            <div *ngIf="isAuthenticated()">
-                <button mat-button [matMenuTriggerFor]="userMenu"
-                        class="user-button">
-                    <div fxLayout="row" fxLayoutAlign="center center">
-                        <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/Velazquez.jpg">
-                        <span class="username mr-12" fxHide fxShow.gt-sm>Charlie Adams</span>
-                        <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
-                    </div>
-                </button>
-
-                <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-
-                    <button mat-menu-item>
-                        <mat-icon>account_circle</mat-icon>
-                        <span>My Profile</span>
-                    </button>
-
-                    <button mat-menu-item class="">
-                        <mat-icon>mail</mat-icon>
-                        <span>Inbox</span>
-                    </button>
-
-                    <button mat-menu-item class="">
-                        <mat-icon>exit_to_app</mat-icon>
-                        <span>Logout</span>
-                    </button>
-
-                </mat-menu>
-            </div>
+            <ng-container *ngIf="isAuthenticated() && account">
+                <ng-container *ngTemplateOutlet="authenticatedMenus"></ng-container>
+            </ng-container>
 
             <div class="toolbar-separator"></div>
 
@@ -144,3 +97,115 @@
     </div>
 
 </mat-toolbar>
+
+<ng-template #unAuthenticatedMenus>
+
+    <button mat-button [routerLink]="'/pages/tax-services'"
+            class="menu-button"
+            aria-label="Toggle quick panel">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!--<mat-icon class="secondary-text">library_books</mat-icon>-->
+            <span class="username mr-12" fxHide fxShow.gt-sm>Tax Services</span>
+        </div>
+    </button>
+
+    <div class="toolbar-separator"></div>
+
+    <button mat-button [routerLink]="'/pages/tax-knowledge'"
+            class="menu-button"
+            aria-label="Toggle quick panel">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!--<mat-icon class="secondary-text">library_books</mat-icon>-->
+            <span class="username mr-12" fxHide fxShow.gt-sm>Tax Knowledge</span>
+        </div>
+    </button>
+
+    <div class="toolbar-separator"></div>
+
+    <button mat-button [matMenuTriggerFor]="loginMenu"
+            class="user-button">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <img class="avatar mr-0 mr-sm-16" [src]="getImageUrl()">
+            <span class="username mr-12" fxHide fxShow.gt-sm>Sign In</span>
+            <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+        </div>
+    </button>
+
+    <mat-menu #loginMenu="matMenu" [overlapTrigger]="false">
+
+        <button mat-menu-item routerLink="pages/auth/login-2">
+            <mat-icon>fingerprint</mat-icon>
+            <span>Sign In</span>
+        </button>
+
+        <button mat-menu-item routerLink="pages/auth/register-2">
+            <mat-icon>how_to_reg</mat-icon>
+            <span>Register</span>
+        </button>
+
+    </mat-menu>
+
+</ng-template>
+
+<ng-template #authenticatedMenus>
+
+<!--
+    <button mat-button fxHide fxShow.gt-xs
+            class="language-button"
+            [matMenuTriggerFor]="languageMenu">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <img class="flag mr-8" [src]="'assets/icons/flags/'+selectedLanguage.flag+'.png'">
+            <span class="iso text-uppercase">{{selectedLanguage.id}}</span>
+        </div>
+    </button>
+-->
+
+    <button mat-button [matMenuTriggerFor]="helpMenu"
+            class="menu-button">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!--<img class="avatar mr-0 mr-sm-16" src="/content/icons/material-icons/outline/fonts/">\-->
+            <mat-icon>help_outline</mat-icon>
+            <!--<span class="username mr-12" fxHide fxShow.gt-sm>Sign In</span>-->
+            <!--<mat-icon class="s-16" fxHide.xs>help_outline</mat-icon>-->
+        </div>
+    </button>
+    <mat-menu #helpMenu="matMenu" [overlapTrigger]="false">
+
+        <button mat-menu-item [routerLink]="'/pages/tax-services'">
+            <mat-icon>question_answer</mat-icon>
+            <span>Tax Services</span>
+        </button>
+
+        <button mat-menu-item [routerLink]="'/pages/tax-knowledge'">
+            <mat-icon>library_books</mat-icon>
+            <span>Tax Knowledge</span>
+        </button>
+
+    </mat-menu>
+
+    <div class="toolbar-separator"></div>
+
+    <button mat-button [matMenuTriggerFor]="userMenu"
+            class="user-button">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!--<img class="avatar mr-0 mr-sm-16" [src]="getImageUrl()" alt="Avatar">-->
+            <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/Velazquez.jpg" alt="Avatar">
+            <span class="username mr-12" fxHide fxShow.gt-sm>{{account.firstName}} {{account.lastName}}</span>
+            <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+        </div>
+    </button>
+
+    <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+
+        <button mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            <span>My Profile</span>
+        </button>
+
+        <button mat-menu-item class="" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </button>
+
+    </mat-menu>
+</ng-template>

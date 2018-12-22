@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { FuseConfigService } from '../../../../@fuse/services/config.service';
-import { fuseAnimations } from '../../../../@fuse/animations';
+import { FuseConfigService } from 'app/@fuse/services/config.service';
+import { fuseAnimations } from 'app/@fuse/animations';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,11 +13,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MailConfirmComponent implements OnInit
 {
-    email: string;
+    title: string;
+    subtitle: string;
+    message: string;
+    messageLink: string;
+
     /**
      * Constructor
      *
      * @param {FuseConfigService} _fuseConfigService
+     * @param {ActivatedRoute} route
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
@@ -46,7 +51,10 @@ export class MailConfirmComponent implements OnInit
     ngOnInit(): void {
         this.route.queryParams.subscribe(params => {
             console.log(`params: ${JSON.stringify(params)}`);
-            this.email = params['email'];
+            this.title = params['title'];
+            this.subtitle = params['subtitle'];
+            this.message = params['message'];
+            this.messageLink = params['messageLink'];
         });
     }
 }

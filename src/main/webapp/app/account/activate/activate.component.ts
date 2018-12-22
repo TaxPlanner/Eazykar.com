@@ -15,7 +15,8 @@ export class ActivateComponent implements OnInit {
     constructor(private activateService: ActivateService,
                 private loginModalService: LoginModalService,
                 private route: ActivatedRoute,
-                private router: Router) {}
+                private router: Router) {
+    }
 
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
@@ -23,10 +24,26 @@ export class ActivateComponent implements OnInit {
                 () => {
                     this.error = null;
                     this.success = 'OK';
+                    this.router.navigate(['pages', 'auth', 'mail-confirm'], {
+                        queryParams: {
+                            title: 'Email Verification Complete',
+                            subtitle: 'Your user account has been activated.',
+                            message: `Let's sign in`,
+                            messageLink: '/pages/auth/login-2'
+                        }
+                    });
                 },
                 () => {
                     this.success = null;
                     this.error = 'ERROR';
+                    this.router.navigate(['pages', 'auth', 'mail-confirm'], {
+                        queryParams: {
+                            title: 'Your user could not be activated.',
+                            subtitle: '',
+                            message: 'Please use the registration page to sign up.',
+                            messageLink: '/pages/auth/registration-2'
+                        }
+                    });
                 }
             );
         });

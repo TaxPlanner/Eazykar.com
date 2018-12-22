@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CarouselModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 
-import { EazykarSharedModule } from '../shared';
+import { EazykarSharedModule } from 'app/shared';
 
 import { TAX_SERVICES_ROUTE, TaxServicesComponent } from './';
 import { Quote1Component } from './quote1/quote1.component';

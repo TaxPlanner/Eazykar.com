@@ -8,19 +8,18 @@
                 <mat-icon class="mat-accent s-96">email</mat-icon>
             </div>
 
-            <div class="title">Confirm your email address!</div>
-
-            <div class="subtitle">
-                <p>
-                    A confirmation e-mail has been sent to <b>{{email}}</b>.
-                </p>
-                <p>
-                    Check your inbox and click on the "Confirm my email" link to confirm your email address.
-                </p>
-            </div>
-
+<!--
+            <ng-container *ngIf="calledFrom === 'confirmation'">
+                <ng-container [ngTemplateOutlet]="beforeConfirmationTemplate"></ng-container>
+            </ng-container>
+            <ng-container *ngIf="!beforeConfirmation">
+                <ng-container [ngTemplateOutlet]="afterConfirmationTemplate"></ng-container>
+            </ng-container>
+-->
+            <div class="title" [innerHTML]="title"></div>
+            <div class="subtitle" [innerHTML]="subtitle"></div>
             <div class="message">
-                <a class="link" [routerLink]="'/pages/auth/login-2'">Go back to login page</a>
+                <a class="link" [routerLink]="messageLink">{{message}}</a>
             </div>
 
         </div>
@@ -28,3 +27,37 @@
     </div>
 
 </div>
+
+<!--
+<ng-template #beforeConfirmationTemplate>
+    <div class="title">Confirm your email address!</div>
+
+    <div class="subtitle">
+        <p>
+            A confirmation e-mail has been sent to <b>{{email}}</b>.
+        </p>
+        <p>
+            Check your inbox and click on the "Confirm my email" link to confirm your email address.
+        </p>
+    </div>
+</ng-template>
+
+<ng-template #beforePasswordResetTemplate>
+    <div class="title">Check your email!</div>
+
+    <div class="subtitle">
+        <p>
+            A password reset e-mail has been sent to <b>{{email}}</b>.
+        </p>
+        <p>
+            Check your inbox and click on the "Reset my password" link to set a new password.
+        </p>
+    </div>
+</ng-template>
+
+<ng-template #afterConfirmationTemplate>
+    <div class="title">{{title}}</div>
+    <div class="subtitle">{{subtitle}}</div>
+    <div class="message">{{message}}</div>
+</ng-template>
+-->

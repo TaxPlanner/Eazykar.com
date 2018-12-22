@@ -16,7 +16,7 @@ import { PricingModule } from './pricing/pricing.module';
 // import { SearchClassicModule } from './search/classic/search-classic.module';
 // import { SearchModernModule } from './search/modern/search-modern.module';
 // import { FaqModule } from './faq/faq.module';
-// import { KnowledgeBaseModule } from './knowledge-base/knowledge-base.module';
+import { TaxKnowledgeModule } from 'app/main/pages/tax-knowledge/tax-knowledge.module';
 
 @NgModule({
     imports: [
@@ -42,7 +42,7 @@ import { PricingModule } from './pricing/pricing.module';
         // MaintenanceModule,
 
         // Pricing
-        PricingModule
+        PricingModule,
 
         // // Profile
         // ProfileModule,
@@ -54,9 +54,10 @@ import { PricingModule } from './pricing/pricing.module';
         // // Faq
         // FaqModule,
         //
-        // // Knowledge base
-        // KnowledgeBaseModule
-    ]
+        // Tax Knowledge
+        TaxKnowledgeModule
+    ],
+    declarations: []
 })
 export class PagesModule {
 

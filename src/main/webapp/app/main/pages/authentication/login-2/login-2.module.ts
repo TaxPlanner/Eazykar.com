@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 
-import { FuseSharedModule } from '../../../../@fuse/shared.module';
+import { FuseSharedModule } from 'app/@fuse/shared.module';
 
 import { Login2Component } from 'app/main/pages/authentication/login-2/login-2.component';
 
