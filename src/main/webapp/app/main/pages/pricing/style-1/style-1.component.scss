@@ -59,7 +59,35 @@ pricing-style-1 {
             }
 
             .price-table {
-                margin: 12px;
+                width: 150px;
+                border-radius: 4px;
+                margin: 8px;
+
+                .package-type {
+                    font-size: 14px;
+                    padding: 8px 12px;
+
+                    .sale {
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+
+                .price {
+                    padding: 16px 16px 8px 16px;
+
+                    .value {
+                        font-size: 36px;
+                        font-weight: 300;
+                        line-height: 1;
+                    }
+
+                    .period {
+                        padding: 0 0 5px 4px;
+                        font-size: 14px;
+                    }
+
+                }
             }
         }
 

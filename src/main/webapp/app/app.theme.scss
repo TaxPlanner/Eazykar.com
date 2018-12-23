@@ -79,7 +79,7 @@ $typography: mat-typography-config(
 
 // Import app and page component themes here to enable theming for them
 //@import "./layout/components/chat-panel/chat-panel.theme";
-//@import "./layout/components/toolbar/toolbar.theme";
+@import "./layout/components/toolbar/toolbar.theme";
 //
 //@import "./main/apps/academy/academy.theme";
 //@import "./main/apps/calendar/calendar.theme";
@@ -128,7 +128,7 @@ $typography: mat-typography-config(
 
     //// Layout components
     //@include chat-panel-theme($theme);
-    //@include toolbar-theme($theme);
+    @include toolbar-theme($theme);
     //
     //// Apps
     //@include academy-theme($theme);
@@ -159,16 +159,16 @@ $typography: mat-typography-config(
     //@include error-404-theme($theme);
     //@include error-500-theme($theme);
     //@include maintenance-theme($theme);
-    //@include pricing-style-1-theme($theme);
-    //@include pricing-style-2-theme($theme);
-    //@include pricing-style-3-theme($theme);
+    @include pricing-style-1-theme($theme);
+    @include pricing-style-2-theme($theme);
+    @include pricing-style-3-theme($theme);
     //@include profile-about-theme($theme);
     //@include profile-photos-videos-theme($theme);
     //@include profile-timeline-theme($theme);
     //@include search-classic-theme($theme);
     //@include search-modern-theme($theme);
     //@include faq-theme($theme);
-    //@include knowledge-base-theme($theme);
+    @include knowledge-base-theme($theme);
     //
     //// UI
     //@include ui-cards-theme($theme);

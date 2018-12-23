@@ -43,7 +43,7 @@ import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
         // MaintenanceModule,
 
         // Pricing
-        PricingModule,
+        // PricingModule,
 
         // // Profile
         // ProfileModule,

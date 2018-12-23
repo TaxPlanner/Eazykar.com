@@ -29,6 +29,11 @@ const routes = [
         PricingStyle2Component,
         PricingStyle3Component
     ],
+    exports: [
+        PricingStyle1Component,
+        PricingStyle2Component,
+        PricingStyle3Component
+    ],
     imports     : [
         RouterModule.forChild(routes),
 

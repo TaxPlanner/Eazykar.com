@@ -95,7 +95,8 @@ export class FusePerfectScrollbarDirective implements AfterViewInit, OnDestroy
         }
 
         // Store the value
-        this._enabled = value;
+        // this._enabled = value;
+        this._enabled = false;
 
         // If enabled...
         if ( this.enabled )
