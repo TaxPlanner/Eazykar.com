@@ -1,0 +1,27 @@
+<div id="knowledgebase" class="page-layout simple full-width">
+
+    <!-- HEADER -->
+    <div class="header accent p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="hero-text mb-32">
+            <h1>EazyKar</h1>
+            <h3>We have a solution to your tax needs for Lifetime!</h3>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <div fxHide fxShow.gt-xs>
+        <slideshow [minHeight]="'525px'"
+                   [autoPlay]="true"
+                   [showArrows]="true"
+                   [imageUrls]="imageUrls"
+                   [lazyLoad]="imageUrls?.length > 1"
+                   [autoPlayWaitForLazyLoad]="true">
+        </slideshow>
+    </div>
+
+    <div>
+        <pricing-style-1></pricing-style-1>
+    </div>
+</div>

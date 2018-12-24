@@ -12,8 +12,8 @@
             <div class="toolbar-separator" *ngIf="!hiddenNavbar && !rightNavbar" fxHide.gt-md></div>
 
             <div fxLayout="row" fxLayoutAlign="start center" *ngIf="horizontalNavbar">
-                <div class="logo ml-16">
-                    <img class="logo-icon" src="/content/images/logo.png">
+                <div class="logo ml-16 mt-16">
+                    <a [routerLink]="''"><img class="logo-icon" src="/content/images/logo.png"></a>
                 </div>
             </div>
 
