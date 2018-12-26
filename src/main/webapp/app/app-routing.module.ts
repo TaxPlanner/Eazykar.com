@@ -13,10 +13,6 @@ const LAYOUT_ROUTES: Routes = [navbarRoute, ...errorRoute];
                 {
                     path: 'pages',
                     loadChildren: './main/pages/pages.module#PagesModule'
-                },
-                {
-                    path: 'admin',
-                    loadChildren: './admin/admin.module#EazykarAdminModule'
                 }
             ],
             { useHash: true, enableTracing: DEBUG_INFO_ENABLED }

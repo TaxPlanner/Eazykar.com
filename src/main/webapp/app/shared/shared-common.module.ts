@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { EazykarSharedLibsModule, FindLanguageFromKeyPipe, EzkrAlertComponent, EzkrAlertErrorComponent } from './';
+import { EazykarSharedLibsModule, EzkrAlertComponent, EzkrAlertErrorComponent } from './';
 
 @NgModule({
     imports: [EazykarSharedLibsModule],
-    declarations: [FindLanguageFromKeyPipe, EzkrAlertComponent, EzkrAlertErrorComponent],
-    exports: [EazykarSharedLibsModule, FindLanguageFromKeyPipe, EzkrAlertComponent, EzkrAlertErrorComponent]
+    declarations: [EzkrAlertComponent, EzkrAlertErrorComponent],
+    exports: [EazykarSharedLibsModule, EzkrAlertComponent, EzkrAlertErrorComponent]
 })
 export class EazykarSharedCommonModule {}

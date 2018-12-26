@@ -11,7 +11,6 @@ export class Principal {
     private authenticationState = new Subject<any>();
 
     constructor(
-        private languageService: JhiLanguageService,
         private sessionStorage: SessionStorageService,
         private account: AccountService
     ) {}
@@ -75,11 +74,6 @@ export class Principal {
                 if (account) {
                     this.userIdentity = account;
                     this.authenticated = true;
-
-                    // After retrieve the account info, the language will be changed to
-                    // the user's preferred language configured in the account setting
-                    const langKey = this.sessionStorage.retrieve('locale') || this.userIdentity.langKey;
-                    this.languageService.changeLanguage(langKey);
                 } else {
                     this.userIdentity = null;
                     this.authenticated = false;

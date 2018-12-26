@@ -15,6 +15,7 @@ logging:
         ROOT: INFO
         com.eazykar.portal: INFO
         io.github.jhipster: INFO
+    file: eazykar.log
 
 spring:
     devtools:

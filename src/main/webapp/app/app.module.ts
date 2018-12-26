@@ -18,11 +18,8 @@ import { EazykarCoreModule } from 'app/core';
 import { EazykarAppRoutingModule } from './app-routing.module';
 import { EazykarHomeModule } from './home/home.module';
 import { EazykarAccountModule } from './account/account.module';
-import { EazykarEntityModule } from './entities/entity.module';
 import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
-import { EazykarAppUserProfileCombinedModule } from './user-profile-combined/user-profile-combined.module';
-import { EazykarAppLandingModule } from './landing/landing.module';
 // jhipster-needle-angular-add-module-import
 import { ActiveMenuDirective, ErrorComponent, EzkrMainComponent, FooterComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { MatButtonModule, MatIconModule } from '@angular/material';
@@ -44,19 +41,16 @@ import { TranslateModule } from '@ngx-translate/core';
             // set below to true to make alerts look like toast
             alertAsToast: false,
             alertTimeout: 5000,
-            i18nEnabled: true,
+            i18nEnabled: false,
             defaultI18nLang: 'en'
         }),
         EazykarSharedModule.forRoot(),
         EazykarCoreModule,
         EazykarHomeModule,
         EazykarAccountModule,
-        EazykarAppLandingModule,
         EazykarAppTaxServicesModule,
         EazykarAppContactUsModule,
-        EazykarAppUserProfileCombinedModule,
         // jhipster-needle-angular-add-module
-        EazykarEntityModule,
 
         TranslateModule.forRoot(),
 
