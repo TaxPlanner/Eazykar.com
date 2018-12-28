@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/f
 
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { fuseAnimations } from '../../../../@fuse/animations';
-import { LoginService, StateStorageService } from 'app/core';
+import { LoginService, Principal, StateStorageService } from 'app/core';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 import { log } from 'util';
+import { WhereToNextService } from 'app/core/where-to-next/where-to-next.service';
 
 @Component({
     selector: 'login-2',
@@ -30,6 +31,7 @@ export class Login2Component implements OnInit, AfterViewInit {
      * @param {StateStorageService} stateStorageService
      * @param {Router} router
      * @param {Renderer2} renderer2
+     * @param {Principal} principal
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
@@ -38,7 +40,9 @@ export class Login2Component implements OnInit, AfterViewInit {
         private loginService: LoginService,
         private stateStorageService: StateStorageService,
         private router: Router,
-        private renderer2: Renderer2
+        private renderer2: Renderer2,
+        private principal: Principal,
+        private whereToNextService: WhereToNextService
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -99,13 +103,20 @@ export class Login2Component implements OnInit, AfterViewInit {
                     content: 'Sending Authentication Success'
                 });
 
+                // If user == USER_ROLE
+                // this.principal.hasAuthority("USER_ROLE");
+                //   If user profile is absent navigate to user profile page
+                //   Else navigate to LifeCycle current stage page for user
+                // Else navigate to LifeCycle current stage page for CA
+                this.whereToNextService.go();
+
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
                 // since login is successful, go to stored previousState and clear previousState
-                const redirect = this.stateStorageService.getUrl();
-                if (redirect) {
-                    this.stateStorageService.storeUrl(null);
-                    this.router.navigate([redirect]);
-                }
+                // const redirect = this.stateStorageService.getUrl();
+                // if (redirect) {
+                //     this.stateStorageService.storeUrl(null);
+                //     this.router.navigate([redirect]);
+                // }
             })
             .catch(() => {
                 this.authenticationError = true;

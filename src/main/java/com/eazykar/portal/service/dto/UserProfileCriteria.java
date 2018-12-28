@@ -3,7 +3,11 @@ package com.eazykar.portal.service.dto;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.eazykar.portal.domain.enumeration.Gender;
+import com.eazykar.portal.domain.enumeration.MaritalStatus;
+
 import io.github.jhipster.service.filter.Filter;
+import io.github.jhipster.service.filter.LocalDateFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
 
@@ -16,6 +20,16 @@ import io.github.jhipster.service.filter.StringFilter;
  * fix type specific filters.
  */
 public class UserProfileCriteria implements Serializable {
+    /**
+     * Class for filtering Gender
+     */
+    public static class GenderFilter extends Filter<Gender> {
+    }
+    /**
+     * Class for filtering MaritalStatus
+     */
+    public static class MaritalStatusFilter extends Filter<MaritalStatus> {
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -25,23 +39,15 @@ public class UserProfileCriteria implements Serializable {
 
     private StringFilter fathersName;
 
+    private StringFilter secondaryEmail;
+
     private StringFilter mobileNumber;
 
-    private StringFilter panNumber;
+    private LocalDateFilter dateOfBirth;
 
-    private StringFilter addressLine1;
+    private GenderFilter gender;
 
-    private StringFilter addressLine2;
-
-    private StringFilter addressLine3;
-
-    private StringFilter addressLine4;
-
-    private StringFilter city;
-
-    private StringFilter state;
-
-    private StringFilter pinCode;
+    private MaritalStatusFilter maritalStatus;
 
     private LongFilter userId;
 
@@ -72,6 +78,14 @@ public class UserProfileCriteria implements Serializable {
         this.fathersName = fathersName;
     }
 
+    public StringFilter getSecondaryEmail() {
+        return secondaryEmail;
+    }
+
+    public void setSecondaryEmail(StringFilter secondaryEmail) {
+        this.secondaryEmail = secondaryEmail;
+    }
+
     public StringFilter getMobileNumber() {
         return mobileNumber;
     }
@@ -80,68 +94,28 @@ public class UserProfileCriteria implements Serializable {
         this.mobileNumber = mobileNumber;
     }
 
-    public StringFilter getPanNumber() {
-        return panNumber;
+    public LocalDateFilter getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setPanNumber(StringFilter panNumber) {
-        this.panNumber = panNumber;
+    public void setDateOfBirth(LocalDateFilter dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public StringFilter getAddressLine1() {
-        return addressLine1;
+    public GenderFilter getGender() {
+        return gender;
     }
 
-    public void setAddressLine1(StringFilter addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setGender(GenderFilter gender) {
+        this.gender = gender;
     }
 
-    public StringFilter getAddressLine2() {
-        return addressLine2;
+    public MaritalStatusFilter getMaritalStatus() {
+        return maritalStatus;
     }
 
-    public void setAddressLine2(StringFilter addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
-
-    public StringFilter getAddressLine3() {
-        return addressLine3;
-    }
-
-    public void setAddressLine3(StringFilter addressLine3) {
-        this.addressLine3 = addressLine3;
-    }
-
-    public StringFilter getAddressLine4() {
-        return addressLine4;
-    }
-
-    public void setAddressLine4(StringFilter addressLine4) {
-        this.addressLine4 = addressLine4;
-    }
-
-    public StringFilter getCity() {
-        return city;
-    }
-
-    public void setCity(StringFilter city) {
-        this.city = city;
-    }
-
-    public StringFilter getState() {
-        return state;
-    }
-
-    public void setState(StringFilter state) {
-        this.state = state;
-    }
-
-    public StringFilter getPinCode() {
-        return pinCode;
-    }
-
-    public void setPinCode(StringFilter pinCode) {
-        this.pinCode = pinCode;
+    public void setMaritalStatus(MaritalStatusFilter maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
     public LongFilter getUserId() {
@@ -166,15 +140,11 @@ public class UserProfileCriteria implements Serializable {
             Objects.equals(id, that.id) &&
             Objects.equals(middleName, that.middleName) &&
             Objects.equals(fathersName, that.fathersName) &&
+            Objects.equals(secondaryEmail, that.secondaryEmail) &&
             Objects.equals(mobileNumber, that.mobileNumber) &&
-            Objects.equals(panNumber, that.panNumber) &&
-            Objects.equals(addressLine1, that.addressLine1) &&
-            Objects.equals(addressLine2, that.addressLine2) &&
-            Objects.equals(addressLine3, that.addressLine3) &&
-            Objects.equals(addressLine4, that.addressLine4) &&
-            Objects.equals(city, that.city) &&
-            Objects.equals(state, that.state) &&
-            Objects.equals(pinCode, that.pinCode) &&
+            Objects.equals(dateOfBirth, that.dateOfBirth) &&
+            Objects.equals(gender, that.gender) &&
+            Objects.equals(maritalStatus, that.maritalStatus) &&
             Objects.equals(userId, that.userId);
     }
 
@@ -184,15 +154,11 @@ public class UserProfileCriteria implements Serializable {
         id,
         middleName,
         fathersName,
+        secondaryEmail,
         mobileNumber,
-        panNumber,
-        addressLine1,
-        addressLine2,
-        addressLine3,
-        addressLine4,
-        city,
-        state,
-        pinCode,
+        dateOfBirth,
+        gender,
+        maritalStatus,
         userId
         );
     }
@@ -203,15 +169,11 @@ public class UserProfileCriteria implements Serializable {
                 (id != null ? "id=" + id + ", " : "") +
                 (middleName != null ? "middleName=" + middleName + ", " : "") +
                 (fathersName != null ? "fathersName=" + fathersName + ", " : "") +
+                (secondaryEmail != null ? "secondaryEmail=" + secondaryEmail + ", " : "") +
                 (mobileNumber != null ? "mobileNumber=" + mobileNumber + ", " : "") +
-                (panNumber != null ? "panNumber=" + panNumber + ", " : "") +
-                (addressLine1 != null ? "addressLine1=" + addressLine1 + ", " : "") +
-                (addressLine2 != null ? "addressLine2=" + addressLine2 + ", " : "") +
-                (addressLine3 != null ? "addressLine3=" + addressLine3 + ", " : "") +
-                (addressLine4 != null ? "addressLine4=" + addressLine4 + ", " : "") +
-                (city != null ? "city=" + city + ", " : "") +
-                (state != null ? "state=" + state + ", " : "") +
-                (pinCode != null ? "pinCode=" + pinCode + ", " : "") +
+                (dateOfBirth != null ? "dateOfBirth=" + dateOfBirth + ", " : "") +
+                (gender != null ? "gender=" + gender + ", " : "") +
+                (maritalStatus != null ? "maritalStatus=" + maritalStatus + ", " : "") +
                 (userId != null ? "userId=" + userId + ", " : "") +
             "}";
     }

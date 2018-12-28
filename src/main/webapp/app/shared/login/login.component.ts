@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, Renderer, ElementRef, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
@@ -10,7 +10,7 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
     selector: 'ezkr-login-modal',
     templateUrl: './login.component.html'
 })
-export class EzkrLoginModalComponent implements AfterViewInit {
+export class EzkrLoginModalComponent implements OnInit, AfterViewInit {
     authenticationError: boolean;
     password: string;
     rememberMe: boolean;
@@ -29,8 +29,16 @@ export class EzkrLoginModalComponent implements AfterViewInit {
         this.credentials = {};
     }
 
+    /**
+     * This is needed to navigate to the new login screen,
+     * without losing existing code
+     */
+    ngOnInit(): void {
+        this.router.navigate(['pages', 'auth', 'login-2']);
+    }
+
     ngAfterViewInit() {
-        setTimeout(() => this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []), 0);
+        // setTimeout(() => this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []), 0);
     }
 
     cancel() {

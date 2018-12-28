@@ -1,18 +1,27 @@
+import { Moment } from 'moment';
 import { IUser } from 'app/core/user/user.model';
+
+export const enum Gender {
+    MALE = 'MALE',
+    FEMALE = 'FEMALE'
+}
+
+export const enum MaritalStatus {
+    BACHELOR = 'BACHELOR',
+    MARRIED = 'MARRIED',
+    DIVORCED = 'DIVORCED',
+    PREFER_NOT_TO_DISCLOSE = 'PREFER_NOT_TO_DISCLOSE'
+}
 
 export interface IUserProfile {
     id?: number;
     middleName?: string;
     fathersName?: string;
+    secondaryEmail?: string;
     mobileNumber?: string;
-    panNumber?: string;
-    addressLine1?: string;
-    addressLine2?: string;
-    addressLine3?: string;
-    addressLine4?: string;
-    city?: string;
-    state?: string;
-    pinCode?: string;
+    dateOfBirth?: Moment;
+    gender?: Gender;
+    maritalStatus?: MaritalStatus;
     user?: IUser;
 }
 
@@ -21,15 +30,11 @@ export class UserProfile implements IUserProfile {
         public id?: number,
         public middleName?: string,
         public fathersName?: string,
+        public secondaryEmail?: string,
         public mobileNumber?: string,
-        public panNumber?: string,
-        public addressLine1?: string,
-        public addressLine2?: string,
-        public addressLine3?: string,
-        public addressLine4?: string,
-        public city?: string,
-        public state?: string,
-        public pinCode?: string,
+        public dateOfBirth?: Moment,
+        public gender?: Gender,
+        public maritalStatus?: MaritalStatus,
         public user?: IUser
     ) {}
 }

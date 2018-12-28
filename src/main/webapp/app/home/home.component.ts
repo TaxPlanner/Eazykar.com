@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Account, LoginModalService, Principal } from 'app/core';
+import { Account, Principal } from 'app/core';
 import { IImage } from 'ng-simple-slideshow';
 
 @Component({
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
         { url: 'content/images/carousel/6.png', backgroundSize: 'contain', backgroundPosition: 'center' }
     ];
 
-    constructor(private principal: Principal, private loginModalService: LoginModalService, private eventManager: JhiEventManager) {
+    constructor(private principal: Principal, private eventManager: JhiEventManager) {
     }
 
     ngOnInit() {
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
         return this.principal.isAuthenticated();
     }
 
-    login() {
-        this.modalRef = this.loginModalService.open();
-    }
+    // login() {
+    //     this.modalRef = this.loginModalService.open();
+    // }
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { LoginModalService } from 'app/core';
 import { ActivateService } from './activate.service';
 
 @Component({
@@ -13,7 +11,6 @@ export class ActivateComponent implements OnInit {
     success: string;
 
     constructor(private activateService: ActivateService,
-                private loginModalService: LoginModalService,
                 private route: ActivatedRoute,
                 private router: Router) {
     }

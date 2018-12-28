@@ -4,7 +4,7 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { SessionStorageService } from 'ngx-webstorage';
 
 import { VERSION } from 'app/app.constants';
-import { LoginModalService, LoginService, Principal } from 'app/core';
+import { LoginService, Principal } from 'app/core';
 import { ProfileService } from '../profiles/profile.service';
 
 @Component({
@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
         private loginService: LoginService,
         private sessionStorage: SessionStorageService,
         private principal: Principal,
-        private loginModalService: LoginModalService,
         private profileService: ProfileService,
         private router: Router
     ) {
@@ -53,7 +52,7 @@ export class NavbarComponent implements OnInit {
     }
 
     login() {
-        this.modalRef = this.loginModalService.open();
+        // this.modalRef = this.loginModalService.open();
     }
 
     logout() {

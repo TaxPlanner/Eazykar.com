@@ -1,0 +1,11 @@
+{
+    "eazykarApp": {
+        "MaritalStatus": {
+            "null": "",
+            "BACHELOR": "BACHELOR",
+            "MARRIED": "MARRIED",
+            "DIVORCED": "DIVORCED",
+            "PREFER_NOT_TO_DISCLOSE": "PREFER_NOT_TO_DISCLOSE"
+        }
+    }
+}
