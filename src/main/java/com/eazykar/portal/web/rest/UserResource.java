@@ -127,7 +127,7 @@ public class UserResource {
      */
     @PutMapping("/users")
     @Timed
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
+//    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO userDTO) {
         log.debug("REST request to update User : {}", userDTO);
         Optional<User> existingUser = userRepository.findOneByEmailIgnoreCase(userDTO.getEmail());
