@@ -6,18 +6,25 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
+    MatSnackBarModule,
     MatStepperModule,
     MatTabsModule
 } from '@angular/material';
 
 import { FuseSharedModule } from 'app/@fuse/shared.module';
 import { UserProfileComponent } from 'app/main/pages/user-profile/user-profile.component';
+import { UserRouteAccessService } from 'app/core';
 
 const routes: Routes = [
     {
         path: 'user-profile',
-        component: UserProfileComponent
+        component: UserProfileComponent,
+        data: {
+            authorities: ['ROLE_USER']
+        },
+        canActivate: [UserRouteAccessService]
     }
 ];
 
@@ -36,6 +43,8 @@ const routes: Routes = [
         MatStepperModule,
         MatDatepickerModule,
         MatTabsModule,
+        MatProgressSpinnerModule,
+        MatSnackBarModule,
 
         FuseSharedModule
     ]

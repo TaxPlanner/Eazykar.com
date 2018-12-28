@@ -17,15 +17,11 @@
             },
             "middleName": "Middle Name",
             "fathersName": "Fathers Name",
+            "secondaryEmail": "Secondary Email",
             "mobileNumber": "Mobile Number",
-            "panNumber": "Pan Number",
-            "addressLine1": "Address Line 1",
-            "addressLine2": "Address Line 2",
-            "addressLine3": "Address Line 3",
-            "addressLine4": "Address Line 4",
-            "city": "City",
-            "state": "State",
-            "pinCode": "Pin Code",
+            "dateOfBirth": "Date Of Birth",
+            "gender": "Gender",
+            "maritalStatus": "Marital Status",
             "user": "User"
         }
     }

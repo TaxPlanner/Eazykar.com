@@ -90,32 +90,20 @@ public class UserProfileQueryService extends QueryService<UserProfile> {
             if (criteria.getFathersName() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getFathersName(), UserProfile_.fathersName));
             }
+            if (criteria.getSecondaryEmail() != null) {
+                specification = specification.and(buildStringSpecification(criteria.getSecondaryEmail(), UserProfile_.secondaryEmail));
+            }
             if (criteria.getMobileNumber() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getMobileNumber(), UserProfile_.mobileNumber));
             }
-            if (criteria.getPanNumber() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getPanNumber(), UserProfile_.panNumber));
+            if (criteria.getDateOfBirth() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getDateOfBirth(), UserProfile_.dateOfBirth));
             }
-            if (criteria.getAddressLine1() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getAddressLine1(), UserProfile_.addressLine1));
+            if (criteria.getGender() != null) {
+                specification = specification.and(buildSpecification(criteria.getGender(), UserProfile_.gender));
             }
-            if (criteria.getAddressLine2() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getAddressLine2(), UserProfile_.addressLine2));
-            }
-            if (criteria.getAddressLine3() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getAddressLine3(), UserProfile_.addressLine3));
-            }
-            if (criteria.getAddressLine4() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getAddressLine4(), UserProfile_.addressLine4));
-            }
-            if (criteria.getCity() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getCity(), UserProfile_.city));
-            }
-            if (criteria.getState() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getState(), UserProfile_.state));
-            }
-            if (criteria.getPinCode() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getPinCode(), UserProfile_.pinCode));
+            if (criteria.getMaritalStatus() != null) {
+                specification = specification.and(buildSpecification(criteria.getMaritalStatus(), UserProfile_.maritalStatus));
             }
             if (criteria.getUserId() != null) {
                 specification = specification.and(buildSpecification(criteria.getUserId(),

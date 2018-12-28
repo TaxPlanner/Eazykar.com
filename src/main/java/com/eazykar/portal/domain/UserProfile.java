@@ -1,10 +1,13 @@
 package com.eazykar.portal.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +20,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.eazykar.portal.domain.enumeration.Gender;
+import com.eazykar.portal.domain.enumeration.MaritalStatus;
 
 /**
  * A UserProfile.
@@ -40,6 +46,11 @@ public class UserProfile implements Serializable {
     @Column(name = "fathers_name", length = 200)
     private String fathersName;
 
+    @Size(max = 254)
+    @Pattern(regexp = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")
+    @Column(name = "secondary_email", length = 254, unique = true)
+    private String secondaryEmail;
+
     @NotNull
     @Size(min = 10, max = 10)
     @Pattern(regexp = "\\d{10}")
@@ -47,39 +58,18 @@ public class UserProfile implements Serializable {
     private String mobileNumber;
 
     @NotNull
-    @Size(min = 10, max = 10)
-    @Pattern(regexp = "[A-Za-z]{5}\\d{4}[A-Za-z]{1}")
-    @Column(name = "pan_number", length = 10, nullable = false, unique = true)
-    private String panNumber;
+    @Column(name = "date_of_birth", nullable = false)
+    private LocalDate dateOfBirth;
 
-    @Size(max = 200)
-    @Column(name = "address_line_1", length = 200)
-    private String addressLine1;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender", nullable = false)
+    private Gender gender;
 
-    @Size(max = 200)
-    @Column(name = "address_line_2", length = 200)
-    private String addressLine2;
-
-    @Size(max = 200)
-    @Column(name = "address_line_3", length = 200)
-    private String addressLine3;
-
-    @Size(max = 200)
-    @Column(name = "address_line_4", length = 200)
-    private String addressLine4;
-
-    @Size(max = 200)
-    @Column(name = "city", length = 200)
-    private String city;
-
-    @Size(max = 200)
-    @Column(name = "state", length = 200)
-    private String state;
-
-    @Size(min = 6, max = 6)
-    @Pattern(regexp = "\\d{6}")
-    @Column(name = "pin_code", length = 6)
-    private String pinCode;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "marital_status", nullable = false)
+    private MaritalStatus maritalStatus;
 
     @OneToOne(optional = false)    @NotNull
     @JoinColumn(unique = true)
@@ -120,6 +110,19 @@ public class UserProfile implements Serializable {
         this.fathersName = fathersName;
     }
 
+    public String getSecondaryEmail() {
+        return secondaryEmail;
+    }
+
+    public UserProfile secondaryEmail(String secondaryEmail) {
+        this.secondaryEmail = secondaryEmail;
+        return this;
+    }
+
+    public void setSecondaryEmail(String secondaryEmail) {
+        this.secondaryEmail = secondaryEmail;
+    }
+
     public String getMobileNumber() {
         return mobileNumber;
     }
@@ -133,108 +136,43 @@ public class UserProfile implements Serializable {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getPanNumber() {
-        return panNumber;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public UserProfile panNumber(String panNumber) {
-        this.panNumber = panNumber;
+    public UserProfile dateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
         return this;
     }
 
-    public void setPanNumber(String panNumber) {
-        this.panNumber = panNumber;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
+    public Gender getGender() {
+        return gender;
     }
 
-    public UserProfile addressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public UserProfile gender(Gender gender) {
+        this.gender = gender;
         return this;
     }
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
-    public String getAddressLine2() {
-        return addressLine2;
+    public MaritalStatus getMaritalStatus() {
+        return maritalStatus;
     }
 
-    public UserProfile addressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
+    public UserProfile maritalStatus(MaritalStatus maritalStatus) {
+        this.maritalStatus = maritalStatus;
         return this;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
-
-    public String getAddressLine3() {
-        return addressLine3;
-    }
-
-    public UserProfile addressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
-        return this;
-    }
-
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
-    }
-
-    public String getAddressLine4() {
-        return addressLine4;
-    }
-
-    public UserProfile addressLine4(String addressLine4) {
-        this.addressLine4 = addressLine4;
-        return this;
-    }
-
-    public void setAddressLine4(String addressLine4) {
-        this.addressLine4 = addressLine4;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public UserProfile city(String city) {
-        this.city = city;
-        return this;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public UserProfile state(String state) {
-        this.state = state;
-        return this;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPinCode() {
-        return pinCode;
-    }
-
-    public UserProfile pinCode(String pinCode) {
-        this.pinCode = pinCode;
-        return this;
-    }
-
-    public void setPinCode(String pinCode) {
-        this.pinCode = pinCode;
+    public void setMaritalStatus(MaritalStatus maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
     public User getUser() {
@@ -277,15 +215,11 @@ public class UserProfile implements Serializable {
             "id=" + getId() +
             ", middleName='" + getMiddleName() + "'" +
             ", fathersName='" + getFathersName() + "'" +
+            ", secondaryEmail='" + getSecondaryEmail() + "'" +
             ", mobileNumber='" + getMobileNumber() + "'" +
-            ", panNumber='" + getPanNumber() + "'" +
-            ", addressLine1='" + getAddressLine1() + "'" +
-            ", addressLine2='" + getAddressLine2() + "'" +
-            ", addressLine3='" + getAddressLine3() + "'" +
-            ", addressLine4='" + getAddressLine4() + "'" +
-            ", city='" + getCity() + "'" +
-            ", state='" + getState() + "'" +
-            ", pinCode='" + getPinCode() + "'" +
+            ", dateOfBirth='" + getDateOfBirth() + "'" +
+            ", gender='" + getGender() + "'" +
+            ", maritalStatus='" + getMaritalStatus() + "'" +
             "}";
     }
 }

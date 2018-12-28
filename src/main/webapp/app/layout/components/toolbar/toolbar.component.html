@@ -100,6 +100,8 @@
 
 <ng-template #unAuthenticatedMenus>
 
+    <div class="toolbar-separator"></div>
+
     <button mat-button [routerLink]="'/pages/tax-services'"
             class="menu-button"
             aria-label="Toggle quick panel">
@@ -159,6 +161,7 @@
         </div>
     </button>
 -->
+    <div class="toolbar-separator"></div>
 
     <button mat-button [matMenuTriggerFor]="helpMenu"
             class="menu-button">
@@ -190,7 +193,7 @@
         <div fxLayout="row" fxLayoutAlign="center center">
             <!--<img class="avatar mr-0 mr-sm-16" [src]="getImageUrl()" alt="Avatar">-->
             <img class="avatar mr-0 mr-sm-16" src="/content/images/avatars/Velazquez.jpg" alt="Avatar">
-            <span class="username mr-12" fxHide fxShow.gt-sm>{{account.firstName}} {{account.lastName}}</span>
+            <span class="username mr-12" fxHide fxShow.gt-sm>{{account.firstName}}</span>
             <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
         </div>
     </button>

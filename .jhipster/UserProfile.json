@@ -18,6 +18,17 @@
             "fieldValidateRulesMaxlength": 200
         },
         {
+            "fieldName": "secondaryEmail",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "pattern",
+                "unique"
+            ],
+            "fieldValidateRulesMaxlength": 254,
+            "fieldValidateRulesPattern": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+        },
+        {
             "fieldName": "mobileNumber",
             "fieldType": "String",
             "fieldValidateRules": [
@@ -32,78 +43,27 @@
             "fieldValidateRulesPattern": "\\d{10}"
         },
         {
-            "fieldName": "panNumber",
-            "fieldType": "String",
+            "fieldName": "dateOfBirth",
+            "fieldType": "LocalDate",
             "fieldValidateRules": [
-                "required",
-                "minlength",
-                "maxlength",
-                "pattern",
-                "unique"
-            ],
-            "fieldValidateRulesMinlength": 10,
-            "fieldValidateRulesMaxlength": 10,
-            "fieldValidateRulesPattern": "[A-Za-z]{5}\\d{4}[A-Za-z]{1}"
+                "required"
+            ]
         },
         {
-            "fieldName": "addressLine1",
-            "fieldType": "String",
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE",
             "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 200
+                "required"
+            ]
         },
         {
-            "fieldName": "addressLine2",
-            "fieldType": "String",
+            "fieldName": "maritalStatus",
+            "fieldType": "MaritalStatus",
+            "fieldValues": "BACHELOR,MARRIED,DIVORCED,PREFER_NOT_TO_DISCLOSE",
             "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 200
-        },
-        {
-            "fieldName": "addressLine3",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 200
-        },
-        {
-            "fieldName": "addressLine4",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 200
-        },
-        {
-            "fieldName": "city",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 200
-        },
-        {
-            "fieldName": "state",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 200
-        },
-        {
-            "fieldName": "pinCode",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "minlength",
-                "maxlength",
-                "pattern"
-            ],
-            "fieldValidateRulesMinlength": 6,
-            "fieldValidateRulesMaxlength": 6,
-            "fieldValidateRulesPattern": "\\d{6}"
+                "required"
+            ]
         }
     ],
     "relationships": [
