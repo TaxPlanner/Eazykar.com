@@ -124,7 +124,7 @@
 
                         <div fxLayout="row" fxLayoutAlign="center center">
                             <button mat-raised-button type="submit" color="accent" [disabled]="!personalInformationForm.valid">
-                                Save Personal Information
+                                {{ isSaving ? 'Saving...' : 'Save My Personal Information' }}
                             </button>
                             <mat-spinner *ngIf="isSaving"></mat-spinner>
                         </div>
@@ -225,7 +225,7 @@
 
                         <div fxLayout="row" fxLayoutAlign="center center">
                             <button class="mr-8" mat-raised-button type="submit" color="accent" [disabled]="!addressForm.valid">
-                                {{ isSaving ? 'Saving...' : 'Save Address' }}
+                                {{ isSaving ? 'Saving...' : 'Save My Address' }}
                             </button>
                         </div>
 
@@ -238,49 +238,43 @@
                     <div class="h4">Key Information</div>
                 </ng-template>
                 <div class="p-24">
-                    <form fxLayout="column" [formGroup]="keyInformationForm">
-
-
+                    <form fxLayout="column" [formGroup]="keyInformationForm" (ngSubmit)="saveKeyInformation()">
                         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
                             <mat-form-field class="p-4" appearance="outline" fxFlex="100">
-                                <mat-label>PAN Card #</mat-label>
-                                <input matInput formControlName="panCardNumber" required>
-                                <mat-error>PAN Card # is required!</mat-error>
+                                <mat-label>PAN #</mat-label>
+                                <input matInput formControlName="panNumber" required>
+                                <mat-error *ngIf="keyInformationForm.controls.panNumber.hasError('required')">PAN # is required!</mat-error>
+                                <mat-error *ngIf="keyInformationForm.controls.panNumber.hasError('pattern')">PAN # format is not valid</mat-error>
                             </mat-form-field>
                             <mat-form-field class="p-4" appearance="outline" fxFlex="100">
-                                <mat-label>Aadhar Card #</mat-label>
-                                <input matInput formControlName="aadharCardNumber" required>
-                                <mat-error>Aadhar Card # is required!</mat-error>
+                                <mat-label>Aadhar #</mat-label>
+                                <input matInput formControlName="aadharNumber">
                             </mat-form-field>
                         </div>
                         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
                             <mat-form-field class="p-4" appearance="outline" fxFlex="100">
                                 <mat-label>Bank A/c #</mat-label>
-                                <input matInput formControlName="bankAccountNumber" required>
-                                <mat-error>Bank A/c # is required!</mat-error>
+                                <input matInput formControlName="bankAccountNumber">
                             </mat-form-field>
                             <mat-form-field class="p-4" appearance="outline" fxFlex="100">
                                 <mat-label>IFSC Code</mat-label>
-                                <input matInput formControlName="ifscCode" required>
-                                <mat-error>IFSC Code is required!</mat-error>
+                                <input matInput formControlName="ifscCode">
                             </mat-form-field>
                         </div>
                         <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
                             <mat-form-field class="p-4" appearance="outline" fxFlex="100">
                                 <mat-label>Bank Name</mat-label>
-                                <input matInput formControlName="bankName" required>
-                                <mat-error>Bank Name is required!</mat-error>
+                                <input matInput formControlName="bankName">
                             </mat-form-field>
                             <mat-form-field class="p-4" appearance="outline" fxFlex="100">
                                 <mat-label>Branch</mat-label>
-                                <input matInput formControlName="bankBranch" required>
-                                <mat-error>Branch is required!</mat-error>
+                                <input matInput formControlName="bankBranch">
                             </mat-form-field>
                         </div>
 
                         <div fxLayout="row" fxLayoutAlign="center center">
-                            <button class="mr-8" mat-raised-button type="button" color="accent" [disabled]="!keyInformationForm.valid">
-                                Save Key Information
+                            <button class="mr-8" mat-raised-button type="submit" color="accent" [disabled]="!keyInformationForm.valid">
+                                {{ isSaving ? 'Saving...' : 'Save My Key Information' }}
                             </button>
                         </div>
 

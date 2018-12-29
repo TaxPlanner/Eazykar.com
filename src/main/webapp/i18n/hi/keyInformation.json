@@ -1,0 +1,27 @@
+{
+    "eazykarApp": {
+        "keyInformation": {
+            "home": {
+                "title": "KeyInformations",
+                "createLabel": "नया Key Information बनाएँ",
+                "createOrEditLabel": "Key Information बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Key Information [identifier: {{ param }}] तैयार है",
+            "updated": "एक Key Information [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Key Information [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Key Information [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Key Information"
+            },
+            "panNumber": "Pan Number",
+            "aadharNumber": "Aadhar Number",
+            "bankAccountNumber": "Bank Account Number",
+            "ifscCode": "Ifsc Code",
+            "bankName": "Bank Name",
+            "bankBranch": "Bank Branch",
+            "user": "User"
+        }
+    }
+}
