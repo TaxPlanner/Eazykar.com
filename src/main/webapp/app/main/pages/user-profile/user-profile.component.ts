@@ -11,7 +11,9 @@ import {
 } from '@angular/material';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { IUser, Principal, UserService } from 'app/core';
+import { AddressService } from 'app/main/pages/user-profile/address.service';
 import { UserProfileService } from 'app/main/pages/user-profile/user-profile.service';
+import { IAddress } from 'app/shared/model/address.model';
 import { IUserProfile } from 'app/shared/model/user-profile.model';
 import { Observable } from 'rxjs';
 
@@ -43,8 +45,10 @@ export class UserProfileComponent implements OnInit {
 
     user: { firstName: string, lastName: string };
     userProfile: IUserProfile;
+    address: IAddress;
     isSaving: boolean;
     existingUserProfile = false;
+    existingAddress = false;
 
     personalInformationForm: FormGroup;
     addressForm: FormGroup;
@@ -57,6 +61,7 @@ export class UserProfileComponent implements OnInit {
                 private principal: Principal,
                 private userService: UserService,
                 private userProfileService: UserProfileService,
+                private addressService: AddressService,
                 public snackBar: MatSnackBar) {
     }
 
@@ -96,6 +101,7 @@ export class UserProfileComponent implements OnInit {
         });
 
         this.loadPersonalInformation();
+        this.loadAddressInformation();
     }
 
     private loadPersonalInformation() {
@@ -110,13 +116,24 @@ export class UserProfileComponent implements OnInit {
 
             this.userProfileService.query({ 'userId.equals': account.id })
                 .subscribe(
-                    (response: HttpResponse<IUserProfile[]>) => this.onLoadSuccess(response),
-                    (res: HttpErrorResponse) => this.onLoadError(res)
+                    (response: HttpResponse<IUserProfile[]>) => this.onPersonalInformationLoadSuccess(response),
+                    (res: HttpErrorResponse) => this.onPersonalInformationLoadError(res)
                 );
         });
     }
 
-    private onLoadSuccess(response: HttpResponse<IUserProfile[]>) {
+    private loadAddressInformation() {
+
+        this.principal.identity().then(account => {
+            this.addressService.query({ 'userId.equals': account.id })
+                .subscribe(
+                    (response: HttpResponse<IUserProfile[]>) => this.onAddressLoadSuccess(response),
+                    (res: HttpErrorResponse) => this.onAddressLoadError(res)
+                );
+        });
+    }
+
+    private onPersonalInformationLoadSuccess(response: HttpResponse<IUserProfile[]>) {
 
         this.existingUserProfile = response && response.body && response.body.length === 1;
 
@@ -126,8 +143,22 @@ export class UserProfileComponent implements OnInit {
         }
     }
 
-    private onLoadError(res: HttpErrorResponse) {
+    private onPersonalInformationLoadError(res: HttpErrorResponse) {
         this.existingUserProfile = false;
+        this.onError(res.message);
+    }
+
+    private onAddressLoadSuccess(response: HttpResponse<IUserProfile[]>) {
+
+        this.existingAddress = response && response.body && response.body.length === 1;
+
+        if (this.existingAddress) {
+            this.address = response.body[0];
+            this.addressForm.patchValue({ ...this.address });
+        }
+    }
+
+    private onAddressLoadError(res: HttpErrorResponse) {
         this.onError(res.message);
     }
 
@@ -160,9 +191,9 @@ export class UserProfileComponent implements OnInit {
                             };
 
                             if (this.existingUserProfile) {
-                                this.subscribeToSaveResponse(this.userProfileService.update(this.userProfile));
+                                this.subscribeToSaveUserProfile(this.userProfileService.update(this.userProfile));
                             } else {
-                                this.subscribeToSaveResponse(this.userProfileService.create(this.userProfile));
+                                this.subscribeToSaveUserProfile(this.userProfileService.create(this.userProfile));
                             }
                         },
                         (res: HttpErrorResponse) => this.onSaveError(res.message)
@@ -171,17 +202,63 @@ export class UserProfileComponent implements OnInit {
 
     }
 
-    private subscribeToSaveResponse(result: Observable<HttpResponse<IUserProfile>>) {
+    saveAddressInformation() {
+
+        this.isSaving = true;
+
+        this.principal.identity()
+            .then(account => {
+
+                this.address = {
+                    id: this.address && this.address.id,
+                    line1: this.addressForm.controls.line1.value,
+                    line2: this.addressForm.controls.line2.value,
+                    line3: this.addressForm.controls.line3.value,
+                    line4: this.addressForm.controls.line4.value,
+                    city: this.addressForm.controls.city.value,
+                    state: this.addressForm.controls.state.value,
+                    country: this.addressForm.controls.country.value,
+                    postalCode: this.addressForm.controls.postalCode.value,
+                    user: account
+                };
+
+                if (this.existingAddress) {
+                    this.subscribeToSaveAddress(this.addressService.update(this.address));
+                } else {
+                    this.subscribeToSaveAddress(this.addressService.create(this.address));
+                }
+            });
+
+    }
+
+    private subscribeToSaveUserProfile(result: Observable<HttpResponse<IUserProfile>>) {
         result.subscribe(
-            (res: HttpResponse<IUserProfile>) => this.onSaveSuccess(res.body),
+            (res: HttpResponse<IUserProfile>) => this.onSaveUserProfileSuccess(res.body),
             (res: HttpErrorResponse) => this.onSaveError(res.message)
         );
     }
 
-    private onSaveSuccess(savedUserProfile) {
+    private subscribeToSaveAddress(result: Observable<HttpResponse<IAddress>>) {
+        result.subscribe(
+            (res: HttpResponse<IAddress>) => this.onSaveAddressSuccess(res.body),
+            (res: HttpErrorResponse) => this.onSaveError(res.message)
+        );
+    }
+
+    private onSaveUserProfileSuccess(savedUserProfile) {
         this.userProfile = { ...savedUserProfile };
         this.isSaving = false;
         this.existingUserProfile = true;
+
+        this.onSuccess('Your personal information is now updated in our system');
+    }
+
+    private onSaveAddressSuccess(savedAddress) {
+        this.address = { ...savedAddress };
+        this.isSaving = false;
+        this.existingAddress = true;
+
+        this.onSuccess('Your address is now updated in our system');
     }
 
     private onSaveError(message) {
@@ -189,11 +266,15 @@ export class UserProfileComponent implements OnInit {
         this.onError(message);
     }
 
+    private onSuccess(message) {
+        this.openSnackBar(message);
+    }
+
     private onError(message) {
         this.openSnackBar(message);
     }
 
-    openSnackBar(message) {
+    private openSnackBar(message) {
         this.snackBar.open(message, 'Ok', {
             announcementMessage: 'Error',
             horizontalPosition: this.horizontalPosition,

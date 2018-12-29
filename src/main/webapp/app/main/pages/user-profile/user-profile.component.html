@@ -139,6 +139,7 @@
                 </ng-template>
                 <div class="p-24">
                     <form fxLayout="column" fxLayoutAlign="start"
+                          (ngSubmit)="saveAddressInformation()"
                           fxFlex="1 0 auto" name="form" [formGroup]="addressForm">
 
 
@@ -223,8 +224,8 @@
                         </div>
 
                         <div fxLayout="row" fxLayoutAlign="center center">
-                            <button class="mr-8" mat-raised-button type="button" color="accent" [disabled]="!addressForm.valid">
-                                Save Address
+                            <button class="mr-8" mat-raised-button type="submit" color="accent" [disabled]="!addressForm.valid">
+                                {{ isSaving ? 'Saving...' : 'Save Address' }}
                             </button>
                         </div>
 

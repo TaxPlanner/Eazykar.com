@@ -22,7 +22,7 @@ import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
 // jhipster-needle-angular-add-module-import
 import { ActiveMenuDirective, ErrorComponent, EzkrMainComponent, FooterComponent, NavbarComponent, PageRibbonComponent } from './layouts';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatButtonModule, MatIconModule } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { FuseSharedModule } from './@fuse/shared.module';
 import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from './@fuse/components';
@@ -91,6 +91,10 @@ import { TranslateModule } from '@ngx-translate/core';
             provide: HTTP_INTERCEPTORS,
             useClass: NotificationInterceptor,
             multi: true
+        },
+        {
+            provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+            useValue: { duration: 4000 }
         }
     ],
     bootstrap: [EzkrMainComponent]
