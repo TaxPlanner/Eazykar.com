@@ -1,0 +1,29 @@
+{
+    "eazykarApp": {
+        "address": {
+            "home": {
+                "title": "Addresses",
+                "createLabel": "नया Address बनाएँ",
+                "createOrEditLabel": "Address बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Address [identifier: {{ param }}] तैयार है",
+            "updated": "एक Address [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Address [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Address [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Address"
+            },
+            "line1": "Line 1",
+            "line2": "Line 2",
+            "line3": "Line 3",
+            "line4": "Line 4",
+            "city": "City",
+            "state": "State",
+            "country": "Country",
+            "postalCode": "Postal Code",
+            "user": "User"
+        }
+    }
+}
