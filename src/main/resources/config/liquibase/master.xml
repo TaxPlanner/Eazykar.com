@@ -11,10 +11,12 @@
     <include file="config/liquibase/changelog/20181211210807_added_entity_Plan.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181211210808_added_entity_UserPlan.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181228213855_added_entity_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181229132256_added_entity_KeyInformation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog -->
     <include file="config/liquibase/changelog/20181210192802_added_entity_constraints_UserProfile.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181211201147_added_entity_constraints_ItrApplication.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181211210808_added_entity_constraints_UserPlan.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181228213855_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181229132256_added_entity_constraints_KeyInformation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog -->
 </databaseChangeLog>

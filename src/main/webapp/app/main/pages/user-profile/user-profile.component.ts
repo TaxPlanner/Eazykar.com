@@ -12,8 +12,10 @@ import {
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { IUser, Principal, UserService } from 'app/core';
 import { AddressService } from 'app/main/pages/user-profile/address.service';
+import { KeyInformationService } from 'app/main/pages/user-profile/key-information.service';
 import { UserProfileService } from 'app/main/pages/user-profile/user-profile.service';
 import { IAddress } from 'app/shared/model/address.model';
+import { IKeyInformation } from 'app/shared/model/key-information.model';
 import { IUserProfile } from 'app/shared/model/user-profile.model';
 import { Observable } from 'rxjs';
 
@@ -46,9 +48,11 @@ export class UserProfileComponent implements OnInit {
     user: { firstName: string, lastName: string };
     userProfile: IUserProfile;
     address: IAddress;
+    keyInformation: IKeyInformation;
     isSaving: boolean;
     existingUserProfile = false;
     existingAddress = false;
+    existingKeyInformation = false;
 
     personalInformationForm: FormGroup;
     addressForm: FormGroup;
@@ -62,6 +66,7 @@ export class UserProfileComponent implements OnInit {
                 private userService: UserService,
                 private userProfileService: UserProfileService,
                 private addressService: AddressService,
+                private keyInformationService: KeyInformationService,
                 public snackBar: MatSnackBar) {
     }
 
@@ -81,12 +86,12 @@ export class UserProfileComponent implements OnInit {
         });
 
         this.keyInformationForm = this._formBuilder.group({
-            panCardNumber: ['', Validators.required],
-            aadharCardNumber: [''],
-            bankAccountNumber: ['', Validators.required],
+            panNumber: ['',[ Validators.required, Validators.pattern(/^[A-Za-z]{5}\d{4}[A-Za-z]{1}$/)]],
+            aadharNumber: [''],
+            bankAccountNumber: [''],
             ifscCode: [''],
-            bankName: ['', Validators.required],
-            bankBranch: ['', Validators.required]
+            bankName: [''],
+            bankBranch: ['']
         });
 
         this.addressForm = this._formBuilder.group({
@@ -102,6 +107,7 @@ export class UserProfileComponent implements OnInit {
 
         this.loadPersonalInformation();
         this.loadAddressInformation();
+        this.loadKeyInformation();
     }
 
     private loadPersonalInformation() {
@@ -133,6 +139,17 @@ export class UserProfileComponent implements OnInit {
         });
     }
 
+    private loadKeyInformation() {
+
+        this.principal.identity().then(account => {
+            this.keyInformationService.query({ 'userId.equals': account.id })
+                .subscribe(
+                    (response: HttpResponse<IUserProfile[]>) => this.onKeyInformationLoadSuccess(response),
+                    (res: HttpErrorResponse) => this.onKeyInformationLoadError(res)
+                );
+        });
+    }
+
     private onPersonalInformationLoadSuccess(response: HttpResponse<IUserProfile[]>) {
 
         this.existingUserProfile = response && response.body && response.body.length === 1;
@@ -148,7 +165,7 @@ export class UserProfileComponent implements OnInit {
         this.onError(res.message);
     }
 
-    private onAddressLoadSuccess(response: HttpResponse<IUserProfile[]>) {
+    private onAddressLoadSuccess(response: HttpResponse<IAddress[]>) {
 
         this.existingAddress = response && response.body && response.body.length === 1;
 
@@ -159,6 +176,20 @@ export class UserProfileComponent implements OnInit {
     }
 
     private onAddressLoadError(res: HttpErrorResponse) {
+        this.onError(res.message);
+    }
+
+    private onKeyInformationLoadSuccess(response: HttpResponse<IKeyInformation[]>) {
+
+        this.existingKeyInformation = response && response.body && response.body.length === 1;
+
+        if (this.existingKeyInformation) {
+            this.keyInformation = response.body[0];
+            this.keyInformationForm.patchValue({ ...this.keyInformation });
+        }
+    }
+
+    private onKeyInformationLoadError(res: HttpErrorResponse) {
         this.onError(res.message);
     }
 
@@ -231,6 +262,33 @@ export class UserProfileComponent implements OnInit {
 
     }
 
+    saveKeyInformation() {
+
+        this.isSaving = true;
+
+        this.principal.identity()
+            .then(account => {
+
+                this.keyInformation = {
+                    id: this.keyInformation && this.keyInformation.id,
+                    panNumber: this.keyInformationForm.controls.panNumber.value,
+                    aadharNumber: this.keyInformationForm.controls.aadharNumber.value,
+                    bankAccountNumber: this.keyInformationForm.controls.bankAccountNumber.value,
+                    ifscCode: this.keyInformationForm.controls.ifscCode.value,
+                    bankName: this.keyInformationForm.controls.bankName.value,
+                    bankBranch: this.keyInformationForm.controls.bankBranch.value,
+                    user: account
+                };
+
+                if (this.existingKeyInformation) {
+                    this.subscribeToSaveKeyInformation(this.keyInformationService.update(this.keyInformation));
+                } else {
+                    this.subscribeToSaveKeyInformation(this.keyInformationService.create(this.keyInformation));
+                }
+            });
+
+    }
+
     private subscribeToSaveUserProfile(result: Observable<HttpResponse<IUserProfile>>) {
         result.subscribe(
             (res: HttpResponse<IUserProfile>) => this.onSaveUserProfileSuccess(res.body),
@@ -241,6 +299,13 @@ export class UserProfileComponent implements OnInit {
     private subscribeToSaveAddress(result: Observable<HttpResponse<IAddress>>) {
         result.subscribe(
             (res: HttpResponse<IAddress>) => this.onSaveAddressSuccess(res.body),
+            (res: HttpErrorResponse) => this.onSaveError(res.message)
+        );
+    }
+
+    private subscribeToSaveKeyInformation(result: Observable<HttpResponse<IKeyInformation>>) {
+        result.subscribe(
+            (res: HttpResponse<IKeyInformation>) => this.onSaveKeyInformationSuccess(res.body),
             (res: HttpErrorResponse) => this.onSaveError(res.message)
         );
     }
@@ -259,6 +324,14 @@ export class UserProfileComponent implements OnInit {
         this.existingAddress = true;
 
         this.onSuccess('Your address is now updated in our system');
+    }
+
+    private onSaveKeyInformationSuccess(savedKeyInformation) {
+        this.keyInformation = { ...savedKeyInformation };
+        this.isSaving = false;
+        this.existingKeyInformation = true;
+
+        this.onSuccess('Your key information is now updated in our system');
     }
 
     private onSaveError(message) {

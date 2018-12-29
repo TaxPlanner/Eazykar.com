@@ -14,6 +14,7 @@
                 "plan": "Plan",
                 "userPlan": "User Plan",
                 "address": "Address",
+                "keyInformation": "Key Information",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
