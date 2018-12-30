@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FuseSharedModule } from 'app/@fuse/shared.module';
 import { UserRouteAccessService } from 'app/core';
+import { PricingModule } from 'app/main/pages/pricing/pricing.module';
 import { UserProfileComponent } from 'app/main/pages/user-profile/user-profile.component';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
 import { AddressInformationComponent } from './address-information/address-information.component';
@@ -52,7 +53,8 @@ const routes: Routes = [
         MatProgressSpinnerModule,
         MatSnackBarModule,
 
-        FuseSharedModule
+        FuseSharedModule,
+        PricingModule
     ]
 })
 export class UserProfileModule {

@@ -1,7 +1,26 @@
 <div id="price-tables" class="page-layout simple fullwidth">
 
+    <!-- PayPal Logo -->
+    <table border="0" cellpadding="10" cellspacing="0" align="center">
+        <tr>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works"
+                   onclick="window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img
+                    src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png" border="0"
+                    alt="Now Accepting PayPal"></a>
+                <div style="text-align:center"><a href="https://www.paypal.com/webapps/mpp/how-paypal-works"><font size="2" face="Arial"
+                                                                                                                   color="#0079CD">How PayPal
+                    Works</font></a></div>
+            </td>
+        </tr>
+    </table>
+    <!-- PayPal Logo -->
+
     <!-- HEADER -->
-    <div class="header" fxLayout="row" fxLayoutAlign="start start">
+    <div *ngIf="!isAuthenticated()" class="header" fxLayout="row" fxLayoutAlign="start start">
 
         <div class="hero-text" fxLayout="column" fxLayoutAlign="center center" fxFlex>
 
@@ -9,6 +28,13 @@
             <div class="h3">
                 The most advanced customer support with a simple and affordable pricing.
             </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="isAuthenticated()" class="header-slim" fxLayout="row" fxLayoutAlign="start start">
+
+        <div class="hero-text-slim" fxLayout="column" fxLayoutAlign="center center" fxFlex>
 
         </div>
 
@@ -21,36 +47,16 @@
         <!-- PRICE TABLES -->
         <div class="price-tables" fxLayout="row wrap" fxLayoutAlign="center center">
 
-            <div class="price-table style-1 mat-elevation-z4" fxLayout="column">
+            <!-- INDIVIDUAL PLANS -->
+            <div *ngFor="let individualPlan of individualPlans; index as i; first as isFirst; last as isLast"
+                 [class.mat-elevation-z24]="individualPlan.id === selectedPlan?.id"
+                 [class.mat-elevation-z4]="individualPlan.id !== selectedPlan?.id"
+                 class="price-table style-1" fxLayout="column">
 
-                <div class="package-type primary">
+                <div class="package-type primary" *ngIf="isFirst">
                     <span>Individual</span>
                 </div>
-
-                <div class="price" fxLayout="row" fxLayoutAlign="center start">
-                    <div class="currency">₹</div>
-                    <div fxLayout="row" fxLayoutAlign="center end">
-                        <div class="value">400</div>
-                        <!--<div class="period">/ year</div>-->
-                    </div>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <div class="terms" fxLayout="column">
-                    <div class="term text-center">
-                        <span class="text-bold">1</span>
-                        year
-                    </div>
-                </div>
-
-                <button mat-raised-button class="cta-button" color="accent">Buy Now</button>
-
-            </div>
-
-            <div class="price-table style-1 mat-elevation-z4" fxLayout="column">
-
-                <div class="package-type primary" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="package-type primary" *ngIf="!isFirst" fxLayout="row" fxLayoutAlign="space-between center">
                     <span>Individual</span>
                     <!--<span class="sale mat-accent-color mat-hue-1">Save 25%</span>-->
                 </div>
@@ -58,79 +64,31 @@
                 <div class="price" fxLayout="row" fxLayoutAlign="center start">
                     <div class="currency">₹</div>
                     <div fxLayout="row" fxLayoutAlign="center end">
-                        <div class="value">800</div>
-                        <!--<div class="period">/ 2 years</div>-->
+                        <div class="value">{{individualPlan.planFees | number:'1.0-0'}}</div>
                     </div>
                 </div>
 
                 <mat-divider></mat-divider>
 
-                <div class="terms" fxLayout="column">
-                    <div class="term text-center">
-                        <span class="text-bold">3</span>
-                        years
-                    </div>
+                <div class="terms" fxLayout="column" [ngSwitch]="individualPlan.id">
+                    <div class="term text-center" *ngSwitchCase="1"><span class="text-bold">1</span> years</div>
+                    <div class="term text-center" *ngSwitchCase="2"><span class="text-bold">3</span> years</div>
+                    <div class="term text-center" *ngSwitchCase="3"><span class="text-bold">5</span> years</div>
+                    <div class="term text-center" *ngSwitchCase="4"><span class="text-bold">Lifetime</span></div>
+                    <div class="term text-center" *ngIf="individualPlan.id === selectedPlan?.id">Current plan</div>
                 </div>
 
-                <button mat-raised-button class="cta-button" color="accent">Buy Now</button>
+                <button mat-raised-button class="cta-button" color="accent"
+                        [disabled]="existingUserPlan"
+                        (click)="openPaymentModal(individualPlan)">Buy Now</button>
 
             </div>
-
-            <div class="price-table style-1 mat-elevation-z4" fxLayout="column">
-
-                <div class="package-type primary" fxLayout="row">
-                    <span>Individual</span>
-                </div>
-
-                <div class="price" fxLayout="row" fxLayoutAlign="center start">
-                    <div class="currency">₹</div>
-                    <div fxLayout="row" fxLayoutAlign="center end">
-                        <div class="value">1000</div>
-                        <!--<div class="period">/ 5 years</div>-->
-                    </div>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <div class="terms" fxLayout="column">
-                    <div class="term text-center">
-                        <span class="text-bold">5</span>
-                        years
-                    </div>
-                </div>
-
-                <button mat-raised-button class="cta-button" color="accent">Buy Now</button>
-
-            </div>
-
-            <div class="price-table style-1 mat-elevation-z4" fxLayout="column">
-
-                <div class="package-type primary" fxLayout="row">
-                    <span>Individual</span>
-                </div>
-
-                <div class="price" fxLayout="row" fxLayoutAlign="center start">
-                    <div class="currency">₹</div>
-                    <div fxLayout="row" fxLayoutAlign="center end">
-                        <div class="value">1500</div>
-                        <!--<div class="period">/ 5 years</div>-->
-                    </div>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <div class="terms" fxLayout="column">
-                    <div class="term text-center">
-                        <span class="text-bold">Lifetime</span>
-                    </div>
-                </div>
-
-                <button mat-raised-button class="cta-button" color="accent">Buy Now</button>
-
-            </div>
+            <!-- / INDIVIDUAL PLANS -->
 
             <div class="price-table style-1 mat-elevation-z4" fxLayout="column"></div>
-            <div class="price-table style-1 mat-elevation-z4" fxLayout="column">
+
+            <!-- BUSINESS PLANS -->
+            <div *ngFor="let businessPlan of businessPlans; index as i; first as isFirst; last as isLast" class="price-table style-1 mat-elevation-z4" fxLayout="column">
 
                 <div class="package-type primary" fxLayout="row">
                     <span>BUSINESS</span>
@@ -155,6 +113,7 @@
                 <button mat-raised-button class="cta-button" color="accent">Contact Us</button>
 
             </div>
+            <!-- / BUSINESS PLANS -->
 
         </div>
         <!-- / PRICE TABLES -->

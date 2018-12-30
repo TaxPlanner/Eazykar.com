@@ -1,6 +1,6 @@
-import { Moment } from 'moment';
 import { IUser } from 'app/core/user/user.model';
-import { IPlan } from 'app/shared/model//plan.model';
+import { IPlan } from 'app/shared/model/plan.model';
+import { Moment } from 'moment';
 
 export interface IUserPlan {
     id?: number;
@@ -10,5 +10,6 @@ export interface IUserPlan {
 }
 
 export class UserPlan implements IUserPlan {
-    constructor(public id?: number, public purchasedOn?: Moment, public user?: IUser, public plan?: IPlan) {}
+    constructor(public id?: number, public purchasedOn?: Moment, public user?: IUser, public plan?: IPlan) {
+    }
 }

@@ -1,0 +1,6 @@
+id;plan_number;plan_name;plan_type;plan_fees;active
+1;I-100;Individual (1 year);INDIVIDUAL;399.99;true
+2;I-200;Individual (3 years);INDIVIDUAL;799.99;true
+3;I-300;Individual (5 years);INDIVIDUAL;1499.99;true
+4;I-400;Individual (Lifetime);INDIVIDUAL;2999.99;true
+5;B-100;Business;BUSINESS;9999.99;true

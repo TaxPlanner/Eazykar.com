@@ -1,0 +1,27 @@
+<mat-card class="payment-dialog-card">
+    <mat-card-header>
+        <div mat-card-avatar class="payment-dialog-header-image"></div>
+        <mat-card-title>{{data.plan.planName}}</mat-card-title>
+        <mat-card-subtitle>Covers you for 1 year</mat-card-subtitle>
+    </mat-card-header>
+    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur distinctio dolores eligendi fugit ipsum itaque iure minus molestias
+            mollitia nisi optio perferendis quam, quibusdam quidem quo repudiandae sed sunt tempora.
+        </p>
+        <small>Payment confirmation will be sent to {{data.email}}</small>
+    </mat-card-content>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-actions>
+            <button class="mr-8" mat-raised-button type="button" color="accent" (click)="onPayNowClick()">
+                Pay {{data.plan.planFees | number:'1.0-0'}} Now
+            </button>
+
+            <button class="mr-8" mat-raised-button type="button" color="accent" (click)="onPayLaterClick()">
+                Pay Later
+            </button>
+        </mat-card-actions>
+    </div>
+</mat-card>
