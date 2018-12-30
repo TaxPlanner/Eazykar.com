@@ -42,11 +42,13 @@ export class PricingStyle1Component implements OnInit {
     }
 
     ngOnInit(): void {
+        this.loadPlanInformation();
         this.principal.identity().then(account => {
             this.account = account;
-            this.loadPlanInformation();
-            this.loadUserPlanInformation();
         });
+        if (this.isAuthenticated()) {
+            this.loadUserPlanInformation();
+        }
     }
 
     isAuthenticated() {
