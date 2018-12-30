@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import {
     MatButtonModule,
     MatDatepickerModule,
@@ -12,10 +11,14 @@ import {
     MatStepperModule,
     MatTabsModule
 } from '@angular/material';
+import { RouterModule, Routes } from '@angular/router';
 
 import { FuseSharedModule } from 'app/@fuse/shared.module';
-import { UserProfileComponent } from 'app/main/pages/user-profile/user-profile.component';
 import { UserRouteAccessService } from 'app/core';
+import { UserProfileComponent } from 'app/main/pages/user-profile/user-profile.component';
+import { PersonalInformationComponent } from './personal-information/personal-information.component';
+import { AddressInformationComponent } from './address-information/address-information.component';
+import { KeyInformationComponent } from './key-information/key-information.component';
 
 const routes: Routes = [
     {
@@ -30,7 +33,10 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [
-        UserProfileComponent
+        UserProfileComponent,
+        PersonalInformationComponent,
+        AddressInformationComponent,
+        KeyInformationComponent
     ],
     imports: [
         RouterModule.forChild(routes),

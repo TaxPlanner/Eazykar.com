@@ -1,0 +1,94 @@
+<div class="p-24">
+    <form fxLayout="column" fxLayoutAlign="start"
+          (ngSubmit)="saveAddressInformation()"
+          fxFlex="1 0 auto" name="form" [formGroup]="addressForm">
+
+
+        <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
+            <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                    <mat-label>Flat / Door / Block Number</mat-label>
+                    <input matInput formControlName="line1" required>
+                    <mat-icon matSuffix class="secondary-text">my_location</mat-icon>
+                    <mat-error>Flat/Door/Block Number is required!</mat-error>
+                </mat-form-field>
+                <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                    <mat-label>Area</mat-label>
+                    <input matInput formControlName="line3">
+                    <mat-icon matSuffix class="secondary-text">location_searching</mat-icon>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                    <mat-label>Road / Street</mat-label>
+                    <input matInput formControlName="line2">
+                    <mat-icon matSuffix class="secondary-text">location_on</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                    <mat-label>Locality</mat-label>
+                    <input matInput formControlName="line4">
+                    <mat-icon matSuffix class="secondary-text">explore</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+            <mat-form-field class="p-4" appearance="outline" fxFlex="33">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" required>
+                <mat-icon matSuffix class="secondary-text">location_city</mat-icon>
+                <mat-error>City is required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="p-4" appearance="outline" fxFlex="34">
+                <mat-label>State</mat-label>
+                <input matInput formControlName="state" required>
+                <mat-icon matSuffix class="secondary-text">location_city</mat-icon>
+                <mat-error>State is required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="p-4" appearance="outline" fxFlex="33">
+                <mat-label>Postal Code</mat-label>
+                <input matInput #postalCode formControlName="postalCode" maxlength="6" required>
+                <mat-icon matSuffix class="secondary-text">markunread_mailbox</mat-icon>
+                <!--<mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>-->
+                <mat-error>Postal Code is required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>Country</mat-label>
+                <mat-select formControlName="country" required>
+                    <mat-option [value]="'United States of America'">
+                        United States of America
+                    </mat-option>
+                    <mat-option [value]="'United Kingdom'">
+                        United Kingdom
+                    </mat-option>
+                    <mat-option [value]="'Russia'">
+                        Russia
+                    </mat-option>
+                    <mat-option [value]="'China'">
+                        China
+                    </mat-option>
+                    <mat-option [value]="'Japan'">
+                        Japan
+                    </mat-option>
+                    <mat-option [value]="'India'">
+                        India
+                    </mat-option>
+                </mat-select>
+                <mat-icon matSuffix class="secondary-text">outlined_flag</mat-icon>
+                <mat-error>Country is required!</mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button class="mr-8" mat-raised-button type="submit" color="accent" [disabled]="!addressForm.valid">
+                {{ isSaving ? 'Saving...' : 'Save My Address' }}
+            </button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<div class="p-24">
+    <form fxLayout="column" [formGroup]="keyInformationForm" (ngSubmit)="saveKeyInformation()">
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>PAN #</mat-label>
+                <input matInput formControlName="panNumber" required>
+                <mat-error *ngIf="keyInformationForm.controls.panNumber.hasError('required')">PAN # is required!</mat-error>
+                <mat-error *ngIf="keyInformationForm.controls.panNumber.hasError('pattern')">PAN # format is not valid</mat-error>
+            </mat-form-field>
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>Aadhar #</mat-label>
+                <input matInput formControlName="aadharNumber">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>Bank A/c #</mat-label>
+                <input matInput formControlName="bankAccountNumber">
+            </mat-form-field>
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>IFSC Code</mat-label>
+                <input matInput formControlName="ifscCode">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>Bank Name</mat-label>
+                <input matInput formControlName="bankName">
+            </mat-form-field>
+            <mat-form-field class="p-4" appearance="outline" fxFlex="100">
+                <mat-label>Branch</mat-label>
+                <input matInput formControlName="bankBranch">
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button class="mr-8" mat-raised-button type="submit" color="accent" [disabled]="!keyInformationForm.valid">
+                {{ isSaving ? 'Saving...' : 'Save My Key Information' }}
+            </button>
+        </div>
+
+    </form>
+</div>
