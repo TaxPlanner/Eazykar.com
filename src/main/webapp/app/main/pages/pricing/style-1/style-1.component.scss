@@ -49,6 +49,26 @@ pricing-style-1 {
                 }
             }
         }
+        .header-slim {
+            padding: 12px;
+            height: 250px;
+            min-height: 250px;
+            background: #1A237E;
+            background: linear-gradient(to right, #0E2A3B 0%, #34306B 100%);
+
+            @include media-breakpoint('xs') {
+                height: 150px;
+                min-height: 150px;
+            }
+
+            .hero-text-slim {
+                margin: 64px 12px;
+
+                @include media-breakpoint('xs') {
+                    margin: 32px 12px;
+                }
+            }
+        }
 
         .price-tables {
             flex: 1 0 auto;
