@@ -85,10 +85,7 @@ export class PricingStyle1Component implements OnInit {
     private loadPlanInformation() {
 
         this.planService.query()
-            .subscribe(
-                (response: HttpResponse<IUserProfile[]>) => this.onPlansLoadSuccess(response),
-                (res: HttpErrorResponse) => this.onPlansLoadError(res)
-            );
+            .subscribe((response: HttpResponse<IUserProfile[]>) => this.onPlansLoadSuccess(response));
     }
 
     private loadUserPlanInformation() {
