@@ -44,5 +44,12 @@
         </createTable>
 
     </changeSet>
+    <changeSet id="20181211201147-2" author="jhipster">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/itr_application.csv"
+                  separator=";"
+                  tableName="itr_application"/>
+    </changeSet>
+
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>
