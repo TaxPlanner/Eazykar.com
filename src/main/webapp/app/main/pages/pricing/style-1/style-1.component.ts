@@ -9,9 +9,7 @@ import { PlanService } from 'app/main/pages/pricing/style-1/plan.service';
 import { UserPlanService } from 'app/main/pages/pricing/style-1/user-plan.service';
 import { IPlan, PlanType } from 'app/shared/model/plan.model';
 import { IUserPlan } from 'app/shared/model/user-plan.model';
-import { IUserProfile } from 'app/shared/model/user-profile.model';
 import * as moment from 'moment';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'pricing-style-1',
@@ -76,7 +74,7 @@ export class PricingStyle1Component implements OnInit {
                     .subscribe(() => {
                         this.existingUserPlan = true;
                         this.selectedPlan = result.plan;
-                        this.onSuccess(`Your payment of ${result.plan.planFees} was successful`)
+                        this.onSuccess(`Your payment of ${result.plan.planFees} was successful`);
                     });
             }
         });
@@ -84,8 +82,8 @@ export class PricingStyle1Component implements OnInit {
 
     private loadPlanInformation() {
 
-        this.planService.query()
-            .subscribe((response: HttpResponse<IUserProfile[]>) => this.onPlansLoadSuccess(response));
+        this.planService.query({ 'active.in': true })
+            .subscribe((response: HttpResponse<IPlan[]>) => this.onPlansLoadSuccess(response));
     }
 
     private loadUserPlanInformation() {
@@ -93,13 +91,13 @@ export class PricingStyle1Component implements OnInit {
         this.principal.identity().then(account => {
             this.userPlanService.query({ 'userId.equals': account.id })
                 .subscribe(
-                    (response: HttpResponse<IUserProfile[]>) => this.onUserPlanLoadSuccess(response),
+                    (response: HttpResponse<IUserPlan[]>) => this.onUserPlanLoadSuccess(response),
                     (res: HttpErrorResponse) => this.onUserPlanLoadError(res)
                 );
         });
     }
 
-    private onPlansLoadSuccess(response: HttpResponse<IUserPlan[]>) {
+    private onPlansLoadSuccess(response: HttpResponse<IPlan[]>) {
         this.plans = response && response.body;
         this.individualPlans = this.plans.filter(value => value.planType === PlanType.INDIVIDUAL);
         this.businessPlans = this.plans.filter(value => value.planType === PlanType.BUSINESS);

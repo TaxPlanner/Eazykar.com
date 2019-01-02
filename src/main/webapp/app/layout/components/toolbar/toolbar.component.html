@@ -163,6 +163,20 @@
 -->
     <div class="toolbar-separator"></div>
 
+    <button mat-button class="menu-button"
+            [routerLink]="'/pages/application-list'"
+            *ezkrHasAnyAuthority="['ROLE_CA_MANAGER', 'ROLE_CA']">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!--<img class="avatar mr-0 mr-sm-16" src="/content/icons/material-icons/outline/fonts/">\-->
+            <mat-icon>file_copy</mat-icon>
+            <span>&nbsp; Applications</span>
+            <!--<span class="username mr-12" fxHide fxShow.gt-sm>Sign In</span>-->
+            <!--<mat-icon class="s-16" fxHide.xs>help_outline</mat-icon>-->
+        </div>
+    </button>
+
+    <div class="toolbar-separator"></div>
+
     <button mat-button [matMenuTriggerFor]="helpMenu"
             class="menu-button">
         <div fxLayout="row" fxLayoutAlign="center center">
@@ -200,9 +214,13 @@
 
     <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
 
-        <button mat-menu-item [routerLink]="'/pages/user-profile'">
+        <button mat-menu-item [routerLink]="'/pages/user-profile'" *ezkrHasAnyAuthority="'ROLE_USER'">
             <mat-icon>account_circle</mat-icon>
             <span>My Profile</span>
+        </button>
+        <button mat-menu-item [routerLink]="'/pages/application-list'" *ezkrHasAnyAuthority="['ROLE_CA_MANAGER', 'ROLE_CA']">
+            <mat-icon>file_copy</mat-icon>
+            <span>Applications</span>
         </button>
 
         <button mat-menu-item class="" (click)="logout()">

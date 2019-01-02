@@ -19,9 +19,13 @@ export class WhereToNextService {
             this.principal.identity()
                 .then(account => {
 
-                    if (_.includes(account.authorities, 'ROLE_CA')) {
+                    if (_.includes(account.authorities, 'ROLE_CA_MANAGER')) {
+                        console.log('Welcome CA MANAGER');
+                        this.router.navigate(['pages', 'application-list']);
+
+                    } else if (_.includes(account.authorities, 'ROLE_CA')) {
                         console.log('Welcome CA');
-                        this.router.navigate(['']);
+                        this.router.navigate(['pages', 'application-list']);
 
                     } else if (_.includes(account.authorities, 'ROLE_USER')) {
                         console.log('Welcome Client');
