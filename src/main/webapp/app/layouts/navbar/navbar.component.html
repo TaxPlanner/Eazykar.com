@@ -101,6 +101,30 @@
                             <span jhiTranslate="global.menu.entities.keyInformation">Key Information</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="document" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.document">Document</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="salary-information" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.salaryInformation">Salary Information</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="other-income" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.otherIncome">Other Income</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="house-property" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.houseProperty">House Property</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu -  -->
                 </ul>
             </li>

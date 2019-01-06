@@ -1,0 +1,25 @@
+{
+    "eazykarApp": {
+        "houseProperty": {
+            "home": {
+                "title": "House Properties",
+                "createLabel": "Create a new House Property",
+                "createOrEditLabel": "Create or edit a House Property"
+            },
+            "created": "A new House Property is created with identifier {{ param }}",
+            "updated": "A House Property is updated with identifier {{ param }}",
+            "deleted": "A House Property is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete House Property {{ id }}?"
+            },
+            "detail": {
+                "title": "House Property"
+            },
+            "address": "Address",
+            "tenant": "Tenant",
+            "propertyTax": "Property Tax",
+            "housingLoanInterest": "Housing Loan Interest",
+            "user": "User"
+        }
+    }
+}

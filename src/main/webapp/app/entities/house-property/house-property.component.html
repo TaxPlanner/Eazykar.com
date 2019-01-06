@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eazykarApp.houseProperty.home.title">House Properties</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-house-property" [routerLink]="['/house-property/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="eazykarApp.houseProperty.home.createLabel">
+            Create new House Property
+            </span>
+        </button>
+    </h2>
+    <ezkr-alert></ezkr-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="houseProperties">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="address"><span jhiTranslate="eazykarApp.houseProperty.address">Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenant"><span jhiTranslate="eazykarApp.houseProperty.tenant">Tenant</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyTax"><span jhiTranslate="eazykarApp.houseProperty.propertyTax">Property Tax</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="housingLoanInterest"><span jhiTranslate="eazykarApp.houseProperty.housingLoanInterest">Housing Loan Interest</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.login"><span jhiTranslate="eazykarApp.houseProperty.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let houseProperty of houseProperties ;trackBy: trackId">
+                <td><a [routerLink]="['/house-property', houseProperty.id, 'view' ]">{{houseProperty.id}}</a></td>
+                <td>{{houseProperty.address}}</td>
+                <td>{{houseProperty.tenant}}</td>
+                <td>{{houseProperty.propertyTax}}</td>
+                <td>{{houseProperty.housingLoanInterest}}</td>
+                <td>
+                    {{houseProperty.user?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/house-property', houseProperty.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/house-property', houseProperty.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'house-property/'+ houseProperty.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="houseProperties && houseProperties.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

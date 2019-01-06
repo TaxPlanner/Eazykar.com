@@ -81,7 +81,7 @@ $typography: mat-typography-config(
 //@import "./layout/components/chat-panel/chat-panel.theme";
 @import "./layout/components/toolbar/toolbar.theme";
 //
-//@import "./main/apps/academy/academy.theme";
+@import "./main/pages/workflow/academy.theme";
 //@import "./main/apps/calendar/calendar.theme";
 //@import "./main/apps/chat/chat.theme";
 //@import "./main/apps/contacts/contacts.theme";
@@ -131,7 +131,7 @@ $typography: mat-typography-config(
     @include toolbar-theme($theme);
     //
     //// Apps
-    //@include academy-theme($theme);
+    @include academy-theme($theme);
     //@include calendar-theme($theme);
     //@include chat-theme($theme);
     //@include contacts-theme($theme);
@@ -146,15 +146,15 @@ $typography: mat-typography-config(
     //
     //// Pages
     //@include login-theme($theme);
-    //@include login-2-theme($theme);
+    @include login-2-theme($theme);
     //@include register-theme($theme);
-    //@include register-2-theme($theme);
+    @include register-2-theme($theme);
     //@include reset-password-theme($theme);
-    //@include reset-password-2-theme($theme);
+    @include reset-password-2-theme($theme);
     //@include forgot-password-theme($theme);
-    //@include forgot-password-2-theme($theme);
+    @include forgot-password-2-theme($theme);
     //@include lock-theme($theme);
-    //@include mail-confirm-theme($theme);
+    @include mail-confirm-theme($theme);
     //@include coming-soon-theme($theme);
     //@include error-404-theme($theme);
     //@include error-500-theme($theme);

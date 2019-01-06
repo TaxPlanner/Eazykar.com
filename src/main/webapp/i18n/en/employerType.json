@@ -1,0 +1,9 @@
+{
+    "eazykarApp": {
+        "EmployerType": {
+            "null": "",
+            "PUBLIC": "PUBLIC",
+            "PRIVATE": "PRIVATE"
+        }
+    }
+}

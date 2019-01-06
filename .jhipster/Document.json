@@ -1,0 +1,48 @@
+{
+    "name": "Document",
+    "fields": [
+        {
+            "fieldName": "documentType",
+            "fieldType": "DocumentType",
+            "fieldValues": "PROFILE_PIC,PAN,AADHAR,DEMONETISATION_CASH_DEPOSITS,BANK_ACCOUNT_DETAILS,TDS_CERTIFICATES,TAX_PAYMENT_CHALLAN,ORIGINAL_RETURN,DETAILS_OF_NOTICE,ITR_V,GENERAL_DOCUMENTS,INCOME_FROM_OTHER_SOURCES,TAX_SAVINGS_INVESTMENTS,OTHER_DEDUCTIONS,FORM_16,SALARY_CERTIFICATE,FORM_26AS,HOUSE_PROPERTY,CAPITAL_GAIN",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "document",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any",
+            "fieldValidateRules": [
+                "maxbytes"
+            ],
+            "fieldValidateRulesMaxbytes": 5000000
+        },
+        {
+            "fieldName": "documentDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20190102060019",
+    "entityTableName": "document",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -78,7 +78,9 @@ export class Register2Component implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.resetRegisterForm();
-        this.renderer2.selectRootElement('#username').focus();
+        setTimeout(() => {
+            this.renderer2.selectRootElement('#username').focus();
+        });
     }
 
     /**

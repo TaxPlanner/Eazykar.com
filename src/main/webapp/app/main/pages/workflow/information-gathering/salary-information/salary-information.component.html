@@ -1,0 +1,103 @@
+<div class="p-24">
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button type="button" color="accent" (click)="openForm16Modal()">
+            <mat-icon>cloud_upload</mat-icon> &nbsp;&nbsp;
+            Upload Form 16
+        </button>
+        <div class="p-24"> OR</div>
+        <button mat-raised-button type="button" color="accent" (click)="openSalaryInformationModal({})">
+            Enter Salary Details
+        </button>
+    </div>
+
+    <div class="page-layout simple">
+
+        <div *ngIf="salaryInformationList && salaryInformationList.length > 0">
+            <div class="mat-display-1 pt-48 text-center">Salary Information</div>
+            <div>
+                <table mat-table [dataSource]="salaryInformationList" matSort>
+
+                    <!-- Name of the Employer -->
+                    <ng-container matColumnDef="employerName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employer</th>
+                        <td mat-cell *matCellDef="let row">{{row.employerName}}</td>
+                    </ng-container>
+
+                    <!-- Employer Type -->
+                    <ng-container matColumnDef="employerType">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employer Type</th>
+                        <td mat-cell *matCellDef="let row">{{row.employerType}}</td>
+                    </ng-container>
+
+                    <!-- Income Chargeable under Head Salaries -->
+                    <ng-container matColumnDef="income">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Income</th>
+                        <td mat-cell *matCellDef="let row">{{row.income}}</td>
+                    </ng-container>
+
+                    <!-- TAN of the Employer -->
+                    <ng-container matColumnDef="employerTan">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>TAN (Employer)</th>
+                        <td mat-cell *matCellDef="let row">{{row.employerTan}}</td>
+                    </ng-container>
+
+                    <!-- Tax Deducted at source on Salary -->
+                    <ng-container matColumnDef="tds">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>TDS</th>
+                        <td mat-cell *matCellDef="let row">{{row.tds}}</td>
+                    </ng-container>
+
+                    <!-- Actions -->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
+                        <td mat-cell *matCellDef="let row">
+                            <div fxLayout="row" fxLayoutAlign="end center">
+                                <button mat-icon-button class="ml-24" type="button" (click)="openSalaryInformationModal(row)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button type="button" (click)="deleteSalaryInformation(row)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="salaryInformationDisplayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: salaryInformationDisplayedColumns;">
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div *ngIf="form16List && form16List.length > 0">
+            <div class="mat-display-1 pt-48 text-center">Uploaded Form 16's</div>
+            <div>
+                <table mat-table [dataSource]="form16List" matSort>
+
+                    <!-- Document -->
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Document</th>
+                        <td mat-cell *matCellDef="let row">{{row.documentDescription}}</td>
+                    </ng-container>
+
+                    <!-- Actions -->
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
+                        <td mat-cell *matCellDef="let row">
+                            <div fxLayout="row" fxLayoutAlign="end center">
+                                <button mat-icon-button type="button" (click)="deleteForm16(row)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="form16DisplayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: form16DisplayedColumns;">
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

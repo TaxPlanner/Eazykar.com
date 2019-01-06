@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { ProfileService } from 'app/layouts';
 
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { fuseAnimations } from '../../../../@fuse/animations';
@@ -31,7 +32,9 @@ export class Login2Component implements OnInit, AfterViewInit {
      * @param {StateStorageService} stateStorageService
      * @param {Router} router
      * @param {Renderer2} renderer2
+     * @param {ProfileService} profileService
      * @param {Principal} principal
+     * @param {WhereToNextService} whereToNextService
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
@@ -42,6 +45,7 @@ export class Login2Component implements OnInit, AfterViewInit {
         private router: Router,
         private renderer2: Renderer2,
         private principal: Principal,
+        private profileService: ProfileService,
         private whereToNextService: WhereToNextService
     ) {
         // Configure the layout
@@ -76,6 +80,14 @@ export class Login2Component implements OnInit, AfterViewInit {
             password: ['', Validators.required],
             rememberMe: ['']
         });
+
+        this.profileService.getProfileInfo()
+            .then((pi) => {
+                if (!pi.inProduction) {
+                    this.loginForm.controls.username.setValue('user');
+                    this.loginForm.controls.password.setValue('user');
+                }
+            });
     }
 
     ngAfterViewInit(): void {

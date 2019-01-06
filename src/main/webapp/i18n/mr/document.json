@@ -1,0 +1,24 @@
+{
+    "eazykarApp": {
+        "document": {
+            "home": {
+                "title": "Documents",
+                "createLabel": "नवीन Document तयार करा",
+                "createOrEditLabel": "Document तयार किंवा संपादित करा"
+            },
+            "created": "Document [identifier: {{ param }}] तयार आहे",
+            "updated": "Document [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Document [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Document [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Document"
+            },
+            "documentType": "Document Type",
+            "document": "Document",
+            "documentDescription": "Document Description",
+            "user": "User"
+        }
+    }
+}
