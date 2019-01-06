@@ -1,0 +1,26 @@
+{
+    "eazykarApp": {
+        "salaryInformation": {
+            "home": {
+                "title": "Salary Informations",
+                "createLabel": "नवीन Salary Information तयार करा",
+                "createOrEditLabel": "Salary Information तयार किंवा संपादित करा"
+            },
+            "created": "Salary Information [identifier: {{ param }}] तयार आहे",
+            "updated": "Salary Information [identifier: {{ param }}] सुधारित केले आहे",
+            "deleted": "Salary Information [identifier: {{ param }}] हटविले आहे",
+            "delete": {
+                "question": "Salary Information [id: {{ id }}] काढून टाकण्याबाबत पुष्टी?"
+            },
+            "detail": {
+                "title": "Salary Information"
+            },
+            "employerName": "Employer Name",
+            "employerType": "Employer Type",
+            "employerTan": "Employer Tan",
+            "income": "Income",
+            "tds": "Tds",
+            "user": "User"
+        }
+    }
+}

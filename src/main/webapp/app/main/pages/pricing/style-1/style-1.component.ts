@@ -3,7 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal } from 'app/core';
-import { PaymentDialogData } from 'app/main/pages/pricing/style-1/payment-dialog/pament-dialog.model';
+import { PaymentDialogData } from 'app/main/pages/pricing/style-1/payment-dialog/payment-dialog.model';
 import { PaymentDialogComponent } from 'app/main/pages/pricing/style-1/payment-dialog/payment-dialog.component';
 import { PlanService } from 'app/main/pages/pricing/style-1/plan.service';
 import { UserPlanService } from 'app/main/pages/pricing/style-1/user-plan.service';
@@ -61,28 +61,28 @@ export class PricingStyle1Component implements OnInit {
             paymentSuccessful: false
         };
 
-        const dialogRef = this.dialog.open(PaymentDialogComponent, { data: paymentDialogData });
+        const dialogRef = this.dialog.open(PaymentDialogComponent, { data: paymentDialogData })
+                              .afterClosed()
+                              .subscribe(result => {
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log(`Dialog result: ${JSON.stringify(result)}`);
-            if (result && result.paymentSuccessful === true) {
-                this.userPlanService.create({
-                        plan: result.plan,
-                        purchasedOn: moment(),
-                        user: { ...this.account }
-                    })
-                    .subscribe(() => {
-                        this.existingUserPlan = true;
-                        this.selectedPlan = result.plan;
-                        this.onSuccess(`Your payment of ${result.plan.planFees} was successful`);
-                    });
-            }
-        });
+                                  if (result && result.paymentSuccessful === true) {
+                                      this.userPlanService.create({
+                                              plan: result.plan,
+                                              purchasedOn: moment(),
+                                              user: { ...this.account }
+                                          })
+                                          .subscribe(() => {
+                                              this.existingUserPlan = true;
+                                              this.selectedPlan = result.plan;
+                                              this.onSuccess(`Your payment of ${result.plan.planFees} was successful`);
+                                          });
+                                  }
+                              });
     }
 
     private loadPlanInformation() {
 
-        this.planService.query({ 'active.in': true })
+        this.planService.query({ 'active.equals': true })
             .subscribe((response: HttpResponse<IPlan[]>) => this.onPlansLoadSuccess(response));
     }
 
@@ -119,53 +119,6 @@ export class PricingStyle1Component implements OnInit {
     private onUserPlanLoadError(res: HttpErrorResponse) {
         this.onError(res.message);
     }
-
-    // saveUserPlanInformation() {
-    //
-    //     this.isSaving = true;
-    //
-    //     this.principal.identity()
-    //         .then(account => {
-    //
-    //             this.userPlan = {
-    //                 id: this.userPlan && this.userPlan.id,
-    //                 purchasedOn: moment(),
-    //                 plan: this.selectedPlan,
-    //                 user: account
-    //             };
-    //
-    //             if (this.existingUserPlan) {
-    //                 this.subscribeToSaveUserPlan(this.userPlanService.update(this.userPlan));
-    //             } else {
-    //                 this.subscribeToSaveUserPlan(this.userPlanService.create(this.userPlan));
-    //             }
-    //         });
-    //
-    // }
-    //
-    // choosePlan(planId) {
-    //     this.selectedPlan = { id: planId };
-    // }
-    //
-    // private subscribeToSaveUserPlan(result: Observable<HttpResponse<IUserPlan>>) {
-    //     result.subscribe(
-    //         (res: HttpResponse<IUserPlan>) => this.onSaveUserPlanSuccess(res.body),
-    //         (res: HttpErrorResponse) => this.onSaveError(res.message)
-    //     );
-    // }
-    //
-    // private onSaveUserPlanSuccess(savedUserPlan) {
-    //     this.userPlan = { ...savedUserPlan };
-    //     this.isSaving = false;
-    //     this.existingUserPlan = true;
-    //
-    //     this.onSuccess('Your address is now updated in our system');
-    // }
-    //
-    // private onSaveError(message) {
-    //     this.isSaving = false;
-    //     this.onError(message);
-    // }
 
     private onSuccess(message) {
         this.openSnackBar(message);

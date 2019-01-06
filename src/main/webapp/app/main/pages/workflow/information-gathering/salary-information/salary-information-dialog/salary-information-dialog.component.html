@@ -1,0 +1,66 @@
+<div class="p-24">
+    <form fxLayout="column" [formGroup]="salaryInformationForm" (ngSubmit)="saveSalaryInformation()">
+
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                <mat-label>Name of the Employer</mat-label>
+                <input matInput formControlName="employerName" required>
+                <mat-icon matSuffix>business</mat-icon>
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                <mat-label>Employer Type</mat-label>
+                <mat-select formControlName="employerType" required>
+                    <mat-option>
+                        - Please select -
+                    </mat-option>
+                    <mat-option [value]="'PUBLIC'">
+                        Public
+                    </mat-option>
+                    <mat-option [value]="'PRIVATE'">
+                        Private
+                    </mat-option>
+                </mat-select>
+                <!--<mat-icon matSuffix class="secondary-text">people</mat-icon>-->
+                <mat-error>Selection is required!</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                <mat-label>Income Chargeable under Head Salaries</mat-label>
+                <input matInput formControlName="income" required>
+                <!--<mat-icon matSuffix>attach_money</mat-icon>-->
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+
+            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                <mat-label>TAN of the Employer</mat-label>
+                <input matInput formControlName="employerTan" required>
+                <!--<mat-icon matSuffix>ballot</mat-icon>-->
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                <mat-label>Tax Deducted at source on Salary</mat-label>
+                <input matInput formControlName="tds" required>
+                <!--<mat-icon matSuffix>attach_money</mat-icon>-->
+                <mat-error>This field is required!</mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-raised-button type="submit" color="accent" [disabled]="!salaryInformationForm.valid">
+                {{ isSaving ? 'Saving...' : 'Save My Salary Information' }}
+            </button>
+        </div>
+
+    </form>
+</div>

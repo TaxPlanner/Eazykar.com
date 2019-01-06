@@ -47,6 +47,10 @@ public class CacheConfiguration {
             cm.createCache(com.eazykar.portal.domain.UserPlan.class.getName(), jcacheConfiguration);
             cm.createCache(com.eazykar.portal.domain.Address.class.getName(), jcacheConfiguration);
             cm.createCache(com.eazykar.portal.domain.KeyInformation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.eazykar.portal.domain.Document.class.getName(), jcacheConfiguration);
+            cm.createCache(com.eazykar.portal.domain.SalaryInformation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.eazykar.portal.domain.OtherIncome.class.getName(), jcacheConfiguration);
+            cm.createCache(com.eazykar.portal.domain.HouseProperty.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

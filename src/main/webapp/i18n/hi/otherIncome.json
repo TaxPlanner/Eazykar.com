@@ -1,0 +1,26 @@
+{
+    "eazykarApp": {
+        "otherIncome": {
+            "home": {
+                "title": "OtherIncomes",
+                "createLabel": "नया Other Income बनाएँ",
+                "createOrEditLabel": "Other Income बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Other Income [identifier: {{ param }}] तैयार है",
+            "updated": "एक Other Income [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Other Income [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Other Income [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Other Income"
+            },
+            "interestIncome": "Interest Income",
+            "anyOtherIncome": "Any Other Income",
+            "exemptDividend": "Exempt Dividend",
+            "exemptInterest": "Exempt Interest",
+            "exemptOtherIncome": "Exempt Other Income",
+            "user": "User"
+        }
+    }
+}

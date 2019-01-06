@@ -3,6 +3,7 @@ import { ApplicationListModule } from 'app/main/pages/application-list/applicati
 import { TaxKnowledgeModule } from 'app/main/pages/tax-knowledge/tax-knowledge.module';
 import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { UserProfileModule } from 'app/main/pages/user-profile/user-profile.module';
+import { WorkflowModule } from 'app/main/pages/workflow/workflow.module';
 import { EazykarSharedModule } from 'app/shared';
 import { ForgotPassword2Module } from './authentication/forgot-password-2/forgot-password-2.module';
 
@@ -22,7 +23,8 @@ import { ResetPassword2Module } from './authentication/reset-password-2/reset-pa
         TaxKnowledgeModule,
         EazykarAppTaxServicesModule,
         UserProfileModule,
-        ApplicationListModule
+        ApplicationListModule,
+        WorkflowModule
     ],
     declarations: []
 })

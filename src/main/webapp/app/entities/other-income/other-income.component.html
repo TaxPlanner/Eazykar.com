@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eazykarApp.otherIncome.home.title">Other Incomes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-other-income" [routerLink]="['/other-income/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="eazykarApp.otherIncome.home.createLabel">
+            Create new Other Income
+            </span>
+        </button>
+    </h2>
+    <ezkr-alert></ezkr-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="otherIncomes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="interestIncome"><span jhiTranslate="eazykarApp.otherIncome.interestIncome">Interest Income</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anyOtherIncome"><span jhiTranslate="eazykarApp.otherIncome.anyOtherIncome">Any Other Income</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="exemptDividend"><span jhiTranslate="eazykarApp.otherIncome.exemptDividend">Exempt Dividend</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="exemptInterest"><span jhiTranslate="eazykarApp.otherIncome.exemptInterest">Exempt Interest</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="exemptOtherIncome"><span jhiTranslate="eazykarApp.otherIncome.exemptOtherIncome">Exempt Other Income</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.login"><span jhiTranslate="eazykarApp.otherIncome.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let otherIncome of otherIncomes ;trackBy: trackId">
+                <td><a [routerLink]="['/other-income', otherIncome.id, 'view' ]">{{otherIncome.id}}</a></td>
+                <td>{{otherIncome.interestIncome}}</td>
+                <td>{{otherIncome.anyOtherIncome}}</td>
+                <td>{{otherIncome.exemptDividend}}</td>
+                <td>{{otherIncome.exemptInterest}}</td>
+                <td>{{otherIncome.exemptOtherIncome}}</td>
+                <td>
+                    {{otherIncome.user?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/other-income', otherIncome.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/other-income', otherIncome.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'other-income/'+ otherIncome.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="otherIncomes && otherIncomes.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

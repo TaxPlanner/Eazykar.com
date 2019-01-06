@@ -1,0 +1,25 @@
+{
+    "eazykarApp": {
+        "houseProperty": {
+            "home": {
+                "title": "HouseProperties",
+                "createLabel": "नया House Property बनाएँ",
+                "createOrEditLabel": "House Property बनाएँ या संपादित करें"
+            },
+            "created": "एक नया House Property [identifier: {{ param }}] तैयार है",
+            "updated": "एक House Property [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "House Property [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "House Property [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "House Property"
+            },
+            "address": "Address",
+            "tenant": "Tenant",
+            "propertyTax": "Property Tax",
+            "housingLoanInterest": "Housing Loan Interest",
+            "user": "User"
+        }
+    }
+}

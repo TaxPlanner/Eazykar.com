@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { PaymentDialogData } from 'app/main/pages/pricing/style-1/payment-dialog/pament-dialog.model';
+import { PaymentDialogData } from 'app/main/pages/pricing/style-1/payment-dialog/payment-dialog.model';
 
 @Component({
     selector: 'ezkr-payment-dialog',
