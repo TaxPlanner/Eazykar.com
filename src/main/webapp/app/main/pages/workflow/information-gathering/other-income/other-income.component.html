@@ -2,13 +2,11 @@
     <div class="page-layout simple">
         <form fxLayout="column" [formGroup]="otherIncomeForm" (ngSubmit)="saveOtherIncome()">
 
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
                 <mat-form-field appearance="outline" class="p-4" fxFlex="33">
                     <mat-label>Interest Income</mat-label>
                     <input matInput type="number" formControlName="interestIncome">
                 </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
                 <mat-form-field appearance="outline" class="p-4" fxFlex="33">
                     <mat-label>Any Other Income</mat-label>
                     <input matInput type="number" formControlName="anyOtherIncome">
@@ -19,14 +17,10 @@
                     <mat-label>Exempt Dividend</mat-label>
                     <input matInput type="number" formControlName="exemptDividend">
                 </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
                 <mat-form-field appearance="outline" class="p-4" fxFlex="33">
                     <mat-label>Exempt Interest</mat-label>
                     <input matInput type="number" formControlName="exemptInterest">
                 </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
                 <mat-form-field appearance="outline" class="p-4" fxFlex="33">
                     <mat-label>Exempt Other Income</mat-label>
                     <input matInput type="number" formControlName="exemptOtherIncome">

@@ -29,10 +29,6 @@ export class OtherIncomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loadOtherIncome();
-    }
-
-    private loadOtherIncome() {
 
         this.otherIncomeForm = this._formBuilder.group({
             interestIncome: [''],
@@ -41,6 +37,11 @@ export class OtherIncomeComponent implements OnInit {
             exemptInterest: [''],
             exemptOtherIncome: ['']
         });
+
+        this.loadOtherIncome();
+    }
+
+    private loadOtherIncome() {
 
         this.principal.identity().then(account => {
             this.otherIncomeService.query({ 'userId.equals': account.id })
