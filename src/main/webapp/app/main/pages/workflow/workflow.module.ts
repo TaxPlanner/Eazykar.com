@@ -23,6 +23,7 @@ import { PricingModule } from 'app/main/pages/pricing/pricing.module';
 import { WorkflowComponent } from 'app/main/pages/workflow/workflow.component';
 import { EazykarSharedModule } from 'app/shared';
 import { InformationGatheringComponent } from './information-gathering/information-gathering.component';
+import { OtherIncomeComponent } from './information-gathering/other-income/other-income.component';
 import { DocumentDialogComponent } from './information-gathering/salary-information/document-dialog/document-dialog.component';
 import { SalaryInformationDialogComponent } from './information-gathering/salary-information/salary-information-dialog/salary-information-dialog.component';
 import { SalaryInformationComponent } from './information-gathering/salary-information/salary-information.component';
@@ -44,7 +45,8 @@ const routes: Routes = [
         InformationGatheringComponent,
         SalaryInformationComponent,
         SalaryInformationDialogComponent,
-        DocumentDialogComponent
+        DocumentDialogComponent,
+        OtherIncomeComponent
     ],
     imports: [
         RouterModule.forChild(routes),

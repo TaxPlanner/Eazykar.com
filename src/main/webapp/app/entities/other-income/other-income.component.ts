@@ -11,7 +11,7 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 import { OtherIncomeService } from './other-income.service';
 
 @Component({
-    selector: 'ezkr-other-income',
+    selector: 'deprecated-ezkr-other-income',
     templateUrl: './other-income.component.html'
 })
 export class OtherIncomeComponent implements OnInit, OnDestroy {

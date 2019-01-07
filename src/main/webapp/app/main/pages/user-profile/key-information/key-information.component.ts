@@ -126,7 +126,6 @@ export class KeyInformationComponent implements OnInit {
 
     private openSnackBar(message) {
         this.snackBar.open(message, 'Ok', {
-            announcementMessage: 'Error',
             horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition
         });
