@@ -5,7 +5,6 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 import { Principal } from 'app/core';
 import { KeyInformationService } from 'app/main/pages/user-profile/key-information.service';
 import { IKeyInformation } from 'app/shared/model/key-information.model';
-import { IUserProfile } from 'app/shared/model/user-profile.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -49,7 +48,7 @@ export class KeyInformationComponent implements OnInit {
         this.principal.identity().then(account => {
             this.keyInformationService.query({ 'userId.equals': account.id })
                 .subscribe(
-                    (response: HttpResponse<IUserProfile[]>) => this.onKeyInformationLoadSuccess(response),
+                    (response: HttpResponse<IKeyInformation[]>) => this.onKeyInformationLoadSuccess(response),
                     (res: HttpErrorResponse) => this.onKeyInformationLoadError(res)
                 );
         });

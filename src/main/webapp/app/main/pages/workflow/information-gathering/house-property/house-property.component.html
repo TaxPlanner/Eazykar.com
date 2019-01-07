@@ -1,0 +1,36 @@
+<div class="p-24">
+    <div class="page-layout simple">
+        <form fxLayout="column" [formGroup]="housePropertyForm" (ngSubmit)="saveHouseProperty()">
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Tenant</mat-label>
+                    <input matInput formControlName="tenant">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="50">
+                    <mat-label>Property Tax</mat-label>
+                    <input matInput type="number" formControlName="propertyTax">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="50">
+                    <mat-label>Housing Loan Interest</mat-label>
+                    <input matInput type="number" formControlName="housingLoanInterest">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <button mat-raised-button type="submit" color="accent" [disabled]="!housePropertyForm.valid">
+                    {{ isSaving ? 'Saving...' : 'Save My Income Details' }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

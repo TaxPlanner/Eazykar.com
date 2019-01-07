@@ -27,6 +27,7 @@ import { OtherIncomeComponent } from './information-gathering/other-income/other
 import { DocumentDialogComponent } from './information-gathering/salary-information/document-dialog/document-dialog.component';
 import { SalaryInformationDialogComponent } from './information-gathering/salary-information/salary-information-dialog/salary-information-dialog.component';
 import { SalaryInformationComponent } from './information-gathering/salary-information/salary-information.component';
+import { HousePropertyComponent } from './information-gathering/house-property/house-property.component';
 
 const routes: Routes = [
     {
@@ -46,7 +47,8 @@ const routes: Routes = [
         SalaryInformationComponent,
         SalaryInformationDialogComponent,
         DocumentDialogComponent,
-        OtherIncomeComponent
+        OtherIncomeComponent,
+        HousePropertyComponent
     ],
     imports: [
         RouterModule.forChild(routes),
