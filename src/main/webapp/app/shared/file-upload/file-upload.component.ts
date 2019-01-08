@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IUser } from 'app/core';
-import { DocumentService } from 'app/entities/document';
+import { DocumentService } from 'app/shared/file-upload/document.service';
 import { DocumentType, IDocument } from 'app/shared/model/document.model';
 import { JhiDataUtils } from 'ng-jhipster';
 import { Observable, Subscription } from 'rxjs';

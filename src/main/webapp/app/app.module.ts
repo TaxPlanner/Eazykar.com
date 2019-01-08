@@ -1,35 +1,47 @@
-import './vendor.ts';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Ng2Webstorage } from 'ngx-webstorage';
-import { NgJhipsterModule } from 'ng-jhipster';
-import * as moment from 'moment';
-
-import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
-import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
-import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
-import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { EazykarSharedModule } from 'app/shared';
+import { TranslateModule } from '@ngx-translate/core';
 import { EazykarCoreModule } from 'app/core';
-import { EazykarAppRoutingModule } from './app-routing.module';
-import { EazykarHomeModule } from './home/home.module';
-import { EazykarAccountModule } from './account/account.module';
 import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
-import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
-// jhipster-needle-angular-add-module-import
-import { ActiveMenuDirective, ErrorComponent, EzkrMainComponent, FooterComponent, NavbarComponent, PageRibbonComponent } from './layouts';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatButtonModule, MatIconModule } from '@angular/material';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { FuseSharedModule } from './@fuse/shared.module';
+import { EazykarSharedModule } from 'app/shared';
+import * as moment from 'moment';
+import { NgJhipsterModule } from 'ng-jhipster';
+import { Ng2Webstorage } from 'ngx-webstorage';
 import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from './@fuse/components';
 import { FuseModule } from './@fuse/fuse.module';
-import { LayoutModule } from './layout/layout.module';
+import { FuseSharedModule } from './@fuse/shared.module';
+import { EazykarAccountModule } from './account/account.module';
+import { EazykarAppRoutingModule } from './app-routing.module';
+import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
+
+import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
+import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
+import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
+import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
 import { fuseConfig } from './fuse-config';
-import { TranslateModule } from '@ngx-translate/core';
+import { EazykarHomeModule } from './home/home.module';
+import { LayoutModule } from './layout/layout.module';
+// jhipster-needle-angular-add-module-import
+import { ActiveMenuDirective, ErrorComponent, EzkrMainComponent, FooterComponent, NavbarComponent, PageRibbonComponent } from './layouts';
+import './vendor.ts';
+
+export const MY_FORMATS = {
+    parse: {
+        dateInput: 'DD-MM-YYYY'
+    },
+    display: {
+        dateInput: 'DD-MM-YYYY',
+        monthYearLabel: 'MMM YYYY',
+        dateA11yLabel: 'DD-MM-YYYY',
+        monthYearA11yLabel: 'MMMM YYYY'
+    }
+};
 
 @NgModule({
     imports: [
@@ -95,7 +107,12 @@ import { TranslateModule } from '@ngx-translate/core';
         {
             provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
             useValue: { duration: 4000 }
-        }
+        },
+        // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
+        // application's root module. We provide it at the component level here, due to limitations of
+        // our example generation script.
+        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+        { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
     ],
     bootstrap: [EzkrMainComponent]
 })

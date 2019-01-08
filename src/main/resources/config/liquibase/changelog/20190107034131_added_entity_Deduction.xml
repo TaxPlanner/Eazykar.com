@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Deduction.
+    -->
+    <changeSet id="20190107034131-1" author="jhipster">
+        <createTable tableName="deduction">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="d_80_c" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_tta" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_g" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_d_preventive_health" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_d_insurance_family_premium" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_d_family_check_up_fees" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_d_insurance_parents_premium" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_d_parents_check_up_fees" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_d_parents_senior_citizens" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_e" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_ccc" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="d_80_ccd_2" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="other_deductions" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_deduction_user_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

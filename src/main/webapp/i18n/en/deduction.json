@@ -1,0 +1,34 @@
+{
+    "eazykarApp": {
+        "deduction": {
+            "home": {
+                "title": "Deductions",
+                "createLabel": "Create a new Deduction",
+                "createOrEditLabel": "Create or edit a Deduction"
+            },
+            "created": "A new Deduction is created with identifier {{ param }}",
+            "updated": "A Deduction is updated with identifier {{ param }}",
+            "deleted": "A Deduction is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Deduction {{ id }}?"
+            },
+            "detail": {
+                "title": "Deduction"
+            },
+            "d80C": "D 80 C",
+            "d80TTA": "D 80 TTA",
+            "d80G": "D 80 G",
+            "d80DPreventiveHealth": "D 80 D Preventive Health",
+            "d80DInsuranceFamilyPremium": "D 80 D Insurance Family Premium",
+            "d80DFamilyCheckUpFees": "D 80 D Family Check Up Fees",
+            "d80DInsuranceParentsPremium": "D 80 D Insurance Parents Premium",
+            "d80DParentsCheckUpFees": "D 80 D Parents Check Up Fees",
+            "d80DParentsSeniorCitizens": "D 80 D Parents Senior Citizens",
+            "d80E": "D 80 E",
+            "d80CCC": "D 80 CCC",
+            "d80CCD2": "D 80 CCD 2",
+            "otherDeductions": "Other Deductions",
+            "user": "User"
+        }
+    }
+}

@@ -19,6 +19,8 @@
                 "salaryInformation": "Salary Information",
                 "otherIncome": "Other Income",
                 "houseProperty": "House Property",
+                "capitalGain": "Capital Gain",
+                "deduction": "Deduction",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

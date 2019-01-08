@@ -1,0 +1,11 @@
+{
+    "eazykarApp": {
+        "ShareType": {
+            "null": "",
+            "LISTED_SECURITIES": "LISTED_SECURITIES",
+            "NON_LISTED_SECURITIES": "NON_LISTED_SECURITIES",
+            "LISTED_DEBENTURES": "LISTED_DEBENTURES",
+            "NON_LISTED_DEBENTURES": "NON_LISTED_DEBENTURES"
+        }
+    }
+}

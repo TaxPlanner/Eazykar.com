@@ -1,0 +1,34 @@
+{
+    "eazykarApp": {
+        "deduction": {
+            "home": {
+                "title": "Deductions",
+                "createLabel": "नया Deduction बनाएँ",
+                "createOrEditLabel": "Deduction बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Deduction [identifier: {{ param }}] तैयार है",
+            "updated": "एक Deduction [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Deduction [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Deduction [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Deduction"
+            },
+            "d80C": "D 80 C",
+            "d80TTA": "D 80 TTA",
+            "d80G": "D 80 G",
+            "d80DPreventiveHealth": "D 80 D Preventive Health",
+            "d80DInsuranceFamilyPremium": "D 80 D Insurance Family Premium",
+            "d80DFamilyCheckUpFees": "D 80 D Family Check Up Fees",
+            "d80DInsuranceParentsPremium": "D 80 D Insurance Parents Premium",
+            "d80DParentsCheckUpFees": "D 80 D Parents Check Up Fees",
+            "d80DParentsSeniorCitizens": "D 80 D Parents Senior Citizens",
+            "d80E": "D 80 E",
+            "d80CCC": "D 80 CCC",
+            "d80CCD2": "D 80 CCD 2",
+            "otherDeductions": "Other Deductions",
+            "user": "User"
+        }
+    }
+}

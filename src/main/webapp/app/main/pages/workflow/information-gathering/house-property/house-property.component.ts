@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal, UserService } from 'app/core';
-import { HousePropertyService } from 'app/entities/house-property';
+import { HousePropertyService } from 'app/main/pages/workflow/information-gathering/house-property/house-property.service';
 import { IHouseProperty } from 'app/shared/model/house-property.model';
 import { Observable } from 'rxjs';
 

@@ -3,8 +3,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal, UserService } from 'app/core';
-import { SalaryInformationService } from 'app/entities/salary-information';
 import { SalaryInformationDialogData } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information-dialog/salary-information-dialog.model';
+import { SalaryInformationService } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information.service';
 import { ISalaryInformation } from 'app/shared/model/salary-information.model';
 import { Observable } from 'rxjs';
 

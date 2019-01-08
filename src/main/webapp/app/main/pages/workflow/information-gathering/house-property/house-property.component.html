@@ -24,10 +24,23 @@
                     <input matInput type="number" formControlName="housingLoanInterest">
                 </mat-form-field>
             </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <div fxFlex="50" fxLayoutAlign="center center">
+                    <button mat-raised-button type="button" color="accent">
+                        <mat-icon>cloud_upload</mat-icon> &nbsp;&nbsp;
+                        Upload Rent Receipts
+                    </button>
+                </div>
+                <div fxFlex="50" fxLayoutAlign="center center">Uploaded receipts go here</div>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center">
+                &nbsp;
+            </div>
 
             <div fxLayout="row" fxLayoutAlign="center center">
                 <button mat-raised-button type="submit" color="accent" [disabled]="!housePropertyForm.valid">
-                    {{ isSaving ? 'Saving...' : 'Save My Income Details' }}
+                    {{ isSaving ? 'Saving...' : 'Save My Housing Property Details' }}
                 </button>
             </div>
 

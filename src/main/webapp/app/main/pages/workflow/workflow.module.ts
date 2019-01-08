@@ -28,6 +28,8 @@ import { DocumentDialogComponent } from './information-gathering/salary-informat
 import { SalaryInformationDialogComponent } from './information-gathering/salary-information/salary-information-dialog/salary-information-dialog.component';
 import { SalaryInformationComponent } from './information-gathering/salary-information/salary-information.component';
 import { HousePropertyComponent } from './information-gathering/house-property/house-property.component';
+import { CapitalGainsComponent } from './information-gathering/capital-gains/capital-gains.component';
+import { DeductionsComponent } from './information-gathering/deductions/deductions.component';
 
 const routes: Routes = [
     {
@@ -48,7 +50,9 @@ const routes: Routes = [
         SalaryInformationDialogComponent,
         DocumentDialogComponent,
         OtherIncomeComponent,
-        HousePropertyComponent
+        HousePropertyComponent,
+        CapitalGainsComponent,
+        DeductionsComponent
     ],
     imports: [
         RouterModule.forChild(routes),

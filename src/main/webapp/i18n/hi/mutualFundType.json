@@ -1,0 +1,9 @@
+{
+    "eazykarApp": {
+        "MutualFundType": {
+            "null": "",
+            "EQUITY": "EQUITY",
+            "NON_EQUITY": "NON_EQUITY"
+        }
+    }
+}

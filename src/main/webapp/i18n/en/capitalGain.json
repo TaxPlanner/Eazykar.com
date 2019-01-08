@@ -1,0 +1,30 @@
+{
+    "eazykarApp": {
+        "capitalGain": {
+            "home": {
+                "title": "Capital Gains",
+                "createLabel": "Create a new Capital Gain",
+                "createOrEditLabel": "Create or edit a Capital Gain"
+            },
+            "created": "A new Capital Gain is created with identifier {{ param }}",
+            "updated": "A Capital Gain is updated with identifier {{ param }}",
+            "deleted": "A Capital Gain is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Capital Gain {{ id }}?"
+            },
+            "detail": {
+                "title": "Capital Gain"
+            },
+            "shareType": "Share Type",
+            "shareDateOfSale": "Share Date Of Sale",
+            "shareDateOfPurchase": "Share Date Of Purchase",
+            "mutualFundType": "Mutual Fund Type",
+            "mutualFundDateOfSale": "Mutual Fund Date Of Sale",
+            "mutualFundDateOfPurchase": "Mutual Fund Date Of Purchase",
+            "otherThanSharesDateOfSale": "Other Than Shares Date Of Sale",
+            "otherThanSharesDateOfPurchase": "Other Than Shares Date Of Purchase",
+            "landBuilding": "Land Building",
+            "user": "User"
+        }
+    }
+}

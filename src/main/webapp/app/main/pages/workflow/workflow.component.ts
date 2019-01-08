@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, QueryList, ViewChildren, ViewEnca
 import { fuseAnimations } from 'app/@fuse/animations';
 import { FuseSidebarService } from 'app/@fuse/components/sidebar/sidebar.service';
 import { FusePerfectScrollbarDirective } from 'app/@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
-import { SalaryInformationService } from 'app/entities/salary-information';
+import { SalaryInformationService } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

@@ -1,0 +1,30 @@
+{
+    "eazykarApp": {
+        "capitalGain": {
+            "home": {
+                "title": "CapitalGains",
+                "createLabel": "नया Capital Gain बनाएँ",
+                "createOrEditLabel": "Capital Gain बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Capital Gain [identifier: {{ param }}] तैयार है",
+            "updated": "एक Capital Gain [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Capital Gain [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Capital Gain [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Capital Gain"
+            },
+            "shareType": "Share Type",
+            "shareDateOfSale": "Share Date Of Sale",
+            "shareDateOfPurchase": "Share Date Of Purchase",
+            "mutualFundType": "Mutual Fund Type",
+            "mutualFundDateOfSale": "Mutual Fund Date Of Sale",
+            "mutualFundDateOfPurchase": "Mutual Fund Date Of Purchase",
+            "otherThanSharesDateOfSale": "Other Than Shares Date Of Sale",
+            "otherThanSharesDateOfPurchase": "Other Than Shares Date Of Purchase",
+            "landBuilding": "Land Building",
+            "user": "User"
+        }
+    }
+}

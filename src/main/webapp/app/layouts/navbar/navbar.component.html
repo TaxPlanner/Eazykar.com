@@ -125,6 +125,18 @@
                             <span jhiTranslate="global.menu.entities.houseProperty">House Property</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="capital-gain" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.capitalGain">Capital Gain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="deduction" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.deduction">Deduction</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu -  -->
                 </ul>
             </li>

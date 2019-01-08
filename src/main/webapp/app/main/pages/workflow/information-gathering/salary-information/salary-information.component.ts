@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { fuseAnimations } from 'app/@fuse/animations';
 import { Principal } from 'app/core';
-import { DocumentService } from 'app/entities/document';
-import { SalaryInformationService } from 'app/entities/salary-information';
 import { DocumentDialogComponent } from 'app/main/pages/workflow/information-gathering/salary-information/document-dialog/document-dialog.component';
 import { DocumentDialogData } from 'app/main/pages/workflow/information-gathering/salary-information/document-dialog/document-dialog.model';
 import { SalaryInformationDialogComponent } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information-dialog/salary-information-dialog.component';
 import { SalaryInformationDialogData } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information-dialog/salary-information-dialog.model';
+import { SalaryInformationService } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information.service';
+import { DocumentService } from 'app/shared/file-upload/document.service';
 import { IDocument } from 'app/shared/model/document.model';
 import { ISalaryInformation } from 'app/shared/model/salary-information.model';
 

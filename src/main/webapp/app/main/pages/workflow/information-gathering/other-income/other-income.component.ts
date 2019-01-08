@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal, UserService } from 'app/core';
-import { OtherIncomeService } from 'app/entities/other-income';
+import { OtherIncomeService } from 'app/main/pages/workflow/information-gathering/other-income/other-income.service';
 import { IOtherIncome } from 'app/shared/model/other-income.model';
 import { Observable } from 'rxjs';
 
