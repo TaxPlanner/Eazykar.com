@@ -47,7 +47,7 @@ export class FileUploadComponent implements OnInit {
         fileUpload.onchange = (event) => {
             for (let index = 0; index < fileUpload.files.length; index++) {
                 const file = fileUpload.files[index];
-                let fileUploadModel = {
+                const fileUploadModel = {
                     data: file,
                     state: 'in',
                     inProgress: false,
@@ -68,7 +68,6 @@ export class FileUploadComponent implements OnInit {
                 };
                 this.setFileData(eventSake, fileUploadModel, 'document', false);
                 this.files.push(fileUploadModel);
-                console.log(`fileUploadModel: ${JSON.stringify(fileUploadModel)}`);
             }
             this.uploadFiles();
         };

@@ -1,3 +1,105 @@
-<p>
-  deductions works!
-</p>
+<div class="p-24">
+    <div class="page-layout simple">
+        <form class="mat-card mat-elevation-z4" fxLayout="column" [formGroup]="deductionForm" (ngSubmit)="saveDeduction()">
+
+            <!--
+                        	Deduction for Medical Insurance Premium of Preventive Health Check-Up Fees Paid by you
+                        	Medical Insurance Premium for you, spouse or dependent children
+                        	Preventive Health Check-Up fees for you, spouse or dependent children
+                        	Medical Insurance Premium for your parents
+                        	Preventive Health Check-Up fees for your parents
+            -->
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80C</mat-label>
+                    <input type="number" matInput formControlName="d80C">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80TTA</mat-label>
+                    <input type="number" matInput formControlName="d80TTA">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80G</mat-label>
+                    <input type="number" matInput formControlName="d80G">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80D (Deduction for Medical Insurance Premium)</mat-label>
+                    <input type="number" matInput formControlName="d80DPreventiveHealth">
+                    <mat-hint>Deduction for Medical Insurance Premium of Preventive Health Check-Up Fees Paid by you</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80D (Medical Insurance Premium)</mat-label>
+                    <input type="number" matInput formControlName="d80DInsuranceFamilyPremium">
+                    <mat-hint>Medical Insurance Premium for you, spouse or dependent children</mat-hint>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80D (Preventive Health Check-Up fees)</mat-label>
+                    <input type="number" matInput formControlName="d80DFamilyCheckUpFees">
+                    <mat-hint>Preventive Health Check-Up fees for you, spouse or dependent children</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80D (Medical Insurance Premium for your parents)</mat-label>
+                    <input type="number" matInput formControlName="d80DInsuranceParentsPremium">
+                    <mat-hint>Medical Insurance Premium for your parents</mat-hint>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80D (Preventive Health Check-Up fees)</mat-label>
+                    <input type="number" matInput formControlName="d80DParentsCheckUpFees">
+                    <mat-hint>Preventive Health Check-Up fees for your parents</mat-hint>
+                </mat-form-field>
+                <mat-checkbox class="p-4 example-margin" fxFlex="100"
+                              [labelPosition]="'before'"
+                              formControlName="d80DParentsSeniorCitizens">
+                    My parents who hold the policy are senior citizens
+                </mat-checkbox>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80E</mat-label>
+                    <input type="number" matInput formControlName="d80E">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80CCC</mat-label>
+                    <input type="number" matInput formControlName="d80CCC">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>80CCD2</mat-label>
+                    <input type="number" matInput formControlName="d80CCD2">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Other Deductions</mat-label>
+                    <input type="number" matInput formControlName="otherDeductions">
+                </mat-form-field>
+            </div>
+
+
+            <div fxLayout="row" fxLayoutAlign="center center">
+                &nbsp;
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <button mat-raised-button type="submit" color="accent">
+                    {{ isSaving ? 'Saving...' : 'Save My Deduction Details' }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
