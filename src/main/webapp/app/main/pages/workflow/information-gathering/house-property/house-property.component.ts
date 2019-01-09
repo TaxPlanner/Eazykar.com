@@ -2,9 +2,12 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
-import { Principal, UserService } from 'app/core';
+import { IUser, Principal, UserService } from 'app/core';
 import { HousePropertyService } from 'app/main/pages/workflow/information-gathering/house-property/house-property.service';
+import { DocumentService } from 'app/shared/file-upload/document.service';
+import { IDocument } from 'app/shared/model/document.model';
 import { IHouseProperty } from 'app/shared/model/house-property.model';
+import { JhiDataUtils } from 'ng-jhipster';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,12 +22,22 @@ export class HousePropertyComponent implements OnInit {
     houseProperty: IHouseProperty;
     housePropertyForm: FormGroup;
 
+    rentReceiptDisplayedColumns = [
+        'description',
+        'actions'
+    ];
+
+    user: IUser;
+    rentReceiptList: IDocument[] = [];
+
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
     constructor(private _formBuilder: FormBuilder,
                 private principal: Principal,
+                private dataUtils: JhiDataUtils,
                 private userService: UserService,
+                private documentService: DocumentService,
                 private housePropertyService: HousePropertyService,
                 private snackBar: MatSnackBar) {
     }
@@ -38,6 +51,11 @@ export class HousePropertyComponent implements OnInit {
             housingLoanInterest: ['']
         });
 
+        this.loadInformation();
+    }
+
+    private loadInformation() {
+        this.loadRentReceiptList();
         this.loadHouseProperty();
     }
 
@@ -50,6 +68,32 @@ export class HousePropertyComponent implements OnInit {
                     (res: HttpErrorResponse) => this.onHousePropertyLoadError(res)
                 );
         });
+    }
+
+    private loadRentReceiptList() {
+        this.principal.identity().then(account => {
+            this.user = account;
+            this.documentService.query({
+                    'userId.equals': account.id,
+                    'documentType.equals': 'HOUSE_PROPERTY'
+                })
+                .subscribe((response: HttpResponse<IDocument[]>) => this.onRentReceiptListLoadSuccess(response));
+        });
+    }
+
+    openRentReceipt(selectedRentReceipt: IDocument) {
+        return this.dataUtils.openFile(selectedRentReceipt.documentContentType, selectedRentReceipt.document);
+    }
+
+    deleteRentReceipt(selectedRentReceipt: IDocument) {
+
+        this.documentService.delete(selectedRentReceipt.id)
+            .subscribe(() => this.loadRentReceiptList());
+    }
+
+    onUploadComplete(event) {
+        this.loadRentReceiptList();
+        this.openSnackBar(event);
     }
 
     private onHousePropertyLoadSuccess(response: HttpResponse<IHouseProperty[]>) {
@@ -119,10 +163,33 @@ export class HousePropertyComponent implements OnInit {
         this.openSnackBar(message);
     }
 
+    private onRentReceiptListLoadSuccess(response: HttpResponse<IDocument[]>) {
+        this.rentReceiptList = response.body;
+    }
+
     private openSnackBar(message) {
         this.snackBar.open(message, 'Ok', {
             horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition
         });
     }
+
+    sizeInKb(value: string): number {
+        return Math.ceil((value.length / 4 * 3 - HousePropertyComponent.paddingSize(value)) / 1024);
+    }
+
+    private static paddingSize(value: string): number {
+        if (HousePropertyComponent.endsWith('==', value)) {
+            return 2;
+        }
+        if (HousePropertyComponent.endsWith('=', value)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    private static endsWith(suffix: string, str: string): boolean {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
 }

@@ -2,10 +2,13 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
-import { Principal, UserService } from 'app/core';
+import { IUser, Principal, UserService } from 'app/core';
 import { CapitalGainService } from 'app/main/pages/workflow/information-gathering/capital-gains/capital-gain.service';
+import { DocumentService } from 'app/shared/file-upload/document.service';
 import { ICapitalGain } from 'app/shared/model/capital-gain.model';
+import { IDocument } from 'app/shared/model/document.model';
 import * as moment from 'moment';
+import { JhiDataUtils } from 'ng-jhipster';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,12 +22,22 @@ export class CapitalGainsComponent implements OnInit {
     capitalGain: ICapitalGain;
     capitalGainForm: FormGroup;
 
+    capitalGainReportDisplayedColumns = [
+        'description',
+        'actions'
+    ];
+
+    user: IUser;
+    capitalGainReportList: IDocument[] = [];
+
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
     constructor(private _formBuilder: FormBuilder,
                 private principal: Principal,
+                private dataUtils: JhiDataUtils,
                 private userService: UserService,
+                private documentService: DocumentService,
                 private capitalGainService: CapitalGainService,
                 private snackBar: MatSnackBar) {
     }
@@ -43,6 +56,11 @@ export class CapitalGainsComponent implements OnInit {
             landBuilding: [null]
         });
 
+        this.loadInformation();
+    }
+
+    private loadInformation() {
+        this.loadCapitalGainReportList();
         this.loadCapitalGain();
     }
 
@@ -55,6 +73,32 @@ export class CapitalGainsComponent implements OnInit {
                     (res: HttpErrorResponse) => this.onCapitalGainLoadError(res)
                 );
         });
+    }
+
+    private loadCapitalGainReportList() {
+        this.principal.identity().then(account => {
+            this.user = account;
+            this.documentService.query({
+                    'userId.equals': account.id,
+                    'documentType.equals': 'CAPITAL_GAIN'
+                })
+                .subscribe((response: HttpResponse<IDocument[]>) => this.onCapitalGainReportListLoadSuccess(response));
+        });
+    }
+
+    openCapitalGainReport(selectedCapitalGainReport: IDocument) {
+        return this.dataUtils.openFile(selectedCapitalGainReport.documentContentType, selectedCapitalGainReport.document);
+    }
+
+    deleteCapitalGainReport(selectedCapitalGainReport: IDocument) {
+
+        this.documentService.delete(selectedCapitalGainReport.id)
+            .subscribe(() => this.loadCapitalGainReportList());
+    }
+
+    onUploadComplete(event) {
+        this.loadCapitalGainReportList();
+        this.openSnackBar(event);
     }
 
     private onCapitalGainLoadSuccess(response: HttpResponse<ICapitalGain[]>) {
@@ -129,10 +173,33 @@ export class CapitalGainsComponent implements OnInit {
         this.openSnackBar(message);
     }
 
+    private onCapitalGainReportListLoadSuccess(response: HttpResponse<IDocument[]>) {
+        this.capitalGainReportList = response.body;
+    }
+
     private openSnackBar(message) {
         this.snackBar.open(message, 'Ok', {
             horizontalPosition: this.horizontalPosition,
             verticalPosition: this.verticalPosition
         });
     }
+
+    sizeInKb(value: string): number {
+        return Math.ceil((value.length / 4 * 3 - CapitalGainsComponent.paddingSize(value)) / 1024);
+    }
+
+    private static paddingSize(value: string): number {
+        if (CapitalGainsComponent.endsWith('==', value)) {
+            return 2;
+        }
+        if (CapitalGainsComponent.endsWith('=', value)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    private static endsWith(suffix: string, str: string): boolean {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
 }

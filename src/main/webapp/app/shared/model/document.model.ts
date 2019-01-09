@@ -29,6 +29,9 @@ export interface IDocument {
     document?: any;
     documentDescription?: string;
     user?: IUser;
+    data?: File;
+    state?: string;
+    inProgress?: boolean;
 }
 
 export class Document implements IDocument {
@@ -38,6 +41,8 @@ export class Document implements IDocument {
         public documentContentType?: string,
         public document?: any,
         public documentDescription?: string,
-        public user?: IUser
-    ) {}
+        public user?: IUser,
+        public data?: File,
+        public state = 'in',
+        public inProgress = false) {}
 }

@@ -1,111 +1,167 @@
 <div class="p-24">
     <div class="page-layout simple">
-        <form fxLayout="column" [formGroup]="capitalGainForm" (ngSubmit)="saveCapitalGain()">
 
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
-                <mat-form-field appearance="outline" class="p-4" fxFlex="25">
-                    <mat-label>Share Type</mat-label>
-                    <mat-select formControlName="shareType">
-                        <mat-option>- Please select -</mat-option>
-                        <mat-option [value]="'LISTED_SECURITIES'">Listed Securities</mat-option>
-                        <mat-option [value]="'NON_LISTED_SECURITIES'">Non Listed Securities</mat-option>
-                        <mat-option [value]="'LISTED_DEBENTURES'">Listed Debentures</mat-option>
-                        <mat-option [value]="'NON_LISTED_DEBENTURES'">Non Listed Debentures</mat-option>
-                    </mat-select>
-                    <mat-icon matSuffix class="secondary-text">money</mat-icon>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="p-4">
-                    <mat-label>Date Of Sale</mat-label>
-                    <input matInput [matDatepicker]="shareDateOfSaleDP" formControlName="shareDateOfSale" disabled="disabled">
-                    <mat-datepicker-toggle matSuffix [for]="shareDateOfSaleDP">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #shareDateOfSaleDP disabled="false"></mat-datepicker>
-                </mat-form-field>
 
-                <mat-form-field appearance="outline" class="p-4">
-                    <mat-label>Date Of Purchase</mat-label>
-                    <input matInput [matDatepicker]="shareDateOfPurchaseDP" formControlName="shareDateOfPurchase" disabled="disabled">
-                    <mat-datepicker-toggle matSuffix [for]="shareDateOfPurchaseDP">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #shareDateOfPurchaseDP disabled="false"></mat-datepicker>
-                </mat-form-field>
+        <div class="p-16">
+            <mat-tab-group dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center">
 
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
-                <mat-form-field appearance="outline" class="p-4" fxFlex="25">
-                    <mat-label>Mutual Fund Type</mat-label>
-                    <mat-select formControlName="mutualFundType">
-                        <mat-option>- Please select -</mat-option>
-                        <mat-option [value]="'EQUITY'">Equity</mat-option>
-                        <mat-option [value]="'NON_EQUITY'">Non Equity</mat-option>
-                    </mat-select>
-                    <mat-icon matSuffix class="secondary-text">money</mat-icon>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="p-4">
-                    <mat-label>Date Of Sale</mat-label>
-                    <input matInput [matDatepicker]="mutualFundDateOfSaleDP" formControlName="mutualFundDateOfSale" disabled="disabled">
-                    <mat-datepicker-toggle matSuffix [for]="mutualFundDateOfSaleDP">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #mutualFundDateOfSaleDP disabled="false"></mat-datepicker>
-                </mat-form-field>
+                <mat-tab label="Capital Gain Details">
+                    <div fxLayout="row" fxLayoutAlign="center center" class="p-12">
+                        &nbsp;
+                    </div>
+                    <form fxLayout="column" [formGroup]="capitalGainForm" (ngSubmit)="saveCapitalGain()">
 
-                <mat-form-field appearance="outline" class="p-4">
-                    <mat-label>Date Of Purchase</mat-label>
-                    <input matInput [matDatepicker]="mutualFundDateOfPurchaseDP" formControlName="mutualFundDateOfPurchase" disabled="disabled">
-                    <mat-datepicker-toggle matSuffix [for]="mutualFundDateOfPurchaseDP">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #mutualFundDateOfPurchaseDP disabled="false"></mat-datepicker>
-                </mat-form-field>
+                        <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                            <mat-form-field appearance="outline" class="p-4" fxFlex="25">
+                                <mat-label>Share Type</mat-label>
+                                <mat-select formControlName="shareType">
+                                    <mat-option>- Please select -</mat-option>
+                                    <mat-option [value]="'LISTED_SECURITIES'">Listed Securities</mat-option>
+                                    <mat-option [value]="'NON_LISTED_SECURITIES'">Non Listed Securities</mat-option>
+                                    <mat-option [value]="'LISTED_DEBENTURES'">Listed Debentures</mat-option>
+                                    <mat-option [value]="'NON_LISTED_DEBENTURES'">Non Listed Debentures</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix class="secondary-text">money</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="p-4">
+                                <mat-label>Date Of Sale</mat-label>
+                                <input matInput [matDatepicker]="shareDateOfSaleDP" formControlName="shareDateOfSale" disabled="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="shareDateOfSaleDP">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #shareDateOfSaleDP disabled="false"></mat-datepicker>
+                            </mat-form-field>
 
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
-                <span class="mat-title text-center font-weight-300" fxFlex="25">Other than Shares</span>
-                <mat-form-field appearance="outline" class="p-4">
-                    <mat-label>Date Of Sale</mat-label>
-                    <input matInput [matDatepicker]="otherThanSharesDateOfSaleDP" formControlName="otherThanSharesDateOfSale" disabled="disabled">
-                    <mat-datepicker-toggle matSuffix [for]="otherThanSharesDateOfSaleDP">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #otherThanSharesDateOfSaleDP disabled="false"></mat-datepicker>
-                </mat-form-field>
+                            <mat-form-field appearance="outline" class="p-4">
+                                <mat-label>Date Of Purchase</mat-label>
+                                <input matInput [matDatepicker]="shareDateOfPurchaseDP" formControlName="shareDateOfPurchase" disabled="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="shareDateOfPurchaseDP">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #shareDateOfPurchaseDP disabled="false"></mat-datepicker>
+                            </mat-form-field>
 
-                <mat-form-field appearance="outline" class="p-4">
-                    <mat-label>Date Of Purchase</mat-label>
-                    <input matInput [matDatepicker]="otherThanSharesDateOfPurchaseDP" formControlName="otherThanSharesDateOfPurchase"
-                           disabled="disabled">
-                    <mat-datepicker-toggle matSuffix [for]="otherThanSharesDateOfPurchaseDP">
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #otherThanSharesDateOfPurchaseDP disabled="false"></mat-datepicker>
-                </mat-form-field>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                            <mat-form-field appearance="outline" class="p-4" fxFlex="25">
+                                <mat-label>Mutual Fund Type</mat-label>
+                                <mat-select formControlName="mutualFundType">
+                                    <mat-option>- Please select -</mat-option>
+                                    <mat-option [value]="'EQUITY'">Equity</mat-option>
+                                    <mat-option [value]="'NON_EQUITY'">Non Equity</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix class="secondary-text">money</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="p-4">
+                                <mat-label>Date Of Sale</mat-label>
+                                <input matInput [matDatepicker]="mutualFundDateOfSaleDP" formControlName="mutualFundDateOfSale" disabled="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="mutualFundDateOfSaleDP">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #mutualFundDateOfSaleDP disabled="false"></mat-datepicker>
+                            </mat-form-field>
 
-            </div>
-            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
-                    <mat-label>Land Building</mat-label>
-                    <input matInput formControlName="landBuilding">
-                </mat-form-field>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
-                <div fxFlex="50" fxLayoutAlign="center center">
-                    <button mat-raised-button type="button" color="accent">
-                        <mat-icon>cloud_upload</mat-icon> &nbsp;&nbsp;
-                        Upload Capital Gains Report
-                    </button>
-                </div>
-                <div fxFlex="50" fxLayoutAlign="center center">Uploaded Capital Gain Reports go here</div>
-            </div>
+                            <mat-form-field appearance="outline" class="p-4">
+                                <mat-label>Date Of Purchase</mat-label>
+                                <input matInput [matDatepicker]="mutualFundDateOfPurchaseDP" formControlName="mutualFundDateOfPurchase"
+                                       disabled="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="mutualFundDateOfPurchaseDP">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #mutualFundDateOfPurchaseDP disabled="false"></mat-datepicker>
+                            </mat-form-field>
 
-            <div fxLayout="row" fxLayoutAlign="center center">
-                <br>
-                <br>
-                <br>
-            </div>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                            <span class="mat-title text-center font-weight-300" fxFlex="25">Other than Shares</span>
+                            <mat-form-field appearance="outline" class="p-4">
+                                <mat-label>Date Of Sale</mat-label>
+                                <input matInput [matDatepicker]="otherThanSharesDateOfSaleDP" formControlName="otherThanSharesDateOfSale"
+                                       disabled="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="otherThanSharesDateOfSaleDP">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #otherThanSharesDateOfSaleDP disabled="false"></mat-datepicker>
+                            </mat-form-field>
 
-            <div fxLayout="row" fxLayoutAlign="center center">
-                <button mat-raised-button type="submit" color="accent" [disabled]="!capitalGainForm.valid">
-                    {{ isSaving ? 'Saving...' : 'Save My Capital Gains' }}
-                </button>
-            </div>
+                            <mat-form-field appearance="outline" class="p-4">
+                                <mat-label>Date Of Purchase</mat-label>
+                                <input matInput [matDatepicker]="otherThanSharesDateOfPurchaseDP" formControlName="otherThanSharesDateOfPurchase"
+                                       disabled="disabled">
+                                <mat-datepicker-toggle matSuffix [for]="otherThanSharesDateOfPurchaseDP">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #otherThanSharesDateOfPurchaseDP disabled="false"></mat-datepicker>
+                            </mat-form-field>
 
-        </form>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                                <mat-label>Land Building</mat-label>
+                                <input matInput formControlName="landBuilding">
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout="row" fxLayoutAlign="center center" class="p-24">
+                            &nbsp;
+                        </div>
+
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <button mat-raised-button type="submit" color="accent" [disabled]="!capitalGainForm.valid">
+                                {{ isSaving ? 'Saving...' : 'Save My Capital Gains' }}
+                            </button>
+                        </div>
+
+                    </form>
+                </mat-tab>
+
+                <mat-tab label="Capital Gain Reports">
+                    <div fxLayout="row" fxLayoutAlign="center center" class="p-24">
+                        &nbsp;
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="center center" fxFlex="1 0 auto">
+                        <div fxFlex="100" fxLayoutAlign="center center">
+                            <ezkr-file-upload *ngIf="user !== undefined"
+                                              text="Upload Capital Gains Report"
+                                              (complete)="onUploadComplete($event)"
+                                              [user]="user" documentType="CAPITAL_GAIN"></ezkr-file-upload>
+                        </div>
+                        <div fxFlex="50" fxLayoutAlign="center center" *ngIf="capitalGainReportList && capitalGainReportList.length > 0">
+                            <div>
+                                <div>
+                                    <table mat-table [dataSource]="capitalGainReportList" matSort>
+
+                                        <!-- Document -->
+                                        <ng-container matColumnDef="description">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Capital Gain Report</th>
+                                            <td mat-cell *matCellDef="let row" class="w-50">{{row.documentDescription}}
+                                                <small>({{sizeInKb(row.document)}} KB)</small>
+                                            </td>
+                                        </ng-container>
+
+                                        <!-- Actions -->
+                                        <ng-container matColumnDef="actions">
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
+                                            <td mat-cell *matCellDef="let row">
+                                                <div fxLayout="row" fxLayoutAlign="end center">
+                                                    <button mat-icon-button type="button" (click)="openCapitalGainReport(row)">
+                                                        <mat-icon>cloud_download</mat-icon>
+                                                    </button>
+                                                    <button mat-icon-button type="button" (click)="deleteCapitalGainReport(row)">
+                                                        <mat-icon>delete</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </ng-container>
+
+                                        <tr mat-header-row *matHeaderRowDef="capitalGainReportDisplayedColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: capitalGainReportDisplayedColumns;">
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+
     </div>
 </div>
