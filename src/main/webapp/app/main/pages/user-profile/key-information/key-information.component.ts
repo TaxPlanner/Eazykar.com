@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal } from 'app/core';
-import { KeyInformationService } from 'app/main/pages/user-profile/key-information.service';
+import { KeyInformationService } from 'app/main/pages/user-profile/key-information/key-information.service';
 import { IKeyInformation } from 'app/shared/model/key-information.model';
 import { Observable } from 'rxjs';
 

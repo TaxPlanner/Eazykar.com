@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ApplicationListModule } from 'app/main/pages/application-list/application-list.module';
 import { TaxKnowledgeModule } from 'app/main/pages/tax-knowledge/tax-knowledge.module';
 import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { UserProfileModule } from 'app/main/pages/user-profile/user-profile.module';
@@ -23,7 +22,6 @@ import { ResetPassword2Module } from './authentication/reset-password-2/reset-pa
         TaxKnowledgeModule,
         EazykarAppTaxServicesModule,
         UserProfileModule,
-        ApplicationListModule,
         WorkflowModule
     ],
     declarations: []

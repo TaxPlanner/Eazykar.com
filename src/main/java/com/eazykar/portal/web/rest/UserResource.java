@@ -159,6 +159,20 @@ public class UserResource {
     }
 
     /**
+     * GET /users : get all users.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and with body all users
+     */
+    @GetMapping("/users/ca")
+    @Timed
+    public ResponseEntity<List<UserDTO>> getAllCAs(Pageable pageable) {
+        final Page<UserDTO> page = userService.getAllCAs(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users/ca");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
      * @return a string list of the all of the roles
      */
     @GetMapping("/users/authorities")

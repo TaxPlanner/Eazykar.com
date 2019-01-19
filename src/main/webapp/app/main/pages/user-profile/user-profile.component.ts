@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material';
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'ezkr-user-profile',
@@ -9,7 +8,13 @@ import { MomentDateAdapter } from '@angular/material-moment-adapter';
 })
 export class UserProfileComponent implements OnInit {
 
+    selectedTabIndex = 0;
+
+    constructor(private route: ActivatedRoute) {
+    }
+
     ngOnInit(): void {
+        this.route.queryParams.subscribe(({ selectedTabIndex }) => this.selectedTabIndex = selectedTabIndex);
     }
 
 }

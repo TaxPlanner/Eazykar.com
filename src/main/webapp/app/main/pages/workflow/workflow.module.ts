@@ -7,20 +7,25 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatSnackBarModule,
+    MatSortModule,
     MatStepperModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTooltipModule
 } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { FuseSidebarModule } from 'app/@fuse/components';
 
 import { FuseSharedModule } from 'app/@fuse/shared.module';
 import { UserRouteAccessService } from 'app/core';
+import { ClientResolverService } from 'app/core/user/client-resolver.service';
 import { PricingModule } from 'app/main/pages/pricing/pricing.module';
+import { ApplicationListComponent } from 'app/main/pages/workflow/application-list/application-list.component';
 import { WorkflowComponent } from 'app/main/pages/workflow/workflow.component';
 import { EazykarSharedModule } from 'app/shared';
 import { CapitalGainsComponent } from './information-gathering/capital-gains/capital-gains.component';
@@ -39,13 +44,17 @@ const routes: Routes = [
         data: {
             authorities: ['ROLE_USER']
         },
-        canActivate: [UserRouteAccessService]
+        canActivate: [UserRouteAccessService],
+        resolve: {
+            client: ClientResolverService
+        }
     }
 ];
 
 @NgModule({
     declarations: [
         WorkflowComponent,
+        ApplicationListComponent,
         InformationGatheringComponent,
         SalaryInformationComponent,
         SalaryInformationDialogComponent,
@@ -68,11 +77,14 @@ const routes: Routes = [
         MatDatepickerModule,
         MatTabsModule,
         MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
         MatProgressSpinnerModule,
         MatSnackBarModule,
         MatSlideToggleModule,
         MatDialogModule,
         MatCheckboxModule,
+        MatTooltipModule,
 
         FuseSharedModule,
         FuseSidebarModule,

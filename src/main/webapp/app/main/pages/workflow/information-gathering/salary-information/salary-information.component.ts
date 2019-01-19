@@ -1,8 +1,8 @@
 import { HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { fuseAnimations } from 'app/@fuse/animations';
-import { IUser, Principal } from 'app/core';
+import { IUser } from 'app/core';
 import { SalaryInformationDialogComponent } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information-dialog/salary-information-dialog.component';
 import { SalaryInformationDialogData } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information-dialog/salary-information-dialog.model';
 import { SalaryInformationService } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information.service';
@@ -33,7 +33,8 @@ export class SalaryInformationComponent implements OnInit {
         'actions'
     ];
 
-    user: IUser;
+    @Input() client: IUser;
+    selectedTabIndex = 0;
 
     salaryInformationList: ISalaryInformation[] = [];
     form16List: IDocument[] = [];
@@ -44,7 +45,6 @@ export class SalaryInformationComponent implements OnInit {
     constructor(private salaryInformationService: SalaryInformationService,
                 private documentService: DocumentService,
                 private dataUtils: JhiDataUtils,
-                private principal: Principal,
                 private dialog: MatDialog,
                 private snackBar: MatSnackBar) {
     }
@@ -109,21 +109,16 @@ export class SalaryInformationComponent implements OnInit {
     }
 
     private loadSalaryInformationList() {
-        this.principal.identity().then(account => {
-            this.salaryInformationService.query({ 'userId.equals': account.id })
-                .subscribe((response: HttpResponse<ISalaryInformation[]>) => this.onSalaryInformationListLoadSuccess(response));
-        });
+        this.salaryInformationService.query({ 'userId.equals': this.client.id })
+            .subscribe((response: HttpResponse<ISalaryInformation[]>) => this.onSalaryInformationListLoadSuccess(response));
     }
 
     private loadForm16List() {
-        this.principal.identity().then(account => {
-            this.user = account;
-            this.documentService.query({
-                    'userId.equals': account.id,
-                    'documentType.equals': 'FORM_16'
-                })
-                .subscribe((response: HttpResponse<IDocument[]>) => this.onForm16ListLoadSuccess(response));
-        });
+        this.documentService.query({
+                'userId.equals': this.client.id,
+                'documentType.equals': 'FORM_16'
+            })
+            .subscribe((response: HttpResponse<IDocument[]>) => this.onForm16ListLoadSuccess(response));
     }
 
     private onSalaryInformationListLoadSuccess(response: HttpResponse<ISalaryInformation[]>) {

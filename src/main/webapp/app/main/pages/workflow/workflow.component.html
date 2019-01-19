@@ -11,7 +11,10 @@
                 <div class="step"
                      *ngFor="let step of steps; let i = index; let last = last; let first = first"
                      (click)="gotoStep(i)"
-                     [ngClass]="{'current': currentStep === i, 'completed': currentStep > i, 'last': last, 'first': first}">
+                     [class.current]="+currentStep === i"
+                     [class.completed]="+currentStep > i"
+                     [class.first]="first"
+                     [class.last]="last">
                     <div class="index">
                         <span>{{i + 1}}</span>
                     </div>
@@ -30,39 +33,66 @@
     <div class="center">
 
         <!-- HEADER -->
-        <div class="header accent p-24" fxLayout="row" fxLayoutAlign="start center">
+        <div *ezkrHasNoneOfTheAuthorities="['ROLE_CA', 'ROLE_CA_MANAGER']" class="header accent p-24" fxLayout="row" fxLayoutAlign="start center">
 
+            <!-- hidden on medium sized screen -->
             <button mat-icon-button class="sidebar-toggle mr-16" fxHide.gt-md
                     (click)="toggleSidebar('academy-course-left-sidebar-1')">
                 <mat-icon>menu</mat-icon>
             </button>
 
-            <!--
-            <button mat-icon-button class="mr-16" [routerLink]="'/apps/academy/courses'">
-                <mat-icon>arrow_back</mat-icon>
-            </button>
-            -->
-
-            <div *ngFor="let step of steps; let i = index; let last = last; let first = first">
-                <h2 *ngIf="currentStep === i">{{step.title}}</h2>
+            <div>
+                <h2>{{steps[+currentStep]?.title}}</h2>
             </div>
 
+        </div>
+        <div *ezkrHasAnyAuthority="['ROLE_CA', 'ROLE_CA_MANAGER']" class="header accent p-24 pb-0 pt-12" fxLayout="column" fxLayoutAlign="space-between">
+
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+
+                <!-- hidden on medium sized screen -->
+                <button mat-icon-button class="sidebar-toggle mr-16" fxHide.gt-md
+                        (click)="toggleSidebar('academy-course-left-sidebar-1')">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <div>
+                    <h2>{{steps[+currentStep]?.title}}</h2>
+                </div>
+            </div>
+
+            <!-- *ezkrHasAnyAuthority="['ROLE_CA', 'ROLE_CA_MANAGER']" -->
+            <div fxLayout="row" *ngIf="client">
+                <div class="selected-project">{{client.firstName}} {{client.lastName}}</div>
+                <button mat-icon-button class="project-selector">
+                    <mat-icon>close</mat-icon>
+                </button>
+
+                <!--
+                <div class="pl-12">&nbsp;</div>
+
+                <div class="selected-project">Ms. Jane Doe</div>
+                <button mat-icon-button class="project-selector">
+                    <mat-icon>close</mat-icon>
+                </button>
+                -->
+            </div>
         </div>
         <!-- / HEADER -->
 
         <!-- CONTENT -->
         <div id="course-content" class="content">
 
-            <ng-container *ngFor="let step of steps; let i = index;">
+            <ng-container *ngFor="let step of steps; let i = index;" [ngSwitch]="i">
 
                 <div class="course-step" fusePerfectScrollbar
                      *ngIf="currentStep === i"
                      [@slideIn]="animationDirection">
 
                     <div id="course-step-content" class="course-step-content">
-                        <ezkr-information-gathering *ngIf="i === 0"></ezkr-information-gathering>
-
-                        <div *ngIf="i !== 0" class="page-layout simple fullwidth" fxLayout="column">
+                        <ezkr-information-gathering *ngSwitchCase="0" [client]="client"></ezkr-information-gathering>
+                        <ezkr-application-list *ngSwitchCase="1"></ezkr-application-list>
+                        <div *ngSwitchDefault class="page-layout simple fullwidth" fxLayout="column">
                             <div class="p-16">
                                 <p>{{step.title}} content here</p>
                             </div>
@@ -75,33 +105,6 @@
 
         </div>
         <!-- / CONTENT -->
-
-        <!--
-        <div class="step-navigation">
-
-            <button mat-fab class="previous mat-accent fuse-white-fg"
-                    (click)="gotoPreviousStep()"
-                    [disabled]="currentStep === 0"
-                    [fxHide]="currentStep === 0">
-                <mat-icon>chevron_left</mat-icon>
-            </button>
-
-            <button mat-fab class="next mat-accent fuse-white-fg"
-                    (click)="gotoNextStep()"
-                    [disabled]="currentStep === steps.length - 1"
-                    [fxHide]="currentStep === steps.length - 1">
-                <mat-icon>chevron_right</mat-icon>
-            </button>
-
-            <button mat-fab class="done green-600"
-                    routerLink="/apps/academy/courses"
-                    [disabled]="currentStep !== steps.length - 1"
-                    [fxShow]="currentStep === steps.length - 1">
-                <mat-icon>check</mat-icon>
-            </button>
-
-        </div>
-        -->
 
     </div>
     <!-- / CENTER -->

@@ -1,4 +1,7 @@
-<button mat-raised-button color="accent" (click)="onClick()" type="button">
+<button mat-raised-button color="accent" type="button"
+        (click)="onClick()"
+        [matTooltip]="matTooltip"
+        [matTooltipPosition]="matTooltipPosition">
     <mat-icon>cloud_upload</mat-icon>&nbsp;&nbsp;
     {{text}}
 </button>

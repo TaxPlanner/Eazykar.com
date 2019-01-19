@@ -112,9 +112,29 @@
         overflow: hidden;
 
         .header {
-            height: 72px;
-            min-height: 72px;
-            max-height: 72px;
+            height: 120px;
+            min-height: 120px;
+            max-height: 120px;
+
+            .selected-project {
+                background: rgba(0, 0, 0, 0.12);
+                color: #FFFFFF;
+                padding: 8px 16px;
+                height: 40px;
+                line-height: 24px;
+                font-size: 16px;
+                border-radius: 8px 0 0 0;
+            }
+
+            .project-selector {
+                margin-left: 1px;
+                background: rgba(0, 0, 0, 0.12);
+                border-radius: 0 8px 0 0;
+
+                mat-icon {
+                    color: #FFFFFF;
+                }
+            }
         }
 
         .content {

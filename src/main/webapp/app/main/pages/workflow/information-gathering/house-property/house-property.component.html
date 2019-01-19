@@ -4,7 +4,7 @@
 
         <div id="information-gathering" class="page-layout simple fullwidth" fxLayout="column">
             <div class="p-16">
-                <mat-tab-group dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center">
+                <mat-tab-group dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center" [(selectedIndex)]="selectedTabIndex">
 
                     <mat-tab label="Property Details">
                         <div fxLayout="row" fxLayoutAlign="center center" class="p-12">
@@ -56,10 +56,10 @@
 
                         <div fxLayout="column" fxLayoutAlign="center center" fxFlex="1 0 auto">
                             <div fxFlex="100" fxLayoutAlign="center center">
-                                <ezkr-file-upload *ngIf="user !== undefined"
+                                <ezkr-file-upload *ngIf="this.client"
                                                   text="Upload Rent Receipts"
                                                   (complete)="onUploadComplete($event)"
-                                                  [user]="user" documentType="HOUSE_PROPERTY"></ezkr-file-upload>
+                                                  [user]="this.client" documentType="HOUSE_PROPERTY"></ezkr-file-upload>
                             </div>
                             <div class="p-12" fxFlex="100" fxLayoutAlign="center center" *ngIf="rentReceiptList && rentReceiptList.length > 0">
                                 <table fxFlex="100" mat-table [dataSource]="rentReceiptList" matSort>

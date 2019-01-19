@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal } from 'app/core';
-import { AddressService } from 'app/main/pages/user-profile/address.service';
+import { AddressService } from 'app/main/pages/user-profile/address-information/address.service';
 import { IAddress } from 'app/shared/model/address.model';
 import { IUserProfile } from 'app/shared/model/user-profile.model';
 import { Observable } from 'rxjs';

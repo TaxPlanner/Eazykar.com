@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IUser } from 'app/core';
 
 @Component({
     selector: 'ezkr-information-gathering',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./information-gathering.component.scss']
 })
 export class InformationGatheringComponent implements OnInit {
+
+    selectedTabIndex = 0;
+
+    @Input() client: IUser;
 
     constructor() {
     }

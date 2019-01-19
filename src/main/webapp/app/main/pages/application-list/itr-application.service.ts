@@ -13,27 +13,28 @@ type EntityArrayResponseType = HttpResponse<IItrApplication[]>;
 export class ItrApplicationService {
     public resourceUrl = SERVER_API_URL + 'api/itr-applications';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
     create(itrApplication: IItrApplication): Observable<EntityResponseType> {
-        return this.http
-            .post<IItrApplication>(this.resourceUrl, itrApplication, { observe: 'response' });
+        return this.http.post<IItrApplication>(this.resourceUrl, itrApplication, { observe: 'response' });
     }
 
     update(itrApplication: IItrApplication): Observable<EntityResponseType> {
-        return this.http
-            .put<IItrApplication>(this.resourceUrl, itrApplication, { observe: 'response' });
+        return this.http.put<IItrApplication>(this.resourceUrl, itrApplication, { observe: 'response' });
     }
 
     find(id: number): Observable<EntityResponseType> {
-        return this.http
-            .get<IItrApplication>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+        return this.http.get<IItrApplication>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    findAllForCurrentUser(): Observable<EntityArrayResponseType> {
+        return this.http.get<IItrApplication[]>(`${this.resourceUrl}/current-user`, { observe: 'response' });
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
-        return this.http
-            .get<IItrApplication[]>(this.resourceUrl, { params: options, observe: 'response' });
+        return this.http.get<IItrApplication[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {

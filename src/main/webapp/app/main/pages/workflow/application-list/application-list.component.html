@@ -1,0 +1,84 @@
+<div class="fullwidth">
+
+    <div class="p-24">
+
+        <div class="mat-elevation-z8 w-100-p">
+            <!--
+            <div class="p-40">
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+            </div>
+            -->
+            <table class="w-100-p" mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="applicationNumber">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-10-p"> Application Number</th>
+                    <td mat-cell *matCellDef="let row" class="w-10-p text-center"> {{row.applicationNumber}} </td>
+                </ng-container>
+
+                <!-- Client Column -->
+                <ng-container matColumnDef="user">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Client</th>
+                    <td mat-cell *matCellDef="let row"> {{row.user.firstName}}  {{row.user.lastName}}</td>
+                </ng-container>
+
+                <!-- Assignee Column -->
+                <ng-container matColumnDef="assignee">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-20-p"> CA</th>
+                    <td mat-cell *matCellDef="let row" class="w-20-p">
+                        <div *ezkrHasNoneOfTheAuthorities="['ROLE_CA_MANAGER']">
+                            <span *ngIf="row.assignee">{{row.assignee.firstName}} {{row.assignee.lastName}}</span>
+                            <span *ngIf="!row.assignee">Unassigned</span>
+                        </div>
+
+                        <div *ezkrHasAnyAuthority="['ROLE_CA_MANAGER']" class="px-12">
+                            <mat-select value="{{row.assignee?.id}}"
+                                        [compareWith]="compareAssigneeIds"
+                                        (valueChange)="updateAssignee(row, $event)">
+                                <mat-option>- Please select Assignee -</mat-option>
+                                <mat-option *ngFor="let ca of caList" [value]="ca.id">{{ca.firstName}} {{ca.lastName}}</mat-option>
+                            </mat-select>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="applicationStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
+                    <td mat-cell *matCellDef="let row"> {{row.applicationStatus}}</td>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="w-30-p">&nbsp;</th>
+                    <td mat-cell *matCellDef="let row" class="w-30-p">
+                        <div *ezkrHasNoneOfTheAuthorities="['ROLE_CA_MANAGER']">
+                            <button *ngIf="!row.assignee" mat-raised-button color="accent" type="button" (click)="assignToSelf(row)">
+                                <mat-icon>assignment_turned_in</mat-icon>
+                                Accept
+                            </button>
+                            <button *ngIf="row.assignee" mat-raised-button color="accent" type="button" (click)="continueWorking(row)">
+                                <mat-icon>assignment</mat-icon>
+                                Continue
+                            </button>
+                        </div>
+                        <div *ezkrHasAnyAuthority="['ROLE_CA_MANAGER']">
+                            <button mat-raised-button color="accent" type="button" (click)="assignToCA(row)">
+                                <mat-icon>assignment_returned</mat-icon>
+                                Assign
+                            </button>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+
+    </div>
+</div>

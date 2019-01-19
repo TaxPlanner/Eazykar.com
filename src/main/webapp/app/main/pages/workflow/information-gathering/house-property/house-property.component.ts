@@ -1,8 +1,8 @@
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
-import { IUser, Principal, UserService } from 'app/core';
+import { IUser, UserService } from 'app/core';
 import { HousePropertyService } from 'app/main/pages/workflow/information-gathering/house-property/house-property.service';
 import { DocumentService } from 'app/shared/file-upload/document.service';
 import { IDocument } from 'app/shared/model/document.model';
@@ -27,14 +27,14 @@ export class HousePropertyComponent implements OnInit {
         'actions'
     ];
 
-    user: IUser;
+    @Input() client: IUser;
+    selectedTabIndex = 0;
     rentReceiptList: IDocument[] = [];
 
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
     constructor(private _formBuilder: FormBuilder,
-                private principal: Principal,
                 private dataUtils: JhiDataUtils,
                 private userService: UserService,
                 private documentService: DocumentService,
@@ -61,24 +61,19 @@ export class HousePropertyComponent implements OnInit {
 
     private loadHouseProperty() {
 
-        this.principal.identity().then(account => {
-            this.housePropertyService.query({ 'userId.equals': account.id })
-                .subscribe(
-                    (response: HttpResponse<IHouseProperty[]>) => this.onHousePropertyLoadSuccess(response),
-                    (res: HttpErrorResponse) => this.onHousePropertyLoadError(res)
-                );
-        });
+        this.housePropertyService.query({ 'userId.equals': this.client.id })
+            .subscribe(
+                (response: HttpResponse<IHouseProperty[]>) => this.onHousePropertyLoadSuccess(response),
+                (res: HttpErrorResponse) => this.onHousePropertyLoadError(res)
+            );
     }
 
     private loadRentReceiptList() {
-        this.principal.identity().then(account => {
-            this.user = account;
-            this.documentService.query({
-                    'userId.equals': account.id,
-                    'documentType.equals': 'HOUSE_PROPERTY'
-                })
-                .subscribe((response: HttpResponse<IDocument[]>) => this.onRentReceiptListLoadSuccess(response));
-        });
+        this.documentService.query({
+                'userId.equals': this.client.id,
+                'documentType.equals': 'HOUSE_PROPERTY'
+            })
+            .subscribe((response: HttpResponse<IDocument[]>) => this.onRentReceiptListLoadSuccess(response));
     }
 
     openRentReceipt(selectedRentReceipt: IDocument) {
@@ -114,24 +109,20 @@ export class HousePropertyComponent implements OnInit {
 
         this.isSaving = true;
 
-        this.principal.identity()
-            .then(account => {
+        this.houseProperty = {
+            id: this.houseProperty && this.houseProperty.id,
+            address: this.housePropertyForm.controls.address.value,
+            tenant: this.housePropertyForm.controls.tenant.value,
+            propertyTax: this.housePropertyForm.controls.propertyTax.value,
+            housingLoanInterest: this.housePropertyForm.controls.housingLoanInterest.value,
+            user: this.client
+        };
 
-                this.houseProperty = {
-                    id: this.houseProperty && this.houseProperty.id,
-                    address: this.housePropertyForm.controls.address.value,
-                    tenant: this.housePropertyForm.controls.tenant.value,
-                    propertyTax: this.housePropertyForm.controls.propertyTax.value,
-                    housingLoanInterest: this.housePropertyForm.controls.housingLoanInterest.value,
-                    user: account
-                };
-
-                if (this.existingHouseProperty) {
-                    this.subscribeToSaveHouseProperty(this.housePropertyService.update(this.houseProperty));
-                } else {
-                    this.subscribeToSaveHouseProperty(this.housePropertyService.create(this.houseProperty));
-                }
-            });
+        if (this.existingHouseProperty) {
+            this.subscribeToSaveHouseProperty(this.housePropertyService.update(this.houseProperty));
+        } else {
+            this.subscribeToSaveHouseProperty(this.housePropertyService.create(this.houseProperty));
+        }
     }
 
     private subscribeToSaveHouseProperty(result: Observable<HttpResponse<IHouseProperty>>) {
