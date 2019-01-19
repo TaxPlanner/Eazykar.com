@@ -55,7 +55,7 @@ register-2 {
             }
 
             #register-form {
-                padding: 128px 48px 48px 48px;
+                padding: 64px 48px 48px 48px;
 
                 @include media-breakpoint('xs') {
                     text-align: center;

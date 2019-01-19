@@ -139,6 +139,19 @@ public class ItrApplicationResource {
     }
 
     /**
+     * GET  /itr-applications/current-user : get applications to be displayed to current user.
+     *
+     * @return the ResponseEntity with status 200 (OK) and with body the itrApplication, or with status 404 (Not Found)
+     */
+    @GetMapping("/itr-applications/current-user")
+    @Timed
+    public ResponseEntity<List<ItrApplication>> getItrApplicationsForCurrentUserOrUnassigned() {
+        log.debug("REST request to get ItrApplications for current user");
+        List<ItrApplication> itrApplications = itrApplicationService.findAllForCurrentUserOrUnassigned();
+        return ResponseEntity.ok().body(itrApplications);
+    }
+
+    /**
      * DELETE  /itr-applications/:id : delete the "id" itrApplication.
      *
      * @param id the id of the itrApplication to delete

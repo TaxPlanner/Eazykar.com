@@ -13,12 +13,18 @@
 
         <div class="description mat-small" [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
             <p>
-            <mat-icon matListIcon>done</mat-icon> Dedicated Support team of highly experienced experts at your disposal. <br>
-            <mat-icon matListIcon>done</mat-icon> Time-based Services that ensure timely financial planning. <br>
-            <mat-icon matListIcon>done</mat-icon> High-level privacy and absolute confidentiality. <br>
-            <mat-icon matListIcon>done</mat-icon> Highly secure servers that keep your Financial Data safe. <br>
-            <mat-icon matListIcon>done</mat-icon> Machine-Level Accuracy backed by Expert Support. <br>
-            <mat-icon matListIcon>done</mat-icon> Over 1000 CAs to help you. 24/7 support for resolution of your questions. <br>
+                <mat-icon matListIcon>done</mat-icon>
+                Dedicated Support team of highly experienced experts at your disposal. <br>
+                <mat-icon matListIcon>done</mat-icon>
+                Time-based Services that ensure timely financial planning. <br>
+                <mat-icon matListIcon>done</mat-icon>
+                High-level privacy and absolute confidentiality. <br>
+                <mat-icon matListIcon>done</mat-icon>
+                Highly secure servers that keep your Financial Data safe. <br>
+                <mat-icon matListIcon>done</mat-icon>
+                Machine-Level Accuracy backed by Expert Support. <br>
+                <mat-icon matListIcon>done</mat-icon>
+                Over 1000 CAs to help you. 24/7 support for resolution of your questions. <br>
             </p>
         </div>
 
@@ -28,11 +34,16 @@
         </div>
 
         <div class="description" [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
-            <mat-icon matListIcon>done</mat-icon> File Returns without spending tedious hours with a CA<br>
-            <mat-icon matListIcon>done</mat-icon> Do your filing in your spare time, from literally anywhere.<br>
-            <mat-icon matListIcon>done</mat-icon> Economic Packages.<br>
-            <mat-icon matListIcon>done</mat-icon> We make Financial Concepts simple and easy for our clients<br>
-            <mat-icon matListIcon>done</mat-icon> Highly Up-To-Date experts<br>
+            <mat-icon matListIcon>done</mat-icon>
+            File Returns without spending tedious hours with a CA<br>
+            <mat-icon matListIcon>done</mat-icon>
+            Do your filing in your spare time, from literally anywhere.<br>
+            <mat-icon matListIcon>done</mat-icon>
+            Economic Packages.<br>
+            <mat-icon matListIcon>done</mat-icon>
+            We make Financial Concepts simple and easy for our clients<br>
+            <mat-icon matListIcon>done</mat-icon>
+            Highly Up-To-Date experts<br>
         </div>
 
     </div>
@@ -46,7 +57,7 @@
                 <a [routerLink]="''"><img src="/content/images/logo.png"></a>
             </div>
 
-            <div class="title">LOGIN TO YOUR ACCOUNT</div>
+            <div class="title text-center">LOGIN TO YOUR ACCOUNT</div>
 
             <form name="loginForm" [formGroup]="loginForm" novalidate (ngSubmit)="login()">
                 <mat-error *ngIf="loginForm.hasError('authenticationError')">
@@ -60,13 +71,13 @@
                     <mat-error *ngIf="loginForm.get('username').hasError('required')">
                         Email is required
                     </mat-error>
-<!--
-                    <mat-error
-                        *ngIf="!loginForm.get('username').hasError('required') &&
-                                loginForm.get('username').hasError('email')">
-                        Please enter a valid email address
-                    </mat-error>
--->
+                    <!--
+                                        <mat-error
+                                            *ngIf="!loginForm.get('username').hasError('required') &&
+                                                    loginForm.get('username').hasError('email')">
+                                            Please enter a valid email address
+                                        </mat-error>
+                    -->
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">

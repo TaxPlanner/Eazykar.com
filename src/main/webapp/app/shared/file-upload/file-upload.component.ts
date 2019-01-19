@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { IUser } from 'app/core';
 import { DocumentService } from 'app/shared/file-upload/document.service';
 import { DocumentType, IDocument } from 'app/shared/model/document.model';
@@ -23,8 +23,6 @@ import { Observable } from 'rxjs';
 })
 export class FileUploadComponent implements OnInit {
 
-    errors = [];
-
     /** Link text */
     @Input() text = 'Upload';
     @Input() user: IUser;
@@ -32,15 +30,19 @@ export class FileUploadComponent implements OnInit {
     @Input() documentType: DocumentType;
     /** File extension that accepted, same as 'accept' of <input type="file" />. By the default, it's set to 'image/*'. */
     @Input() accept = 'multipart/form-data';
+    @Input() matTooltip = 'Choose a file to upload';
+    @Input() matTooltipPosition = 'above';
+
     /** Allow you to add handler after its completion. Bubble up response text from remote. */
     @Output() complete = new EventEmitter<string>();
 
     documents: Array<IDocument> = [];
+    errors = [];
 
     constructor(private _http: HttpClient,
                 private documentService: DocumentService,
                 private dataUtils: JhiDataUtils,
-                private renderer: Renderer,
+                private renderer: Renderer2,
                 private elementRef: ElementRef) {
     }
 
@@ -48,8 +50,9 @@ export class FileUploadComponent implements OnInit {
     }
 
     onClick() {
+        this.documents = [];
         this.errors = [];
-        this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#fileUpload'), 'click', []);
+        this.renderer.selectRootElement('#fileUpload').click();
     }
 
     onFileInputChange() {
@@ -63,11 +66,11 @@ export class FileUploadComponent implements OnInit {
                 documentDescription: file.name
             };
             this.documents.push(document);
-            this.setFileData(document);
+            this.setFileDataAndSave(document);
         }
     }
 
-    setFileData(document: IDocument) {
+    setFileDataAndSave(document: IDocument) {
         const file = document.data;
         this.toBase64(file, (base64Data) => {
             document.document = base64Data;

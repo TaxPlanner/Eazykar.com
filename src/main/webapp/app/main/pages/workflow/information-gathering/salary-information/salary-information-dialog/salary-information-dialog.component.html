@@ -32,7 +32,7 @@
 
             <mat-form-field appearance="outline" class="p-4" fxFlex="100">
                 <mat-label>Income Chargeable under Head Salaries</mat-label>
-                <input matInput formControlName="income" required>
+                <input matInput type="number" formControlName="income" required>
                 <!--<mat-icon matSuffix>attach_money</mat-icon>-->
                 <mat-error>This field is required!</mat-error>
             </mat-form-field>
@@ -42,14 +42,14 @@
 
             <mat-form-field appearance="outline" class="p-4" fxFlex="100">
                 <mat-label>TAN of the Employer</mat-label>
-                <input matInput formControlName="employerTan" required>
+                <input matInput maxlength="10" formControlName="employerTan" required>
                 <!--<mat-icon matSuffix>ballot</mat-icon>-->
                 <mat-error>This field is required!</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="p-4" fxFlex="100">
                 <mat-label>Tax Deducted at source on Salary</mat-label>
-                <input matInput formControlName="tds" required>
+                <input matInput type="number" formControlName="tds" required>
                 <!--<mat-icon matSuffix>attach_money</mat-icon>-->
                 <mat-error>This field is required!</mat-error>
             </mat-form-field>

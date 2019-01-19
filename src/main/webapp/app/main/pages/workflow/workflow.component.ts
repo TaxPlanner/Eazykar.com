@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { fuseAnimations } from 'app/@fuse/animations';
 import { FuseSidebarService } from 'app/@fuse/components/sidebar/sidebar.service';
 import { FusePerfectScrollbarDirective } from 'app/@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
+import { IUser } from 'app/core';
 import { SalaryInformationService } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
     selector: 'ezkr-workflow',
@@ -17,36 +18,40 @@ export class WorkflowComponent implements OnInit {
 
     animationDirection: 'left' | 'right' | 'none';
     tabStepContent: any;
+    /*
+        clientSteps = [
+            { title: 'Information Gathering' },
+            { title: 'Application Assignment' },
+            { title: 'Client Review' },
+            { title: 'Client Approval' },
+            { title: 'ITR Submission' },
+            { title: 'E-Verification' },
+            { title: 'Client Sign Off' },
+            { title: 'Eazykar Sign Off' }
+        ];
+        caSteps = [
+            { title: 'Application Assignment' },
+            { title: 'Information Provided' },
+            { title: 'ITR Preparation' },
+            { title: 'ITR Submission' },
+            { title: 'E-Verification' },
+            { title: 'Eazykar Sign Off' }
+        ];
+    */
     steps = [
-        {
-            title: 'Information Gathering'
-        },
-        {
-            title: 'Application Assignment'
-        },
-        {
-            title: 'ITR Preparation'
-        },
-        {
-            title: 'Client Review'
-        },
-        {
-            title: 'Client Approval'
-        },
-        {
-            title: 'ITR Submission'
-        },
-        {
-            title: 'E-Verification'
-        },
-        {
-            title: 'Client Sign Off'
-        },
-        {
-            title: 'Eazykar Sign Off'
-        }
+        { title: 'Information Gathering' },
+        { title: 'Application Assignment' },
+        { title: 'ITR Preparation' },
+        { title: 'Client Review' },
+        { title: 'Client Approval' },
+        { title: 'ITR Submission' },
+        { title: 'E-Verification' },
+        { title: 'Client Sign Off' },
+        { title: 'Eazykar Sign Off' }
     ];
+
     currentStep: number;
+    client: IUser = {};
 
     @ViewChildren(FusePerfectScrollbarDirective)
     fuseScrollbarDirectives: QueryList<FusePerfectScrollbarDirective>;
@@ -54,11 +59,11 @@ export class WorkflowComponent implements OnInit {
     // Private
     private _unsubscribeAll: Subject<any>;
 
-    constructor(
-        private salaryInformationService: SalaryInformationService,
-        private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseSidebarService: FuseSidebarService
-    ) {
+    constructor(private salaryInformationService: SalaryInformationService,
+                private _changeDetectorRef: ChangeDetectorRef,
+                private route: ActivatedRoute,
+                private _fuseSidebarService: FuseSidebarService) {
+
         // Set the defaults
         this.animationDirection = 'none';
         this.currentStep = 0;
@@ -67,65 +72,47 @@ export class WorkflowComponent implements OnInit {
         this._unsubscribeAll = new Subject();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
     ngOnInit(): void {
+        // Use cases:
 
-        // Subscribe to tabs
-        this.salaryInformationService.query({})
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(tab => {
-                // this.tab = tab;
-            });
+        // 1. If client has logged in
+        // -- -- if client is empty, query principle
+        // 2. If CA has logged in
+        // -- -- if client is empty, take CA to application assignment screen, where client selection occurs
+        // 3. If CA Manager has logged in
+        // -- -- if client is empty, take CA to application assignment screen, where client selection occurs
+
+        this.route.data.subscribe((data: { client: IUser }) => this.client = data.client);
     }
 
-    /**
-     * After view init
-     */
     ngAfterViewInit(): void {
         this.tabStepContent = this.fuseScrollbarDirectives.find((fuseScrollbarDirective) => {
             return fuseScrollbarDirective.elementRef.nativeElement.id === 'course-step-content';
         });
+        this.route.queryParams.subscribe(({ currentStep }) => {
+            this.gotoStep(+currentStep);
+        });
     }
 
-    /**
-     * On destroy
-     */
     ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Go to step
-     *
-     * @param step
-     */
     gotoStep(step): void {
         // Decide the animation direction
         this.animationDirection = this.currentStep < step ? 'left' : 'right';
 
-        // Run change detection so the change
-        // in the animation direction registered
+        // Run change detection so the change in the animation direction registered
         this._changeDetectorRef.detectChanges();
 
         // Set the current step
-        this.currentStep = step;
+        setTimeout(() => {
+            this.currentStep = step;
+        });
     }
 
-    /**
-     * Go to next step
-     */
     gotoNextStep(): void {
         if (this.currentStep === this.steps.length - 1) {
             return;
@@ -134,17 +121,15 @@ export class WorkflowComponent implements OnInit {
         // Set the animation direction
         this.animationDirection = 'left';
 
-        // Run change detection so the change
-        // in the animation direction registered
+        // Run change detection so the change in the animation direction registered
         this._changeDetectorRef.detectChanges();
 
         // Increase the current step
-        this.currentStep++;
+        setTimeout(() => {
+            this.currentStep++;
+        });
     }
 
-    /**
-     * Go to previous step
-     */
     gotoPreviousStep(): void {
         if (this.currentStep === 0) {
             return;
@@ -153,19 +138,15 @@ export class WorkflowComponent implements OnInit {
         // Set the animation direction
         this.animationDirection = 'right';
 
-        // Run change detection so the change
-        // in the animation direction registered
+        // Run change detection so the change in the animation direction registered
         this._changeDetectorRef.detectChanges();
 
         // Decrease the current step
-        this.currentStep--;
+        setTimeout(() => {
+            this.currentStep--;
+        });
     }
 
-    /**
-     * Toggle the sidebar
-     *
-     * @param name
-     */
     toggleSidebar(name): void {
         this._fuseSidebarService.getSidebar(name).toggleOpen();
     }

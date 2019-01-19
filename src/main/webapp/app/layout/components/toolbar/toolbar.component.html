@@ -164,8 +164,9 @@
     <div class="toolbar-separator"></div>
 
     <button mat-button class="menu-button"
-            [routerLink]="'/pages/workflow'"
-            *ezkrHasAnyAuthority="['ROLE_USER']">
+            [routerLink]="['pages', 'workflow']"
+            [queryParams]="{currentStep: 0}"
+            *ezkrHasNoneOfTheAuthorities="['ROLE_CA', 'ROLE_CA_MANAGER']">
         <div fxLayout="row" fxLayoutAlign="center center">
             <mat-icon>assignment</mat-icon>
             <span>&nbsp; My ITR</span>
@@ -175,7 +176,8 @@
     <div class="toolbar-separator"></div>
 
     <button mat-button class="menu-button"
-            [routerLink]="'/pages/application-list'"
+            [routerLink]="['pages', 'workflow']"
+            [queryParams]="{currentStep: 1}"
             *ezkrHasAnyAuthority="['ROLE_CA_MANAGER', 'ROLE_CA']">
         <div fxLayout="row" fxLayoutAlign="center center">
             <!--<img class="avatar mr-0 mr-sm-16" src="/content/icons/material-icons/outline/fonts/">\-->
@@ -228,10 +230,6 @@
         <button mat-menu-item [routerLink]="'/pages/user-profile'" *ezkrHasAnyAuthority="'ROLE_USER'">
             <mat-icon>account_circle</mat-icon>
             <span>My Profile</span>
-        </button>
-        <button mat-menu-item [routerLink]="'/pages/application-list'" *ezkrHasAnyAuthority="['ROLE_CA_MANAGER', 'ROLE_CA']">
-            <mat-icon>file_copy</mat-icon>
-            <span>Applications</span>
         </button>
 
         <button mat-menu-item class="" (click)="logout()">

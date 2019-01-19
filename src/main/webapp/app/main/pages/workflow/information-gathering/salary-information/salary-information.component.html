@@ -1,18 +1,23 @@
 <div class="p-24">
     <div fxLayout="row" fxLayoutAlign="center center">
-        <ezkr-file-upload *ngIf="user !== undefined"
+        <ezkr-file-upload *ngIf="this.client"
                           text="Upload Form 16"
+                          matTooltip="You can add multiple Form 16's e.g. if you've changed employment during the last tax year"
+                          matTooltipPosition="left"
                           (complete)="onUploadComplete($event)"
-                          [user]="user" documentType="FORM_16"></ezkr-file-upload>
+                          [user]="this.client" documentType="FORM_16"></ezkr-file-upload>
         <div class="p-24"> OR</div>
-        <button mat-raised-button type="button" color="accent" (click)="openSalaryInformationModal({})">
+        <button mat-raised-button type="button" color="accent"
+                matTooltip="You can add multiple salary details e.g. if you've changed employment during the last tax year"
+                [matTooltipPosition]="'right'"
+                (click)="openSalaryInformationModal({})">
             Enter Salary Details
         </button>
     </div>
 
     <div id="information-gathering" class="page-layout simple fullwidth" fxLayout="column">
         <div class="p-16">
-            <mat-tab-group dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center">
+            <mat-tab-group dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center" [(selectedIndex)]="selectedTabIndex">
 
                 <mat-tab label="Form 16's">
                     <div class="page-layout simple">

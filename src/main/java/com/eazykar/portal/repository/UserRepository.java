@@ -3,6 +3,7 @@ package com.eazykar.portal.repository;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.eazykar.portal.domain.Authority;
 import com.eazykar.portal.domain.User;
 
 /**
@@ -26,6 +28,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findOneByActivationKey(String activationKey);
 
     List<User> findAllByActivatedIsFalseAndCreatedDateBefore(Instant dateTime);
+    
+    Page<User> findAllByAuthoritiesContainingAndAuthoritiesNotContaining(Pageable pageable, Set<Authority> authoritiesWith, Set<Authority> authoritiesWithout);
 
     Optional<User> findOneByResetKey(String resetKey);
 

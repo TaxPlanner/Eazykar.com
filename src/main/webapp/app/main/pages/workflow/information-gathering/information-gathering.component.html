@@ -1,25 +1,32 @@
 <div id="information-gathering" class="page-layout simple fullwidth" fxLayout="column">
+
+    <div class="p-24 mat-display-2 text-center" *ezkrHasAnyAuthority="['ROLE_CA']">Please select a client</div>
     <div class="p-16">
-        <mat-tab-group dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center">
+        <mat-tab-group *ngIf="client" dynamicHeight="true" mat-stretch-tabs mat-align-tabs="center" [(selectedIndex)]="selectedTabIndex">
 
             <mat-tab label="Salary Information">
-                <ezkr-salary-information></ezkr-salary-information>
+                <ezkr-salary-information [client]="client">
+                </ezkr-salary-information>
             </mat-tab>
 
             <mat-tab label="Other Income">
-                <ezkr-other-income></ezkr-other-income>
+                <ezkr-other-income [client]="client">
+                </ezkr-other-income>
             </mat-tab>
 
             <mat-tab label="House Property">
-                <ezkr-house-property></ezkr-house-property>
+                <ezkr-house-property [client]="client">
+                </ezkr-house-property>
             </mat-tab>
 
             <mat-tab label="Capital Gain">
-                <ezkr-capital-gains></ezkr-capital-gains>
+                <ezkr-capital-gains [client]="client">
+                </ezkr-capital-gains>
             </mat-tab>
 
             <mat-tab label="Deductions">
-                <ezkr-deductions></ezkr-deductions>
+                <ezkr-deductions [client]="client">
+                </ezkr-deductions>
             </mat-tab>
 
         </mat-tab-group>

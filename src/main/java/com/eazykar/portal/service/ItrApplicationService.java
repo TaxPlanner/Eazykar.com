@@ -1,5 +1,6 @@
 package com.eazykar.portal.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.eazykar.portal.domain.ItrApplication;
 import com.eazykar.portal.repository.ItrApplicationRepository;
+import com.eazykar.portal.security.SecurityUtils;
 
 /**
  * Service Implementation for managing ItrApplication.
@@ -18,15 +20,15 @@ import com.eazykar.portal.repository.ItrApplicationRepository;
 @Service
 @Transactional
 public class ItrApplicationService {
-
+    
     private final Logger log = LoggerFactory.getLogger(ItrApplicationService.class);
-
+    
     private final ItrApplicationRepository itrApplicationRepository;
-
+    
     public ItrApplicationService(ItrApplicationRepository itrApplicationRepository) {
         this.itrApplicationRepository = itrApplicationRepository;
     }
-
+    
     /**
      * Save a itrApplication.
      *
@@ -37,7 +39,7 @@ public class ItrApplicationService {
         log.debug("Request to save ItrApplication : {}", itrApplication);
         return itrApplicationRepository.save(itrApplication);
     }
-
+    
     /**
      * Get all the itrApplications.
      *
@@ -49,8 +51,16 @@ public class ItrApplicationService {
         log.debug("Request to get all ItrApplications");
         return itrApplicationRepository.findAll(pageable);
     }
-
-
+    
+    /**
+     * @return all the itrApplications to be displayed for the current CA
+     */
+    @Transactional(readOnly = true)
+    public List<ItrApplication> findAllForCurrentUserOrUnassigned() {
+        log.debug("Request to get all ItrApplications");
+        return itrApplicationRepository.findAllByAssigneeNullOrAssigneeLogin(SecurityUtils.getCurrentUserLogin().orElse(null));
+    }
+    
     /**
      * Get one itrApplication by id.
      *
@@ -62,7 +72,7 @@ public class ItrApplicationService {
         log.debug("Request to get ItrApplication : {}", id);
         return itrApplicationRepository.findById(id);
     }
-
+    
     /**
      * Delete the itrApplication by id.
      *

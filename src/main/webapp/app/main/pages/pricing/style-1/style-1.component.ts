@@ -3,8 +3,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
 import { Principal } from 'app/core';
-import { PaymentDialogData } from 'app/main/pages/pricing/style-1/payment-dialog/payment-dialog.model';
 import { PaymentDialogComponent } from 'app/main/pages/pricing/style-1/payment-dialog/payment-dialog.component';
+import { PaymentDialogData } from 'app/main/pages/pricing/style-1/payment-dialog/payment-dialog.model';
 import { PlanService } from 'app/main/pages/pricing/style-1/plan.service';
 import { UserPlanService } from 'app/main/pages/pricing/style-1/user-plan.service';
 import { IPlan, PlanType } from 'app/shared/model/plan.model';
@@ -83,7 +83,10 @@ export class PricingStyle1Component implements OnInit {
     private loadPlanInformation() {
 
         this.planService.query({ 'active.equals': true })
-            .subscribe((response: HttpResponse<IPlan[]>) => this.onPlansLoadSuccess(response));
+            .subscribe(
+                (response: HttpResponse<IPlan[]>) => this.onPlansLoadSuccess(response),
+                (res: HttpErrorResponse) => this.onPlansLoadError(res)
+            );
     }
 
     private loadUserPlanInformation() {
