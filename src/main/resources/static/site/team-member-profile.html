@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+  <head>
+    <title>Team Member Profile</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CUbuntu:400,500,700%7CPlayfair+Display:400,700,700i,900i">
+    <link rel="stylesheet" href="css/style.css">
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
+  </head>
+  <body style="">
+    <div class="page">
+      <div class="page-loader page-loader-variant-1">
+        <div><a href="index.html" class="brand brand-md brand-inverse"><img src="/content/images/logo.png" alt="" width="150" height="27"/></a>
+          <div class="page-loader-body">
+            <div id="spinningSquaresG">
+              <div id="spinningSquaresG_1" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_2" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_3" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_4" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_5" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_6" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_7" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_8" class="spinningSquaresG"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <header class="page-head">
+        <div class="rd-navbar-wrap">
+          <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-stick-up-clone="false" data-md-stick-up-offset="53px" data-lg-stick-up-offset="53px" data-md-stick-up="true" data-lg-stick-up="true" class="rd-navbar rd-navbar-corporate-dark">
+            <div class="rd-navbar-inner">
+              <!--<div class="rd-navbar-aside">
+                <div data-custom-toggle=".rd-navbar-aside" data-custom-toggle-disable-on-blur="true" class="rd-navbar-aside-toggle"><span></span></div>
+                <div class="rd-navbar-aside-content context-dark">
+                  <ul class="rd-navbar-aside-group list-units">
+                    <li>
+                      <div class="unit unit-horizontal unit-spacing-xs">
+                        <div class="unit-left"><span class="icon icon-xxs-small icon-primary material-icons-place icon-shift-1 offset-top-2"></span></div>
+                        <div class="unit-body"><a href="#" class="link-white-v2 reveal-inline font-accent">267 Park Avenue New York, NY 90210</a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="unit unit-horizontal unit-spacing-xs">
+                        <div class="unit-left"><span class="icon icon-xxs icon-primary fa-clock-o offset-top-2"></span></div>
+                        <div class="unit-body">
+                          <p class="text-white font-accent">Mon – Sat: 9:00am–18:00pm. Sunday CLOSED</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="unit unit-horizontal unit-spacing-xs">
+                        <div class="unit-left"><span class="icon icon-xxs icon-primary material-icons-phone icon-shift-2"></span></div>
+                        <div class="unit-body"><a href="callto:#" class="link-white-v2 font-accent">+1 (409) 987–5874</a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="rd-navbar-aside-group">
+                    <ul class="list-inline list-inline-reset">
+                      <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-facebook"></a></li>
+                      <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-twitter"></a></li>
+                      <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-google-plus"></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>-->
+              <div class="rd-navbar-group rd-navbar-search-wrap">
+                <div class="rd-navbar-panel">
+                  <button data-custom-toggle=".rd-navbar-nav-wrap" data-custom-toggle-disable-on-blur="true" class="rd-navbar-toggle"><span></span></button><a href="index.html" class="rd-navbar-brand brand"><img src="/content/images/logo.png" alt="" width="150" height="27"/></a>
+                </div>
+                <div class="rd-navbar-nav-wrap">
+                  <div class="rd-navbar-nav-inner">
+                    <div class="rd-navbar-search">
+                      <form action="search-results.html" method="GET" data-search-live="rd-search-results-live" class="rd-search">
+                        <div class="form-group">
+                          <label for="rd-search-form-input" class="form-label">Search...</label>
+                          <input id="rd-search-form-input" type="text" name="s" autocomplete="off" class="form-control">
+                          <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                        </div>
+                        <button type="submit" class="rd-search-submit"></button>
+                      </form>
+                      <button data-rd-navbar-toggle=".rd-navbar-search, .rd-navbar-search-wrap" class="rd-navbar-search-toggle"></button>
+                    </div>
+                    <ul class="rd-navbar-nav">
+                      <li><a href="index.html">Home</a>
+                      </li>
+                      <li><a href="about-us.html">About Us</a>
+                      </li>
+                      <li><a href="services.html">Services</a>
+                      </li>
+                      <li><a href="#">Blog</a>
+                        <ul class="rd-navbar-dropdown">
+                          <li><a href="blog-classic.html">Classic blog</a>
+                          </li>
+                          <li><a href="blog-grid.html">Grid blog</a>
+                          </li>
+                          <li><a href="blog-line.html">Blog Line</a>
+                          </li>
+                          <li><a href="blog-masonry.html">Masonry Blog</a>
+                          </li>
+                          <li><a href="blog-post.html">Blog post</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="active"><a href="#">Pages</a>
+                        <ul class="rd-navbar-megamenu">
+                          <li>
+                            <h5 class="rd-megamenu-header">Gallery</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="gallery-grid.html">Grid gallery</a></li>
+                              <li><a href="gallery-masonry.html">Masonry gallery</a></li>
+                              <li><a href="gallery-cobbles.html">Cobbles gallery</a></li>
+                              <li><a href="gallery-item.html">Gallery item</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <h5 class="rd-megamenu-header">Pages</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="appointment.html">Make an Appointment</a></li>
+                              <li><a href="clients.html">Clients</a></li>
+                              <li><a href="clients-testimonials.html">Clients testimonials</a></li>
+                              <li><a href="our-team.html">Our team</a></li>
+                              <li><a href="team-member-profile.html">Team member profile</a></li>
+                              <li><a href="careers.html">Careers</a></li>
+                              <li><a href="pricing.html">Pricing</a></li>
+                              <li><a href="faq.html">FAQ</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <h5 class="rd-megamenu-header">Extras</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="extras.html">Extras</a></li>
+                              <li><a href="404-page.html">404 Page</a></li>
+                              <li><a href="503-page.html">503 Page</a></li>
+                              <li><a href="maintenance.html">Maintenance</a></li>
+                              <li><a href="coming-soon.html">Coming soon</a></li>
+                              <li><a href="login.html">Login</a></li>
+                              <li><a href="register.html">Register</a></li>
+                              <li><a href="search-results.html">Search results</a></li>
+                              <li><a href="privacy-policy.html">Terms of use</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <h5 class="rd-megamenu-header">Components</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="accordion.html">Accordion</a></li>
+                              <li><a href="buttons.html">Buttons</a></li>
+                              <li><a href="grid-system.html">Grid</a></li>
+                              <li><a href="forms.html">Forms</a></li>
+                              <li><a href="icons.html">Icons</a></li>
+                              <li><a href="icon-lists.html">Icon lists</a></li>
+                              <li><a href="progress-bars.html">Progress bars</a></li>
+                              <li><a href="tabs.html">Tabs</a></li>
+                              <li><a href="tables.html">Table styles</a></li>
+                              <li><a href="typography.html">Typography</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="contact-us.html">Contact Us</a></li>
+                      <li><a href="/#/pages/auth/login-2">Sign In</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <section style="background-image: url(images/bg-image-7.jpg);" class="section-30 section-sm-40 section-md-66 section-lg-bottom-90 bg-gray-dark page-title-wrap">
+        <div class="shell">
+          <div class="page-title">
+            <h2>Our team</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-50 section-sm-75 section-lg-100">
+        <div class="shell">
+          <div class="range range-sm-center range-md-left">
+            <div class="cell-sm-6 cell-md-6">
+              <div class="thumbnail thumbnail-profile">
+                <div class="thumbnail-image"><img src="images/profile-1-570x570.jpg" alt="" width="570" height="570"/>
+                </div>
+                <div class="thumbnail-caption">
+                  <div class="thumbnail-caption-inner">
+                    <ul>
+                      <li>
+                        <div class="unit unit-horizontal unit-spacing-xs unit-middle">
+                          <div class="unit-left"><span class="icon icon-xxs icon-gray-base material-icons-phone"></span></div>
+                          <div class="unit-body"><a href="callto:#" class="link-gray-base-v2">+ 123 098 890 76 56</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit unit-horizontal unit-spacing-xs unit-middle">
+                          <div class="unit-left"><span class="icon icon-xxs icon-gray-base material-icons-mail"></span></div>
+                          <div class="unit-body"><a href="mailto:#" class="link-gray-base-v2">jm@demolink.com</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="btn-wrap"><a href="contact-us.html" class="btn btn-small btn-min-width-0 btn-cello-outline">get in touch</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cell-sm-6 cell-md-6 cell-lg-5 offset-top-40 offset-sm-top-0">
+              <div class="inset-sm-left-50 inset-md-left-40 inset-lg-left-100">
+                <div>
+                  <h4>Julien Miro</h4>
+                </div>
+                <p class="offset-top-0 text-gray-base-05">BS, EA, Realtor®, GRI, MBA (Tax)</p>
+                <p class="offset-top-35 text-gray-base-05">Over 30 years experience in tax preparation and representation before the Internal Revenue Service and other Governmental agencies.</p>
+              </div>
+              <div class="offset-top-15 offset-md-top-0">
+                <blockquote class="quote-default">
+                  <div class="quote-open">
+                    <svg version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="21px" height="15px" viewbox="0 0 21 15" overflow="scroll" xml:space="preserve">
+                      <path d="M9.597,10.412c0,1.306-0.473,2.399-1.418,3.277c-0.944,0.876-2.06,1.316-3.349,1.316            c-1.287,0-2.414-0.44-3.382-1.316C0.482,12.811,0,11.758,0,10.535c0-1.226,0.58-2.716,1.739-4.473L5.603,0H9.34L6.956,6.37            C8.716,7.145,9.597,8.493,9.597,10.412z M20.987,10.412c0,1.306-0.473,2.399-1.418,3.277c-0.944,0.876-2.06,1.316-3.35,1.316            c-1.288,0-2.415-0.44-3.381-1.316c-0.966-0.879-1.45-1.931-1.45-3.154c0-1.226,0.582-2.716,1.74-4.473L16.994,0h3.734l-2.382,6.37            C20.106,7.145,20.987,8.493,20.987,10.412z"></path>
+                    </svg>
+                  </div>
+                  <div class="quote-body">
+                    <p>
+                      <q>We must have a fair tax. We have to re-adjust it, we must be fiscally responsible!</q>
+                    </p>
+                  </div>
+                  <div class="quote-close">
+                    <svg version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="21px" height="15px" viewbox="0 0 21 15" overflow="scroll" xml:space="preserve">
+                      <path d="M11.39,4.593c0-1.306,0.473-2.399,1.418-3.277C13.752,0.44,14.869,0,16.157,0c1.287,0,2.414,0.44,3.382,1.316            c0.966,0.879,1.448,1.931,1.448,3.154c0,1.226-0.58,2.716-1.739,4.473l-3.865,6.062h-3.737l2.384-6.37            C12.271,7.86,11.39,6.512,11.39,4.593z M0,4.593c0-1.306,0.473-2.399,1.418-3.277C2.362,0.44,3.478,0,4.768,0            c1.288,0,2.415,0.44,3.381,1.316c0.966,0.879,1.45,1.931,1.45,3.154c0,1.226-0.582,2.716-1.74,4.473l-3.865,6.062H0.259l2.382-6.37            C0.881,7.86,0,6.512,0,4.593z"></path>
+                    </svg>
+                  </div>
+                </blockquote>
+              </div>
+              <div class="inset-sm-left-50 inset-md-left-40 inset-lg-left-100 offset-top-15 offset-md-top-0">
+                <p class="text-gray-base-05">Served as an Auditor for the Internal Revenue Service for over six years, auditing individuals and small businesses to Fortune 500 Companies. Graduated in 1972 from California State University, Hayward.</p>
+                <div class="offset-top-35">
+                  <ul class="list-progress">
+                    <li>
+                      <p class="animated fadeIn text-gray-darker h7">Tax Consultancy Services</p>
+                      <div data-value="70" data-stroke="4" data-easing="linear" data-counter="true" data-duration="1000" data-trail="100" class="progress-bar-js text-bold progress-bar-horizontal progress-bar-primary"></div>
+                    </li>
+                    <li>
+                      <p class="animated fadeIn text-gray-darker h7">Tax Training</p>
+                      <div data-value="54" data-stroke="4" data-easing="linear" data-counter="true" data-duration="1000" data-trail="100" class="progress-bar-js text-bold progress-bar-horizontal progress-bar-old-gold"></div>
+                    </li>
+                    <li>
+                      <p class="animated fadeIn text-gray-darker h7">Bookkeeping</p>
+                      <div data-value="87" data-stroke="4" data-easing="linear" data-counter="true" data-duration="1000" data-trail="100" class="progress-bar-js text-bold progress-bar-horizontal progress-bar-bermuda-gray"></div>
+                    </li>
+                    <li>
+                      <p class="animated fadeIn text-gray-darker h7">Bank Reconciliation</p>
+                      <div data-value="90" data-stroke="4" data-easing="linear" data-counter="true" data-duration="1000" data-trail="100" class="progress-bar-js text-bold progress-bar-horizontal progress-bar-contessa"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-50 section-sm-90 section-lg-top-90 section-lg-bottom-100 bg-athens-gray">
+        <div class="shell isotope-wrap">
+          <div class="range">
+            <div class="cell-xs-12 text-center">
+              <h3>Check out My Works</h3>
+              <ul class="isotope-filters-responsive offset-top-40">
+                <li>
+                  <p>Choose your category:</p>
+                </li>
+                <li class="block-top-level">
+                  <button data-custom-toggle="#isotope-1" data-custom-toggle-hide-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filter<span class="caret"></span></button>
+                  <div id="isotope-1" class="isotope-filters isotope-filters-minimal isotope-filters-horizontal">
+                    <ul class="list-inline">
+                      <li><a data-isotope-filter="*" data-isotope-group="gallery" href="#" class="active">All</a></li>
+                      <li><a data-isotope-filter="Category 1" data-isotope-group="gallery" href="#">Consultancy Services</a></li>
+                      <li><a data-isotope-filter="Category 2" data-isotope-group="gallery" href="#">Bookkeeping</a></li>
+                      <li><a data-isotope-filter="Category 3" data-isotope-group="gallery" href="#">Bank Reconciliation</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="cell-xs-12 offset-top-40">
+              <div class="row">
+                <div data-isotope-layout="fitRows" data-isotope-group="gallery" data-photo-swipe-gallery="gallery" class="isotope isotope-gutter-default">
+                  <div data-filter="Category 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item">
+                    <div class="thumbnail thumbnail-variant-3"><a href="gallery-item.html" class="link link-external"><span class="icon icon-sm fa fa-link"></span></a>
+                      <figure><img src="images/gallery-grid-1-370x278.jpg" alt="" width="370" height="278"/>
+                      </figure>
+                      <div class="caption"><a href="images/gallery-1-1000x772_original.jpg" data-photo-swipe-item="" data-size="1000x772" class="link link-original"></a></div>
+                    </div>
+                  </div>
+                  <div data-filter="Category 2" class="col-xs-12 col-sm-6 col-md-4 isotope-item">
+                    <div class="thumbnail thumbnail-variant-3"><a href="gallery-item.html" class="link link-external"><span class="icon icon-sm fa fa-link"></span></a>
+                      <figure><img src="images/gallery-grid-2-370x278.jpg" alt="" width="370" height="278"/>
+                      </figure>
+                      <div class="caption"><a href="images/gallery-2-1170x781_original.jpg" data-photo-swipe-item="" data-size="1170x781" class="link link-original"></a></div>
+                    </div>
+                  </div>
+                  <div data-filter="Category 3" class="col-xs-12 col-sm-6 col-md-4 isotope-item">
+                    <div class="thumbnail thumbnail-variant-3"><a href="gallery-item.html" class="link link-external"><span class="icon icon-sm fa fa-link"></span></a>
+                      <figure><img src="images/gallery-grid-3-370x278.jpg" alt="" width="370" height="278"/>
+                      </figure>
+                      <div class="caption"><a href="images/gallery-3-800x800_original.jpg" data-photo-swipe-item="" data-size="800x800" class="link link-original"></a></div>
+                    </div>
+                  </div>
+                  <div data-filter="Category 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item">
+                    <div class="thumbnail thumbnail-variant-3"><a href="gallery-item.html" class="link link-external"><span class="icon icon-sm fa fa-link"></span></a>
+                      <figure><img src="images/gallery-grid-4-370x278.jpg" alt="" width="370" height="278"/>
+                      </figure>
+                      <div class="caption"><a href="images/gallery-4-1170x780_original.jpg" data-photo-swipe-item="" data-size="1170x780" class="link link-original"></a></div>
+                    </div>
+                  </div>
+                  <div data-filter="Category 2" class="col-xs-12 col-sm-6 col-md-4 isotope-item">
+                    <div class="thumbnail thumbnail-variant-3"><a href="gallery-item.html" class="link link-external"><span class="icon icon-sm fa fa-link"></span></a>
+                      <figure><img src="images/gallery-grid-5-370x278.jpg" alt="" width="370" height="278"/>
+                      </figure>
+                      <div class="caption"><a href="images/gallery-5-1170x816_original.jpg" data-photo-swipe-item="" data-size="1170x816" class="link link-original"></a></div>
+                    </div>
+                  </div>
+                  <div data-filter="Category 3" class="col-xs-12 col-sm-6 col-md-4 isotope-item">
+                    <div class="thumbnail thumbnail-variant-3"><a href="gallery-item.html" class="link link-external"><span class="icon icon-sm fa fa-link"></span></a>
+                      <figure><img src="images/gallery-grid-6-370x278.jpg" alt="" width="370" height="278"/>
+                      </figure>
+                      <div class="caption"><a href="images/gallery-6-500x749_original.jpg" data-photo-swipe-item="" data-size="500x749" class="link link-original"></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-40 section-sm-60 bg-cello">
+        <div class="shell">
+          <div class="range range-xs-center">
+            <div class="cell-xs-10 cell-sm-11 cell-md-12">
+              <div class="range">
+                <div class="cell-sm-6 cell-md-4">
+                  <div class="inset-md-right-30">
+                    <h6 class="text-uppercase text-big">About us</h6>
+                    <p class="offset-top-27 text-bismark">
+                      Our firm has been providing expert tax and consulting services to individuals and small businesses throughout the country since 1989.
+
+                    </p>
+                  </div>
+                  <div class="offset-top-22">
+                    <div class="group-md group-top">
+                      <div>
+                        <div class="unit unit-middle unit-horizontal unit-spacing-xs">
+                          <div class="unit-left"><span class="icon icon-xs-smaller icon-primary fa-phone"></span></div>
+                          <div class="unit-body"><a href="callto:#" class="link link-bold link-white-v2">+1 (409) 987–5874</a></div>
+                        </div>
+                        <div class="inset-left-30"><a href="mailto:#" class="link-white-v2 text-italic">info@demolink.org</a></div>
+                      </div>
+                      <div>
+                        <ul class="list-inline list-inline-reset">
+                          <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-facebook"></a></li>
+                          <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-twitter"></a></li>
+                          <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-google-plus"></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-sm-6 cell-md-4 offset-top-50 offset-sm-top-0">
+                  <h6 class="text-uppercase text-big">Quick links</h6>
+                  <div style="max-width: 340px;" class="row offset-top-22 offset-md-top-30">
+                    <div class="col-xs-6">
+                      <ul class="list-marked-variant-2">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog-classic.html">Blog</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-xs-6">
+                      <ul class="list-marked-variant-2">
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-sm-6 cell-md-4 offset-top-50 offset-md-top-0">
+                  <h6 class="text-uppercase text-big">Subscribe</h6>
+                  <div class="offset-top-22 offset-md-top-30">
+                    <p class="text-bismark">Get the latest updates and offers.</p>
+                    <form data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="rd-mailform form-classic form-inline offset-top-15">
+                      <div class="form-group">
+                        <input id="contact-email" type="email" name="email" data-constraints="@Email @Required" class="form-control">
+                        <label for="contact-email" class="form-label">Enter Your E-mail</label>
+                      </div>
+                      <button type="submit" aria-label="Subscribe" class="btn btn-icon-only btn-primary"><span class="icon icon-xs icon-white fa-envelope-o"></span></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-foot section-15 bg-cloud-burst">
+        <div class="shell text-center">
+          <div class="range">
+            <div class="cell-sm-12">
+              <p class="rights text-bismark"><span>&#169;&nbsp;</span><span id="copyright-year"></span><span>TaxExpert.&nbsp;</span><a href="privacy-policy.html" class="text-bismark">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="form-output-global" class="snackbars"></div>
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+            <button title="Share" class="pswp__button pswp__button--share"></button>
+            <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+            <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+          <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__cent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

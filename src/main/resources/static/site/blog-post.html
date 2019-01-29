@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+  <head>
+    <title>Blog Post</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700%7CUbuntu:400,500,700%7CPlayfair+Display:400,700,700i,900i">
+    <link rel="stylesheet" href="css/style.css">
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
+  </head>
+  <body style="">
+    <div class="page">
+      <div class="page-loader page-loader-variant-1">
+        <div><a href="index.html" class="brand brand-md brand-inverse"><img src="/content/images/logo.png" alt="" width="150" height="27"/></a>
+          <div class="page-loader-body">
+            <div id="spinningSquaresG">
+              <div id="spinningSquaresG_1" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_2" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_3" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_4" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_5" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_6" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_7" class="spinningSquaresG"></div>
+              <div id="spinningSquaresG_8" class="spinningSquaresG"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <header class="page-head">
+        <div class="rd-navbar-wrap">
+          <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-stick-up-clone="false" data-md-stick-up-offset="53px" data-lg-stick-up-offset="53px" data-md-stick-up="true" data-lg-stick-up="true" class="rd-navbar rd-navbar-corporate-dark">
+            <div class="rd-navbar-inner">
+              <!--<div class="rd-navbar-aside">
+                <div data-custom-toggle=".rd-navbar-aside" data-custom-toggle-disable-on-blur="true" class="rd-navbar-aside-toggle"><span></span></div>
+                <div class="rd-navbar-aside-content context-dark">
+                  <ul class="rd-navbar-aside-group list-units">
+                    <li>
+                      <div class="unit unit-horizontal unit-spacing-xs">
+                        <div class="unit-left"><span class="icon icon-xxs-small icon-primary material-icons-place icon-shift-1 offset-top-2"></span></div>
+                        <div class="unit-body"><a href="#" class="link-white-v2 reveal-inline font-accent">267 Park Avenue New York, NY 90210</a></div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="unit unit-horizontal unit-spacing-xs">
+                        <div class="unit-left"><span class="icon icon-xxs icon-primary fa-clock-o offset-top-2"></span></div>
+                        <div class="unit-body">
+                          <p class="text-white font-accent">Mon – Sat: 9:00am–18:00pm. Sunday CLOSED</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="unit unit-horizontal unit-spacing-xs">
+                        <div class="unit-left"><span class="icon icon-xxs icon-primary material-icons-phone icon-shift-2"></span></div>
+                        <div class="unit-body"><a href="callto:#" class="link-white-v2 font-accent">+1 (409) 987–5874</a></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="rd-navbar-aside-group">
+                    <ul class="list-inline list-inline-reset">
+                      <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-facebook"></a></li>
+                      <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-twitter"></a></li>
+                      <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-google-plus"></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>-->
+              <div class="rd-navbar-group rd-navbar-search-wrap">
+                <div class="rd-navbar-panel">
+                  <button data-custom-toggle=".rd-navbar-nav-wrap" data-custom-toggle-disable-on-blur="true" class="rd-navbar-toggle"><span></span></button><a href="index.html" class="rd-navbar-brand brand"><img src="/content/images/logo.png" alt="" width="150" height="27"/></a>
+                </div>
+                <div class="rd-navbar-nav-wrap">
+                  <div class="rd-navbar-nav-inner">
+                    <div class="rd-navbar-search">
+                      <form action="search-results.html" method="GET" data-search-live="rd-search-results-live" class="rd-search">
+                        <div class="form-group">
+                          <label for="rd-search-form-input" class="form-label">Search...</label>
+                          <input id="rd-search-form-input" type="text" name="s" autocomplete="off" class="form-control">
+                          <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                        </div>
+                        <button type="submit" class="rd-search-submit"></button>
+                      </form>
+                      <button data-rd-navbar-toggle=".rd-navbar-search, .rd-navbar-search-wrap" class="rd-navbar-search-toggle"></button>
+                    </div>
+                    <ul class="rd-navbar-nav">
+                      <li><a href="index.html">Home</a>
+                      </li>
+                      <li><a href="about-us.html">About Us</a>
+                      </li>
+                      <li><a href="services.html">Services</a>
+                      </li>
+                      <li class="active"><a href="#">Blog</a>
+                        <ul class="rd-navbar-dropdown">
+                          <li><a href="blog-classic.html">Classic blog</a>
+                          </li>
+                          <li><a href="blog-grid.html">Grid blog</a>
+                          </li>
+                          <li><a href="blog-line.html">Blog Line</a>
+                          </li>
+                          <li><a href="blog-masonry.html">Masonry Blog</a>
+                          </li>
+                          <li><a href="blog-post.html">Blog post</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="#">Pages</a>
+                        <ul class="rd-navbar-megamenu">
+                          <li>
+                            <h5 class="rd-megamenu-header">Gallery</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="gallery-grid.html">Grid gallery</a></li>
+                              <li><a href="gallery-masonry.html">Masonry gallery</a></li>
+                              <li><a href="gallery-cobbles.html">Cobbles gallery</a></li>
+                              <li><a href="gallery-item.html">Gallery item</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <h5 class="rd-megamenu-header">Pages</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="appointment.html">Make an Appointment</a></li>
+                              <li><a href="clients.html">Clients</a></li>
+                              <li><a href="clients-testimonials.html">Clients testimonials</a></li>
+                              <li><a href="our-team.html">Our team</a></li>
+                              <li><a href="team-member-profile.html">Team member profile</a></li>
+                              <li><a href="careers.html">Careers</a></li>
+                              <li><a href="pricing.html">Pricing</a></li>
+                              <li><a href="faq.html">FAQ</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <h5 class="rd-megamenu-header">Extras</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="extras.html">Extras</a></li>
+                              <li><a href="404-page.html">404 Page</a></li>
+                              <li><a href="503-page.html">503 Page</a></li>
+                              <li><a href="maintenance.html">Maintenance</a></li>
+                              <li><a href="coming-soon.html">Coming soon</a></li>
+                              <li><a href="login.html">Login</a></li>
+                              <li><a href="register.html">Register</a></li>
+                              <li><a href="search-results.html">Search results</a></li>
+                              <li><a href="privacy-policy.html">Terms of use</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <h5 class="rd-megamenu-header">Components</h5>
+                            <ul class="rd-navbar-list">
+                              <li><a href="accordion.html">Accordion</a></li>
+                              <li><a href="buttons.html">Buttons</a></li>
+                              <li><a href="grid-system.html">Grid</a></li>
+                              <li><a href="forms.html">Forms</a></li>
+                              <li><a href="icons.html">Icons</a></li>
+                              <li><a href="icon-lists.html">Icon lists</a></li>
+                              <li><a href="progress-bars.html">Progress bars</a></li>
+                              <li><a href="tabs.html">Tabs</a></li>
+                              <li><a href="tables.html">Table styles</a></li>
+                              <li><a href="typography.html">Typography</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="contact-us.html">Contact Us</a></li>
+                      <li><a href="/#/pages/auth/login-2">Sign In</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <section style="background-image: url(images/bg-image-3.jpg);" class="section-30 section-sm-40 section-md-66 section-lg-bottom-90 bg-gray-dark page-title-wrap">
+        <div class="shell">
+          <div class="page-title">
+            <h2>Blog</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-60 section-sm-75 section-lg-100">
+        <div class="shell">
+          <div class="range">
+            <div class="cell-md-8 cell-lg-9">
+              <article class="post post-single">
+                <div class="post-image">
+                  <figure><img src="images/post-1-870x412.jpg" alt="" width="870" height="412"/>
+                  </figure>
+                </div>
+                <div class="post-header">
+                  <h4>The Importance of Paperwork</h4>
+                </div>
+                <div class="post-meta">
+                  <ul class="list-bordered-horizontal">
+                    <li>
+                      <dl class="list-terms-inline">
+                        <dt>Date</dt>
+                        <dd>
+                          <time datetime="2016-01-22">January 22, 2016</time>
+                        </dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl class="list-terms-inline">
+                        <dt>Posted by</dt>
+                        <dd>Amelia Lee</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl class="list-terms-inline">
+                        <dt>Comments</dt>
+                        <dd>3</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl class="list-terms-inline">
+                        <dt>Category</dt>
+                        <dd>Tax Consultancy</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+                <div class="divider-fullwidth bg-gray-light offset-top-15"></div>
+                <div class="post-body">
+                  <p class="text-gray-base">Most of us will implement some tax planning on behalf of a client which requires some paperwork to support the actions which have been taken. The incorporation of a business requires an issue of shares ,if appropriate a changing of the name of a PAYE scheme, the setting up of a company bank account and new headed notepaper and invoice books to reflect the change to a company.</p>
+                  <p class="text-gray-base">A transfer of a property from a company to a director requires a notification to Land Registry. I have come across a number of cases recently where transactions or tax planning have taken place but there has been no paperwork to evidence/support what has happened. This can create significant problems with HMRC who will understandably take the view that in the absence of paperwork the transaction/planning should be ignored. Unexpected tax liabilities can arise – in the case of a property transferred to a director with no supporting paperwork HMRC would look to charge a benefit in kind on the director using the property as his residence.</p>
+                  <div class="inset-sm-right-70 inset-lg-left-50 inset-lg-right-120 offset-top-30 offset-sm-top-50">
+                    <blockquote class="quote-minimal-bordered">
+                      <p>
+                        <q>We must have a fair tax in the United States. We have to re-adjust it, we must be fiscally responsible.</q>
+                      </p>
+                    </blockquote>
+                  </div>
+                  <p class="offset-top-30 offset-sm-top-50 text-gray-base-08">A recent tribunal case – Terrance Raine v HMRC concerned the setting up of a company where the shares were intended to be allotted equally between Raine and his partner. The paperwork was never completed and the annual return of the company showed Raine as the sole shareholder.</p>
+                </div>
+                <div class="post-footer">
+                  <h5>Share this post:</h5>
+                  <ul class="list-inline list-inline-xs">
+                    <li><a href="#" class="icon icon-xxs-small link-primary fa-facebook"></a></li>
+                    <li><a href="#" class="icon icon-xxs-small link-primary fa-twitter"></a></li>
+                    <li><a href="#" class="icon icon-xxs-small link-primary fa-google-plus"></a></li>
+                    <li><a href="#" class="icon icon-xxs-small link-primary fa-pinterest-p"></a></li>
+                  </ul>
+                </div>
+              </article>
+              <div class="divider-fullwidth bg-gray-lighter offset-top-40"></div>
+              <div class="offset-top-40">
+                <h4>3 Comments</h4>
+                <div class="comment-list inset-sm-right-60 inset-md-right-30 inset-lg-right-100 offset-top-30">
+                  <div class="comment-group">
+                    <article class="comment">
+                      <div class="unit unit-spacing-md unit-xs-horizontal">
+                        <div class="unit-left">
+                          <figure><img src="images/post-2-70x71.jpg" alt="" width="70" height="71"/>
+                          </figure>
+                        </div>
+                        <div class="unit-body">
+                          <div class="comment-body">
+                            <div class="comment-body-header">
+                              <div class="comment-meta">
+                                <p class="user">July Mao</p>
+                                <ul class="list-inline list-icon-meta">
+                                  <li><a href="#" class="link-group link-group-baseline"><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-thumb-up-outline"></span><span>Like</span></a></li>
+                                  <li><a href="#" class="link-group"><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-comment-outline"></span><span>Reply</span></a></li>
+                                </ul>
+                              </div>
+                              <div class="comment-time">
+                                <div class="object-inline">
+                                  <time datetime="2016-02-16">Feb 16, 7:42 PM</time><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-clock"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="comment-body-text">
+                              <p class="text-gray-base">The topic you describe here is really important. However, the mentioned type of training cannot be applied to anyone.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                    <div class="comment-group-reply">
+                      <article class="comment">
+                        <div class="unit unit-spacing-md unit-xs-horizontal">
+                          <div class="unit-left">
+                            <figure><img src="images/post-3-70x71.jpg" alt="" width="70" height="71"/>
+                            </figure>
+                          </div>
+                          <div class="unit-body">
+                            <div class="comment-body">
+                              <div class="comment-body-header">
+                                <div class="comment-meta">
+                                  <p class="user">John doe</p>
+                                  <ul class="list-inline list-icon-meta">
+                                    <li><a href="#" class="link-group link-group-baseline"><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-thumb-up-outline"></span><span>Like</span></a></li>
+                                    <li><a href="#" class="link-group"><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-comment-outline"></span><span>Reply</span></a></li>
+                                  </ul>
+                                </div>
+                                <div class="comment-time">
+                                  <div class="object-inline">
+                                    <time datetime="2016-02-16">Feb 16, 7:42 PM</time><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-clock"></span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="comment-body-text">
+                                <p class="text-gray-base">You are absolutely right! But here, we have everything necessary to prepare even the pre - beginners to extensive physical training.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="comment-group">
+                    <article class="comment">
+                      <div class="unit unit-spacing-md unit-xs-horizontal">
+                        <div class="unit-left">
+                          <figure><img src="images/post-4-70x71.jpg" alt="" width="70" height="71"/>
+                          </figure>
+                        </div>
+                        <div class="unit-body">
+                          <div class="comment-body">
+                            <div class="comment-body-header">
+                              <div class="comment-meta">
+                                <p class="user">Mila MOa</p>
+                                <ul class="list-inline list-icon-meta">
+                                  <li><a href="#" class="link-group link-group-baseline"><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-thumb-up-outline"></span><span>Like</span></a></li>
+                                  <li><a href="#" class="link-group"><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-comment-outline"></span><span>Reply</span></a></li>
+                                </ul>
+                              </div>
+                              <div class="comment-time">
+                                <div class="object-inline">
+                                  <time datetime="2016-02-16">Feb 16, 7:42 PM</time><span class="icon icon-xxs-smaller icon-dusty-gray mdi mdi-clock"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="comment-body-text">
+                              <p class="text-gray-base">Very useful post! Thanks for sharing! Now I’ll be planning my visit to your gym to take part in some fitness classes.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <div class="offset-top-45">
+                <h4>Leave a comment</h4>
+                <div class="inset-sm-right-60 inset-md-right-30 inset-lg-right-100 offset-top-15 offset-lg-top-5">
+                  <form class="rd-mailform form-classic form-classic-bordered label-outside">
+                    <div class="form-group">
+                      <label for="comment-message" class="form-label-outside">Message:</label>
+                      <textarea id="comment-message" name="message" data-constraints="@Required" class="form-control"></textarea>
+                    </div>
+                    <div class="offset-top-35">
+                      <button type="submit" style="min-width: 200px;" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="cell-md-4 cell-lg-3 offset-top-50 offset-md-top-0">
+              <div class="inset-md-left-15">
+                <div class="range">
+                  <div class="cell-sm-6 cell-md-12">
+                    <form action="search-results.html" method="GET" class="rd-search rd-search-classic">
+                      <div class="form-group">
+                        <label for="rd-search-form-input-1" class="form-label">Search...</label>
+                        <input id="rd-search-form-input-1" type="text" name="s" autocomplete="off" class="form-control">
+                      </div>
+                      <button type="submit" class="rd-search-submit"></button>
+                    </form>
+                    <div class="offset-top-45">
+                      <h6 class="text-uppercase">Categories</h6>
+                      <ul class="list-marked-bordered offset-top-5">
+                        <li><a href="#"><span>Tax Consultancy</span><span class="text-dusty-gray">(3)</span></a></li>
+                        <li><a href="#"><span>Tax Training</span><span class="text-dusty-gray">(4)</span></a></li>
+                        <li><a href="#"><span>Bank Reconciliation</span><span class="text-dusty-gray">(4)</span></a></li>
+                      </ul>
+                    </div>
+                    <div class="offset-top-45">
+                      <h6 class="text-uppercase">Popular posts</h6>
+                      <div class="offset-top-22">
+                        <article class="post post-preview offset-top-15"><a href="blog-post.html">
+                            <div class="unit unit-horizontal unit-spacing-sm">
+                              <div class="unit-left">
+                                <figure class="post-image"><img src="images/post-preview-1-70x70.jpg" alt="" width="70" height="70"/>
+                                </figure>
+                              </div>
+                              <div class="unit-body">
+                                <div class="post-header">
+                                  <p>HMRC Investigations and the Hidden Economy</p>
+                                </div>
+                                <div class="post-meta">
+                                  <ul class="list-meta">
+                                    <li>
+                                      <time datetime="2016-02-04">Feb 4, 2016</time>
+                                    </li>
+                                    <li>3 Comments</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div></a></article>
+                        <article class="post post-preview offset-top-15"><a href="blog-post.html">
+                            <div class="unit unit-horizontal unit-spacing-sm">
+                              <div class="unit-left">
+                                <figure class="post-image"><img src="images/post-preview-2-70x70.jpg" alt="" width="70" height="70"/>
+                                </figure>
+                              </div>
+                              <div class="unit-body">
+                                <div class="post-header">
+                                  <p>The Fourth Industrial Revolution</p>
+                                </div>
+                                <div class="post-meta">
+                                  <ul class="list-meta">
+                                    <li>
+                                      <time datetime="2016-02-04">Feb 4, 2016</time>
+                                    </li>
+                                    <li>3 Comments</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div></a></article>
+                        <article class="post post-preview offset-top-15"><a href="blog-post.html">
+                            <div class="unit unit-horizontal unit-spacing-sm">
+                              <div class="unit-left">
+                                <figure class="post-image"><img src="images/post-preview-3-70x70.jpg" alt="" width="70" height="70"/>
+                                </figure>
+                              </div>
+                              <div class="unit-body">
+                                <div class="post-header">
+                                  <p>Attracting &amp; Retaining Your Best People</p>
+                                </div>
+                                <div class="post-meta">
+                                  <ul class="list-meta">
+                                    <li>
+                                      <time datetime="2016-02-04">Feb 4, 2016</time>
+                                    </li>
+                                    <li>3 Comments</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div></a></article>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cell-sm-6 cell-md-12 offset-top-50 offset-sm-top-0 offset-md-top-45">
+                    <h6 class="text-uppercase">Twitter feed</h6>
+                    <div data-twitter-username="templatemonster" class="twitter offset-top-30">
+                      <div data-twitter-type="tweet" class="twitter-item twitter-item-minimal">
+                        <div class="object-inline-baseline"><a href="#" data-url="href" class="icon icon-xxs icon-primary fa-twitter"></a>
+                          <time data-date="text,datetime" datetime="2016-04-20"></time>
+                        </div>
+                        <p data-tweet="text" class="tweet-text"></p>
+                        <p data-screen_name="text" data-user_name="href" class="tweet-user"></p>
+                      </div>
+                      <div data-twitter-type="tweet" class="twitter-item twitter-item-minimal">
+                        <div class="object-inline-baseline"><a href="#" data-url="href" class="icon icon-xxs icon-primary fa-twitter"></a>
+                          <time data-date="text,datetime" datetime="2016-04-20"></time>
+                        </div>
+                        <p data-tweet="text" class="tweet-text"></p>
+                        <p data-screen_name="text" data-user_name="href" class="tweet-user"></p>
+                      </div>
+                      <div data-twitter-type="tweet" class="twitter-item twitter-item-minimal">
+                        <div class="object-inline-baseline"><a href="#" data-url="href" class="icon icon-xxs icon-primary fa-twitter"></a>
+                          <time data-date="text,datetime" datetime="2016-04-20"></time>
+                        </div>
+                        <p data-tweet="text" class="tweet-text"></p>
+                        <p data-screen_name="text" data-user_name="href" class="tweet-user"></p>
+                      </div>
+                    </div>
+                    <div class="offset-top-45">
+                      <h6 class="text-uppercase">Tags</h6>
+                      <ul class="list-tag-blocks offset-top-22">
+                        <li><a href="#">Planning</a></li>
+                        <li><a href="#">support</a></li>
+                        <li><a href="#">business</a></li>
+                        <li><a href="#">company</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-40 section-sm-60 bg-cello">
+        <div class="shell">
+          <div class="range range-xs-center">
+            <div class="cell-xs-10 cell-sm-11 cell-md-12">
+              <div class="range">
+                <div class="cell-sm-6 cell-md-4">
+                  <div class="inset-md-right-30">
+                    <h6 class="text-uppercase text-big">About us</h6>
+                    <p class="offset-top-27 text-bismark">
+                      Our firm has been providing expert tax and consulting services to individuals and small businesses throughout the country since 1989.
+
+                    </p>
+                  </div>
+                  <div class="offset-top-22">
+                    <div class="group-md group-top">
+                      <div>
+                        <div class="unit unit-middle unit-horizontal unit-spacing-xs">
+                          <div class="unit-left"><span class="icon icon-xs-smaller icon-primary fa-phone"></span></div>
+                          <div class="unit-body"><a href="callto:#" class="link link-bold link-white-v2">+1 (409) 987–5874</a></div>
+                        </div>
+                        <div class="inset-left-30"><a href="mailto:#" class="link-white-v2 text-italic">info@demolink.org</a></div>
+                      </div>
+                      <div>
+                        <ul class="list-inline list-inline-reset">
+                          <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-facebook"></a></li>
+                          <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-twitter"></a></li>
+                          <li><a href="#" class="icon icon-round icon-san-juan-filled icon-xxs-smallest fa fa-google-plus"></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-sm-6 cell-md-4 offset-top-50 offset-sm-top-0">
+                  <h6 class="text-uppercase text-big">Quick links</h6>
+                  <div style="max-width: 340px;" class="row offset-top-22 offset-md-top-30">
+                    <div class="col-xs-6">
+                      <ul class="list-marked-variant-2">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog-classic.html">Blog</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-xs-6">
+                      <ul class="list-marked-variant-2">
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="cell-sm-6 cell-md-4 offset-top-50 offset-md-top-0">
+                  <h6 class="text-uppercase text-big">Subscribe</h6>
+                  <div class="offset-top-22 offset-md-top-30">
+                    <p class="text-bismark">Get the latest updates and offers.</p>
+                    <form data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="rd-mailform form-classic form-inline offset-top-15">
+                      <div class="form-group">
+                        <input id="contact-email" type="email" name="email" data-constraints="@Email @Required" class="form-control">
+                        <label for="contact-email" class="form-label">Enter Your E-mail</label>
+                      </div>
+                      <button type="submit" aria-label="Subscribe" class="btn btn-icon-only btn-primary"><span class="icon icon-xs icon-white fa-envelope-o"></span></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-foot section-15 bg-cloud-burst">
+        <div class="shell text-center">
+          <div class="range">
+            <div class="cell-sm-12">
+              <p class="rights text-bismark"><span>&#169;&nbsp;</span><span id="copyright-year"></span><span>TaxExpert.&nbsp;</span><a href="privacy-policy.html" class="text-bismark">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="form-output-global" class="snackbars"></div>
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+            <button title="Share" class="pswp__button pswp__button--share"></button>
+            <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+            <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+          <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__cent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

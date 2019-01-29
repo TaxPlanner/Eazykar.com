@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT } from '@angular/common';
 import { Title } from '@angular/platform-browser';
@@ -37,6 +37,7 @@ export class EzkrMainComponent implements OnInit, OnDestroy {
                 private jhiLanguageHelper: JhiLanguageHelper,
                 private principal: Principal,
                 private router: Router,
+                private activatedRoute: ActivatedRoute,
                 @Inject(DOCUMENT) private document: any,
                 private _fuseConfigService: FuseConfigService,
                 private _fuseNavigationService: FuseNavigationService,
@@ -46,6 +47,7 @@ export class EzkrMainComponent implements OnInit, OnDestroy {
                 private _translateService: TranslateService,
                 private _platform: Platform
     ) {
+
         // Get default navigation
         this.navigation = navigation;
 
@@ -118,6 +120,10 @@ export class EzkrMainComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+
+        console.log(`this.activatedRoute.snapshot: "${JSON.stringify(this.activatedRoute.snapshot.toString())}"`);
+        console.log(`this.router.routerState.snapshot.root: "${JSON.stringify(this.router.routerState.snapshot.root.toString())}"`);
+
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 this.jhiLanguageHelper.updateTitle(this.getPageTitle(this.router.routerState.snapshot.root));

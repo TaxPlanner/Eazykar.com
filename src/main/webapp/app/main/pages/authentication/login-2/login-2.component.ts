@@ -106,14 +106,14 @@ export class Login2Component implements OnInit, AfterViewInit {
             .then(() => {
                 this.authenticationError = false;
                 // this.loginForm.setErrors({'authenticationError': false});
-                if (/^\/register/.test(this.router.url) || /^\/activate\//.test(this.router.url) || /^\/reset\//.test(this.router.url) || true) {
-                    this.router.navigate(['']);
-                }
+                // if (/^\/register/.test(this.router.url) || /^\/activate\//.test(this.router.url) || /^\/reset\//.test(this.router.url) || true) {
+                //     this.router.navigate(['']);
+                // }
 
-                this.eventManager.broadcast({
-                    name: 'authenticationSuccess',
-                    content: 'Sending Authentication Success'
-                });
+                // this.eventManager.broadcast({
+                //     name: 'authenticationSuccess',
+                //     content: 'Sending Authentication Success'
+                // });
 
                 // If user == USER_ROLE
                 // this.principal.hasAuthority("USER_ROLE");

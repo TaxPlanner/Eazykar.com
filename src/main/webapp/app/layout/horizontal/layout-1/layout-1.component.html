@@ -1,5 +1,5 @@
 <!-- SIDE PANEL -->
-<ng-container *ngIf="!fuseConfig.layout.sidepanel.hidden && fuseConfig.layout.sidepanel.position === 'left'">
+<ng-container *ngIf="isAuthenticated() && !fuseConfig.layout.sidepanel.hidden && fuseConfig.layout.sidepanel.position === 'left'">
 
     <!-- CHAT PANEL -->
     <fuse-sidebar name="chatPanel" position="left" class="chat-panel left-chat-panel"
@@ -15,7 +15,7 @@
 <div id="main">
 
     <!-- TOOLBAR: Above -->
-    <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'above'">
+    <ng-container *ngIf="isAuthenticated() && fuseConfig.layout.toolbar.position === 'above'">
         <ng-container *ngTemplateOutlet="toolbar"></ng-container>
     </ng-container>
     <!-- / TOOLBAR: Above -->
@@ -27,7 +27,7 @@
     <!-- / NAVBAR: Top -->
 
     <!-- TOOLBAR: Below -->
-    <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'below'">
+    <ng-container *ngIf="isAuthenticated() && fuseConfig.layout.toolbar.position === 'below'">
         <ng-container *ngTemplateOutlet="toolbar"></ng-container>
     </ng-container>
     <!-- / TOOLBAR: Below -->
@@ -50,7 +50,7 @@
                 <!-- / CONTENT -->
 
                 <!-- FOOTER: Above Static -->
-                <ng-container *ngIf="fuseConfig.layout.footer.position === 'above-static'">
+                <ng-container *ngIf="isAuthenticated() && fuseConfig.layout.footer.position === 'above-static'">
                     <ng-container *ngTemplateOutlet="footer"></ng-container>
                 </ng-container>
                 <!-- / FOOTER: Above Static -->
@@ -62,7 +62,7 @@
     </div>
 
     <!-- FOOTER: Above Fixed -->
-    <ng-container *ngIf="fuseConfig.layout.footer.position === 'above-fixed'">
+    <ng-container *ngIf="isAuthenticated() && fuseConfig.layout.footer.position === 'above-fixed'">
         <ng-container *ngTemplateOutlet="footer"></ng-container>
     </ng-container>
     <!-- FOOTER: Above Fixed -->
@@ -70,7 +70,7 @@
 </div>
 
 <!-- SIDE PANEL -->
-<ng-container *ngIf="!fuseConfig.layout.sidepanel.hidden && fuseConfig.layout.sidepanel.position === 'right'">
+<ng-container *ngIf="isAuthenticated() && !fuseConfig.layout.sidepanel.hidden && fuseConfig.layout.sidepanel.position === 'right'">
 
     <!-- CHAT PANEL -->
     <fuse-sidebar name="chatPanel" position="right" class="chat-panel right-chat-panel"
@@ -95,7 +95,7 @@
 
 <!-- TOOLBAR -->
 <ng-template #toolbar>
-    <toolbar *ngIf="!fuseConfig.layout.toolbar.hidden"
+    <toolbar *ngIf="isAuthenticated() && !fuseConfig.layout.toolbar.hidden"
              [ngClass]="fuseConfig.layout.toolbar.customBackgroundColor === true ? fuseConfig.layout.toolbar.position + ' ' + fuseConfig.layout.toolbar.background : fuseConfig.layout.toolbar.position">
     </toolbar>
 </ng-template>
@@ -103,7 +103,7 @@
 
 <!-- FOOTER -->
 <ng-template #footer>
-    <footer *ngIf="!fuseConfig.layout.footer.hidden"
+    <footer *ngIf="isAuthenticated() && !fuseConfig.layout.footer.hidden"
             [ngClass]="fuseConfig.layout.footer.customBackgroundColor === true ? fuseConfig.layout.footer.position + ' ' + fuseConfig.layout.footer.background : fuseConfig.layout.footer.position">
     </footer>
 </ng-template>
@@ -113,7 +113,7 @@
 <ng-template #topNavbar>
     <navbar variant="horizontal-style-1"
             class="top-navbar" fxHide fxShow.gt-md
-            *ngIf="!fuseConfig.layout.navbar.hidden">
+            *ngIf="isAuthenticated() && !fuseConfig.layout.navbar.hidden">
     </navbar>
 </ng-template>
 <!-- / TOP NAVBAR -->
@@ -122,7 +122,7 @@
 <ng-template #leftNavbar>
     <fuse-sidebar name="navbar" class="navbar-fuse-sidebar"
                   [folded]="fuseConfig.layout.navbar.folded"
-                  *ngIf="!fuseConfig.layout.navbar.hidden">
+                  *ngIf="isAuthenticated() && !fuseConfig.layout.navbar.hidden">
         <navbar [variant]="fuseConfig.layout.navbar.variant" class="left-navbar"></navbar>
     </fuse-sidebar>
 </ng-template>
