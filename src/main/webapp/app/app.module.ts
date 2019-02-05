@@ -8,27 +8,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { EazykarCoreModule } from 'app/core';
-import { EazykarAppTaxServicesModule } from 'app/main/pages/tax-services';
 import { EazykarSharedModule } from 'app/shared';
 import * as moment from 'moment';
 import { NgJhipsterModule } from 'ng-jhipster';
 import { Ng2Webstorage } from 'ngx-webstorage';
-import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from './@fuse/components';
+import { FuseProgressBarModule, FuseSidebarModule } from './@fuse/components';
 import { FuseModule } from './@fuse/fuse.module';
 import { FuseSharedModule } from './@fuse/shared.module';
-import { EazykarAccountModule } from './account/account.module';
 import { EazykarAppRoutingModule } from './app-routing.module';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { EazykarAppContactUsModule } from './contact-us/contact-us.module';
 import { fuseConfig } from './fuse-config';
 import { EazykarHomeModule } from './home/home.module';
 import { LayoutModule } from './layout/layout.module';
 // jhipster-needle-angular-add-module-import
-import { ActiveMenuDirective, ErrorComponent, EzkrMainComponent, FooterComponent, NavbarComponent, PageRibbonComponent } from './layouts';
+import { ErrorComponent, EzkrMainComponent, PageRibbonComponent } from './layouts';
 import './vendor.ts';
 
 export const MY_FORMATS = {
@@ -59,9 +56,6 @@ export const MY_FORMATS = {
         EazykarSharedModule.forRoot(),
         EazykarCoreModule,
         EazykarHomeModule,
-        EazykarAccountModule,
-        EazykarAppTaxServicesModule,
-        EazykarAppContactUsModule,
         // jhipster-needle-angular-add-module
 
         TranslateModule.forRoot(),
@@ -78,11 +72,10 @@ export const MY_FORMATS = {
         FuseProgressBarModule,
         FuseSharedModule,
         FuseSidebarModule,
-        FuseThemeOptionsModule,
 
         LayoutModule
     ],
-    declarations: [EzkrMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [EzkrMainComponent,  ErrorComponent, PageRibbonComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
