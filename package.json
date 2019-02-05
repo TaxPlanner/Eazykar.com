@@ -150,7 +150,7 @@
     "lint:fix": "npm run lint -- --fix",
     "ngc": "ngc -p tsconfig-aot.json",
     "cleanup": "rimraf target/{aot,www}",
-    "clean-www": "rimraf target//www/app/{src,target/}",
+    "clean-www": "rimraf target/www/app/{src,target/}",
     "start": "npm run webpack:dev",
     "start-tls": "npm run webpack:dev -- --env.tls",
     "serve": "npm run start",

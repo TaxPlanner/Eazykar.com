@@ -1,24 +1,20 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Platform } from '@angular/cdk/platform';
 import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { FuseNavigationService } from 'app/@fuse/components/navigation/navigation.service';
+import { FuseSidebarService } from 'app/@fuse/components/sidebar/sidebar.service';
+import { FuseConfigService } from 'app/@fuse/services/config.service';
+import { FuseSplashScreenService } from 'app/@fuse/services/splash-screen.service';
+import { FuseTranslationLoaderService } from 'app/@fuse/services/translation-loader.service';
 
-import { JhiLanguageHelper } from 'app/core';
+import { JhiLanguageHelper, Principal } from 'app/core';
+import { navigation } from 'app/navigation/navigation';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { TranslateService } from '@ngx-translate/core';
-
-import { Principal } from 'app/core';
-import { FuseNavigationService } from 'app/@fuse/components/navigation/navigation.service';
-import { FuseSplashScreenService } from 'app/@fuse/services/splash-screen.service';
-import { FuseSidebarService } from 'app/@fuse/components/sidebar/sidebar.service';
-import { FuseConfigService } from 'app/@fuse/services/config.service';
-import { FuseTranslationLoaderService } from 'app/@fuse/services/translation-loader.service';
-import { navigation } from 'app/navigation/navigation';
-import { locale as navigationEnglish } from 'app/navigation/i18n/en';
-import { locale as navigationTurkish } from 'app/navigation/i18n/tr';
 
 @Component({
     selector: 'ezkr-main',
@@ -57,17 +53,17 @@ export class EzkrMainComponent implements OnInit, OnDestroy {
         // Set the main navigation as our current navigation
         this._fuseNavigationService.setCurrentNavigation('main');
 
-        // Add languages
-        this._translateService.addLangs(['en', 'tr']);
-
-        // Set the default language
-        this._translateService.setDefaultLang('en');
-
-        // Set the navigation translations
-        this._fuseTranslationLoaderService.loadTranslations(navigationEnglish, navigationTurkish);
-
-        // Use a language
-        this._translateService.use('en');
+        // // Add languages
+        // this._translateService.addLangs(['en', 'tr']);
+        //
+        // // Set the default language
+        // this._translateService.setDefaultLang('en');
+        //
+        // // Set the navigation translations
+        // this._fuseTranslationLoaderService.loadTranslations(navigationEnglish, navigationTurkish);
+        //
+        // // Use a language
+        // this._translateService.use('en');
 
         /**
          * ----------------------------------------------------------------------------------------------------
@@ -112,17 +108,15 @@ export class EzkrMainComponent implements OnInit, OnDestroy {
     }
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
-        let title: string = routeSnapshot.data && routeSnapshot.data['pageTitle'] ? routeSnapshot.data['pageTitle'] : 'eazykarApp';
-        if (routeSnapshot.firstChild) {
-            title = this.getPageTitle(routeSnapshot.firstChild) || title;
-        }
-        return title;
+        // let title: string = routeSnapshot.data && routeSnapshot.data['pageTitle'] ? routeSnapshot.data['pageTitle'] : 'eazykarApp';
+        // if (routeSnapshot.firstChild) {
+        //     title = this.getPageTitle(routeSnapshot.firstChild) || title;
+        // }
+        // return title;
+        return 'EazyKar.com';
     }
 
     ngOnInit() {
-
-        console.log(`this.activatedRoute.snapshot: "${JSON.stringify(this.activatedRoute.snapshot.toString())}"`);
-        console.log(`this.router.routerState.snapshot.root: "${JSON.stringify(this.router.routerState.snapshot.root.toString())}"`);
 
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
