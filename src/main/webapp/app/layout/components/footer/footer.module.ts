@@ -23,6 +23,5 @@ import { FooterComponent } from 'app/layout/components/footer/footer.component';
         FooterComponent
     ]
 })
-export class FooterModule
-{
+export class FooterModule {
 }

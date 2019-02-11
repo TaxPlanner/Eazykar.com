@@ -21,6 +21,5 @@ import { NavbarHorizontalStyle1Component } from 'app/layout/components/navbar/ho
         NavbarHorizontalStyle1Component
     ]
 })
-export class NavbarHorizontalStyle1Module
-{
+export class NavbarHorizontalStyle1Module {
 }

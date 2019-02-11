@@ -28,6 +28,5 @@ import { ChatPanelService } from 'app/layout/components/chat-panel/chat-panel.se
         ChatPanelComponent
     ]
 })
-export class ChatPanelModule
-{
+export class ChatPanelModule {
 }

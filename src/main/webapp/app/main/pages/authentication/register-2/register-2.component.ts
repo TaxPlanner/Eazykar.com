@@ -137,7 +137,6 @@ export class Register2Component implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
-
 }
 
 /**

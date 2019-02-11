@@ -23,6 +23,5 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         CamelCaseToDashPipe
     ]
 })
-export class FusePipesModule
-{
+export class FusePipesModule {
 }

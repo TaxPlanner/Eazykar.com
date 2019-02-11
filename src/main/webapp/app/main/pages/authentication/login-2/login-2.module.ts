@@ -29,6 +29,5 @@ const routes = [
         FuseSharedModule
     ]
 })
-export class Login2Module
-{
+export class Login2Module {
 }

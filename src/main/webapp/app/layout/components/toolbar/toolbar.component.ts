@@ -120,7 +120,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         // Subscribe to the config changes
         this._fuseConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((settings) => {
+            .subscribe(settings => {
                 this.horizontalNavbar = settings.layout.navbar.position === 'top';
                 this.rightNavbar = settings.layout.navbar.position === 'right';
                 this.hiddenNavbar = settings.layout.navbar.hidden === true;
@@ -195,8 +195,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
     getImageUrl() {
         if (this.isAuthenticated()) {
-            let imageUrl = this.principal.getImageUrl();
-            if (imageUrl) return imageUrl;
+            const imageUrl = this.principal.getImageUrl();
+            if (imageUrl) { return imageUrl; }
         }
         return '/content/images/avatars/profile.jpg';
     }

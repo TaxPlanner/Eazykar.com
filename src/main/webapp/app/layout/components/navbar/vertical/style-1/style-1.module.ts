@@ -21,6 +21,5 @@ import { NavbarVerticalStyle1Component } from 'app/layout/components/navbar/vert
         NavbarVerticalStyle1Component
     ]
 })
-export class NavbarVerticalStyle1Module
-{
+export class NavbarVerticalStyle1Module {
 }

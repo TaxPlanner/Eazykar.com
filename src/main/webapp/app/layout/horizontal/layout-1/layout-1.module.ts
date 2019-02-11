@@ -34,6 +34,5 @@ import { HorizontalLayout1Component } from 'app/layout/horizontal/layout-1/layou
         HorizontalLayout1Component
     ]
 })
-export class HorizontalLayout1Module
-{
+export class HorizontalLayout1Module {
 }

@@ -29,6 +29,5 @@ const routes = [
         FuseSharedModule
     ]
 })
-export class Register2Module
-{
+export class Register2Module {
 }

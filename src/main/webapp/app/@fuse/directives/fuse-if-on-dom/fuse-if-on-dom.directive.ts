@@ -3,8 +3,7 @@ import { AfterContentChecked, Directive, ElementRef, TemplateRef, ViewContainerR
 @Directive({
     selector: '[fuseIfOnDom]'
 })
-export class FuseIfOnDomDirective implements AfterContentChecked
-{
+export class FuseIfOnDomDirective implements AfterContentChecked {
     isCreated: boolean;
 
     /**
@@ -18,8 +17,7 @@ export class FuseIfOnDomDirective implements AfterContentChecked
         private _elementRef: ElementRef,
         private _templateRef: TemplateRef<any>,
         private _viewContainerRef: ViewContainerRef
-    )
-    {
+    ) {
         // Set the defaults
         this.isCreated = false;
     }
@@ -31,17 +29,13 @@ export class FuseIfOnDomDirective implements AfterContentChecked
     /**
      * After content checked
      */
-    ngAfterContentChecked(): void
-    {
-        if ( document.body.contains(this._elementRef.nativeElement) && !this.isCreated )
-        {
+    ngAfterContentChecked(): void {
+        if ( document.body.contains(this._elementRef.nativeElement) && !this.isCreated ) {
             setTimeout(() => {
                 this._viewContainerRef.createEmbeddedView(this._templateRef);
             }, 300);
             this.isCreated = true;
-        }
-        else if ( this.isCreated && !document.body.contains(this._elementRef.nativeElement) )
-        {
+        } else if ( this.isCreated && !document.body.contains(this._elementRef.nativeElement) ) {
             this._viewContainerRef.clear();
             this.isCreated = false;
         }

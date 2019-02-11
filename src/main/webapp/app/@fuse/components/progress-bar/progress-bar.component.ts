@@ -10,8 +10,7 @@ import { FuseProgressBarService } from '../../../@fuse/components/progress-bar/p
     styleUrls    : ['./progress-bar.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class FuseProgressBarComponent implements OnInit, OnDestroy
-{
+export class FuseProgressBarComponent implements OnInit, OnDestroy {
     bufferValue: number;
     mode: 'determinate' | 'indeterminate' | 'buffer' | 'query';
     value: number;
@@ -27,8 +26,7 @@ export class FuseProgressBarComponent implements OnInit, OnDestroy
      */
     constructor(
         private _fuseProgressBarService: FuseProgressBarService
-    )
-    {
+    ) {
         // Set the defaults
 
         // Set the private defaults
@@ -42,35 +40,34 @@ export class FuseProgressBarComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Subscribe to the progress bar service properties
 
         // Buffer value
         this._fuseProgressBarService.bufferValue
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((bufferValue) => {
+            .subscribe(bufferValue => {
                 this.bufferValue = bufferValue;
             });
 
         // Mode
         this._fuseProgressBarService.mode
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((mode) => {
+            .subscribe(mode => {
                 this.mode = mode;
             });
 
         // Value
         this._fuseProgressBarService.value
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((value) => {
+            .subscribe(value => {
                 this.value = value;
             });
 
         // Visible
         this._fuseProgressBarService.visible
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((visible) => {
+            .subscribe(visible => {
                 this.visible = visible;
             });
 
@@ -79,8 +76,7 @@ export class FuseProgressBarComponent implements OnInit, OnDestroy
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();

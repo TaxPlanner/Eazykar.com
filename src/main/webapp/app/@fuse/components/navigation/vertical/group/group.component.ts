@@ -10,8 +10,7 @@ import { FuseNavigationService } from '../../../../../@fuse/components/navigatio
     templateUrl: './group.component.html',
     styleUrls  : ['./group.component.scss']
 })
-export class FuseNavVerticalGroupComponent implements OnInit, OnDestroy
-{
+export class FuseNavVerticalGroupComponent implements OnInit, OnDestroy {
     @HostBinding('class')
     classes = 'nav-group nav-item';
 
@@ -33,8 +32,7 @@ export class FuseNavVerticalGroupComponent implements OnInit, OnDestroy
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _fuseNavigationService: FuseNavigationService
-    )
-    {
+    ) {
         // Set the private defaults
         this._unsubscribeAll = new Subject();
     }
@@ -46,8 +44,7 @@ export class FuseNavVerticalGroupComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Subscribe to navigation item
         merge(
             this._fuseNavigationService.onNavigationItemAdded,
@@ -64,8 +61,7 @@ export class FuseNavVerticalGroupComponent implements OnInit, OnDestroy
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();

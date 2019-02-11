@@ -54,7 +54,7 @@ export class WhereToNextService {
                     }
 
                 })
-                .catch((err) => {
+                .catch(err => {
                     console.error(err);
                     this.router.navigate(['']);
                 });

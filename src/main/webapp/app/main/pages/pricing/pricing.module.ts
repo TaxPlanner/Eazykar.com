@@ -38,6 +38,5 @@ const routes = [
         PaymentDialogComponent
     ]
 })
-export class PricingModule
-{
+export class PricingModule {
 }

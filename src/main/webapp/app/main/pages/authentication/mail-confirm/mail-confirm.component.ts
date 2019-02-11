@@ -11,8 +11,7 @@ import { ActivatedRoute } from '@angular/router';
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
-export class MailConfirmComponent implements OnInit
-{
+export class MailConfirmComponent implements OnInit {
     title: string;
     subtitle: string;
     message: string;
@@ -27,8 +26,7 @@ export class MailConfirmComponent implements OnInit
     constructor(
         private _fuseConfigService: FuseConfigService,
         private route: ActivatedRoute
-    )
-    {
+    ) {
         // Configure the layout
         this._fuseConfigService.config = {
             layout: {

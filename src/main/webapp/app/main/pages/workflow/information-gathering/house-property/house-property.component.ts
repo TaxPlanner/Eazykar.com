@@ -34,6 +34,20 @@ export class HousePropertyComponent implements OnInit {
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+    private static paddingSize(value: string): number {
+        if (HousePropertyComponent.endsWith('==', value)) {
+            return 2;
+        }
+        if (HousePropertyComponent.endsWith('=', value)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    private static endsWith(suffix: string, str: string): boolean {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
     constructor(private _formBuilder: FormBuilder,
                 private dataUtils: JhiDataUtils,
                 private userService: UserService,
@@ -167,20 +181,6 @@ export class HousePropertyComponent implements OnInit {
 
     sizeInKb(value: string): number {
         return Math.ceil((value.length / 4 * 3 - HousePropertyComponent.paddingSize(value)) / 1024);
-    }
-
-    private static paddingSize(value: string): number {
-        if (HousePropertyComponent.endsWith('==', value)) {
-            return 2;
-        }
-        if (HousePropertyComponent.endsWith('=', value)) {
-            return 1;
-        }
-        return 0;
-    }
-
-    private static endsWith(suffix: string, str: string): boolean {
-        return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
 
 }

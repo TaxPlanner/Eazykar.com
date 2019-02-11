@@ -4,15 +4,13 @@ import { MatSidenav } from '@angular/material';
 @Injectable({
     providedIn: 'root'
 })
-export class FuseMatSidenavHelperService
-{
+export class FuseMatSidenavHelperService {
     sidenavInstances: MatSidenav[];
 
     /**
      * Constructor
      */
-    constructor()
-    {
+    constructor() {
         this.sidenavInstances = [];
     }
 
@@ -26,8 +24,7 @@ export class FuseMatSidenavHelperService
      * @param id
      * @param instance
      */
-    setSidenav(id, instance): void
-    {
+    setSidenav(id, instance): void {
         this.sidenavInstances[id] = instance;
     }
 
@@ -37,8 +34,7 @@ export class FuseMatSidenavHelperService
      * @param id
      * @returns {any}
      */
-    getSidenav(id): any
-    {
+    getSidenav(id): any {
         return this.sidenavInstances[id];
     }
 }

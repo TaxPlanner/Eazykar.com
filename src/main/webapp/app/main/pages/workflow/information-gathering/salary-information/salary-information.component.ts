@@ -42,6 +42,20 @@ export class SalaryInformationComponent implements OnInit {
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+    private static paddingSize(value: string): number {
+        if (SalaryInformationComponent.endsWith('==', value)) {
+            return 2;
+        }
+        if (SalaryInformationComponent.endsWith('=', value)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    private static endsWith(suffix: string, str: string): boolean {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
     constructor(private salaryInformationService: SalaryInformationService,
                 private documentService: DocumentService,
                 private dataUtils: JhiDataUtils,
@@ -92,20 +106,6 @@ export class SalaryInformationComponent implements OnInit {
 
     sizeInKb(value: string): number {
         return Math.ceil((value.length / 4 * 3 - SalaryInformationComponent.paddingSize(value)) / 1024);
-    }
-
-    private static paddingSize(value: string): number {
-        if (SalaryInformationComponent.endsWith('==', value)) {
-            return 2;
-        }
-        if (SalaryInformationComponent.endsWith('=', value)) {
-            return 1;
-        }
-        return 0;
-    }
-
-    private static endsWith(suffix: string, str: string): boolean {
-        return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
 
     private loadSalaryInformationList() {

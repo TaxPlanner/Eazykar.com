@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { fuseAnimations } from 'app/@fuse/animations';
 import { FuseSidebarService } from 'app/@fuse/components/sidebar/sidebar.service';
@@ -14,7 +14,7 @@ import { Subject } from 'rxjs';
     encapsulation: ViewEncapsulation.None,
     animations: fuseAnimations
 })
-export class WorkflowComponent implements OnInit {
+export class WorkflowComponent implements OnInit, OnDestroy, AfterViewInit {
 
     animationDirection: 'left' | 'right' | 'none';
     tabStepContent: any;
@@ -86,7 +86,7 @@ export class WorkflowComponent implements OnInit {
     }
 
     ngAfterViewInit(): void {
-        this.tabStepContent = this.fuseScrollbarDirectives.find((fuseScrollbarDirective) => {
+        this.tabStepContent = this.fuseScrollbarDirectives.find(fuseScrollbarDirective => {
             return fuseScrollbarDirective.elementRef.nativeElement.id === 'course-step-content';
         });
         this.route.queryParams.subscribe(({ currentStep }) => {

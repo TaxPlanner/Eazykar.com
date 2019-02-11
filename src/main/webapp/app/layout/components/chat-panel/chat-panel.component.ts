@@ -15,8 +15,7 @@ import { ChatPanelService } from 'app/layout/components/chat-panel/chat-panel.se
     styleUrls    : ['./chat-panel.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
-{
+export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy {
     contacts: any[];
     chat: any;
     selectedContact: any;
@@ -24,14 +23,12 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     user: any;
 
     @ViewChild('replyForm')
-    set replyForm(content: NgForm)
-    {
+    set replyForm(content: NgForm) {
         this._replyForm = content;
     }
 
     @ViewChild('replyInput')
-    set replyInput(content: ElementRef)
-    {
+    set replyInput(content: ElementRef) {
         this._replyInput = content;
     }
 
@@ -55,8 +52,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
         private _chatPanelService: ChatPanelService,
         private _httpClient: HttpClient,
         private _fuseSidebarService: FuseSidebarService
-    )
-    {
+    ) {
         // Set the defaults
         this.selectedContact = null;
         this.sidebarFolded = true;
@@ -72,8 +68,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Load the contacts
         this._chatPanelService.loadContacts().then(() => {
 
@@ -84,7 +79,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
         // Subscribe to the foldedChanged observable
         this._fuseSidebarService.getSidebar('chatPanel').foldedChanged
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((folded) => {
+            .subscribe(folded => {
                 this.sidebarFolded = folded;
             });
     }
@@ -92,9 +87,8 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * After view init
      */
-    ngAfterViewInit(): void
-    {
-        this._chatViewScrollbar = this._fusePerfectScrollbarDirectives.find((directive) => {
+    ngAfterViewInit(): void {
+        this._chatViewScrollbar = this._fusePerfectScrollbarDirectives.find(directive => {
             return directive.elementRef.nativeElement.id === 'messages';
         });
     }
@@ -102,8 +96,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
@@ -116,16 +109,14 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * Prepare the chat for the replies
      */
-    private _prepareChatForReplies(): void
-    {
+    private _prepareChatForReplies(): void {
         setTimeout(() => {
 
             // Focus to the reply input
             // this._replyInput.nativeElement.focus();
 
             // Scroll to the bottom of the messages list
-            if ( this._chatViewScrollbar )
-            {
+            if ( this._chatViewScrollbar ) {
                 this._chatViewScrollbar.update();
 
                 setTimeout(() => {
@@ -142,24 +133,21 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * Fold the temporarily unfolded sidebar back
      */
-    foldSidebarTemporarily(): void
-    {
+    foldSidebarTemporarily(): void {
         this._fuseSidebarService.getSidebar('chatPanel').foldTemporarily();
     }
 
     /**
      * Unfold the sidebar temporarily
      */
-    unfoldSidebarTemporarily(): void
-    {
+    unfoldSidebarTemporarily(): void {
         this._fuseSidebarService.getSidebar('chatPanel').unfoldTemporarily();
     }
 
     /**
      * Toggle sidebar opened status
      */
-    toggleSidebarOpen(): void
-    {
+    toggleSidebarOpen(): void {
         this._fuseSidebarService.getSidebar('chatPanel').toggleOpen();
     }
 
@@ -170,8 +158,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
      * @param i
      * @returns {boolean}
      */
-    shouldShowContactAvatar(message, i): boolean
-    {
+    shouldShowContactAvatar(message, i): boolean {
         return (
             message.who === this.selectedContact.id &&
             ((this.chat.dialog[i + 1] && this.chat.dialog[i + 1].who !== this.selectedContact.id) || !this.chat.dialog[i + 1])
@@ -185,8 +172,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
      * @param i
      * @returns {boolean}
      */
-    isFirstMessageOfGroup(message, i): boolean
-    {
+    isFirstMessageOfGroup(message, i): boolean {
         return (i === 0 || this.chat.dialog[i - 1] && this.chat.dialog[i - 1].who !== message.who);
     }
 
@@ -197,8 +183,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
      * @param i
      * @returns {boolean}
      */
-    isLastMessageOfGroup(message, i): boolean
-    {
+    isLastMessageOfGroup(message, i): boolean {
         return (i === this.chat.dialog.length - 1 || this.chat.dialog[i + 1] && this.chat.dialog[i + 1].who !== message.who);
     }
 
@@ -207,20 +192,14 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
      *
      * @param contact
      */
-    toggleChat(contact): void
-    {
+    toggleChat(contact): void {
         // If the contact equals to the selectedContact,
         // that means we will deselect the contact and
         // unload the chat
-        if ( this.selectedContact && contact.id === this.selectedContact.id )
-        {
+        if ( this.selectedContact && contact.id === this.selectedContact.id ) {
             // Reset
             this.resetChat();
-        }
-        // Otherwise, we will select the contact, open
-        // the sidebar and start the chat
-        else
-        {
+        } else {
             // Unfold the sidebar temporarily
             this.unfoldSidebarTemporarily();
 
@@ -228,7 +207,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
             this.selectedContact = contact;
 
             // Load the chat
-            this._chatPanelService.getChat(contact.id).then((chat) => {
+            this._chatPanelService.getChat(contact.id).then(chat => {
 
                 // Set the chat
                 this.chat = chat;
@@ -242,8 +221,7 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * Remove the selected contact and unload the chat
      */
-    resetChat(): void
-    {
+    resetChat(): void {
         // Set the selected contact as null
         this.selectedContact = null;
 
@@ -254,12 +232,10 @@ export class ChatPanelComponent implements OnInit, AfterViewInit, OnDestroy
     /**
      * Reply
      */
-    reply(event): void
-    {
+    reply(event): void {
         event.preventDefault();
 
-        if ( !this._replyForm.form.value.message )
-        {
+        if ( !this._replyForm.form.value.message ) {
             return;
         }
 

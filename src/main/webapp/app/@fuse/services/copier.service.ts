@@ -10,8 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class FuseCopierService
-{
+export class FuseCopierService {
     private textarea: HTMLTextAreaElement;
 
     /**
@@ -20,8 +19,7 @@ export class FuseCopierService
      * @param {string} text
      * @returns {boolean}
      */
-    copyText(text: string): boolean
-    {
+    copyText(text: string): boolean {
         this.createTextareaAndSelect(text);
 
         const copySuccessful = document.execCommand('copy');
@@ -36,8 +34,7 @@ export class FuseCopierService
      *
      * @param {string} text
      */
-    private createTextareaAndSelect(text: string): void
-    {
+    private createTextareaAndSelect(text: string): void {
         // Create a fake element to hold the contents to copy
         this.textarea = document.createElement('textarea');
 
@@ -65,10 +62,8 @@ export class FuseCopierService
      *
      * @private
      */
-    private _removeFake(): void
-    {
-        if ( this.textarea )
-        {
+    private _removeFake(): void {
+        if ( this.textarea ) {
             document.body.removeChild(this.textarea);
             this.textarea = null;
         }

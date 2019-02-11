@@ -1,5 +1,4 @@
-export interface FuseConfig
-{
+export interface FuseConfig {
     colorTheme: string;
     customScrollbars: boolean;
     layout: {

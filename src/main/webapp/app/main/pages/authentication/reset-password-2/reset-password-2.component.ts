@@ -69,7 +69,7 @@ export class ResetPassword2Component implements OnInit, OnDestroy {
 
         this.route.queryParams.subscribe(params => {
             this.key = _.trim(params['key']);
-            if(this.key === '') {
+            if (this.key === '') {
                 setTimeout(() => {
                     this.resetPasswordForm.setErrors({ keyMissing: true });
                 });

@@ -6,12 +6,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
     styleUrls    : ['./content.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class ContentComponent
-{
+export class ContentComponent {
     /**
      * Constructor
      */
-    constructor()
-    {
+    constructor() {
     }
 }

@@ -11,8 +11,7 @@ export const FUSE_CONFIG = new InjectionToken('fuseCustomConfig');
 @Injectable({
     providedIn: 'root'
 })
-export class FuseConfigService
-{
+export class FuseConfigService {
     // Private
     private _configSubject: BehaviorSubject<any>;
     private readonly _defaultConfig: any;
@@ -28,8 +27,7 @@ export class FuseConfigService
         private _platform: Platform,
         private _router: Router,
         @Inject(FUSE_CONFIG) private _config
-    )
-    {
+    ) {
         // Set the default config from the user provided config (from forRoot)
         this._defaultConfig = _config;
 
@@ -44,8 +42,7 @@ export class FuseConfigService
     /**
      * Set and get the config
      */
-    set config(value)
-    {
+    set config(value) {
         // Get the value from the behavior subject
         let config = this._configSubject.getValue();
 
@@ -56,8 +53,7 @@ export class FuseConfigService
         this._configSubject.next(config);
     }
 
-    get config(): any | Observable<any>
-    {
+    get config(): any | Observable<any> {
         return this._configSubject.asObservable();
     }
 
@@ -66,8 +62,7 @@ export class FuseConfigService
      *
      * @returns {any}
      */
-    get defaultConfig(): any
-    {
+    get defaultConfig(): any {
         return this._defaultConfig;
     }
 
@@ -80,13 +75,11 @@ export class FuseConfigService
      *
      * @private
      */
-    private _init(): void
-    {
+    private _init(): void {
         /**
          * Disable custom scrollbars if browser is mobile
          */
-        if ( this._platform.ANDROID || this._platform.IOS )
-        {
+        if ( this._platform.ANDROID || this._platform.IOS ) {
             this._defaultConfig.customScrollbars = false;
         }
 
@@ -98,8 +91,7 @@ export class FuseConfigService
         this._router.events
             .pipe(filter(event => event instanceof RoutesRecognized))
             .subscribe(() => {
-                if ( !_.isEqual(this._configSubject.getValue().layout, this._defaultConfig.layout) )
-                {
+                if ( !_.isEqual(this._configSubject.getValue().layout, this._defaultConfig.layout) ) {
                     // Clone the current config
                     const config = _.cloneDeep(this._configSubject.getValue());
 
@@ -122,8 +114,7 @@ export class FuseConfigService
      * @param value
      * @param {{emitEvent: boolean}} opts
      */
-    setConfig(value, opts = {emitEvent: true}): void
-    {
+    setConfig(value, opts = {emitEvent: true}): void {
         // Get the value from the behavior subject
         let config = this._configSubject.getValue();
 
@@ -131,8 +122,7 @@ export class FuseConfigService
         config = _.merge({}, config, value);
 
         // If emitEvent option is true...
-        if ( opts.emitEvent === true )
-        {
+        if ( opts.emitEvent === true ) {
             // Notify the observers
             this._configSubject.next(config);
         }
@@ -143,18 +133,15 @@ export class FuseConfigService
      *
      * @returns {Observable<any>}
      */
-    getConfig(): Observable<any>
-    {
+    getConfig(): Observable<any> {
         return this._configSubject.asObservable();
     }
 
     /**
      * Reset to the default config
      */
-    resetToDefaults(): void
-    {
+    resetToDefaults(): void {
         // Set the config from the default config
         this._configSubject.next(_.cloneDeep(this._defaultConfig));
     }
 }
-

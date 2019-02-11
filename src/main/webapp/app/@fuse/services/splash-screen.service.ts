@@ -8,8 +8,7 @@ import { filter, take } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root'
 })
-export class FuseSplashScreenService
-{
+export class FuseSplashScreenService {
     splashScreenEl: any;
     player: AnimationPlayer;
 
@@ -24,8 +23,7 @@ export class FuseSplashScreenService
         private _animationBuilder: AnimationBuilder,
         @Inject(DOCUMENT) private _document: any,
         private _router: Router
-    )
-    {
+    ) {
         // Initialize
         this._init();
     }
@@ -39,14 +37,12 @@ export class FuseSplashScreenService
      *
      * @private
      */
-    private _init(): void
-    {
+    private _init(): void {
         // Get the splash screen element
         this.splashScreenEl = this._document.body.querySelector('#fuse-splash-screen');
 
         // If the splash screen element exists...
-        if ( this.splashScreenEl )
-        {
+        if ( this.splashScreenEl ) {
             // Hide it on the first NavigationEnd event
             this._router.events
                 .pipe(
@@ -68,8 +64,7 @@ export class FuseSplashScreenService
     /**
      * Show the splash screen
      */
-    show(): void
-    {
+    show(): void {
         this.player =
             this._animationBuilder
                 .build([
@@ -88,8 +83,7 @@ export class FuseSplashScreenService
     /**
      * Hide the splash screen
      */
-    hide(): void
-    {
+    hide(): void {
         this.player =
             this._animationBuilder
                 .build([
