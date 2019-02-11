@@ -29,6 +29,5 @@ import { FusePipesModule } from '../@fuse/pipes/pipes.module';
         FusePipesModule
     ]
 })
-export class FuseSharedModule
-{
+export class FuseSharedModule {
 }

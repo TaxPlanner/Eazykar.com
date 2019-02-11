@@ -25,6 +25,5 @@ const routes = [
         FuseSharedModule
     ]
 })
-export class MailConfirmModule
-{
+export class MailConfirmModule {
 }

@@ -22,6 +22,5 @@ import { FuseMatSidenavHelperDirective, FuseMatSidenavTogglerDirective } from '.
         FusePerfectScrollbarDirective
     ]
 })
-export class FuseDirectivesModule
-{
+export class FuseDirectivesModule {
 }

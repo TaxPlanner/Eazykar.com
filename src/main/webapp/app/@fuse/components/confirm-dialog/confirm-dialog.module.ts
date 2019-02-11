@@ -15,6 +15,5 @@ import { FuseConfirmDialogComponent } from '../../../@fuse/components/confirm-di
         FuseConfirmDialogComponent
     ],
 })
-export class FuseConfirmDialogModule
-{
+export class FuseConfirmDialogModule {
 }

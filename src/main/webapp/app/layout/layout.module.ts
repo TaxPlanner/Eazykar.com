@@ -10,6 +10,5 @@ import { HorizontalLayout1Module } from 'app/layout/horizontal/layout-1/layout-1
         HorizontalLayout1Module
     ]
 })
-export class LayoutModule
-{
+export class LayoutModule {
 }

@@ -17,6 +17,5 @@ import { ContentComponent } from 'app/layout/components/content/content.componen
         ContentComponent
     ]
 })
-export class ContentModule
-{
+export class ContentModule {
 }

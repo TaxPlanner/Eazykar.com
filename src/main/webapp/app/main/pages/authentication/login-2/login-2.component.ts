@@ -82,7 +82,7 @@ export class Login2Component implements OnInit, AfterViewInit {
         });
 
         this.profileService.getProfileInfo()
-            .then((pi) => {
+            .then(pi => {
                 if (!pi.inProduction) {
                     this.loginForm.controls.username.setValue('user');
                     this.loginForm.controls.password.setValue('user');

@@ -22,6 +22,5 @@ import { NavbarVerticalStyle2Module } from 'app/layout/components/navbar/vertica
         NavbarComponent
     ]
 })
-export class NavbarModule
-{
+export class NavbarModule {
 }

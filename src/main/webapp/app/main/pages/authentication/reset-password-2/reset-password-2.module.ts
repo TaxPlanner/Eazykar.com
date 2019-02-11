@@ -28,6 +28,5 @@ const routes = [
         FuseSharedModule
     ]
 })
-export class ResetPassword2Module
-{
+export class ResetPassword2Module {
 }

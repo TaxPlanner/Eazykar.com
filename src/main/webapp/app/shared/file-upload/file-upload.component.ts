@@ -72,7 +72,7 @@ export class FileUploadComponent implements OnInit {
 
     setFileDataAndSave(document: IDocument) {
         const file = document.data;
-        this.toBase64(file, (base64Data) => {
+        this.toBase64(file, base64Data => {
             document.document = base64Data;
             document.documentContentType = file.type;
             this.save(document);

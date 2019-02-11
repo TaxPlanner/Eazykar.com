@@ -45,7 +45,7 @@ export class HorizontalLayout1Component implements OnInit, OnDestroy {
         // Subscribe to config changes
         this._fuseConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((config) => {
+            .subscribe(config => {
                 this.fuseConfig = config;
             });
     }

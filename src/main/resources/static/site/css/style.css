@@ -42611,7 +42611,7 @@ html.rd-navbar-sidebar-linked body {
 }
 
 .rd-navbar-corporate-dark.rd-navbar-static .rd-navbar-group {
-  padding: 35px 15px;
+  padding: 15px 15px;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
