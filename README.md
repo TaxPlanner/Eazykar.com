@@ -1,4 +1,4 @@
-# EasyKar.com
+# EazyKar.com
 
 ## Development
 
