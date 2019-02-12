@@ -32143,7 +32143,7 @@ blockquote cite {
 }
 
 .pricing-table-header {
-  font-size: 18px;
+  font-size: 24px;
   text-transform: uppercase;
   letter-spacing: .05em;
   color: #535457;
@@ -32217,12 +32217,12 @@ blockquote cite {
 }
 
 .pricing-object-sm {
-  font-size: 32px;
+  font-size: 24px;
   line-height: .8;
 }
 
 .pricing-object-sm .small {
-  font-size: 12px;
+  font-size: 9px;
 }
 
 .pricing-object-sm .small-middle {
@@ -32249,12 +32249,12 @@ blockquote cite {
 }
 
 .pricing-object-md .small {
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
 }
 
 .pricing-object-md .small-middle {
-  font-size: 23px;
+  font-size: 17px;
 }
 
 .pricing-object-md .small-bottom {
@@ -32263,20 +32263,20 @@ blockquote cite {
 
 .pricing-object-lg,
 .pricing-object-xl {
-  font-size: 64px;
+  font-size: 36px;
   line-height: .7;
 }
 
 .pricing-object-lg .small,
 .pricing-object-xl .small {
-  font-size: 9px;
+  font-size: 5px;
 }
 
 .pricing-object-lg .small-top,
 .pricing-object-xl .small-top {
-  top: 11px;
+  /*top: 11px;*/
   margin-right: 5px;
-  font-size: 14px;
+  font-size: 36px;
   vertical-align: top;
 }
 
@@ -32305,22 +32305,22 @@ blockquote cite {
 
 @media (min-width: 768px) {
   .pricing-object-lg {
-    font-size: 72px;
-  }
-  .pricing-object-xl {
     font-size: 54px;
   }
+  .pricing-object-xl {
+    font-size: 40px;
+  }
   .pricing-object-xl .small-middle {
-    font-size: 30px;
+    font-size: 22px;
   }
   .pricing-object-xl .small-bottom {
-    font-size: 25px;
+    font-size: 19px;
   }
 }
 
 @media (min-width: 992px) {
   .pricing-object-xl {
-    font-size: 76px;
+    font-size: 57px;
   }
 }
 
@@ -44615,7 +44615,7 @@ html.boxed .rd-navbar--is-clone {
     padding: 60px 0 115px;
   }
   .swiper-variant-1 .slider-header {
-    font-size: 50px;
+    font-size: 40px;
   }
   .swiper-variant-1 .slider-text {
     display: block;
@@ -44650,7 +44650,7 @@ html.boxed .rd-navbar--is-clone {
 
 @media (min-width: 1200px) {
   .swiper-variant-1 .slider-header {
-    font-size: 59px;
+    font-size: 50px;
   }
   .swiper-variant-1 .swiper-button-prev {
     left: 30px;
