@@ -34703,11 +34703,11 @@ dt {
 }
 
 .list-marked li:not(:last-child):after {
-  content: ';';
+  content: '';
 }
 
 .list-marked li:last-child:after {
-  content: '.';
+  content: '';
 }
 
 .list-marked li + li {
