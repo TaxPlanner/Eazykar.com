@@ -15,6 +15,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { FuseProgressBarModule, FuseSidebarModule } from './@fuse/components';
 import { FuseModule } from './@fuse/fuse.module';
 import { FuseSharedModule } from './@fuse/shared.module';
+import { EazykarAccountModule } from './account/account.module';
 import { EazykarAppRoutingModule } from './app-routing.module';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 
@@ -56,6 +57,7 @@ export const MY_FORMATS = {
         EazykarSharedModule.forRoot(),
         EazykarCoreModule,
         EazykarHomeModule,
+        EazykarAccountModule,
         // jhipster-needle-angular-add-module
 
         TranslateModule.forRoot(),
