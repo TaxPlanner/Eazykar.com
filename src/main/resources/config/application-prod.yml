@@ -115,7 +115,7 @@ jhipster:
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific EazyKar mail property, for standard properties see MailProperties
         from: contactus@eazykar.com
-        base-url: http://eazykar.com:8080 # Modify according to your server's URL
+        base-url: https://eazykar.com # Modify according to your server's URL
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx:
             enabled: true
