@@ -26,20 +26,52 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="employer_type" type="varchar(255)">
+            <column name="employer_address" type="varchar(500)">
                 <constraints nullable="false" />
             </column>
 
-            <column name="employer_tan" type="varchar(10)">
-                <constraints nullable="false" />
+            <column name="basic_pay" type="decimal(10,2)">
+                <constraints nullable="true" />
             </column>
 
-            <column name="income" type="decimal(10,2)">
-                <constraints nullable="false" />
+            <column name="hra" type="decimal(10,2)">
+                <constraints nullable="true" />
             </column>
 
-            <column name="tds" type="decimal(10,2)">
-                <constraints nullable="false" />
+            <column name="conveyance" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="medical" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="lta" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="others" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="perquisites" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="leave_encashment" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gratuity" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="arrears" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="professional_tax" type="decimal(10,2)">
+                <constraints nullable="true" />
             </column>
 
             <column name="user_id" type="bigint">

@@ -1,17 +1,23 @@
 package com.eazykar.portal.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import com.eazykar.portal.domain.enumeration.EmployerType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A SalaryInformation.
@@ -33,22 +39,42 @@ public class SalaryInformation implements Serializable {
     private String employerName;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(name = "employer_type", nullable = false)
-    private EmployerType employerType;
+    @Size(max = 500)
+    @Column(name = "employer_address", length = 500, nullable = false)
+    private String employerAddress;
 
-    @NotNull
-    @Size(max = 10)
-    @Column(name = "employer_tan", length = 10, nullable = false)
-    private String employerTan;
+    @Column(name = "basic_pay", precision = 10, scale = 2)
+    private BigDecimal basicPay;
 
-    @NotNull
-    @Column(name = "income", precision = 10, scale = 2, nullable = false)
-    private BigDecimal income;
+    @Column(name = "hra", precision = 10, scale = 2)
+    private BigDecimal hra;
 
-    @NotNull
-    @Column(name = "tds", precision = 10, scale = 2, nullable = false)
-    private BigDecimal tds;
+    @Column(name = "conveyance", precision = 10, scale = 2)
+    private BigDecimal conveyance;
+
+    @Column(name = "medical", precision = 10, scale = 2)
+    private BigDecimal medical;
+
+    @Column(name = "lta", precision = 10, scale = 2)
+    private BigDecimal lta;
+
+    @Column(name = "others", precision = 10, scale = 2)
+    private BigDecimal others;
+
+    @Column(name = "perquisites", precision = 10, scale = 2)
+    private BigDecimal perquisites;
+
+    @Column(name = "leave_encashment", precision = 10, scale = 2)
+    private BigDecimal leaveEncashment;
+
+    @Column(name = "gratuity", precision = 10, scale = 2)
+    private BigDecimal gratuity;
+
+    @Column(name = "arrears", precision = 10, scale = 2)
+    private BigDecimal arrears;
+
+    @Column(name = "professional_tax", precision = 10, scale = 2)
+    private BigDecimal professionalTax;
 
     @ManyToOne(optional = false)
     @NotNull
@@ -77,56 +103,160 @@ public class SalaryInformation implements Serializable {
         this.employerName = employerName;
     }
 
-    public EmployerType getEmployerType() {
-        return employerType;
+    public String getEmployerAddress() {
+        return employerAddress;
     }
 
-    public SalaryInformation employerType(EmployerType employerType) {
-        this.employerType = employerType;
+    public SalaryInformation employerAddress(String employerAddress) {
+        this.employerAddress = employerAddress;
         return this;
     }
 
-    public void setEmployerType(EmployerType employerType) {
-        this.employerType = employerType;
+    public void setEmployerAddress(String employerAddress) {
+        this.employerAddress = employerAddress;
     }
 
-    public String getEmployerTan() {
-        return employerTan;
+    public BigDecimal getBasicPay() {
+        return basicPay;
     }
 
-    public SalaryInformation employerTan(String employerTan) {
-        this.employerTan = employerTan;
+    public SalaryInformation basicPay(BigDecimal basicPay) {
+        this.basicPay = basicPay;
         return this;
     }
 
-    public void setEmployerTan(String employerTan) {
-        this.employerTan = employerTan;
+    public void setBasicPay(BigDecimal basicPay) {
+        this.basicPay = basicPay;
     }
 
-    public BigDecimal getIncome() {
-        return income;
+    public BigDecimal getHra() {
+        return hra;
     }
 
-    public SalaryInformation income(BigDecimal income) {
-        this.income = income;
+    public SalaryInformation hra(BigDecimal hra) {
+        this.hra = hra;
         return this;
     }
 
-    public void setIncome(BigDecimal income) {
-        this.income = income;
+    public void setHra(BigDecimal hra) {
+        this.hra = hra;
     }
 
-    public BigDecimal getTds() {
-        return tds;
+    public BigDecimal getConveyance() {
+        return conveyance;
     }
 
-    public SalaryInformation tds(BigDecimal tds) {
-        this.tds = tds;
+    public SalaryInformation conveyance(BigDecimal conveyance) {
+        this.conveyance = conveyance;
         return this;
     }
 
-    public void setTds(BigDecimal tds) {
-        this.tds = tds;
+    public void setConveyance(BigDecimal conveyance) {
+        this.conveyance = conveyance;
+    }
+
+    public BigDecimal getMedical() {
+        return medical;
+    }
+
+    public SalaryInformation medical(BigDecimal medical) {
+        this.medical = medical;
+        return this;
+    }
+
+    public void setMedical(BigDecimal medical) {
+        this.medical = medical;
+    }
+
+    public BigDecimal getLta() {
+        return lta;
+    }
+
+    public SalaryInformation lta(BigDecimal lta) {
+        this.lta = lta;
+        return this;
+    }
+
+    public void setLta(BigDecimal lta) {
+        this.lta = lta;
+    }
+
+    public BigDecimal getOthers() {
+        return others;
+    }
+
+    public SalaryInformation others(BigDecimal others) {
+        this.others = others;
+        return this;
+    }
+
+    public void setOthers(BigDecimal others) {
+        this.others = others;
+    }
+
+    public BigDecimal getPerquisites() {
+        return perquisites;
+    }
+
+    public SalaryInformation perquisites(BigDecimal perquisites) {
+        this.perquisites = perquisites;
+        return this;
+    }
+
+    public void setPerquisites(BigDecimal perquisites) {
+        this.perquisites = perquisites;
+    }
+
+    public BigDecimal getLeaveEncashment() {
+        return leaveEncashment;
+    }
+
+    public SalaryInformation leaveEncashment(BigDecimal leaveEncashment) {
+        this.leaveEncashment = leaveEncashment;
+        return this;
+    }
+
+    public void setLeaveEncashment(BigDecimal leaveEncashment) {
+        this.leaveEncashment = leaveEncashment;
+    }
+
+    public BigDecimal getGratuity() {
+        return gratuity;
+    }
+
+    public SalaryInformation gratuity(BigDecimal gratuity) {
+        this.gratuity = gratuity;
+        return this;
+    }
+
+    public void setGratuity(BigDecimal gratuity) {
+        this.gratuity = gratuity;
+    }
+
+    public BigDecimal getArrears() {
+        return arrears;
+    }
+
+    public SalaryInformation arrears(BigDecimal arrears) {
+        this.arrears = arrears;
+        return this;
+    }
+
+    public void setArrears(BigDecimal arrears) {
+        this.arrears = arrears;
+    }
+
+    public BigDecimal getProfessionalTax() {
+        return professionalTax;
+    }
+
+    public SalaryInformation professionalTax(BigDecimal professionalTax) {
+        this.professionalTax = professionalTax;
+        return this;
+    }
+
+    public void setProfessionalTax(BigDecimal professionalTax) {
+        this.professionalTax = professionalTax;
     }
 
     public User getUser() {
@@ -168,10 +298,18 @@ public class SalaryInformation implements Serializable {
         return "SalaryInformation{" +
             "id=" + getId() +
             ", employerName='" + getEmployerName() + "'" +
-            ", employerType='" + getEmployerType() + "'" +
-            ", employerTan='" + getEmployerTan() + "'" +
-            ", income=" + getIncome() +
-            ", tds=" + getTds() +
+            ", employerAddress='" + getEmployerAddress() + "'" +
+            ", basicPay=" + getBasicPay() +
+            ", hra=" + getHra() +
+            ", conveyance=" + getConveyance() +
+            ", medical=" + getMedical() +
+            ", lta=" + getLta() +
+            ", others=" + getOthers() +
+            ", perquisites=" + getPerquisites() +
+            ", leaveEncashment=" + getLeaveEncashment() +
+            ", gratuity=" + getGratuity() +
+            ", arrears=" + getArrears() +
+            ", professionalTax=" + getProfessionalTax() +
             "}";
     }
 }

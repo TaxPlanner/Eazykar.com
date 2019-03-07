@@ -2,15 +2,11 @@ package com.eazykar.portal.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
-import com.eazykar.portal.domain.enumeration.EmployerType;
-import io.github.jhipster.service.filter.BooleanFilter;
-import io.github.jhipster.service.filter.DoubleFilter;
+
+import io.github.jhipster.service.filter.BigDecimalFilter;
 import io.github.jhipster.service.filter.Filter;
-import io.github.jhipster.service.filter.FloatFilter;
-import io.github.jhipster.service.filter.IntegerFilter;
 import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.BigDecimalFilter;
 
 /**
  * Criteria class for the SalaryInformation entity. This class is used in SalaryInformationResource to
@@ -21,11 +17,6 @@ import io.github.jhipster.service.filter.BigDecimalFilter;
  * fix type specific filters.
  */
 public class SalaryInformationCriteria implements Serializable {
-    /**
-     * Class for filtering EmployerType
-     */
-    public static class EmployerTypeFilter extends Filter<EmployerType> {
-    }
 
     private static final long serialVersionUID = 1L;
 
@@ -33,13 +24,29 @@ public class SalaryInformationCriteria implements Serializable {
 
     private StringFilter employerName;
 
-    private EmployerTypeFilter employerType;
+    private StringFilter employerAddress;
 
-    private StringFilter employerTan;
+    private BigDecimalFilter basicPay;
 
-    private BigDecimalFilter income;
+    private BigDecimalFilter hra;
 
-    private BigDecimalFilter tds;
+    private BigDecimalFilter conveyance;
+
+    private BigDecimalFilter medical;
+
+    private BigDecimalFilter lta;
+
+    private BigDecimalFilter others;
+
+    private BigDecimalFilter perquisites;
+
+    private BigDecimalFilter leaveEncashment;
+
+    private BigDecimalFilter gratuity;
+
+    private BigDecimalFilter arrears;
+
+    private BigDecimalFilter professionalTax;
 
     private LongFilter userId;
 
@@ -62,36 +69,100 @@ public class SalaryInformationCriteria implements Serializable {
         this.employerName = employerName;
     }
 
-    public EmployerTypeFilter getEmployerType() {
-        return employerType;
+    public StringFilter getEmployerAddress() {
+        return employerAddress;
     }
 
-    public void setEmployerType(EmployerTypeFilter employerType) {
-        this.employerType = employerType;
+    public void setEmployerAddress(StringFilter employerAddress) {
+        this.employerAddress = employerAddress;
     }
 
-    public StringFilter getEmployerTan() {
-        return employerTan;
+    public BigDecimalFilter getBasicPay() {
+        return basicPay;
     }
 
-    public void setEmployerTan(StringFilter employerTan) {
-        this.employerTan = employerTan;
+    public void setBasicPay(BigDecimalFilter basicPay) {
+        this.basicPay = basicPay;
     }
 
-    public BigDecimalFilter getIncome() {
-        return income;
+    public BigDecimalFilter getHra() {
+        return hra;
     }
 
-    public void setIncome(BigDecimalFilter income) {
-        this.income = income;
+    public void setHra(BigDecimalFilter hra) {
+        this.hra = hra;
     }
 
-    public BigDecimalFilter getTds() {
-        return tds;
+    public BigDecimalFilter getConveyance() {
+        return conveyance;
     }
 
-    public void setTds(BigDecimalFilter tds) {
-        this.tds = tds;
+    public void setConveyance(BigDecimalFilter conveyance) {
+        this.conveyance = conveyance;
+    }
+
+    public BigDecimalFilter getMedical() {
+        return medical;
+    }
+
+    public void setMedical(BigDecimalFilter medical) {
+        this.medical = medical;
+    }
+
+    public BigDecimalFilter getLta() {
+        return lta;
+    }
+
+    public void setLta(BigDecimalFilter lta) {
+        this.lta = lta;
+    }
+
+    public BigDecimalFilter getOthers() {
+        return others;
+    }
+
+    public void setOthers(BigDecimalFilter others) {
+        this.others = others;
+    }
+
+    public BigDecimalFilter getPerquisites() {
+        return perquisites;
+    }
+
+    public void setPerquisites(BigDecimalFilter perquisites) {
+        this.perquisites = perquisites;
+    }
+
+    public BigDecimalFilter getLeaveEncashment() {
+        return leaveEncashment;
+    }
+
+    public void setLeaveEncashment(BigDecimalFilter leaveEncashment) {
+        this.leaveEncashment = leaveEncashment;
+    }
+
+    public BigDecimalFilter getGratuity() {
+        return gratuity;
+    }
+
+    public void setGratuity(BigDecimalFilter gratuity) {
+        this.gratuity = gratuity;
+    }
+
+    public BigDecimalFilter getArrears() {
+        return arrears;
+    }
+
+    public void setArrears(BigDecimalFilter arrears) {
+        this.arrears = arrears;
+    }
+
+    public BigDecimalFilter getProfessionalTax() {
+        return professionalTax;
+    }
+
+    public void setProfessionalTax(BigDecimalFilter professionalTax) {
+        this.professionalTax = professionalTax;
     }
 
     public LongFilter getUserId() {
@@ -115,10 +186,18 @@ public class SalaryInformationCriteria implements Serializable {
         return
             Objects.equals(id, that.id) &&
             Objects.equals(employerName, that.employerName) &&
-            Objects.equals(employerType, that.employerType) &&
-            Objects.equals(employerTan, that.employerTan) &&
-            Objects.equals(income, that.income) &&
-            Objects.equals(tds, that.tds) &&
+            Objects.equals(employerAddress, that.employerAddress) &&
+            Objects.equals(basicPay, that.basicPay) &&
+            Objects.equals(hra, that.hra) &&
+            Objects.equals(conveyance, that.conveyance) &&
+            Objects.equals(medical, that.medical) &&
+            Objects.equals(lta, that.lta) &&
+            Objects.equals(others, that.others) &&
+            Objects.equals(perquisites, that.perquisites) &&
+            Objects.equals(leaveEncashment, that.leaveEncashment) &&
+            Objects.equals(gratuity, that.gratuity) &&
+            Objects.equals(arrears, that.arrears) &&
+            Objects.equals(professionalTax, that.professionalTax) &&
             Objects.equals(userId, that.userId);
     }
 
@@ -127,10 +206,18 @@ public class SalaryInformationCriteria implements Serializable {
         return Objects.hash(
         id,
         employerName,
-        employerType,
-        employerTan,
-        income,
-        tds,
+        employerAddress,
+        basicPay,
+        hra,
+        conveyance,
+        medical,
+        lta,
+        others,
+        perquisites,
+        leaveEncashment,
+        gratuity,
+        arrears,
+        professionalTax,
         userId
         );
     }
@@ -140,10 +227,18 @@ public class SalaryInformationCriteria implements Serializable {
         return "SalaryInformationCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
                 (employerName != null ? "employerName=" + employerName + ", " : "") +
-                (employerType != null ? "employerType=" + employerType + ", " : "") +
-                (employerTan != null ? "employerTan=" + employerTan + ", " : "") +
-                (income != null ? "income=" + income + ", " : "") +
-                (tds != null ? "tds=" + tds + ", " : "") +
+                (employerAddress != null ? "employerAddress=" + employerAddress + ", " : "") +
+                (basicPay != null ? "basicPay=" + basicPay + ", " : "") +
+                (hra != null ? "hra=" + hra + ", " : "") +
+                (conveyance != null ? "conveyance=" + conveyance + ", " : "") +
+                (medical != null ? "medical=" + medical + ", " : "") +
+                (lta != null ? "lta=" + lta + ", " : "") +
+                (others != null ? "others=" + others + ", " : "") +
+                (perquisites != null ? "perquisites=" + perquisites + ", " : "") +
+                (leaveEncashment != null ? "leaveEncashment=" + leaveEncashment + ", " : "") +
+                (gratuity != null ? "gratuity=" + gratuity + ", " : "") +
+                (arrears != null ? "arrears=" + arrears + ", " : "") +
+                (professionalTax != null ? "professionalTax=" + professionalTax + ", " : "") +
                 (userId != null ? "userId=" + userId + ", " : "") +
             "}";
     }

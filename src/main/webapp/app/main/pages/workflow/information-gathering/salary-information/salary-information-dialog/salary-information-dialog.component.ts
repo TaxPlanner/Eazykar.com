@@ -1,7 +1,14 @@
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material';
+import {
+    MAT_DIALOG_DATA,
+    MatAccordion,
+    MatDialogRef,
+    MatSnackBar,
+    MatSnackBarHorizontalPosition,
+    MatSnackBarVerticalPosition
+} from '@angular/material';
 import { Principal, UserService } from 'app/core';
 import { SalaryInformationDialogData } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information-dialog/salary-information-dialog.model';
 import { SalaryInformationService } from 'app/main/pages/workflow/information-gathering/salary-information/salary-information.service';
@@ -27,6 +34,8 @@ export class SalaryInformationDialogComponent implements OnInit {
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+    @ViewChild(MatAccordion) accordion: MatAccordion;
+
     constructor(public dialogRef: MatDialogRef<SalaryInformationDialogComponent>,
                 @Inject(MAT_DIALOG_DATA) public data: SalaryInformationDialogData,
                 private _formBuilder: FormBuilder,
@@ -44,10 +53,18 @@ export class SalaryInformationDialogComponent implements OnInit {
         this.salaryInformation = this.data.salaryInformation;
         this.salaryInformationForm = this._formBuilder.group({
             employerName: [this.data.salaryInformation.employerName, Validators.required],
-            employerType: [this.data.salaryInformation.employerType, Validators.required],
-            income: [this.data.salaryInformation.income, Validators.required],
-            employerTan: [this.data.salaryInformation.employerTan, Validators.required],
-            tds: [this.data.salaryInformation.tds, Validators.required]
+            employerAddress: [this.data.salaryInformation.employerAddress],
+            basicPay: [this.data.salaryInformation.basicPay],
+            hra: [this.data.salaryInformation.hra],
+            conveyance: [this.data.salaryInformation.conveyance],
+            medical: [this.data.salaryInformation.medical],
+            lta: [this.data.salaryInformation.lta],
+            others: [this.data.salaryInformation.others],
+            perquisites: [this.data.salaryInformation.perquisites],
+            leaveEncashment: [this.data.salaryInformation.leaveEncashment],
+            gratuity: [this.data.salaryInformation.gratuity],
+            arrears: [this.data.salaryInformation.arrears],
+            professionalTax: [this.data.salaryInformation.professionalTax],
         });
     }
 
@@ -55,10 +72,18 @@ export class SalaryInformationDialogComponent implements OnInit {
 
         this.isSaving = true;
         this.salaryInformation.employerName = this.salaryInformationForm.controls.employerName.value;
-        this.salaryInformation.employerType = this.salaryInformationForm.controls.employerType.value;
-        this.salaryInformation.income = this.salaryInformationForm.controls.income.value;
-        this.salaryInformation.employerTan = this.salaryInformationForm.controls.employerTan.value;
-        this.salaryInformation.tds = this.salaryInformationForm.controls.tds.value;
+        this.salaryInformation.employerAddress = this.salaryInformationForm.controls.employerAddress.value;
+        this.salaryInformation.basicPay = this.salaryInformationForm.controls.basicPay.value;
+        this.salaryInformation.hra = this.salaryInformationForm.controls.hra.value;
+        this.salaryInformation.conveyance = this.salaryInformationForm.controls.conveyance.value;
+        this.salaryInformation.medical = this.salaryInformationForm.controls.medical.value;
+        this.salaryInformation.lta = this.salaryInformationForm.controls.lta.value;
+        this.salaryInformation.others = this.salaryInformationForm.controls.others.value;
+        this.salaryInformation.perquisites = this.salaryInformationForm.controls.perquisites.value;
+        this.salaryInformation.leaveEncashment = this.salaryInformationForm.controls.leaveEncashment.value;
+        this.salaryInformation.gratuity = this.salaryInformationForm.controls.gratuity.value;
+        this.salaryInformation.arrears = this.salaryInformationForm.controls.arrears.value;
+        this.salaryInformation.professionalTax = this.salaryInformationForm.controls.professionalTax.value;
 
         this.principal.identity()
             .then(account => {
