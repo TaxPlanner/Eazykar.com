@@ -1,7 +1,7 @@
 <div class="p-24">
     <div fxLayout="row" fxLayoutAlign="center center">
         <ezkr-file-upload *ngIf="this.client"
-                          text="Upload Form 16"
+                          text="Add Form 16"
                           matTooltip="You can add multiple Form 16's e.g. if you've changed employment during the last tax year"
                           matTooltipPosition="left"
                           (complete)="onUploadComplete($event)"
@@ -11,7 +11,7 @@
                 matTooltip="You can add multiple salary details e.g. if you've changed employment during the last tax year"
                 [matTooltipPosition]="'right'"
                 (click)="openSalaryInformationModal({})">
-            Enter Salary Details
+            Add Salary Details
         </button>
     </div>
 
@@ -42,12 +42,28 @@
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
                                         <td mat-cell *matCellDef="let row">
                                             <div fxLayout="row" fxLayoutAlign="end center">
-                                                <button mat-icon-button type="button" (click)="openForm16(row)">
-                                                    <mat-icon>cloud_download</mat-icon>
+                                                <button mat-flat-button class="pull-right" color="primary" type="button" (click)="openForm16(row)">
+                                                    <mat-icon>cloud_download</mat-icon> Download
                                                 </button>
-                                                <button mat-icon-button type="button" (click)="deleteForm16(row)">
-                                                    <mat-icon>delete</mat-icon>
+                                                &nbsp;&nbsp;
+                                                <button mat-flat-button class="pull-right" color="warn" type="button" (click)="deleteForm16(row)">
+                                                    <mat-icon>delete</mat-icon> Delete
                                                 </button>
+                                            </div>
+                                        </td>
+                                    </ng-container>
+
+                                    <!-- Add Row Action -->
+                                    <ng-container matColumnDef="addRowAction">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
+                                        <td mat-cell *matCellDef="let row; let i = index;">
+                                            <div fxLayout="row" fxLayoutAlign="end center" *ngIf="i === form16List.length - 1">
+                                                &nbsp;&nbsp;
+                                                <ezkr-file-upload *ngIf="this.client"
+                                                                  text="Add Form 16"
+                                                                  matTooltip="You can add multiple Form 16's e.g. if you've changed employment during the last tax year"
+                                                                  (complete)="onUploadComplete($event)"
+                                                                  [user]="this.client" documentType="FORM_16"></ezkr-file-upload>
                                             </div>
                                         </td>
                                     </ng-container>
@@ -72,46 +88,41 @@
                             <div>
                                 <table mat-table [dataSource]="salaryInformationList" matSort>
 
+                                    <ng-container matColumnDef="srNo">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>SR No.</th>
+                                        <td mat-cell *matCellDef="let row; let i = index;">{{i+1}}</td>
+                                    </ng-container>
+
                                     <!-- Name of the Employer -->
                                     <ng-container matColumnDef="employerName">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Employer</th>
                                         <td mat-cell *matCellDef="let row">{{row.employerName}}</td>
                                     </ng-container>
 
-                                    <!-- Employer Type -->
-                                    <ng-container matColumnDef="employerType">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employer Type</th>
-                                        <td mat-cell *matCellDef="let row">{{row.employerType}}</td>
-                                    </ng-container>
-
-                                    <!-- Income Chargeable under Head Salaries -->
-                                    <ng-container matColumnDef="income">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Income</th>
-                                        <td mat-cell *matCellDef="let row">{{row.income}}</td>
-                                    </ng-container>
-
-                                    <!-- TAN of the Employer -->
-                                    <ng-container matColumnDef="employerTan">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>TAN (Employer)</th>
-                                        <td mat-cell *matCellDef="let row">{{row.employerTan}}</td>
-                                    </ng-container>
-
-                                    <!-- Tax Deducted at source on Salary -->
-                                    <ng-container matColumnDef="tds">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>TDS</th>
-                                        <td mat-cell *matCellDef="let row">{{row.tds}}</td>
-                                    </ng-container>
-
                                     <!-- Actions -->
                                     <ng-container matColumnDef="actions">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
                                         <td mat-cell *matCellDef="let row">
-                                            <div fxLayout="row" fxLayoutAlign="end center">
-                                                <button mat-icon-button class="ml-24" type="button" (click)="openSalaryInformationModal(row)">
-                                                    <mat-icon>edit</mat-icon>
+                                            <div fxLayout="row" fxLayoutAlign="start center">
+                                                <button mat-flat-button color="primary" class="ml-24" type="button" (click)="openSalaryInformationModal(row)">
+                                                    <mat-icon>edit</mat-icon> Edit
                                                 </button>
-                                                <button mat-icon-button type="button" (click)="deleteSalaryInformation(row)">
-                                                    <mat-icon>delete</mat-icon>
+                                                &nbsp;&nbsp;
+                                                <button mat-flat-button color="warn" type="button" (click)="deleteSalaryInformation(row)">
+                                                    <mat-icon>delete</mat-icon> Remove
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </ng-container>
+
+                                    <!-- Add Row Action -->
+                                    <ng-container matColumnDef="addRowAction">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</th>
+                                        <td mat-cell *matCellDef="let row; let i = index;">
+                                            <div fxLayout="row" fxLayoutAlign="end center" *ngIf="i == salaryInformationList.length - 1">
+                                                &nbsp;&nbsp;
+                                                <button mat-raised-button type="button" color="accent" (click)="openSalaryInformationModal({})">
+                                                    <mat-icon>add</mat-icon> Add New Salary Details
                                                 </button>
                                             </div>
                                         </td>

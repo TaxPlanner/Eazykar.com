@@ -4,6 +4,7 @@ import {
     MatCheckboxModule,
     MatDatepickerModule,
     MatDialogModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -85,6 +86,7 @@ const routes: Routes = [
         MatDialogModule,
         MatCheckboxModule,
         MatTooltipModule,
+        MatExpansionModule,
 
         FuseSharedModule,
         FuseSidebarModule,

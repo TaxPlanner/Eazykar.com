@@ -16,10 +16,18 @@
                 "title": "Salary Information"
             },
             "employerName": "Employer Name",
-            "employerType": "Employer Type",
-            "employerTan": "Employer Tan",
-            "income": "Income",
-            "tds": "Tds",
+            "employerAddress": "Employer Address",
+            "basicPay": "Basic Pay",
+            "hra": "Hra",
+            "conveyance": "Conveyance",
+            "medical": "Medical",
+            "lta": "Lta",
+            "others": "Others",
+            "perquisites": "Perquisites",
+            "leaveEncashment": "Leave Encashment",
+            "gratuity": "Gratuity",
+            "arrears": "Arrears",
+            "professionalTax": "Professional Tax",
             "user": "User"
         }
     }

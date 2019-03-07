@@ -20,17 +20,16 @@ import { JhiDataUtils } from 'ng-jhipster';
 export class SalaryInformationComponent implements OnInit {
 
     salaryInformationDisplayedColumns = [
+        'srNo',
         'employerName',
-        'employerType',
-        'income',
-        'employerTan',
-        'tds',
-        'actions'
+        'actions',
+        'addRowAction'
     ];
 
     form16DisplayedColumns = [
         'description',
-        'actions'
+        'actions',
+        'addRowAction'
     ];
 
     @Input() client: IUser;

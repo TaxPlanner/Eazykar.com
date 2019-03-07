@@ -1,61 +1,97 @@
 <div class="p-24">
     <form fxLayout="column" [formGroup]="salaryInformationForm" (ngSubmit)="saveSalaryInformation()">
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel fxLayout="column">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Employer Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="30">
+                    <mat-label>Name of the Employer</mat-label>
+                    <input matInput formControlName="employerName" required>
+                    <mat-icon matSuffix>business</mat-icon>
+                    <mat-error>This field is required!</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Employer Address</mat-label>
+                    <input matInput formControlName="employerAddress">
+                </mat-form-field>
+            </mat-expansion-panel>
 
-        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Salary breakup
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Basic Pay</mat-label>
+                    <input matInput formControlName="basicPay">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Perquisites</mat-label>
+                    <input matInput formControlName="perquisites">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Leave Encashment</mat-label>
+                    <input matInput formControlName="leaveEncashment">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Gratuity</mat-label>
+                    <input matInput formControlName="gratuity">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Arrears</mat-label>
+                    <input matInput formControlName="arrears">
+                </mat-form-field>
+            </mat-expansion-panel>
 
-            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
-                <mat-label>Name of the Employer</mat-label>
-                <input matInput formControlName="employerName" required>
-                <mat-icon matSuffix>business</mat-icon>
-                <mat-error>This field is required!</mat-error>
-            </mat-form-field>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Allowances
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>HRA</mat-label>
+                    <input matInput formControlName="hra">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Conveyance</mat-label>
+                    <input matInput formControlName="conveyance">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Medical</mat-label>
+                    <input matInput formControlName="medical">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>LTA</mat-label>
+                    <input matInput formControlName="lta">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Others</mat-label>
+                    <input matInput formControlName="others">
+                </mat-form-field>
+            </mat-expansion-panel>
 
-            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
-                <mat-label>Employer Type</mat-label>
-                <mat-select formControlName="employerType" required>
-                    <mat-option>
-                        - Please select -
-                    </mat-option>
-                    <mat-option [value]="'PUBLIC'">
-                        Public
-                    </mat-option>
-                    <mat-option [value]="'PRIVATE'">
-                        Private
-                    </mat-option>
-                </mat-select>
-                <!--<mat-icon matSuffix class="secondary-text">people</mat-icon>-->
-                <mat-error>Selection is required!</mat-error>
-            </mat-form-field>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Tax
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="outline" class="p-4" fxFlex="100">
+                    <mat-label>Professional Tax</mat-label>
+                    <input matInput maxlength="10" formControlName="professionalTax">
+                </mat-form-field>
+            </mat-expansion-panel>
 
+        </mat-accordion>
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            &nbsp;
         </div>
-        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-
-            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
-                <mat-label>Income Chargeable under Head Salaries</mat-label>
-                <input matInput type="number" formControlName="income" required>
-                <!--<mat-icon matSuffix>attach_money</mat-icon>-->
-                <mat-error>This field is required!</mat-error>
-            </mat-form-field>
-
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
-
-            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
-                <mat-label>TAN of the Employer</mat-label>
-                <input matInput maxlength="10" formControlName="employerTan" required>
-                <!--<mat-icon matSuffix>ballot</mat-icon>-->
-                <mat-error>This field is required!</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="p-4" fxFlex="100">
-                <mat-label>Tax Deducted at source on Salary</mat-label>
-                <input matInput type="number" formControlName="tds" required>
-                <!--<mat-icon matSuffix>attach_money</mat-icon>-->
-                <mat-error>This field is required!</mat-error>
-            </mat-form-field>
-
-        </div>
-
         <div fxLayout="row" fxLayoutAlign="center center">
             <button mat-raised-button type="submit" color="accent" [disabled]="!salaryInformationForm.valid">
                 {{ isSaving ? 'Saving...' : 'Save My Salary Information' }}
